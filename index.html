@@ -5,53 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>موقع الأبطال المتكامل | الهنداوي وسلكاوي</title>
     <style>
-        :root {
-            --bg-color: #121212;
-            --card-bg: #1e1e1e;
-            --neon-green: #00ffcc;
-            --neon-yellow: #ffcc00;
-            --text-color: #ffffff;
-        }
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background-color: #121212;
+            color: #ffffff;
             margin: 0;
             padding: 20px;
             text-align: center;
         }
 
-        /* الهيدر الرئيسي ونصيحة اليوم */
+        /* الهيدر الرئيسي مع الصلاة على النبي */
         .header {
             background: linear-gradient(135deg, #1e1e1e, #2d2d2d);
             padding: 25px 20px;
             border-radius: 12px;
             margin-bottom: 25px;
-            border-bottom: 4px solid var(--neon-yellow);
+            border-bottom: 4px solid #ffcc00;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
         }
         
         .header h1 {
             margin: 0 0 10px 0;
             font-size: 2.2rem;
-            color: var(--neon-yellow);
+            color: #ffcc00;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
         }
 
-        .tip-box {
+        .prophet-box {
             background-color: rgba(0, 255, 204, 0.1);
-            border: 1px dashed var(--neon-green);
+            border: 1px dashed #00ffcc;
             padding: 12px;
             border-radius: 8px;
             max-width: 600px;
             margin: 15px auto 0 auto;
-            color: var(--neon-green);
+            color: #00ffcc;
             font-weight: bold;
-            font-size: 0.95rem;
+            font-size: 1.4rem;
+            text-shadow: 0 0 10px rgba(0, 255, 204, 0.3);
         }
 
-        /* شريط التحكم الرئيسي (واسع ومنظم) */
+        /* شريط التحكم الرئيسي - أزرار الأقسام الكبيرة */
         .main-nav {
             display: flex;
             flex-wrap: wrap;
@@ -79,20 +72,19 @@
         }
 
         .nav-btn.active-nav {
-            background-color: var(--neon-green);
+            background-color: #00ffcc;
             color: #121212;
             box-shadow: 0 4px 12px rgba(0, 255, 204, 0.3);
         }
 
         .nav-btn:hover:not(.active-nav) {
-            color: var(--neon-yellow);
+            color: #ffcc00;
             background-color: #252525;
         }
 
-        /* حاويات الأقسام الرئيسية */
+        /* صناديق الأقسام الرئيسية */
         .main-section {
-            display: none; /* مخفي تلقائي والجافا سكريبت هيظهره */
-            animation: fadeIn 0.5s ease-in-out;
+            display: none; /* مخفي تلقائياً وجافا سكريبت بتظهره */
             max-width: 1000px;
             margin: 0 auto;
         }
@@ -101,14 +93,8 @@
             display: block !important;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* ستايل الكروت والصناديق العامة */
         .box-container {
-            background-color: var(--card-bg);
+            background-color: #1e1e1e;
             padding: 30px;
             border-radius: 12px;
             border: 1px solid #333;
@@ -125,56 +111,57 @@
         }
 
         .action-btn {
-            background-color: var(--neon-green); color: #121212; border: none; width: 100%;
+            background-color: #00ffcc; color: #121212; border: none; width: 100%;
             padding: 14px; font-size: 1.1rem; font-weight: bold; border-radius: 6px;
             cursor: pointer; transition: all 0.3s; margin-top: 10px;
         }
-        .action-btn:hover { background-color: var(--neon-yellow); transform: translateY(-2px); }
+        .action-btn:hover { background-color: #ffcc00; transform: translateY(-2px); }
 
         .result-box {
             display: none; background-color: #252525; padding: 20px; border-radius: 8px;
-            margin-top: 20px; border-left: 5px solid var(--neon-yellow); text-align: center;
+            margin-top: 20px; border-left: 5px solid #ffcc00; text-align: center;
         }
-        .result-box h3 { margin: 10px 0; color: var(--neon-yellow); }
+        .result-box h3 { margin: 10px 0; color: #ffcc00; }
 
         .diet-buttons { display: none; justify-content: center; gap: 15px; margin-top: 20px; }
         .diet-btn { padding: 12px 30px; font-size: 1.1rem; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; transition: all 0.3s; }
         .btn-tanshif { background-color: #ff3333; color: white; }
         .btn-tadkhim { background-color: #33cc33; color: white; }
-        .diet-plan-box { display: none; background-color: #151515; padding: 25px; border-radius: 10px; border: 1px dashed var(--neon-yellow); margin-top: 25px; }
-        .diet-plan-box h3 { color: var(--neon-yellow); text-align: center; margin-top: 0; }
+        
+        .diet-plan-box { display: none; background-color: #151515; padding: 25px; border-radius: 10px; border: 1px dashed #ffcc00; margin-top: 25px; }
+        .diet-plan-box h3 { color: #ffcc00; text-align: center; margin-top: 0; }
         ul { padding-right: 20px; line-height: 1.8; color: #ddd; }
         li { margin-bottom: 10px; }
 
-        /* 2️⃣ قسم التمارين القديم المطور */
+        /* 2️⃣ قسم التمارين */
         .sub-btn-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 25px; }
         .toggle-btn {
-            background-color: #222; color: var(--neon-green); border: 2px solid var(--neon-green);
+            background-color: #222; color: #00ffcc; border: 2px solid #00ffcc;
             padding: 10px 20px; font-size: 1rem; font-weight: bold; border-radius: 30px; cursor: pointer; transition: all 0.3s;
         }
-        .toggle-btn.active { background-color: var(--neon-green); color: #121212; box-shadow: 0 4px 12px rgba(0, 255, 204, 0.3); }
-        .toggle-btn:hover { background-color: var(--neon-yellow); border-color: var(--neon-yellow); color: #121212; }
+        .toggle-btn.active { background-color: #00ffcc; color: #121212; box-shadow: 0 4px 12px rgba(0, 255, 204, 0.3); }
+        .toggle-btn:hover { background-color: #ffcc00; border-color: #ffcc00; color: #121212; }
         
         .exercise-grid { display: none; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
         .exercise-grid.active-program { display: grid !important; }
         .exercise-card { background-color: #1e1e1e; padding: 20px; border-radius: 10px; border: 1px solid #333; }
-        .exercise-card h3 { color: var(--neon-yellow); margin-top: 0; border-bottom: 2px solid #333; padding-bottom: 8px; display: flex; justify-content: space-between; }
-        .target-muscle { font-size: 0.85rem; background-color: #333; color: var(--neon-green); padding: 2px 8px; border-radius: 5px; }
+        .exercise-card h3 { color: #ffcc00; margin-top: 0; border-bottom: 2px solid #333; padding-bottom: 8px; display: flex; justify-content: space-between; }
+        .target-muscle { font-size: 0.85rem; background-color: #333; color: #00ffcc; padding: 2px 8px; border-radius: 5px; }
 
-        /* 3️⃣ قسم متابعة الوزن والمقاسات */
+        /* 3️⃣ قسم متابعة التطور */
         .tracker-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px; }
-        .history-box { background-color: #252525; padding: 15px; border-radius: 8px; border-right: 4px solid var(--neon-green); margin-top: 20px; text-align: center; }
+        .history-box { background-color: #252525; padding: 15px; border-radius: 8px; border-right: 4px solid #00ffcc; margin-top: 20px; text-align: center; }
 
-        /* 4️⃣ قسم عداد شرب المياه */
+        /* 4️⃣ قسم عداد المياه */
         .water-card { text-align: center; padding: 40px 20px; }
-        .water-icon { font-size: 4rem; color: #3399ff; margin-bottom: 15px; animate: pulse 2s infinite; }
+        .water-icon { font-size: 4rem; color: #3399ff; margin-bottom: 15px; }
         .water-counter { font-size: 3rem; font-weight: bold; color: #3399ff; margin: 15px 0; }
         .water-btn { background-color: #3399ff; color: white; border: none; padding: 12px 30px; font-size: 1.2rem; font-weight: bold; border-radius: 30px; cursor: pointer; transition: 0.3s; }
         .water-btn:hover { background-color: #0066cc; transform: scale(1.05); }
         .water-reset { background-color: #444; color: #ccc; margin-right: 10px; padding: 12px 20px; border-radius: 30px; border: none; cursor: pointer; }
 
         footer { margin-top: 60px; padding: 30px 20px; border-top: 1px solid #222; }
-        .prayer { font-size: 1.6rem; color: var(--neon-green); font-weight: bold; }
+        .prayer { font-size: 1.6rem; color: #00ffcc; font-weight: bold; }
         .copyright { color: #888888; font-size: 1rem; margin-top: 10px; }
     </style>
 </head>
@@ -182,7 +169,7 @@
 
     <div class="header">
         <h1>💪 موقع الأبطال المتكامل 💪</h1>
-        <div class="tip-box" id="dailyTip">💡 نصيحة اليوم: تحميل المحتوى...</div>
+        <div class="prophet-box">❤️ صلي على النبي محمد ﷺ ❤️</div>
     </div>
 
     <div class="main-nav">
@@ -194,7 +181,7 @@
 
     <div class="main-section active-section" id="sec-calc">
         <div class="box-container" style="max-width: 600px; margin: 0 auto;">
-            <h2 style="color: var(--neon-green); text-align: center; margin-top:0;">🔥 حاسبة السعرات والبروتين والأنظمة</h2>
+            <h2 style="color: #00ffcc; text-align: center; margin-top:0;">🔥 حاسبة السعرات والبروتين والأنظمة</h2>
             <div class="input-group">
                 <label>الوزن (كيلو جرام):</label>
                 <input type="number" id="weight" placeholder="مثال: 82" required>
@@ -219,8 +206,8 @@
             <button class="action-btn" onclick="calculateEverything()">إحسب السعرات والبروتين الآن 🎯</button>
 
             <div class="result-box" id="resultBorder">
-                <h3>سعرات المحافظة: <span id="caloriesRet" style="color: var(--neon-green);">0</span> سعرة</h3>
-                <h3>البروتين اليومي المطلوب: <span id="proteinRet" style="color: var(--neon-green);">0</span> جرام بروتين</h3>
+                <h3>سعرات المحافظة: <span id="caloriesRet" style="color: #00ffcc;">0</span> سعرة</h3>
+                <h3>البروتين اليومي المطلوب: <span id="proteinRet" style="color: #00ffcc;">0</span> جرام بروتين</h3>
             </div>
 
             <div class="diet-buttons" id="dietButtons">
@@ -287,5 +274,144 @@
                 </ul>
             </div>
             <div class="exercise-card">
-                <h3><span>2️⃣ السفلي والبطن (
-                    
+                <h3><span>2️⃣ السفلي والبطن (Lower)</span> <span class="target-muscle">تحت كامل</span></h3>
+                <ul>
+                    <li><strong>سكوات بالبار حر:</strong> 4 مجاميع × 6-10 عدات.</li>
+                    <li><strong>الرفعة الميتة (Deadlift):</strong> 3 مجاميع × 6 عدات.</li>
+                    <li><strong>لج بريس على الجهاز:</strong> 3 مجاميع × 10 عدات.</li>
+                    <li><strong>تحدي الأبطال (بطن):</strong> 50 عدة كرانشيز.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="exercise-grid" id="fb-program">
+            <div class="exercise-card" style="grid-column: 1 / -1;">
+                <h3><span>🏋️‍♂️ نظام الجسم الكامل (3 أيام)</span> <span class="target-muscle">قوة شاملة</span></h3>
+                <ul>
+                    <li><strong>سكوات بالبار:</strong> 3 مجاميع × 6-10 عدات.</li>
+                    <li><strong>بنش مستوي بالبار:</strong> 3 مجاميع × 6-10 عدات.</li>
+                    <li><strong>تجديف ظهر بالبار:</strong> 3 مجاميع × 6-10 عدات.</li>
+                    <li><strong>تجميع كتف دمبل:</strong> 3 مجاميع × 8-10 عدات.</li>
+                    <li><strong>بايسبس بالدمبل + ترايسبس بالروب:</strong> 3 مجاميع × 10 عدات.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="exercise-grid" id="arnold-program">
+            <div class="exercise-card">
+                <h3><span>1️⃣ الصدر والظهر</span> <span class="target-muscle">ضخامة عضلية</span></h3>
+                <ul>
+                    <li><strong>بنش مستوي بالبار:</strong> 4 مجاميع × 6-10 عدات.</li>
+                    <li><strong>سحب عالي واسع للظهر:</strong> 4 مجاميع × 6-10 عدات.</li>
+                    <li><strong>بنش عالي بالدمبل:</strong> 3 مجاميع × 8-10 عدات.</li>
+                    <li><strong>تجديف بار حر للظهر:</strong> 3 مجاميع × 8-10 عدات.</li>
+                </ul>
+            </div>
+            <div class="exercise-card">
+                <h3><span>2️⃣ الأكتاف والذراعين</span> <span class="target-muscle">بامب ودمبل</span></h3>
+                <ul>
+                    <li><strong>تجميع كتف دمبل:</strong> 4 مجاميع × 6-10 عدات.</li>
+                    <li><strong>رفرفة جانبي كتف:</strong> 4 مجاميع × 12 عدات.</li>
+                    <li><strong>تبادل بايسبس دمبل:</strong> 4 مجاميع × 10 عدات.</li>
+                    <li><strong>ترايسبس بالروب كيبل:</strong> 4 مجاميع × 10 عدات.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-section" id="sec-track">
+        <div class="box-container" style="max-width: 600px; margin: 0 auto;">
+            <h2 style="color: #00ffcc; text-align: center; margin-top:0;">📈 جدول متابعة قياسات جسمك الأسبوعية</h2>
+            <div class="tracker-grid">
+                <div class="input-group">
+                    <label>الوزن الحالي (كيلو):</label>
+                    <input type="number" id="track-weight" placeholder="مثال: 82">
+                </div>
+                <div class="input-group">
+                    <label>نسبة الدهون (%):</label>
+                    <input type="number" id="track-fat" placeholder="مثال: 21">
+                </div>
+            </div>
+            <button class="action-btn" onclick="saveProgress()">حفظ القياسات الحالية 💾</button>
+
+            <div class="history-box" id="historyBox">
+                <p style="margin: 0; color: #aaa;">آخر أرقام قمت بحفظها ستظهر هنا وتتحفظ تلقائياً في جهازك.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-section" id="sec-water">
+        <div class="box-container water-card" style="max-width: 500px; margin: 0 auto;">
+            <div class="water-icon">💧</div>
+            <h2 style="margin:0;">عداد شرب المياه اليومي</h2>
+            <p style="color: #aaa;">الهدف اليومي الذكي: 8 أكواب (حوالي 3 لتر)</p>
+            <div class="water-counter"><span id="waterCount">0</span> / 8</div>
+            <button class="water-btn" onclick="addWater()">شربت كوباية! 🥛+</button>
+            <button class="water-reset" onclick="resetWater()">إعادة تعيين 🔄</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="prayer">يارب الهنداوي وسلكاوي يجيبو 95% 🎯</div>
+        <div class="copyright">
+            Copyright © 2026 All Rights Reserved | Owned by Mahmoud Elhendawy & Adham Elsalkawy
+        </div>
+    </footer>
+
+    <script>
+        // 1. نظام التنقل الرئيسي بين الأقسام (صلحناه وخليناه يشتغل بدون مشاكل)
+        function switchSection(sectionId) {
+            // إخفاء جميع الأقسام بالكامل أولاً
+            var sections = document.querySelectorAll('.main-section');
+            for (var i = 0; i < sections.length; i++) {
+                sections[i].classList.remove('active-section');
+                sections[i].style.display = 'none';
+            }
+            
+            // إزالة الكلاس النشط من جميع الأزرار
+            var navButtons = document.querySelectorAll('.nav-btn');
+            for (var j = 0; j < navButtons.length; j++) {
+                navButtons[j].classList.remove('active-nav');
+            }
+
+            // إظهار القسم المطلوب بالظبط
+            var targetSection = document.getElementById('sec-' + sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active-section');
+                targetSection.style.display = 'block';
+            }
+            
+            // تنشيط الزرار المكبوس
+            var targetBtn = document.getElementById('nav-' + sectionId);
+            if (targetBtn) {
+                targetBtn.classList.add('active-nav');
+            }
+        }
+
+        // 2. حاسبة السعرات والبروتين والتغذية
+        var globalCalories = 2000;
+        function calculateEverything() {
+            var w = parseFloat(document.getElementById('weight').value);
+            var h = parseFloat(document.getElementById('height').value);
+            var a = parseFloat(document.getElementById('age').value);
+            var act = parseFloat(document.getElementById('activity').value);
+
+            if(!w || !h || !a) {
+                alert("يا بطل دخل كل البيانات الأول عشان نحسب صح! 😉");
+                return;
+            }
+
+            var bmr = (10 * w) + (6.25 * h) - (5 * a) + 5;
+            var maintenanceCalories = Math.round(bmr * act);
+            globalCalories = maintenanceCalories;
+            var proteinNeeded = Math.round(w * 2);
+
+            document.getElementById('caloriesRet').innerText = maintenanceCalories;
+            document.getElementById('proteinRet').innerText = proteinNeeded;
+            document.getElementById('resultBorder').style.display = 'block';
+            document.getElementById('dietButtons').style.display = 'flex';
+            document.getElementById('dietPlanBox').style.display = 'none';
+        }
+
+        function showDiet(goal) {
+            var box = document.
