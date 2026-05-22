@@ -19,7 +19,7 @@
             background: linear-gradient(135deg, #1e1e1e, #2d2d2d);
             padding: 30px 20px;
             border-radius: 12px;
-            margin-bottom: 25px;
+            margin-bottom: 35px;
             border-bottom: 4px solid #ffcc00;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
         }
@@ -32,45 +32,32 @@
         }
 
         .header p {
-            margin: 10px 0 20px 0;
+            margin: 10px 0 10px 0;
             color: #aaaaaa;
             font-size: 1.1rem;
         }
 
-        /* حاوية الأزرار لتنسيقها بجانب بعضها */
-        .btn-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        /* ستايل أزرار التبديل الاحترافية */
-        .toggle-btn {
-            background-color: #222222;
+        .tip {
+            font-size: 0.95rem;
             color: #00ffcc;
-            border: 2px solid #00ffcc;
-            padding: 10px 20px;
-            font-size: 1rem;
             font-weight: bold;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            background-color: #222;
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 20px;
         }
 
-        /* الزر النشط حالياً */
-        .toggle-btn.active {
-            background-color: #00ffcc;
+        /* عنوان كل نظام تمرين */
+        .program-section-title {
             color: #121212;
-            box-shadow: 0 4px 12px rgba(0, 255, 204, 0.4);
-        }
-
-        .toggle-btn:hover {
             background-color: #ffcc00;
-            color: #121212;
-            border-color: #ffcc00;
-            box-shadow: 0 4px 12px rgba(255, 204, 0, 0.4);
-            transform: scale(1.05);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 50px;
+            margin-bottom: 15px;
+            font-size: 1.6rem;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(255, 204, 0, 0.3);
         }
 
         /* شبكة عرض أيام التمرين والكروت */
@@ -78,7 +65,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
-            margin-top: 25px;
+            margin-bottom: 20px;
         }
 
         /* ستايل كارت اليوم الواحد */
@@ -92,16 +79,15 @@
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            border-color: #ffcc00;
-            box-shadow: 0 5px 15px rgba(255, 204, 0, 0.1);
+            transform: translateY(-3px);
+            border-color: #00ffcc;
         }
 
         /* عناوين الأيام */
         .card h3 {
             color: #ffcc00;
             margin-top: 0;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             border-bottom: 2px solid #333;
             padding-bottom: 8px;
             display: flex;
@@ -110,7 +96,7 @@
         }
 
         .target-muscle {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             background-color: #333;
             color: #00ffcc;
             padding: 3px 8px;
@@ -128,97 +114,25 @@
         li {
             margin-bottom: 12px;
             font-size: 1.05rem;
-            cursor: pointer;
-            transition: color 0.2s;
         }
 
-        li:hover {
-            color: #00ffcc;
-            text-decoration: underline;
-        }
-
-        li strong {
+        /* ستايل الرابط اللي بيفتح الصورة */
+        li a {
             color: #ffffff;
+            text-decoration: none;
+            border-bottom: 1px dashed #555;
+            transition: color 0.2s;
+            display: inline-block;
         }
-        
-        li:hover strong {
+
+        li a:hover {
             color: #00ffcc;
-        }
-
-        .tip {
-            font-size: 0.85rem;
-            color: #ffcc00;
-            margin-top: -10px;
-            margin-bottom: 15px;
-            font-weight: bold;
-        }
-
-        /* إخفاء الأنظمة غير النشطة */
-        .hidden {
-            display: none !important;
-        }
-
-        /* 🌟 ستايل النافذة المنبثقة لعرض الصور (Modal) 🌟 */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            background-color: #1e1e1e;
-            padding: 20px;
-            border-radius: 12px;
-            max-width: 400px;
-            width: 85%;
-            border: 2px solid #00ffcc;
-            box-shadow: 0 0 20px rgba(0, 255, 204, 0.5);
-            text-align: center;
-        }
-
-        .modal h2 {
-            color: #ffcc00;
-            margin-top: 0;
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-        }
-
-        .modal img {
-            width: 100%;
-            height: auto;
-            max-height: 250px;
-            object-fit: contain;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            background-color: #000;
-        }
-
-        .close-btn {
-            background-color: #ffcc00;
-            color: #121212;
-            border: none;
-            padding: 10px 25px;
-            font-weight: bold;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 1rem;
-            width: 100%;
-        }
-
-        .close-btn:hover {
-            background-color: #00ffcc;
+            border-bottom-color: #00ffcc;
         }
 
         /* الفوتر السفلي للدعاء والحقوق */
         footer {
-            margin-top: 60px;
+            margin-top: 80px;
             padding: 30px 20px;
             border-top: 1px solid #222;
         }
@@ -242,112 +156,141 @@
 
     <div class="header">
         <h1>💪 جميع أنظمة التمارين 💪</h1>
-        <p>اختر النظام المناسب لك واضغط على السطر الخاص بأي تمرين لرؤية شكل الحركة بالصور!</p>
-        <p class="tip">💡 اضغط على اسم التمرين وهيفتح معاك فوراً</p>
-        
-        <div class="btn-container">
-            <button class="toggle-btn active" id="btn-ppl" onclick="showProgram('ppl')">نظام PPL</button>
-            <button class="toggle-btn" id="btn-ul" onclick="showProgram('ul')">نظام Upper / Lower</button>
-            <button class="toggle-btn" id="btn-fb" onclick="showProgram('fb')">نظام Full Body</button>
-            <button class="toggle-btn" id="btn-arnold" onclick="showProgram('arnold')">نظام Arnold Split</button>
-        </div>
+        <p>موسوعة التمارين المتكاملة للأبطال جاهزة بالكامل تحت بعضها!</p>
+        <p class="tip">💡 اضغط على اسم أي تمرين وهيفتح لك صورته وشرحه في صفحة تانية فوراً</p>
     </div>
 
-    <div class="grid" id="ppl-program">
+    <div class="program-section-title">🔥 نظام الـ PPL (دفع / سحب / أرجل)</div>
+    <div class="grid">
         <div class="card">
             <h3><span>1️⃣ يوم الدفع (Push)</span> <span class="target-muscle">بنش / كتف / تراي</span></h3>
             <ul>
-                <li onclick="openModal('بنش مستوي بالبار (Bench Press)', 'https://upload.wikimedia.org/wikipedia/commons/5/58/Bench-press-1.png')"><strong>بنش مستوي بالبار:</strong> 4 مجاميع × 6 - 10 عدات.</li>
-                <li onclick="openModal('بنش عالي بالدمبل (Incline Press)', 'https://upload.wikimedia.org/wikipedia/commons/3/3c/Incline-dumbbell-bench-press-1.png')"><strong>بنش عالي بالدمبل:</strong> 3 مجاميع × 6 - 10 عدات.</li>
-                <li onclick="openModal('تجميع كتف بالدمبل (Shoulder Press)', 'https://upload.wikimedia.org/wikipedia/commons/d/da/Dumbbell-Overhead-Press.png')"><strong>تجميع كتف بالدمبل:</strong> 3 مجاميع × 6 - 10 عدات.</li>
-                <li onclick="openModal('جانبي كتف بالدمبل (Lateral Raises)', 'https://upload.wikimedia.org/wikipedia/commons/d/d2/Dumbbell-Lateral-Raise.png')"><strong>جانبي كتف بالدمبل:</strong> 4 مجاميع × 10 عدات.</li>
-                <li onclick="openModal('ترايسبس بالروب (Triceps Pushdown)', 'https://res.cloudinary.com/fittco/image/upload/v1617195431/Exercise/cable-tricep-pushdown.png')"><strong>ترايسبس بالروب:</strong> 3 مجاميع × 8 - 10 عدات.</li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/5/58/Bench-press-1.png" target="_blank"><strong>بنش مستوي بالبار:</strong></a> 4 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/3/3c/Incline-dumbbell-bench-press-1.png" target="_blank"><strong>بنش عالي بالدمبل:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/d/da/Dumbbell-Overhead-Press.png" target="_blank"><strong>تجميع كتف بالدمبل:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/d/d2/Dumbbell-Lateral-Raise.png" target="_blank"><strong>جانبي كتف بالدمبل:</strong></a> 4 مجاميع × 10 عدات.</li>
+                <li><a href="https://commons.wikimedia.org/wiki/File:Pushdowns.png" target="_blank"><strong>ترايسبس بالروب:</strong></a> 3 مجاميع × 8 - 10 عدات.</li>
             </ul>
         </div>
         <div class="card">
             <h3><span>2️⃣ يوم السحب (Pull)</span> <span class="target-muscle">ظهر / باي / خلفي</span></h3>
             <ul>
-                <li onclick="openModal('سحب عالي للظهر (Lat Pulldown)', 'https://upload.wikimedia.org/wikipedia/commons/d/df/Cable-Lat-Pulldown.png')"><strong>سحب عالي للظهر:</strong> 4 مجاميع × 6 - 10 عدات.</li>
-                <li onclick="openModal('تجديف بالدمبل (Dumbbell Row)', 'https://upload.wikimedia.org/wikipedia/commons/3/30/One-Arm-Dumbbell-Row.png')"><strong>تجديف بالدمبل:</strong> 3 مجاميع × 6 - 10 عدات.</li>
-                <li onclick="openModal('سحب أرضي ضيق (Seated Row)', 'https://res.cloudinary.com/fittco/image/upload/v1617195431/Exercise/seated-cable-row.png')"><strong>سحب أرضي ضيق:</strong> 3 مجاميع × 6 - 10 عدات.</li>
-                <li onclick="openModal('رفرفة كتف خلفي (Rear Delt Flyes)', 'https://upload.wikimedia.org/wikipedia/commons/4/4e/Dumbbell-Rear-Lateral-Raise.png')"><strong>رفرفة كتف خلفي:</strong> 4 مجاميع × 10 عدات.</li>
-                <li onclick="openModal('بايسبس دمبل (Bicep Curls)', 'https://upload.wikimedia.org/wikipedia/commons/d/df/Dumbbell-Curl.png')"><strong>بايسبس بالتبادل دمبل:</strong> 4 مجاميع × 8 - 10 عدات.</li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/d/df/Cable-Lat-Pulldown.png" target="_blank"><strong>سحب عالي للظهر:</strong></a> 4 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/3/30/One-Arm-Dumbbell-Row.png" target="_blank"><strong>تجديف بالدمبل:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://commons.wikimedia.org/wiki/File:Seated-cable-rows.png" target="_blank"><strong>سحب أرضي ضيق:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/4/4e/Dumbbell-Rear-Lateral-Raise.png" target="_blank"><strong>رفرفة كتف خلفي:</strong></a> 4 مجاميع × 10 عدات.</li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/d/df/Dumbbell-Curl.png" target="_blank"><strong>بايسبس بالتبادل دمبل:</strong></a> 4 مجاميع × 8 - 10 عدات.</li>
             </ul>
         </div>
         <div class="card">
             <h3><span>3️⃣ يوم الرجلين والبطن (Legs)</span> <span class="target-muscle">رجل / بطن</span></h3>
             <ul>
-                <li onclick="openModal('سكوات بالبار (Barbell Squat)', 'https://upload.wikimedia.org/wikipedia/commons/8/82/Squat_clean_exercise.png')"><strong>سكوات بالبار:</strong> 4 مجاميع × 6 - 10 عدات.</li>
-                <li onclick="openModal('لج بريس بالرجل (Leg Press)', 'https://upload.wikimedia.org/wikipedia/commons/c/c2/Sled-Leg-Press.png')"><strong>لج بريس بالرجل:</strong> 3 مجاميع × 6 - 10 عدات.</li>
-                <li onclick="openModal('ماد أمامي أرجل (Leg Extensions)', 'https://res.cloudinary.com/fittco/image/upload/v1617195431/Exercise/leg-extension.png')"><strong>ماد أمامي أرجل:</strong> 3 مجاميع × 8 - 10 عدات.</li>
-                <li onclick="openModal('خلفيات رجل جهاز (Leg Curls)', 'https://res.cloudinary.com/fittco/image/upload/v1617195431/Exercise/lying-leg-curl.png')"><strong>خلفيات رجل جهاز:</strong> 3 مجاميع × 8 - 10 عدات.</li>
-                <li onclick="openModal('تحدي البطن (Crunches)', 'https://upload.wikimedia.org/wikipedia/commons/3/3d/Crunch-exercise.png')"><strong>تحدي الأبطال (بطن):</strong> 50 عدة كرانشيز.</li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/8/82/Squat_clean_exercise.png" target="_blank"><strong>سكوات بالبار:</strong></a> 4 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/c/c2/Sled-Leg-Press.png" target="_blank"><strong>لج بريس بالرجل:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://commons.wikimedia.org/wiki/File:Leg-extensions.png" target="_blank"><strong>ماد أمامي أرجل:</strong></a> 3 مجاميع × 8 - 10 عدات.</li>
+                <li><a href="https://commons.wikimedia.org/wiki/File:Lying-leg-curls.png" target="_blank"><strong>خلفيات رجل جهاز:</strong></a> 3 مجاميع × 8 - 10 عدات.</li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/3/3d/Crunch-exercise.png" target="_blank"><strong>تحدي الأبطال (بطن):</strong></a> 50 عدة كرانشيز.</li>
             </ul>
         </div>
     </div>
 
-    <div class="grid hidden" id="ul-program">
+    <div class="program-section-title">⚡ نظام Upper / Lower (علوي وسفلي)</div>
+    <div class="grid">
         <div class="card">
-            <h3><span>1️⃣ الجزء العلوي (Upper Body)</span> <span class="target-muscle">عضلات فوق كاملة</span></h3>
+            <h3><span>1️⃣ الجزء العلوي (Upper)</span> <span class="target-muscle">عضلات فوق كاملة</span></h3>
             <ul>
-                <li onclick="openModal('بنش مستوي بالبار (Bench Press)', 'https://upload.wikimedia.org/wikipedia/commons/5/58/Bench-press-1.png')"><strong>بنش مستوي بالبار:</strong> 4 مجاميع × 6 - 10 عدات.</li>
-                <li onclick="openModal('تجديف ظهر بالبار (Barbell Row)', 'https://upload.wikimedia.org/wikipedia/commons/0/03/Barbell-Row.png')"><strong>تجديف ظهر بالبار:</strong> 4 مجاميع × 6 - 10 عدات.</li>
-                <li onclick="openModal('تجميع كتف بالدمبل (Shoulder Press)', 'https://upload.wikimedia.org/wikipedia/commons/d/da/Dumbbell-Overhead-Press.png')"><strong>تجميع كتف بالدمبل:</strong> 3 مجاميع × 6 - 10 عدات.</li>
-                <li onclick="openModal('سحب عالي للظهر (Lat Pulldown)', 'https://upload.wikimedia.org/wikipedia/commons/d/df/Cable-Lat-Pulldown.png')"><strong>سحب عالي للظهر واسع:</strong> 3 مجاميع × 6 - 10 عدات.</li>
-                <li onclick="openModal('بايسبس بالبار (Barbell Curls)', 'https://upload.wikimedia.org/wikipedia/commons/0/05/Barbell-Curl.png')"><strong>بايسبس بالبار:</strong> 3 مجاميع × 6 - 10 عدات.</li>
-                <li onclick="openModal('ترايسبس بالروب (Triceps Pushdown)', 'https://res.cloudinary.com/fittco/image/upload/v1617195431/Exercise/cable-tricep-pushdown.png')"><strong>ترايسبس بالروب أو ديبس:</strong> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/5/58/Bench-press-1.png" target="_blank"><strong>بنش مستوي بالبار:</strong></a> 4 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/0/03/Barbell-Row.png" target="_blank"><strong>تجديف ظهر بالبار:</strong></a> 4 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/d/da/Dumbbell-Overhead-Press.png" target="_blank"><strong>تجميع كتف بالدمبل:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/d/df/Cable-Lat-Pulldown.png" target="_blank"><strong>سحب عالي للظهر واسع:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/0/05/Barbell-Curl.png" target="_blank"><strong>بايسبس بالبار:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://commons.wikimedia.org/wiki/File:Pushdowns.png" target="_blank"><strong>ترايسبس بالروب:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
             </ul>
         </div>
         <div class="card">
-            <h3><span>2️⃣ الجزء السفلي والبطن (Lower Body)</span> <span class="target-muscle">رجل كامل / بطن</span></h3>
+            <h3><span>2️⃣ الجزء السفلي والبطن (Lower)</span> <span class="target-muscle">رجل كامل / بطن</span></h3>
             <ul>
-                <li onclick="openModal('سكوات بالبار (Barbell Squat)', 'https://upload.wikimedia.org/wikipedia/commons/8/82/Squat_clean_exercise.png')"><strong>سكوات بالبار حر:</strong> 4 مجاميع × 6 - 10 عدات.</li>
-                <li onclick="openModal('الرفعة الميتة (Deadlift)', 'https://upload.wikimedia.org/wikipedia/commons/a/a7/Barbell-Deadlift.png')"><strong>الرفعة الميتة (Deadlift):</strong> 3 مجاميع × 6 - 10 عدات.</li>
-                <li onclick="openModal('لج بريس بالرجل (Leg Press)', 'https://upload.wikimedia.org/wikipedia/commons/c/c2/Sled-Leg-Press.png')"><strong>لج بريس على الجهاز:</strong> 3 مجاميع × 6 - 10 عدات.</li>
-                <li onclick="openModal('خلفيات رجل جهاز (Leg Curls)', 'https://res.cloudinary.com/fittco/image/upload/v1617195431/Exercise/lying-leg-curl.png')"><strong>خلفيات رجل جهاز:</strong> 3 مجاميع × 8 - 10 عدات.</li>
-                <li onclick="openModal('سمانة واقف (Calf Raises)', 'https://upload.wikimedia.org/wikipedia/commons/d/d3/Dumbbell-Calf-Raise.png')"><strong>سمانة واقف بالوزن:</strong> 4 مجاميع × 10 عدات.</li>
-                <li onclick="openModal('تحدي البطن (Crunches)', 'https://upload.wikimedia.org/wikipedia/commons/3/3d/Crunch-exercise.png')"><strong>تحدي بطن (تجميع):</strong> 50 عدة.</li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/8/82/Squat_clean_exercise.png" target="_blank"><strong>سكوات بالبار حر:</strong></a> 4 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/a/a7/Barbell-Deadlift.png" target="_blank"><strong>الرفعة الميتة (Deadlift):</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/c/c2/Sled-Leg-Press.png" target="_blank"><strong>لج بريس على الجهاز:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://commons.wikimedia.org/wiki/File:Lying-leg-curls.png" target="_blank"><strong>خلفيات رجل جهاز:</strong></a> 3 مجاميع × 8 - 10 عدات.</li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/d/d3/Dumbbell-Calf-Raise.png" target="_blank"><strong>سمانة واقف بالوزن:</strong></a> 4 مجاميع × 10 عدات.</li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/3/3d/Crunch-exercise.png" target="_blank"><strong>تحدي بطن (تجميع):</strong></a> 50 عدة.</li>
             </ul>
         </div>
     </div>
 
-    <div class="grid hidden" id="fb-program">
+    <div class="program-section-title">🚀 نظام Full Body (الجسم كامل - 3 أيام)</div>
+    <div class="grid">
         <div class="card">
             <h3><span>1️⃣ اليوم الأول (Day 1)</span> <span class="target-muscle">قوة أساسية</span></h3>
             <ul>
-                <li onclick="openModal('سكوات بالبار (Barbell Squat)', 'https://upload.wikimedia.org/wikipedia/commons/8/82/Squat_clean_exercise.png')"><strong>سكوات بالبار:</strong> 3 مجاميع × 6 - 10 عدات.</li>
-                <li onclick="openModal('بنش مستوي بالبار (Bench Press)', 'https://upload.wikimedia.org/wikipedia/commons/5/58/Bench-press-1.png')"><strong>بنش مستوي بالبار:</strong> 3 مجاميع × 6 - 10 عدات.</li>
-                <li onclick="openModal('تجديف ظهر بالبار (Barbell Row)', 'https://upload.wikimedia.org/wikipedia/commons/0/03/Barbell-Row.png')"><strong>تجديف ظهر بالبار:</strong> 3 مجاميع × 6 - 10 عدات.</li>
-                <li onclick="openModal('تجميع كتف بالدمبل (Shoulder Press)', 'https://upload.wikimedia.org/wikipedia/commons/d/da/Dumbbell-Overhead-Press.png')"><strong>تجميع كتف دمبل:</strong> 3 مجاميع × 8 - 10 عدات.</li>
-                <li onclick="openModal('بايسبس دمبل (Bicep Curls)', 'https://upload.wikimedia.org/wikipedia/commons/d/df/Dumbbell-Curl.png')"><strong>بايسبس دمبل:</strong> 3 مجاميع × 10 عدات.</li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/8/82/Squat_clean_exercise.png" target="_blank"><strong>سكوات بالبار:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/5/58/Bench-press-1.png" target="_blank"><strong>بنش مستوي بالبار:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/0/03/Barbell-Row.png" target="_blank"><strong>تجديف ظهر بالبار:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/d/da/Dumbbell-Overhead-Press.png" target="_blank"><strong>تجميع كتف دمبل:</strong></a> 3 مجاميع × 8 - 10 عدات.</li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/d/df/Dumbbell-Curl.png" target="_blank"><strong>بايسبس دمبل:</strong></a> 3 مجاميع × 10 عدات.</li>
             </ul>
         </div>
         <div class="card">
             <h3><span>2️⃣ اليوم الثاني (Day 2)</span> <span class="target-muscle">استهداف زوايا</span></h3>
             <ul>
-                <li onclick="openModal('الرفعة الميتة روماني (Romanian Deadlift)', 'https://upload.wikimedia.org/wikipedia/commons/0/02/Barbell-Romanian-Deadlift.png')"><strong>الرفعة الميتة روماني:</strong> 3 مجاميع × 8 - 10 عدات.</li>
-                <li onclick="openModal('بنش عالي بالدمبل (Incline Press)', 'https://upload.wikimedia.org/wikipedia/commons/3/3c/Incline-dumbbell-bench-press-1.png')"><strong>بنش عالي دمبل:</strong> 3 مجاميع × 6 - 10 عدات.</li>
-                <li onclick="openModal('سحب عالي للظهر (Lat Pulldown)', 'https://upload.wikimedia.org/wikipedia/commons/d/df/Cable-Lat-Pulldown.png')"><strong>سحب عالي للظهر:</strong> 3 مجاميع × 6 - 10 عدات.</li>
-                <li onclick="openModal('جانبي كتف بالدمبل (Lateral Raises)', 'https://upload.wikimedia.org/wikipedia/commons/d/d2/Dumbbell-Lateral-Raise.png')"><strong>جانبي كتف دمبل:</strong> 3 مجاميع × 10 عدات.</li>
-                <li onclick="openModal('ترايسبس بالروب (Triceps Pushdown)', 'https://res.cloudinary.com/fittco/image/upload/v1617195431/Exercise/cable-tricep-pushdown.png')"><strong>ترايسبس بالروب:</strong> 3 مجاميع × 10 عدات.</li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/0/02/Barbell-Romanian-Deadlift.png" target="_blank"><strong>الرفعة الميتة روماني:</strong></a> 3 مجاميع × 8 - 10 عدات.</li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/3/3c/Incline-dumbbell-bench-press-1.png" target="_blank"><strong>بنش عالي دمبل:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/d/df/Cable-Lat-Pulldown.png" target="_blank"><strong>سحب عالي للظهر:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/d/d2/Dumbbell-Lateral-Raise.png" target="_blank"><strong>جانبي كتف دمبل:</strong></a> 3 مجاميع × 10 عدات.</li>
+                <li><a href="https://commons.wikimedia.org/wiki/File:Pushdowns.png" target="_blank"><strong>ترايسبس بالروب:</strong></a> 3 مجاميع × 10 عدات.</li>
             </ul>
         </div>
         <div class="card">
             <h3><span>3️⃣ اليوم الثالث (Day 3)</span> <span class="target-muscle">ضخامة وتحمل</span></h3>
             <ul>
-                <li onclick="openModal('لج بريس بالرجل (Leg Press)', 'https://upload.wikimedia.org/wikipedia/commons/c/c2/Sled-Leg-Press.png')"><strong>لج بريس جهاز:</strong> 3 مجاميع × 6 - 10 عدات.</li>
-                <li onclick="openModal('بنش مستوي بالبار (Bench Press)', 'https://upload.wikimedia.org/wikipedia/commons/5/58/Bench-press-1.png')"><strong>تجميع صدر دمبل مستوي:</strong> 3 مجاميع × 6 - 10 عدات.</li>
-                <li onclick="openModal('سحب أرضي ضيق (Seated Row)', 'https://res.cloudinary.com/fittco/image/upload/v1617195431/Exercise/seated-cable-row.png')"><strong>سحب أرضي ضيق للظهر:</strong> 3 مجاميع × 6 - 10 عدات.</li>
-                <li onclick="openModal('رفرفة كتف خلفي (Rear Delt)', 'https://upload.wikimedia.org/wikipedia/commons/4/4e/Dumbbell-Rear-Lateral-Raise.png')"><strong>رفرفة كتف خلفي جهاز:</strong> 3 مجاميع × 10 عدات.</li>
-                <li onclick="openModal('تحدي البطن (Crunches)', 'https://upload.wikimedia.org/wikipedia/commons/3/3d/Crunch-exercise.png')"><strong>تحدي بطن الأبطال:</strong> 50 عدة كرانشيز.</li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/c/c2/Sled-Leg-Press.png" target="_blank"><strong>لج بريس جهاز:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/5/58/Bench-press-1.png" target="_blank"><strong>تجميع صدر دمبل مستوي:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://commons.wikimedia.org/wiki/File:Seated-cable-rows.png" target="_blank"><strong>سحب أرضي ضيق للظهر:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/4/4e/Dumbbell-Rear-Lateral-Raise.png" target="_blank"><strong>رفرفة كتف خلفي:</strong></a> 3 مجاميع × 10 عدات.</li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/3/3d/Crunch-exercise.png" target="_blank"><strong>تحدي بطن الأبطال:</strong></a> 50 عدة كرانشيز.</li>
             </ul>
         </div>
     </div>
 
-    <div class="grid hidden" id="arnold-program">
+    <div class="program-section-title">👑 نظام الأسطورة Arnold Split</div>
+    <div class="grid">
         <div class="card">
-            <h3><span>1️⃣ الصدر والظهر (Chest & Back)</span> <span class="target-muscle">سوبر سيت تفجير</span></h3>
+            <h3><span>1️⃣ الصدر والظهر (Chest & Back)</span> <span class="target-muscle">تفجير</span></h3>
             <ul>
-                <li onclick="openModal('بنش مستوي بالبار (Bench Press)', 'https://upload.wikimedia.org/wikipedia/commons/5/58/Bench-press-1.png')"><strong>بنش مستوي بالبار:</strong> 4 مجاميع × 6 - 10 عدات.</li>
-                <li onclick="openModal('سحب عالي للظهر (Lat Pulldown)', 'https://upload.wikimedia.org/wikipedia/commons/d/df/Cable-Lat-Pulldown.png')"><strong>سحب عالي للظهر واس
-                    
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/5/58/Bench-press-1.png" target="_blank"><strong>بنش مستوي بالبار:</strong></a> 4 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/d/df/Cable-Lat-Pulldown.png" target="_blank"><strong>سحب عالي للظهر واسع:</strong></a> 4 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/3/3c/Incline-dumbbell-bench-press-1.png" target="_blank"><strong>بنش عالي دمبل:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/0/03/Barbell-Row.png" target="_blank"><strong>تجديف بالبار حر:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3><span>2️⃣ الأكتاف والذراعين (Shoulders & Arms)</span> <span class="target-muscle">بامب</span></h3>
+            <ul>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/d/da/Dumbbell-Overhead-Press.png" target="_blank"><strong>تجميع كتف بالدمبل:</strong></a> 4 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/d/d2/Dumbbell-Lateral-Raise.png" target="_blank"><strong>جانبي دمبل (توسيع):</strong></a> 4 مجاميع × 10 عدات.</li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/0/05/Barbell-Curl.png" target="_blank"><strong>باي بالبار واقف:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://commons.wikimedia.org/wiki/File:Pushdowns.png" target="_blank"><strong>تراي بالروب على الكيبل:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3><span>3️⃣ الأرجل والبطن (Legs & Abs)</span> <span class="target-muscle">قوة</span></h3>
+            <ul>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/8/82/Squat_clean_exercise.png" target="_blank"><strong>سكوات بار خلفي حر:</strong></a> 4 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/c/c2/Sled-Leg-Press.png" target="_blank"><strong>لج بريس وزن عالي:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://commons.wikimedia.org/wiki/File:Lying-leg-curls.png" target="_blank"><strong>خلفيات أرجل جهاز:</strong></a> 3 مجاميع × 8 - 10 عدات.</li>
+                <li><a href="https://upload.wikimedia.org/wikipedia/commons/3/3d/Crunch-exercise.png" target="_blank"><strong>تحدي بطن الأبطال:</strong></a> 50 عدة كرانشيز.</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <div class="prayer">يارب الهنداوي وسلكاوي يجيبو 95% 🎯</div>
+        <div class="copyright">
+            Copyright © 2026 All Rights Reserved | Owned by Mahmoud Elhendawy & Adham Elsalkawy
+        </div>
+    </footer>
+
+</body>
+</html>
