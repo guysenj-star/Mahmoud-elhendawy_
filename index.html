@@ -7,162 +7,168 @@
 
 <style>
 body{
-    margin:0;
-    font-family: "Segoe UI";
-    background: linear-gradient(135deg,#0f0f0f,#1b1b1b);
-    color:white;
-    padding:20px;
-    text-align:center;
+margin:0;
+font-family:Segoe UI;
+background:linear-gradient(135deg,#0f0f0f,#1b1b1b);
+color:white;
+text-align:center;
 }
 
-/* HEADER */
-header{
-    background:#151515;
-    padding:20px;
-    border-radius:15px;
-    margin-bottom:20px;
-    border:1px solid #2a2a2a;
+nav{
+position:sticky;
+top:0;
+background:#151515;
+display:flex;
+justify-content:center;
+gap:10px;
+padding:10px;
+border-bottom:1px solid #333;
 }
 
-header h1{
-    color:#00ffcc;
-    margin:0;
+nav button{
+background:#00ffcc;
+border:none;
+padding:10px;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
 }
 
-/* CARDS */
 .box{
-    background:#151515;
-    padding:20px;
-    margin:20px auto;
-    border-radius:15px;
-    max-width:750px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.4);
-    border:1px solid #222;
+display:none;
+max-width:850px;
+margin:20px auto;
+padding:20px;
+background:#151515;
+border-radius:15px;
 }
 
-/* INPUTS */
+.active{display:block;}
+
 input,select{
-    width:100%;
-    padding:12px;
-    margin:8px 0;
-    border-radius:10px;
-    border:none;
-    background:#0f0f0f;
-    color:white;
+width:100%;
+padding:10px;
+margin:5px 0;
+border-radius:10px;
+border:none;
+background:#111;
+color:white;
 }
 
-/* BUTTONS */
-button{
-    padding:12px 15px;
-    margin:5px;
-    border:none;
-    border-radius:10px;
-    cursor:pointer;
-    font-weight:bold;
-    background:linear-gradient(135deg,#00ffcc,#00bfff);
-    transition:0.3s;
+button.action{
+padding:10px;
+margin:5px;
+border:none;
+border-radius:10px;
+background:#00ffcc;
+font-weight:bold;
+cursor:pointer;
 }
 
-button:hover{
-    transform:scale(1.05);
-    background:linear-gradient(135deg,#ffcc00,#ff8800);
-}
-
-/* RESULT */
-.result{
-    margin-top:15px;
-    padding:15px;
-    background:#111;
-    border-radius:10px;
-    display:none;
-}
-
-/* WORKOUT CARDS */
 .card{
-    background:#111;
-    padding:15px;
-    margin:10px 0;
-    border-radius:12px;
-    text-align:right;
-    border-right:3px solid #00ffcc;
+background:#111;
+padding:15px;
+margin:10px 0;
+border-radius:12px;
+border-right:3px solid #00ffcc;
+text-align:right;
 }
 
-/* FOOTER */
 footer{
-    margin-top:40px;
-    padding:20px;
-    border-top:1px solid #333;
-}
-
-footer p{
-    color:#888;
+margin-top:40px;
+padding:20px;
+border-top:1px solid #333;
+color:#888;
 }
 </style>
 </head>
 
 <body>
 
-<header>
+<!-- NAV -->
+<nav>
+<button onclick="show('home')">الرئيسية</button>
+<button onclick="show('calc')">الحاسبة</button>
+<button onclick="show('work')">التمارين</button>
+<button onclick="show('diet')">النظام</button>
+<button onclick="show('water')">المياه</button>
+</nav>
+
+<!-- HOME -->
+<div id="home" class="box active">
 <h1>💪 Fitness Pro</h1>
-<p>Build your body the smart way</p>
-</header>
+<p>موقع شامل للجيم والتغذية والتطور</p>
+</div>
 
 <!-- CALCULATOR -->
-<div class="box">
+<div id="calc" class="box">
 <h2>🔥 حاسبة السعرات</h2>
 
-<input id="weight" placeholder="الوزن">
-<input id="height" placeholder="الطول">
-<input id="age" placeholder="العمر">
+<input id="w" placeholder="الوزن">
+<input id="h" placeholder="الطول">
+<input id="a" placeholder="العمر">
 
-<select id="activity">
+<select id="act">
 <option value="1.2">قليل</option>
 <option value="1.55">متوسط</option>
 <option value="1.7">عالي</option>
 </select>
 
-<button onclick="calc()">احسب</button>
+<button class="action" onclick="calc()">احسب</button>
 
-<div class="result" id="res"></div>
-
-<button onclick="diet('cut')">تنشيف</button>
-<button onclick="diet('bulk')">تضخيم</button>
-
-<div class="result" id="dietBox"></div>
+<div id="res"></div>
 </div>
 
 <!-- WORKOUT -->
-<div class="box">
-<h2>🏋️ أنظمة التمرين</h2>
+<div id="work" class="box">
+<h2>🏋️ التمارين</h2>
 
 <div class="card">
 <h3>PPL</h3>
-<p>Push - Pull - Legs (أفضل نظام للمبتدئين والمتوسطين)</p>
+<p>Bench Press</p>
+<p>Incline Dumbbell Press</p>
+<p>Lat Pulldown</p>
+<p>Squat</p>
 </div>
 
 <div class="card">
 <h3>Upper / Lower</h3>
-<p>تقسيم علوي وسفلي لبناء قوة متوازنة</p>
+<p>Barbell Row</p>
+<p>Deadlift</p>
+<p>Shoulder Press</p>
 </div>
 
 <div class="card">
-<h3>Full Body</h3>
-<p>تمرين الجسم بالكامل 3 أيام أسبوعياً</p>
+<h3>Arnold Split</h3>
+<p>Chest + Back</p>
+<p>Shoulders + Arms</p>
+<p>Legs</p>
+</div>
 </div>
 
+<!-- DIET -->
+<div id="diet" class="box">
+<h2>🍗 النظام الغذائي</h2>
+
+<button class="action" onclick="cut()">تنشيف</button>
+<button class="action" onclick="bulk()">تضخيم</button>
+
+<div id="dietRes"></div>
 </div>
 
 <!-- WATER -->
-<div class="box">
+<div id="water" class="box">
 <h2>💧 المياه</h2>
-<h1 id="water">0 / 8</h1>
 
-<button onclick="addWater()">+ كوب</button>
-<button onclick="resetWater()">Reset</button>
+<h1 id="waterCount">0 / 8</h1>
+
+<button class="action" onclick="addWater()">+ كوب</button>
+<button class="action" onclick="resetWater()">Reset</button>
 </div>
 
+<!-- FOOTER -->
 <footer>
-<p>© جميع حقوق الطبع والنشر محفوظة لمحمود الهنداوي</p>
+© جميع حقوق الطبع والنشر محفوظة لمحمود الهنداوي2026
 </footer>
 
 <script>
@@ -170,50 +176,47 @@ footer p{
 let calories = 2000;
 let water = 0;
 
+function show(id){
+document.querySelectorAll('.box').forEach(b=>b.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+}
+
+// CALC
 function calc(){
+let w=+document.getElementById('w').value;
+let h=+document.getElementById('h').value;
+let a=+document.getElementById('a').value;
+let act=+document.getElementById('act').value;
 
-let w = +document.getElementById("weight").value;
-let h = +document.getElementById("height").value;
-let a = +document.getElementById("age").value;
-let act = +document.getElementById("activity").value;
+let bmr=(10*w)+(6.25*h)-(5*a)+5;
+calories=Math.round(bmr*act);
 
-if(!w || !h || !a){
-alert("دخل البيانات");
-return;
+document.getElementById('res').innerHTML=
+"🔥 السعرات: "+calories+"<br>💪 بروتين: "+Math.round(w*2);
 }
 
-let bmr = (10*w)+(6.25*h)-(5*a)+5;
-calories = Math.round(bmr*act);
-
-document.getElementById("res").style.display="block";
-document.getElementById("res").innerHTML =
-"🔥 السعرات: " + calories + "<br>💪 البروتين: " + Math.round(w*2);
+// DIET
+function cut(){
+document.getElementById('dietRes').innerHTML=
+"🔥 تنشيف: "+(calories-500)+"<br>🥚 3 بيض + فراخ + رز قليل";
 }
 
-function diet(type){
-
-let box = document.getElementById("dietBox");
-
-if(type=="cut"){
-box.style.display="block";
-box.innerHTML="🔥 تنشيف: " + (calories-500) + " سعرة";
-}
-else{
-box.style.display="block";
-box.innerHTML="💪 تضخيم: " + (calories+500) + " سعرة";
-}
+function bulk(){
+document.getElementById('dietRes').innerHTML=
+"💪 تضخيم: "+(calories+500)+"<br>🍗 4 بيض + رز + فراخ + عيش";
 }
 
+// WATER
 function addWater(){
 if(water<8){
 water++;
-document.getElementById("water").innerText = water + " / 8";
+document.getElementById('waterCount').innerText=water+" / 8";
 }
 }
 
 function resetWater(){
 water=0;
-document.getElementById("water").innerText="0 / 8";
+document.getElementById('waterCount').innerText="0 / 8";
 }
 
 </script>
