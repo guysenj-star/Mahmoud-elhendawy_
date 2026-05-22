@@ -438,31 +438,38 @@
     </footer>
 
     <script>
-        var globalCalories = 2000;
+        // متغير السعرات العام المتاح لكل الدوال
+        window.globalCalories = 2000;
 
-        // 1. حساب السعرات والبروتين ونسبة الدهون التقديرية
+        // 1. دالة حساب كل شيء
         function calculateEverything() {
-            var w = parseFloat(document.getElementById('weight').value);
-            var h = parseFloat(document.getElementById('height').value);
-            var a = parseFloat(document.getElementById('age').value);
-            var waist = parseFloat(document.getElementById('waist').value);
-            var act = parseFloat(document.getElementById('activity').value);
+            var weightInput = document.getElementById('weight');
+            var heightInput = document.getElementById('height');
+            var ageInput = document.getElementById('age');
+            var waistInput = document.getElementById('waist');
+            var activityInput = document.getElementById('activity');
 
-            if(!w || !h || !a) {
+            var w = parseFloat(weightInput.value);
+            var h = parseFloat(heightInput.value);
+            var a = parseFloat(ageInput.value);
+            var waist = parseFloat(waistInput.value);
+            var act = parseFloat(activityInput.value);
+
+            if (!w || !h || !a) {
                 alert("يا بطل دخل كل البيانات الأساسية الأول عشان نحسب صح! 😉");
                 return;
             }
 
             var bmr = (10 * w) + (6.25 * h) - (5 * a) + 5;
             var maintenanceCalories = Math.round(bmr * act);
-            globalCalories = maintenanceCalories;
+            window.globalCalories = maintenanceCalories;
             var proteinNeeded = Math.round(w * 2);
 
             document.getElementById('caloriesRet').innerText = maintenanceCalories;
             document.getElementById('proteinRet').innerText = proteinNeeded;
 
-            if(waist) {
-                var fatEstimate = Math.round((74 * (waist / h)) - (44.9 * (w / (h*h/10000))) / 10);
+            if (waist) {
+                var fatEstimate = Math.round((74 * (waist / h)) - (44.9 * (w / (h * h / 10000))) / 10);
                 if (fatEstimate < 4) fatEstimate = 12;
                 document.getElementById('fatRet').innerText = fatEstimate;
                 document.getElementById('fatResultRow').style.display = 'block';
@@ -475,14 +482,14 @@
             document.getElementById('dietPlanBox').style.display = 'none';
         }
 
-        // 2. عرض أنظمة التغذية
+        // 2. دالة عرض أنظمة التغذية
         function showDiet(goal) {
             var box = document.getElementById('dietPlanBox');
             var title = document.getElementById('dietTitle');
             var content = document.getElementById('dietContent');
             
-            var tanshifCalories = globalCalories - 500;
-            var tadkhimCalories = globalCalories + 500;
+            var tanshifCalories = window.globalCalories - 500;
+            var tadkhimCalories = window.globalCalories + 500;
 
             if (goal === 'tanshif') {
                 title.innerText = "🔥 نظام التنشيف المقترح (حرق الدهون مع ثبات العضل)";
@@ -498,7 +505,4 @@
             } else if (goal === 'tadkhim') {
                 title.innerText = "💪 نظام التضخيم ونمو العضلات (Bulk)";
                 content.innerHTML = `
-                    <p style="color: #33cc33; font-weight: bold; font-size: 1.1rem;">🎯 هدفك الحالي يحتاج حوالي: ${tadkhimCalories} سعرة حرارية يومياً.</p>
-                    <ul>
-                        <li><strong>الوجبة 1 (الفطار):</strong> 3 بيضات كاملة مقلية بزيت زيتون + 80 جرام شوفان بالموز والعسل واللبن كامل الدسم.</li>
-         
+                    <p style="color: #33cc33; font-weight: bold; font-si
