@@ -14,7 +14,7 @@
             text-align: center;
         }
 
-        /* الهيدر وفيه الدعوة والهدف الرئيسي */
+        /* الهيدر الرئيسي للموقع */
         .header {
             background: linear-gradient(135deg, #1e1e1e, #2d2d2d);
             padding: 30px 20px;
@@ -25,41 +25,51 @@
         }
         
         .header h1 {
-            margin: 10px 0;
+            margin: 0 0 10px 0;
             font-size: 2.2rem;
             color: #ffcc00;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
         }
 
-        .header h2 {
-            margin: 5px 0;
-            font-size: 1.5rem;
-            color: #00ffcc;
-        }
-
         .header p {
-            margin: 10px 0 15px 0;
+            margin: 10px 0 20px 0;
             color: #aaaaaa;
             font-size: 1.1rem;
         }
 
-        /* ستايل زرار التبديل الاحترافي */
+        /* حاوية الأزرار لتنسيقها بجانب بعضها */
+        .btn-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        /* ستايل أزرار التبديل الاحترافية */
         .toggle-btn {
-            background-color: #00ffcc;
-            color: #121212;
-            border: none;
-            padding: 12px 25px;
-            font-size: 1.1rem;
+            background-color: #222222;
+            color: #00ffcc;
+            border: 2px solid #00ffcc;
+            padding: 10px 20px;
+            font-size: 1rem;
             font-weight: bold;
             border-radius: 30px;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0, 255, 204, 0.3);
             transition: all 0.3s ease;
+        }
+
+        /* الزر النشط حالياً */
+        .toggle-btn.active {
+            background-color: #00ffcc;
+            color: #121212;
+            box-shadow: 0 4px 12px rgba(0, 255, 204, 0.4);
         }
 
         .toggle-btn:hover {
             background-color: #ffcc00;
-            box-shadow: 0 4px 15px rgba(255, 204, 0, 0.4);
+            color: #121212;
+            border-color: #ffcc00;
+            box-shadow: 0 4px 12px rgba(255, 204, 0, 0.4);
             transform: scale(1.05);
         }
 
@@ -124,71 +134,80 @@
             color: #ffffff;
         }
 
-        /* إخفاء نظام الـ Upper/Lower في الأول */
+        /* إخفاء الأنظمة غير النشطة */
         .hidden {
             display: none !important;
         }
 
-        /* الفوتر السفلي للحقوق والمطور */
+        /* الفوتر السفلي للدعاء والحقوق */
         footer {
-            margin-top: 50px;
-            padding: 25px;
+            margin-top: 60px;
+            padding: 30px 20px;
+            border-top: 1px solid #222;
+        }
+
+        .prayer {
+            font-size: 1.6rem;
+            color: #00ffcc;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(0, 255, 204, 0.2);
+        }
+
+        .copyright {
             color: #888888;
             font-size: 1rem;
-            border-top: 1px solid #222;
-            font-weight: 500;
+            font-family: 'Arial', sans-serif;
         }
     </style>
 </head>
 <body>
 
     <div class="header">
-        <h2>يارب ادعو لمحمود الهنداوي وأدهم السلكاوي يجيبو 95% 🎯</h2>
-        <h1 id="main-title">💪 لوحة تمرين الـ PPL للأبطال 💪</h1>
-        <p>الهدف: تدمير الحديد في الجيم، زيادة كتلة عضلية، وحرق دهون!</p>
+        <h1>💪 لوحة تمارين الأبطال الاحترافية 💪</h1>
+        <p>الهدف: تدمير الحديد في الجيم، زيادة كتلة عضلية، وحرق دهون بأقوى الأنظمة العلمية</p>
         
-        <button class="toggle-btn" id="toggle-program" onclick="switchProgram()">التحويل إلى نظام Upper / Lower</button>
+        <div class="btn-container">
+            <button class="toggle-btn active" id="btn-ppl" onclick="showProgram('ppl')">نظام PPL</button>
+            <button class="toggle-btn" id="btn-ul" onclick="showProgram('ul')">نظام Upper / Lower</button>
+            <button class="toggle-btn" id="btn-fb" onclick="showProgram('fb')">نظام Full Body (3 أيام)</button>
+        </div>
     </div>
 
     <div class="grid" id="ppl-program">
-        
         <div class="card">
             <h3><span>1️⃣ يوم الدفع (Push)</span> <span class="target-muscle">بنش / كتف / تراي</span></h3>
             <ul>
                 <li><strong>بنش مستوي بالبار (Bench Press):</strong> 4 مجاميع × 6 - 10 عدات.</li>
-                <li><strong>بنش عالي بالدمبل (Incline Dumbbell Press):</strong> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>بنش عالي بالدمبل (Incline Press):</strong> 3 مجاميع × 6 - 10 عدات.</li>
                 <li><strong>تجميع كتف بالدمبل (Shoulder Press):</strong> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><strong>جانبي كتف بالدمبل (Lateral Raises):</strong> 4 مجاميع × 10 عدات بتركيز.</li>
+                <li><strong>جانبي كتف بالدمبل (Lateral Raises):</strong> 4 مجاميع × 10 عدات.</li>
                 <li><strong>ترايسبس بالروب (Triceps Pushdown):</strong> 3 مجاميع × 8 - 10 عدات.</li>
             </ul>
         </div>
-
         <div class="card">
-            <h3><span>2️⃣ يوم السحب (Pull)</span> <span class="target-muscle">ظهر / باي / كتف خلفي</span></h3>
+            <h3><span>2️⃣ يوم السحب (Pull)</span> <span class="target-muscle">ظهر / باي / خلفي</span></h3>
             <ul>
                 <li><strong>سحب عالي للظهر (Lat Pulldown):</strong> 4 مجاميع × 6 - 10 عدات.</li>
                 <li><strong>تجديف بالدمبل (Dumbbell Row):</strong> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><strong>سحب أرضي ضيق (Seated Cable Row):</strong> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>سحب أرضي ضيق (Seated Row):</strong> 3 مجاميع × 6 - 10 عدات.</li>
                 <li><strong>رفرفة كتف خلفي (Rear Delt Flyes):</strong> 4 مجاميع × 10 عدات.</li>
                 <li><strong>بايسبس بالتبادل دمبل (Bicep Curls):</strong> 4 مجاميع × 8 - 10 عدات.</li>
             </ul>
         </div>
-
         <div class="card">
-            <h3><span>3️⃣ يوم الرجلين والبطن (Legs)</span> <span class="target-muscle">رجل كامل / بطن</span></h3>
+            <h3><span>3️⃣ يوم الرجلين والبطن (Legs)</span> <span class="target-muscle">رجل / بطن</span></h3>
             <ul>
                 <li><strong>سكوات بالبار (Barbell Squat):</strong> 4 مجاميع × 6 - 10 عدات.</li>
                 <li><strong>لج بريس بالرجل (Leg Press):</strong> 3 مجاميع × 6 - 10 عدات.</li>
                 <li><strong>ماد أمامي أرجل (Leg Extensions):</strong> 3 مجاميع × 8 - 10 عدات.</li>
-                <li><strong>خلفيات رجل جهاز (Lying Leg Curls):</strong> 3 مجاميع × 8 - 10 عدات.</li>
+                <li><strong>خلفيات رجل جهاز (Leg Curls):</strong> 3 مجاميع × 8 - 10 عدات.</li>
                 <li><strong>تحدي الأبطال (بطن):</strong> 50 عدة كرانشيز (Crunches).</li>
             </ul>
         </div>
-
     </div>
 
     <div class="grid hidden" id="ul-program">
-        
         <div class="card">
             <h3><span>1️⃣ الجزء العلوي (Upper Body)</span> <span class="target-muscle">عضلات فوق كاملة</span></h3>
             <ul>
@@ -197,10 +216,9 @@
                 <li><strong>تجميع كتف بالدمبل (Shoulder Press):</strong> 3 مجاميع × 6 - 10 عدات.</li>
                 <li><strong>سحب عالي للظهر واسع (Lat Pulldown):</strong> 3 مجاميع × 6 - 10 عدات.</li>
                 <li><strong>بايسبس بالبار (Barbell Curls):</strong> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><strong>ترايسبس ديبس أو بالروب:</strong> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>ترايسبس بالروب أو ديبس:</strong> 3 مجاميع × 6 - 10 عدات.</li>
             </ul>
         </div>
-
         <div class="card">
             <h3><span>2️⃣ الجزء السفلي والبطن (Lower Body)</span> <span class="target-muscle">رجل كامل / بطن</span></h3>
             <ul>
@@ -209,33 +227,74 @@
                 <li><strong>لج بريس على الجهاز (Leg Press):</strong> 3 مجاميع × 6 - 10 عدات.</li>
                 <li><strong>خلفيات رجل جهاز (Leg Curls):</strong> 3 مجاميع × 8 - 10 عدات.</li>
                 <li><strong>سمانة واقف بالوزن (Calves):</strong> 4 مجاميع × 10 عدات.</li>
-                <li><strong>تحدي بطن (تجميع):</strong> 50 عدة ضغط بطن كرانشيز.</li>
+                <li><strong>تحدي بطن (تجميع):</strong> 50 عدة ضغط بطن.</li>
             </ul>
         </div>
+    </div>
 
+    <div class="grid hidden" id="fb-program">
+        <div class="card">
+            <h3><span>1️⃣ اليوم الأول (Day 1)</span> <span class="target-muscle">فول بادي أستهدف قوة</span></h3>
+            <ul>
+                <li><strong>سكوات بالبار (Barbell Squat):</strong> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>بنش مستوي بالبار (Bench Press):</strong> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>تجديف ظهر بالبار (Barbell Row):</strong> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>تجميع كتف دمبل (Shoulder Press):</strong> 3 مجاميع × 8 - 10 عدات.</li>
+                <li><strong>بايسبس دمبل (Bicep Curls):</strong> 3 مجاميع × 10 عدات.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3><span>2️⃣ اليوم الثاني (Day 2)</span> <span class="target-muscle">فول بادي استهداف زوايا</span></h3>
+            <ul>
+                <li><strong>الرفعة الميتة روماني (Romanian Deadlift):</strong> 3 مجاميع × 8 - 10 عدات.</li>
+                <li><strong>بنش عالي دمبل (Incline Dumbbell Press):</strong> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>سحب عالي للظهر (Lat Pulldown):</strong> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>جانبي كتف دمبل (Lateral Raises):</strong> 3 مجاميع × 10 عدات.</li>
+                <li><strong>ترايسبس بالروب (Triceps Pushdown):</strong> 3 مجاميع × 10 عدات.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3><span>3️⃣ اليوم الثالث (Day 3)</span> <span class="target-muscle">فول بادي ضخامة وتحمل</span></h3>
+            <ul>
+                <li><strong>لج بريس جهاز (Leg Press):</strong> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>تجميع صدر دمبل مستوي:</strong> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>سحب أرضي ضيق للظهر (Seated Row):</strong> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>رفرفة كتف خلفي جهاز أو دمبل:</strong> 3 مجاميع × 10 عدات.</li>
+                <li><strong>تحدي بطن الأبطال:</strong> 50 عدة كرانشيز كاملة.</li>
+            </ul>
+        </div>
     </div>
 
     <footer>
-        كل الحقوق محفوظة لدي المالك محمود الهنداوي و ادهم السلكاوي
+        <div class="prayer">يارب الهنداوي وسلكاوي يجيبو 95% 🎯</div>
+        
+        <div class="copyright">
+            Copyright © 2026 All Rights Reserved | Owned by Mahmoud Elhendawy & Adham Elsalkawy
+        </div>
     </footer>
 
     <script>
-        function switchProgram() {
-            var ppl = document.getElementById("ppl-program");
-            var ul = document.getElementById("ul-program");
-            var btn = document.getElementById("toggle-program");
-            var title = document.getElementById("main-title");
+        function showProgram(programName) {
+            // إخفاء كل الجداول أولاً
+            document.getElementById("ppl-program").classList.add("hidden");
+            document.getElementById("ul-program").classList.add("hidden");
+            document.getElementById("fb-program").classList.add("hidden");
 
-            if (ul.classList.contains("hidden")) {
-                ul.classList.remove("hidden");
-                ppl.classList.add("hidden");
-                btn.innerHTML = "التحويل إلى نظام PPL (دفع/سحب/رجل)";
-                title.innerHTML = "💪 لوحة تمرين الـ Upper / Lower للأبطال 💪";
-            } else {
-                ppl.classList.remove("hidden");
-                ul.classList.add("hidden");
-                btn.innerHTML = "التحويل إلى نظام Upper / Lower";
-                title.innerHTML = "💪 لوحة تمرين الـ PPL للأبطال 💪";
+            // إزالة اللون النشط من كل الأزرار
+            document.getElementById("btn-ppl").classList.remove("active");
+            document.getElementById("btn-ul").classList.remove("active");
+            document.getElementById("btn-fb").classList.remove("active");
+
+            // إظهار الجدول المطلوب وتفعيل زراره
+            if (programName === 'ppl') {
+                document.getElementById("ppl-program").classList.remove("hidden");
+                document.getElementById("btn-ppl").classList.add("active");
+            } else if (programName === 'ul') {
+                document.getElementById("ul-program").classList.remove("hidden");
+                document.getElementById("btn-ul").classList.add("active");
+            } else if (programName === 'fb') {
+                document.getElementById("fb-program").classList.remove("hidden");
+                document.getElementById("btn-fb").classList.add("active");
             }
         }
     </script>
