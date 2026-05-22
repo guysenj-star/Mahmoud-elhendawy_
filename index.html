@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>موقع الأبطال المتكامل | محمود الهنداوي</title>
     <style>
-        /* أنظمة الألوان والتصميم الاحترافي */
         :root {
             --bg-main: #0b0c10;
             --bg-card: #1f2833;
@@ -25,7 +24,7 @@
             scroll-behavior: smooth;
         }
 
-        /* الهيدر الأسطوري */
+        /* الهيدر */
         .hero-header {
             background: linear-gradient(135deg, #112233, #0b0c10);
             padding: 40px 20px;
@@ -56,17 +55,14 @@
             color: var(--neon-green);
             font-weight: bold;
             font-size: 1.3rem;
-            box-shadow: inset 0 0 10px rgba(0, 255, 204, 0.2);
         }
 
-        /* حاوية الأقسام المفرودة */
         .container {
             max-width: 1100px;
             margin: 0 auto;
             padding: 20px;
         }
 
-        /* ستايل القسم */
         .section-title {
             color: var(--neon-green);
             font-size: 2rem;
@@ -77,7 +73,7 @@
             padding-right: 15px;
         }
 
-        /* بوكسات الأدوات والحاسبات */
+        /* بوكسات الأدوات */
         .tool-card {
             background-color: var(--bg-card);
             padding: 30px;
@@ -96,8 +92,8 @@
             padding-bottom: 10px;
         }
 
-        /* أزرار اختيار نظام تمرين (بـ CSS Pure بدون جافا سكريبت) */
-        .workout-selector {
+        /* جداول عرض التمارين والدايت بالـ CSS */
+        .workout-selector, .diet-selector {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
@@ -127,57 +123,69 @@
             color: var(--bg-main);
         }
 
-        /* حركة السحر بالـ CSS لعرض وإخفاء الجداول */
-        .workout-group {
+        /* إخفاء المحتوى التفاعلي افتراضياً وعرضه بالـ Target */
+        .workout-group, .diet-group {
             display: none;
         }
 
-        /* الافتراضي أول ما تفتح الموقع: الـ PPL يظهر */
-        #group-ppl {
+        /* الأنظمة الافتراضية أول ما تفتح */
+        #group-ppl, #diet-tanshif {
             display: block;
         }
 
-        /* لما تدوس على أي لينك، يخفي الافتراضي ويظهر اللي اخترته */
-        #group-arnold:target, #group-ul:target, #group-fb:target {
+        /* التبديل السحري */
+        #group-arnold:target, #group-ul:target, #group-fb:target, #diet-tadkhim:target {
             display: block;
         }
         
-        /* كود تأميني لإخفاء الـ PPL لو اخترنا نظام تاني */
-        body:has(#group-arnold:target) #group-ppl { display: none; }
-        body:has(#group-ul:target) #group-ppl { display: none; }
+        /* إخفاء الافتراضي عند اختيار نظام آخر */
+        body:has(#group-arnold:target) #group-ppl,
+        body:has(#group-ul:target) #group-ppl,
         body:has(#group-fb:target) #group-ppl { display: none; }
 
-        /* ستايل الجداول الكروت */
+        body:has(#diet-tadkhim:target) #diet-tanshif { display: none; }
+
+        /* ستايل الكروت والشبكات */
         .workout-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
         }
 
-        .workout-card {
+        .workout-card, .diet-box {
             background-color: var(--bg-card);
             border-radius: 12px;
-            padding: 20px;
+            padding: 25px;
             text-align: right;
-            border-top: 4px solid var(--neon-green);
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
-        .workout-card h4 {
+        .workout-card { border-top: 4px solid var(--neon-green); }
+        .diet-box { border-top: 4px solid var(--neon-gold); }
+
+        .workout-card h4, .diet-box h4 {
             color: var(--neon-gold);
             margin-top: 0;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             border-bottom: 1px solid #2c3b4e;
             padding-bottom: 10px;
         }
 
-        .workout-card ul {
-            padding-right: 20px;
-            color: #bdc7d0;
-            line-height: 1.8;
-        }
+        ul { padding-right: 20px; color: #bdc7d0; line-height: 1.8; }
+        li { margin-bottom: 12px; }
 
-        .workout-card li { margin-bottom: 12px; }
+        /* حاسبة استرشادية سريعة ومباشرة للمياه */
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        .info-table th, .info-table td {
+            padding: 12px;
+            border: 1px solid #2c3b4e;
+            text-align: center;
+        }
+        .info-table th { background-color: #151c24; color: var(--neon-green); }
 
         footer {
             margin-top: 80px;
@@ -190,7 +198,6 @@
             font-size: 1.8rem;
             color: var(--neon-green);
             font-weight: bold;
-            text-shadow: 0 0 10px rgba(0, 255, 204, 0.2);
         }
 
         .footer-copy {
@@ -210,7 +217,79 @@
 
     <div class="container">
 
-        <div class="section-title">🏋️‍♂️ اختيار نظام تمرين الأبطال المعتمد</div>
+        <div class="section-title">01 / هيدرات الجسم واحتياج المياه اليومي</div>
+        <div class="tool-card">
+            <h3>💧 جدول احتياج المياه الذكي حسب وزنك الحالي</h3>
+            <p style="color: #cbd5e1; margin-bottom: 15px;">بناءً على المعادلات الرياضية الرياضية، ابحث عن فئة وزنك واعرف لتراتك المضمونة يومياً:</p>
+            <table class="info-table">
+                <thead>
+                    <tr>
+                        <th>وزن الجسم الحالي</th>
+                        <th>كمية المياه المطلوبة يومياً</th>
+                        <th>عدد الأكواب التقريبي (250 مل)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>من 50 إلى 65 كيلو</td>
+                        <td style="color: var(--neon-green); font-weight: bold;">2.2 لتر</td>
+                        <td>9 أكواب</td>
+                    </tr>
+                    <tr>
+                        <td>من 66 إلى 80 كيلو</td>
+                        <td style="color: var(--neon-green); font-weight: bold;">2.8 لتر</td>
+                        <td>11 كوب</td>
+                    </tr>
+                    <tr>
+                        <td>من 81 إلى 95 كيلو</td>
+                        <td style="color: var(--neon-green); font-weight: bold;">3.3 لتر</td>
+                        <td>13 كوب</td>
+                    </tr>
+                    <tr>
+                        <td>أكثر من 95 كيلو</td>
+                        <td style="color: var(--neon-green); font-weight: bold;">4.0 لتر</td>
+                        <td>16 كوب</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <div class="section-title">02 / التغذية والأنظمة الغذائية للأبطال</div>
+        
+        <div class="diet-selector">
+            <a href="#diet-tanshif" class="selector-link" style="border-color: #ff3333; color: #ff3333;">🔥 نظام التنشيف وحرق الدهون</a>
+            <a href="#diet-tadkhim" class="selector-link" style="border-color: #33cc33; color: #33cc33;">💪 نظام التضخيم وبناء العضلات</a>
+        </div>
+
+        <div class="diet-group" id="diet-tanshif">
+            <div class="diet-box" style="border-top-color: #ff3333;">
+                <h4>🔥 نظام التنشيف المقترح (حرق الدهون وثبات الكتلة العضلية)</h4>
+                <p style="color: var(--neon-gold); font-weight: bold;">المواصفات: بروتين عالي، كربوهيدرات معتدلة، دهون صحية منخفضة.</p>
+                <ul>
+                    <li><strong>الوجبة الأولى (الفطار):</strong> 4 بياض بيض + بيضة كاملة مسلوقة + 50 جرام شوفان مطبوخ بماء أو لبن خالي الدسم + قرفة.</li>
+                    <li><strong>الوجبة الثانية (الغداء):</strong> 200 جرام صدور دجاج مشوية (وزن بعد الطبخ) + 100 جرام أرز مسلوق + طبق سلطة خضراء كبير (خيار، جرجير، طماطم).</li>
+                    <li><strong>الوجبة الثالثة (سناك):</strong> علبة تونة مصفاة تماماً من الزيت + رشة ليمون + 5 حبات لوز أو جوز.</li>
+                    <li><strong>الوجبة الرابعة (العشاء):</strong> 200 جرام جبنة قريش قليل الملح + حبة خيار + ملعقة صغيرة زيت زيتون بكر.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="diet-group" id="diet-tadkhim">
+            <div class="diet-box" style="border-top-color: #33cc33;">
+                <h4>💪 نظام التضخيم الأسطوري (ضخامة عضلية صافية Clean Bulk)</h4>
+                <p style="color: var(--neon-gold); font-weight: bold;">المواصفات: فائض سعرات حرارية، كربوهيدرات عالية لإمداد الطاقة، بروتين كافي للريكفري.</p>
+                <ul>
+                    <li><strong>الوجبة الأولى (الفطار):</strong> 3 بيضات كاملة مقلية بنصف ملعقة زبدة طبيعية + 80 جرام شوفان + موزة كبيرة + ملعقة عسل نحل + كوب لبن كامل الدسم.</li>
+                    <li><strong>الوجبة الثانية (الغداء):</strong> 200 جرام لحم مفروم قليل الدسم أو صدور دجاج + 250 جرام أرز بسمتي مطبوخ + حبة بطاطس مسلوقة ومهروسة.</li>
+                    <li><strong>الوجبة الثالثة (سناك قبل التمرين):</strong> حبتين موز + ملعقتين كبار زبدة فول سوداني طبيعية + كوب قهوة سادة بدون سكر.</li>
+                    <li><strong>الوجبة الرابعة (العشاء):</strong> علبة تونة كبيرة أو 4 بيضات مسلوقين + رغيف عيش بلدي كامل + علبة زبادي كامل الدسم كبير.</li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="section-title">03 / جداول وأنظمة التمرين المعتمدة</div>
         
         <div class="workout-selector">
             <a href="#group-ppl" class="selector-link">نظام Push Pull Legs</a>
@@ -332,5 +411,5 @@
     </footer>
 
 </body>
-</html>
-
+    </html>
+    
