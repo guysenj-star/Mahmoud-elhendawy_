@@ -14,7 +14,6 @@
             text-align: center;
         }
 
-        /* الهيدر الرئيسي للموقع */
         .header {
             background: linear-gradient(135deg, #1e1e1e, #2d2d2d);
             padding: 30px 20px;
@@ -37,7 +36,6 @@
             font-size: 1.1rem;
         }
 
-        /* حاوية الأزرار لتنسيقها بجانب بعضها */
         .btn-container {
             display: flex;
             flex-wrap: wrap;
@@ -45,7 +43,6 @@
             gap: 10px;
         }
 
-        /* ستايل أزرار التبديل الاحترافية */
         .toggle-btn {
             background-color: #222222;
             color: #00ffcc;
@@ -58,7 +55,6 @@
             transition: all 0.3s ease;
         }
 
-        /* الزر النشط حالياً */
         .toggle-btn.active {
             background-color: #00ffcc;
             color: #121212;
@@ -73,20 +69,17 @@
             transform: scale(1.05);
         }
 
-        /* شبكة عرض أيام التمرين والكروت */
         .grid {
-            display: none; /* مخفي طبيعي والجافا سكريبت هيظهره */
+            display: none;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
             margin-top: 25px;
         }
 
-        /* إظهار النظام النشط */
         .grid.active-program {
             display: grid !important;
         }
 
-        /* ستايل كارت اليوم الواحد */
         .card {
             background-color: #1e1e1e;
             padding: 25px;
@@ -102,7 +95,6 @@
             box-shadow: 0 5px 15px rgba(255, 204, 0, 0.1);
         }
 
-        /* عناوين الأيام */
         .card h3 {
             color: #ffcc00;
             margin-top: 0;
@@ -122,7 +114,6 @@
             border-radius: 5px;
         }
 
-        /* قائمة التمارين */
         ul {
             padding-right: 20px;
             margin: 15px 0 0 0;
@@ -156,7 +147,6 @@
             font-weight: bold;
         }
 
-        /* الفوتر السفلي للدعاء والحقوق */
         footer {
             margin-top: 60px;
             padding: 30px 20px;
@@ -183,7 +173,7 @@
     <div class="header">
         <h1>💪 جميع أنظمة التمارين 💪</h1>
         <p>اضغط على اسم النظام للتبديل، واضغط على اسم التمرين لمشاهدة شرح متحرك دقيق وصحيح!</p>
-        <p class="tip">💡 دلوقتي روابط الصور معلقه يرجى الاتصال لاحقاً</p>
+        <p class="tip">💡 الروابط متصلحة وبتفتح صور مباشرة وسريعة دلوقتي</p>
         
         <div class="btn-container">
             <button class="toggle-btn active" id="btn-ppl" onclick="changeProgram('ppl')">نظام PPL</button>
@@ -197,56 +187,56 @@
         <div class="card">
             <h3><span>1️⃣ يوم الدفع (Push)</span> <span class="target-muscle">بنش / كتف / تراي</span></h3>
             <ul>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/barbell-bench-press.gif" target="_blank"><strong>بنش مستوي بالبار:</strong></a> 4 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/incline-dumbbell-press.gif" target="_blank"><strong>بنش عالي بالدمبل:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/10/dumbbell-shoulder-press.gif" target="_blank"><strong>تجميع كتف بالدمبل:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/dumbbell-lateral-raise.gif" target="_blank"><strong>جانبي كتف بالدمبل:</strong></a> 4 مجاميع × 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/tricep-pushdown.gif" target="_blank"><strong>ترايسبس بالروب:</strong></a> 3 مجاميع × 8 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/developpe-couche-barre.gif" target="_blank"><strong>بنش مستوي بالبار:</strong></a> 4 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/developpe-incline-halteres.gif" target="_blank"><strong>بنش عالي بالدمبل:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/developpe-militaire-halteres.gif" target="_blank"><strong>تجميع كتف بالدمبل:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/elevations-laterales-halteres.gif" target="_blank"><strong>جانبي كتف بالدمبل:</strong></a> 4 مجاميع × 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/extension-triceps-poulie-haute.gif" target="_blank"><strong>ترايسبس بالروب:</strong></a> 3 مجاميع × 8 - 10 عدات.</li>
             </ul>
         </div>
         <div class="card">
             <h3><span>2️⃣ يوم السحب (Pull)</span> <span class="target-muscle">ظهر / باي / خلفي</span></h3>
             <ul>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/lat-pulldown.gif" target="_blank"><strong>سحب عالي للظهر:</strong></a> 4 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/08/one-arm-dumbbell-row.gif" target="_blank"><strong>تجديف بالدمبل:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/seated-cable-row.gif" target="_blank"><strong>سحب أرضي ضيق:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/dumbbell-rear-delt-fly.gif" target="_blank"><strong>رفرفة كتف خلفي:</strong></a> 4 مجاميع × 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/dumbbell-bicep-curl.gif" target="_blank"><strong>بايسبس بالتبادل دمبل:</strong></a> 4 مجاميع × 8 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/tirage-poitrine-poulie-haute.gif" target="_blank"><strong>سحب عالي للظهر:</strong></a> 4 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/tirage-unilateral-haltere.gif" target="_blank"><strong>تجديف بالدمبل:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/tirage-horizontal-poulie-basse.gif" target="_blank"><strong>سحب أرضي ضيق:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/oiseau-halteres.gif" target="_blank"><strong>رفرفة كتف خلفي:</strong></a> 4 مجاميع × 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/curl-halteres-alterne.gif" target="_blank"><strong>بايسبس بالتبادل دمبل:</strong></a> 4 مجاميع × 8 - 10 عدات.</li>
             </ul>
         </div>
         <div class="card">
             <h3><span>3️⃣ يوم الرجلين والبطن (Legs)</span> <span class="target-muscle">رجل / بطن</span></h3>
             <ul>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/barbell-squat.gif" target="_blank"><strong>سكوات بالبار:</strong></a> 4 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/leg-press.gif" target="_blank"><strong>لج بريس بالرجل:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/leg-extension.gif" target="_blank"><strong>ماد أمامي أرجل:</strong></a> 3 مجاميع × 8 - 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/lying-leg-curl.gif" target="_blank"><strong>خلفيات رجل جهاز:</strong></a> 3 مجاميع × 8 - 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/crunch.gif" target="_blank"><strong>تحدي الأبطال (بطن):</strong></a> 50 عدة كرانشيز.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/squat-barre.gif" target="_blank"><strong>سكوات بالبار:</strong></a> 4 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/presse-a-cuisses.gif" target="_blank"><strong>لج بريس بالرجل:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/leg-extension.gif" target="_blank"><strong>ماد أمامي أرجل:</strong></a> 3 مجاميع × 8 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/leg-curl-allonge.gif" target="_blank"><strong>خلفيات رجل جهاز:</strong></a> 3 مجاميع × 8 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/crunch-abdominaux.gif" target="_blank"><strong>تحدي الأبطال (بطن):</strong></a> 50 عدة كرانشيز.</li>
             </ul>
         </div>
     </div>
 
     <div class="grid" id="ul-program">
         <div class="card">
-            <h3><span>1️⃣ الجزء العلوي (Upper Body)</span> <span class="target-muscle">عضلات فوق كاملة</span></h3>
+            <h3><span>1️⃣ الجزء العلوي (Upper Body)</span> <span class="target-muscle">عضلات كاملة</span></h3>
             <ul>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/barbell-bench-press.gif" target="_blank"><strong>بنش مستوي بالبار:</strong></a> 4 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/barbell-row.gif" target="_blank"><strong>تجديف ظهر بالبار:</strong></a> 4 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/10/dumbbell-shoulder-press.gif" target="_blank"><strong>تجميع كتف بالدمبل:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/lat-pulldown.gif" target="_blank"><strong>سحب عالي للظهر واسع:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/barbell-curl.gif" target="_blank"><strong>بايسبس بالبار:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/tricep-pushdown.gif" target="_blank"><strong>ترايسبس بالروب:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/developpe-couche-barre.gif" target="_blank"><strong>بنش مستوي بالبار:</strong></a> 4 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/rowing-barre.gif" target="_blank"><strong>تجديف ظهر بالبار:</strong></a> 4 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/developpe-militaire-halteres.gif" target="_blank"><strong>تجميع كتف بالدمبل:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/tirage-poitrine-poulie-haute.gif" target="_blank"><strong>سحب عالي للظهر واسع:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/curl-barre.gif" target="_blank"><strong>بايسبس بالبار:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/extension-triceps-poulie-haute.gif" target="_blank"><strong>ترايسبس بالروب:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
             </ul>
         </div>
         <div class="card">
             <h3><span>2️⃣ الجزء السفلي والبطن (Lower Body)</span> <span class="target-muscle">رجل كامل / بطن</span></h3>
             <ul>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/barbell-squat.gif" target="_blank"><strong>سكوات بالبار حر:</strong></a> 4 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/barbell-deadlift.gif" target="_blank"><strong>الرفعة الميتة (Deadlift):</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/leg-press.gif" target="_blank"><strong>لج بريس على الجهاز:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/lying-leg-curl.gif" target="_blank"><strong>خلفيات رجل جهاز:</strong></a> 3 مجاميع × 8 - 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/standing-calf-raise.gif" target="_blank"><strong>سمانة واقف بالوزن:</strong></a> 4 مجاميع × 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/crunch.gif" target="_blank"><strong>تحدي بطن (تجميع):</strong></a> 50 عدة.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/squat-barre.gif" target="_blank"><strong>سكوات بالبار حر:</strong></a> 4 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/souleve-de-terre.gif" target="_blank"><strong>الرفعة الميتة (Deadlift):</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/presse-a-cuisses.gif" target="_blank"><strong>لج بريس على الجهاز:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/leg-curl-allonge.gif" target="_blank"><strong>خلفيات رجل جهاز:</strong></a> 3 مجاميع × 8 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/extensions-mollets-debout.gif" target="_blank"><strong>سمانة واقف بالوزن:</strong></a> 4 مجاميع × 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/crunch-abdominaux.gif" target="_blank"><strong>تحدي بطن (تجميع):</strong></a> 50 عدة.</li>
             </ul>
         </div>
     </div>
@@ -255,61 +245,61 @@
         <div class="card">
             <h3><span>1️⃣ اليوم الأول (Day 1)</span> <span class="target-muscle">قوة أساسية</span></h3>
             <ul>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/barbell-squat.gif" target="_blank"><strong>سكوات بالبار:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/barbell-bench-press.gif" target="_blank"><strong>بنش مستوي بالبار:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/barbell-row.gif" target="_blank"><strong>تجديف ظهر بالبار:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/10/dumbbell-shoulder-press.gif" target="_blank"><strong>تجميع كتف دمبل:</strong></a> 3 مجاميع × 8 - 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/dumbbell-bicep-curl.gif" target="_blank"><strong>بايسبس دمبل:</strong></a> 3 مجاميع × 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/squat-barre.gif" target="_blank"><strong>سكوات بالبار:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/developpe-couche-barre.gif" target="_blank"><strong>بنش مستوي بالبار:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/rowing-barre.gif" target="_blank"><strong>تجديف ظهر بالبار:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/developpe-militaire-halteres.gif" target="_blank"><strong>تجميع كتف دمبل:</strong></a> 3 مجاميع × 8 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/curl-halteres-alterne.gif" target="_blank"><strong>بايسبس دمبل:</strong></a> 3 مجاميع × 10 عدات.</li>
             </ul>
         </div>
         <div class="card">
             <h3><span>2️⃣ اليوم الثاني (Day 2)</span> <span class="target-muscle">استهداف زوايا</span></h3>
             <ul>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/romanian-deadlift.gif" target="_blank"><strong>الرفعة الميتة روماني:</strong></a> 3 مجاميع × 8 - 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/incline-dumbbell-press.gif" target="_blank"><strong>بنش عالي دمبل:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/lat-pulldown.gif" target="_blank"><strong>سحب عالي للظهر:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/dumbbell-lateral-raise.gif" target="_blank"><strong>جانبي كتف دمبل:</strong></a> 3 مجاميع × 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/tricep-pushdown.gif" target="_blank"><strong>ترايسبس بالروب:</strong></a> 3 مجاميع × 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/souleve-de-terre-jambes-tendues.gif" target="_blank"><strong>الرفعة الميتة روماني:</strong></a> 3 مجاميع × 8 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/developpe-incline-halteres.gif" target="_blank"><strong>بنش عالي دمبل:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/tirage-poitrine-poulie-haute.gif" target="_blank"><strong>سحب عالي للظهر:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/elevations-laterales-halteres.gif" target="_blank"><strong>جانبي كتف دمبل:</strong></a> 3 مجاميع × 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/extension-triceps-poulie-haute.gif" target="_blank"><strong>ترايسبس بالروب:</strong></a> 3 مجاميع × 10 عدات.</li>
             </ul>
         </div>
         <div class="card">
             <h3><span>3️⃣ اليوم الثالث (Day 3)</span> <span class="target-muscle">ضخامة وتحمل</span></h3>
             <ul>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/leg-press.gif" target="_blank"><strong>لج بريس جهاز:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/barbell-bench-press.gif" target="_blank"><strong>تجميع صدر دمبل مستوي:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/seated-cable-row.gif" target="_blank"><strong>سحب أرضي ضيق للظهر:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/dumbbell-rear-delt-fly.gif" target="_blank"><strong>رفرفة كتف خلفي:</strong></a> 3 مجاميع × 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/crunch.gif" target="_blank"><strong>تحدي بطن الأبطال:</strong></a> 50 عدة كرانشيز.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/presse-a-cuisses.gif" target="_blank"><strong>لج بريس جهاز:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/developpe-couche-halteres.gif" target="_blank"><strong>تجميع صدر دمبل مستوي:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/tirage-horizontal-poulie-basse.gif" target="_blank"><strong>سحب أرضي ضيق للظهر:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/oiseau-halteres.gif" target="_blank"><strong>رفرفة كتف خلفي:</strong></a> 3 مجاميع × 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/crunch-abdominaux.gif" target="_blank"><strong>تحدي بطن الأبطال:</strong></a> 50 عدة كرانشيز.</li>
             </ul>
         </div>
     </div>
 
     <div class="grid" id="arnold-program">
         <div class="card">
-            <h3><span>1️⃣ الصدر والظهر (Chest & Back)</span> <span class="target-muscle">سوبر سيت تفجير</span></h3>
+            <h3><span>1️⃣ الصدر والظهر (Chest & Back)</span> <span class="target-muscle">تفجير</span></h3>
             <ul>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/barbell-bench-press.gif" target="_blank"><strong>بنش مستوي بالبار:</strong></a> 4 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/lat-pulldown.gif" target="_blank"><strong>سحب عالي للظهر واسع:</strong></a> 4 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/incline-dumbbell-press.gif" target="_blank"><strong>بنش عالي دمبل:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/barbell-row.gif" target="_blank"><strong>تجديف بالبار حر:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/developpe-couche-barre.gif" target="_blank"><strong>بنش مستوي بالبار:</strong></a> 4 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/tirage-poitrine-poulie-haute.gif" target="_blank"><strong>سحب عالي للظهر واسع:</strong></a> 4 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/developpe-incline-halteres.gif" target="_blank"><strong>بنش عالي دمبل:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/rowing-barre.gif" target="_blank"><strong>تجديف بالبار حر:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
             </ul>
         </div>
         <div class="card">
-            <h3><span>2️⃣ الأكتاف والذراعين (Shoulders & Arms)</span> <span class="target-muscle">بامب عالي</span></h3>
+            <h3><span>2️⃣ الأكتاف والذراعين (Shoulders & Arms)</span> <span class="target-muscle">بامب</span></h3>
             <ul>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/10/dumbbell-shoulder-press.gif" target="_blank"><strong>تجميع كتف بالدمبل:</strong></a> 4 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/dumbbell-lateral-raise.gif" target="_blank"><strong>جانبي دمبل (توسيع):</strong></a> 4 مجاميع × 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/barbell-curl.gif" target="_blank"><strong>باي بالبار واقف:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/tricep-pushdown.gif" target="_blank"><strong>تراي بالروب على الكيبل:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/developpe-militaire-halteres.gif" target="_blank"><strong>تجميع كتف بالدمبل:</strong></a> 4 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/elevations-laterales-halteres.gif" target="_blank"><strong>جانبي دمبل (توسيع):</strong></a> 4 مجاميع × 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/curl-barre.gif" target="_blank"><strong>باي بالبار واقف:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/extension-triceps-poulie-haute.gif" target="_blank"><strong>تراي بالروب على الكيبل:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
             </ul>
         </div>
         <div class="card">
-            <h3><span>3️⃣ الأرجل والبطن (Legs & Abs)</span> <span class="target-muscle">تدمير الرجل</span></h3>
+            <h3><span>3️⃣ الأرجل والبطن (Legs & Abs)</span> <span class="target-muscle">قوة</span></h3>
             <ul>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/barbell-squat.gif" target="_blank"><strong>سكوات بار خلفي حر:</strong></a> 4 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/leg-press.gif" target="_blank"><strong>لج بريس وزن عالي:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/lying-leg-curl.gif" target="_blank"><strong>خلفيات أرجل جهاز:</strong></a> 3 مجاميع × 8 - 10 عدات.</li>
-                <li><a href="https://fitnessprogram.com.au/wp-content/uploads/2015/07/crunch.gif" target="_blank"><strong>تحدي بطن الأبطال:</strong></a> 50 عدة كرانشيز.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/squat-barre.gif" target="_blank"><strong>سكوات بار خلفي حر:</strong></a> 4 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/presse-a-cuisses.gif" target="_blank"><strong>لج بريس وزن عالي:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/leg-curl-allonge.gif" target="_blank"><strong>خلفيات أرجل جهاز:</strong></a> 3 مجاميع × 8 - 10 عدات.</li>
+                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/crunch-abdominaux.gif" target="_blank"><strong>تحدي بطن الأبطال:</strong></a> 50 عدة كرانشيز.</li>
             </ul>
         </div>
     </div>
@@ -323,19 +313,16 @@
 
     <script>
         function changeProgram(programName) {
-            // 1. إخفاء كل الجداول
             var grids = document.querySelectorAll('.grid');
             grids.forEach(function(grid) {
                 grid.classList.remove('active-program');
             });
 
-            // 2. إزالة اللون النشط من كل الأزرار
             var buttons = document.querySelectorAll('.toggle-btn');
             buttons.forEach(function(btn) {
                 btn.classList.remove('active');
             });
 
-            // 3. إظهار الجدول المختار وتنشيط زراره
             if (programName === 'ppl') {
                 document.getElementById("ppl-program").classList.add("active-program");
                 document.getElementById("btn-ppl").classList.add("active");
@@ -353,4 +340,5 @@
     </script>
 
 </body>
-</html>
+    </html>
+    
