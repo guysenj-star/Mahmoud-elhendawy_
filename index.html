@@ -28,7 +28,7 @@
             display: none;
         }
 
-        /* 🧭 شريط التنقل الاحترافي (Navbar) */
+        /* 🧭 شريط التنقل الاحترافي */
         .navbar {
             background-color: #0f141b;
             padding: 15px;
@@ -58,7 +58,6 @@
             background-color: rgba(255, 255, 255, 0.05);
         }
 
-        /* 💡 تفاعل الأزرار العلوية مع الصفحات */
         #tab-home:checked ~ .navbar .label-home,
         #tab-diet:checked ~ .navbar .label-diet,
         #tab-workout:checked ~ .navbar .label-workout {
@@ -68,7 +67,7 @@
             box-shadow: 0 0 15px rgba(0, 230, 184, 0.4);
         }
 
-        /* 📦 حاوية الصفحات المخفية */
+        /* 📦 حاوية الصفحات */
         .page-content {
             display: none;
             max-width: 1000px;
@@ -82,12 +81,11 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* 🪄 إظهار الصفحة بناءً على الزرار المختار */
         #tab-home:checked ~ .pages-wrapper #page-home { display: block; }
         #tab-diet:checked ~ .pages-wrapper #page-diet { display: block; }
         #tab-workout:checked ~ .pages-wrapper #page-workout { display: block; }
 
-        /* ================= 🏠 تصميم الصفحة الرئيسية ================= */
+        /* ================= 🏠 الصفحة الرئيسية ================= */
         .hero-section {
             text-align: center;
             background: linear-gradient(145deg, #10161e, #0a0d12);
@@ -120,7 +118,7 @@
         .highlight-name { color: var(--primary); }
         .highlight-score { color: var(--secondary); font-size: 2.2rem; }
 
-        /* ================= 🍏 تصميم صفحة التغذية والأدوات ================= */
+        /* ================= 🍏 صفحة التغذية ================= */
         .card {
             background-color: var(--bg-card);
             border-radius: 16px;
@@ -195,7 +193,26 @@
         .result-box h3 { margin: 10px 0; color: #fff; }
         .result-value { color: var(--primary); font-size: 1.5rem; }
 
-        /* ================= 🏋️‍♂️ تصميم صفحة التمارين (Sub-Tabs) ================= */
+        /* ستايل النظام الغذائي الديناميكي */
+        .dynamic-diet-card {
+            background-color: #151a22;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: right;
+            border-top: 4px solid var(--primary);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .dynamic-diet-card h4 {
+            margin-top: 0;
+            border-bottom: 1px solid #1f2733;
+            padding-bottom: 10px;
+        }
+        .dynamic-diet-card ul { padding-right: 20px; color: #cbd5e1; line-height: 1.8; }
+        .dynamic-diet-card li { margin-bottom: 10px; }
+
+        /* ================= 🏋️‍♂️ صفحة التمارين ================= */
         .sub-nav {
             display: flex;
             justify-content: center;
@@ -215,7 +232,6 @@
             transition: 0.3s;
         }
 
-        /* تفاعل أزرار التمرين */
         #w-ppl:checked ~ .sub-nav .l-ppl,
         #w-arnold:checked ~ .sub-nav .l-arnold,
         #w-ul:checked ~ .sub-nav .l-ul,
@@ -279,7 +295,7 @@
 
     <nav class="navbar">
         <label for="tab-home" class="nav-label label-home">🏠 الرئيسية</label>
-        <label for="tab-diet" class="nav-label label-diet">🍏 حسابات التغذية</label>
+        <label for="tab-diet" class="nav-label label-diet">🍏 التغذية والأنظمة</label>
         <label for="tab-workout" class="nav-label label-workout">🏋️‍♂️ أنظمة التمرين</label>
     </nav>
 
@@ -292,7 +308,7 @@
                 
                 <div class="prayer-box">
                     يارب <span class="highlight-name">محمود الهنداوي</span> و <span class="highlight-name">سلكاوي</span><br>
-                    يقفلوها ويجيبو <span class="highlight-score">95%</span> في 2 ثانوي! 🎯🏆
+                    يقفلوها ويجيبو <span class="highlight-score">95%</span> في 3 ثانوي! 🎯🏆
                 </div>
             </div>
         </div>
@@ -314,7 +330,7 @@
             </div>
 
             <div class="card">
-                <h2 class="card-title">🔥 حاسبة السعرات ونسبة البروتين</h2>
+                <h2 class="card-title">🔥 حاسبة السعرات وتوليد النظام الغذائي</h2>
                 <div class="input-grid">
                     <div class="input-group">
                         <label>الوزن (كجم):</label>
@@ -329,10 +345,6 @@
                         <input type="number" id="a_cal" placeholder="مثال: 17">
                     </div>
                     <div class="input-group">
-                        <label>نسبة العضلات % (اختياري):</label>
-                        <input type="number" id="m_cal" placeholder="مثال: 31%">
-                    </div>
-                    <div class="input-group" style="grid-column: 1 / -1;">
                         <label>مستوى النشاط:</label>
                         <select id="act_cal">
                             <option value="1.2">خامل (بدون تمرين)</option>
@@ -340,19 +352,27 @@
                             <option value="1.725">عالي جداً (تمرين يومي وشاق)</option>
                         </select>
                     </div>
+                    <div class="input-group" style="grid-column: 1 / -1;">
+                        <label>هدفك من النظام الغذائي:</label>
+                        <select id="goal_cal" style="border-color: var(--secondary);">
+                            <option value="cut">🔥 تنشيف وحرق دهون (عجز سعرات)</option>
+                            <option value="bulk">💪 تضخيم وبناء عضلات (فائض سعرات)</option>
+                        </select>
+                    </div>
                 </div>
-                <button class="btn-action" onclick="calcMacros()">تحليل بيانات الجسم 🎯</button>
+                <button class="btn-action" onclick="calcMacrosAndDiet()">توليد النظام الغذائي 🎯</button>
                 
                 <div class="result-box" id="res_macros">
-                    <h3>سعرات المحافظة (الثبات): <span class="result-value" id="val_cals">0</span> سعرة</h3>
-                    <h3 style="border-top: 1px dashed #2a3441; padding-top: 15px; margin-top: 15px;">احتياج البروتين للبناء العضلي: <span class="result-value" id="val_protein">0</span> جرام</h3>
+                    <h3>السعرات المستهدفة لتحقيق هدفك: <span class="result-value" id="val_cals">0</span> سعرة</h3>
+                    <h3 style="border-top: 1px dashed #2a3441; padding-top: 15px; margin-top: 15px;">احتياج البروتين اليومي: <span class="result-value" id="val_protein">0</span> جرام</h3>
+                    
+                    <div id="dynamic_diet_container"></div>
                 </div>
             </div>
 
         </div>
 
         <div class="page-content" id="page-workout">
-            
             <input type="radio" name="workout_nav" id="w-ppl" class="hidden-radio" checked>
             <input type="radio" name="workout_nav" id="w-arnold" class="hidden-radio">
             <input type="radio" name="workout_nav" id="w-ul" class="hidden-radio">
@@ -492,25 +512,11 @@
             }
         }
 
-        function calcMacros() {
+        function calcMacrosAndDiet() {
             let w = parseFloat(document.getElementById('w_cal').value);
             let h = parseFloat(document.getElementById('h_cal').value);
             let a = parseFloat(document.getElementById('a_cal').value);
             let act = parseFloat(document.getElementById('act_cal').value);
+            let goal = document.getElementById('goal_cal').value;
 
-            if(w && h && a) {
-                // معادلة حساب الـ BMR
-                let bmr = (10 * w) + (6.25 * h) - (5 * a) + 5;
-                let cals = Math.round(bmr * act);
-                let protein = Math.round(w * 2.2); // بروتين البناء العضلي
-
-                document.getElementById('val_cals').innerText = cals;
-                document.getElementById('val_protein').innerText = protein;
-                document.getElementById('res_macros').style.display = 'block';
-            } else {
-                alert("اكتب وزنك وطولك وسنك الأول عشان الحسبة تطلع مظبوطة!");
-            }
-        }
-    </script>
-</body>
-</html>
+            if(w && h &
