@@ -14,7 +14,7 @@
             text-align: center;
         }
 
-        /* الهيدر الرئيسي الثابت */
+        /* الهيدر الرئيسي */
         .header {
             background: linear-gradient(135deg, #1e1e1e, #2d2d2d);
             padding: 20px;
@@ -41,7 +41,7 @@
             font-size: 1.2rem;
         }
 
-        /* شريط التنقل بين الصفحات (Navbar) */
+        /* شريط التنقل (Navbar) */
         .navbar {
             background-color: #1a1a1a;
             display: flex;
@@ -73,10 +73,7 @@
             box-shadow: 0 0 10px rgba(0, 255, 204, 0.4);
         }
 
-        .nav-btn:hover {
-            border-color: #ffcc00;
-            color: #ffcc00;
-        }
+        .nav-btn:hover { border-color: #ffcc00; color: #ffcc00; }
 
         /* حاويات الصفحات */
         .page-content {
@@ -84,10 +81,6 @@
             padding: 25px 20px;
             max-width: 1000px;
             margin: 0 auto;
-        }
-
-        .page-content.active-page {
-            display: block;
         }
 
         /* البوكسات الرئيسية */
@@ -110,9 +103,7 @@
             margin-bottom: 20px;
         }
 
-        .input-group {
-            margin-bottom: 15px;
-        }
+        .input-group { margin-bottom: 15px; }
 
         .input-group label {
             display: block;
@@ -146,12 +137,9 @@
             margin-top: 10px;
         }
 
-        .action-btn:hover {
-            background-color: #ffcc00;
-            transform: scale(1.02);
-        }
+        .action-btn:hover { background-color: #ffcc00; transform: scale(1.02); }
 
-        /* النتائج والأنظمة */
+        /* النتائج */
         .result-box {
             display: none;
             background-color: #252525;
@@ -160,11 +148,6 @@
             margin-top: 20px;
             border-left: 5px solid #ffcc00;
             text-align: center;
-        }
-
-        .result-box h3 {
-            margin: 8px 0;
-            color: #ffcc00;
         }
 
         .diet-buttons {
@@ -181,7 +164,6 @@
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            transition: all 0.3s;
         }
 
         .btn-tanshif { background-color: #ff3333; color: white; }
@@ -198,9 +180,7 @@
             text-align: right;
         }
 
-        .diet-plan-box h3 { color: #ffcc00; text-align: center; margin-top: 0; }
-
-        /* زراير اختيار التمارين داخل صفحة التمارين */
+        /* التمارين */
         .program-selector {
             background: #1e1e1e;
             padding: 20px;
@@ -209,18 +189,7 @@
             margin-bottom: 30px;
         }
 
-        .program-selector h2 {
-            color: #ffffff;
-            margin-top: 0;
-            margin-bottom: 20px;
-        }
-
-        .btn-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-        }
+        .btn-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
 
         .toggle-btn {
             background-color: #222222;
@@ -231,30 +200,19 @@
             font-weight: bold;
             border-radius: 30px;
             cursor: pointer;
-            transition: all 0.3s ease;
         }
 
         .toggle-btn.active {
             background-color: #00ffcc;
             color: #121212;
-            box-shadow: 0 4px 12px rgba(0, 255, 204, 0.4);
         }
 
-        .toggle-btn:hover {
-            background-color: #ffcc00;
-            color: #121212;
-            border-color: #ffcc00;
-        }
-
-        /* الجداول والبطاقات للتمارين */
         .grid {
             display: none;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
             margin-top: 15px;
         }
-
-        .grid.active-program { display: grid !important; }
 
         .card {
             background-color: #1e1e1e;
@@ -267,12 +225,10 @@
         .card h3 {
             color: #ffcc00;
             margin-top: 0;
-            font-size: 1.3rem;
             border-bottom: 2px solid #333;
             padding-bottom: 8px;
             display: flex;
             justify-content: space-between;
-            align-items: center;
         }
 
         .target-muscle {
@@ -283,12 +239,11 @@
             border-radius: 5px;
         }
 
-        ul { padding-right: 20px; margin: 15px 0 0 0; color: #dddddd; line-height: 1.8; }
-        li { margin-bottom: 10px; font-size: 1rem; }
+        ul { padding-right: 20px; color: #dddddd; line-height: 1.8; }
         
         footer { margin-top: 60px; padding: 30px 20px; border-top: 1px solid #222; }
-        .prayer { font-size: 1.6rem; color: #00ffcc; margin-bottom: 10px; font-weight: bold; }
-        .copyright { color: #888888; font-size: 1rem; }
+        .prayer { font-size: 1.6rem; color: #00ffcc; font-weight: bold; }
+        .copyright { color: #888888; font-size: 1rem; margin-top: 10px; }
     </style>
 </head>
 <body>
@@ -299,12 +254,12 @@
     </div>
 
     <div class="navbar">
-        <button class="nav-btn active-nav" id="nav-workout" onclick="switchPage('workout')">🏋️‍♂️ أنظمة التمرين والمياه</button>
-        <button class="nav-btn" id="nav-diet" onclick="switchPage('diet')">🍏 الأنظمة الغذائية والسعرات</button>
+        <button class="nav-btn active-nav" id="nav-workout" onclick="document.getElementById('page-workout').style.display='block'; document.getElementById('page-diet').style.display='none'; this.classList.add('active-nav'); document.getElementById('nav-diet').classList.remove('active-nav');">🏋️‍♂️ أنظمة التمرين والمياه</button>
+        <button class="nav-btn" id="nav-diet" onclick="document.getElementById('page-workout').style.display='none'; document.getElementById('page-diet').style.display='block'; this.classList.add('active-nav'); document.getElementById('nav-workout').classList.remove('active-nav');">🍏 الأنظمة الغذائية والسعرات</button>
     </div>
 
 
-    <div class="page-content active-page" id="page-workout">
+    <div class="page-content" id="page-workout" style="display: block;">
         
         <div class="main-box">
             <h2>💧 حاسبة شرب المياه اليومية الذكية</h2>
@@ -312,7 +267,7 @@
                 <label>أدخل وزنك الحالي (كيلو جرام):</label>
                 <input type="number" id="waterWeight" placeholder="مثال: 80">
             </div>
-            <button class="action-btn" onclick="calculateWater()">احسب احتياجك من المياه 🌊</button>
+            <button class="action-btn" onclick="runWaterCalc()">احسب احتياجك من المياه 🌊</button>
             <div class="result-box" id="waterResultBox">
                 <h3>تحتاج شرب حوالي: <span id="waterRet" style="color: #00ffcc;">0</span> لتر مياه يومياً</h3>
             </div>
@@ -321,14 +276,14 @@
         <div class="program-selector">
             <h2>🏋️‍♂️ اختر نظام تمرينك لعرض الجدول بالكامل</h2>
             <div class="btn-container">
-                <button class="toggle-btn active" id="btn-ppl" onclick="changeProgram('ppl')">نظام PPL</button>
-                <button class="toggle-btn" id="btn-ul" onclick="changeProgram('ul')">نظام Upper / Lower</button>
-                <button class="toggle-btn" id="btn-fb" onclick="changeProgram('fb')">نظام Full Body</button>
-                <button class="toggle-btn" id="btn-arnold" onclick="changeProgram('arnold')">نظام Arnold Split</button>
+                <button class="toggle-btn active" id="btn-ppl" onclick="runProgramSwitch('ppl')">نظام PPL</button>
+                <button class="toggle-btn" id="btn-ul" onclick="runProgramSwitch('ul')">نظام Upper / Lower</button>
+                <button class="toggle-btn" id="btn-fb" onclick="runProgramSwitch('fb')">نظام Full Body</button>
+                <button class="toggle-btn" id="btn-arnold" onclick="runProgramSwitch('arnold')">نظام Arnold Split</button>
             </div>
         </div>
 
-        <div class="grid active-program" id="ppl-program">
+        <div class="grid" id="ppl-program" style="display: grid;">
             <div class="card">
                 <h3><span>1️⃣ يوم الدفع (Push)</span> <span class="target-muscle">بنش / كتف / تراي</span></h3>
                 <ul>
@@ -451,7 +406,7 @@
                 </select>
             </div>
 
-            <button class="action-btn" onclick="calculateCalories()">إحسب أرقام جسمك الآن 🎯</button>
+            <button class="action-btn" onclick="runCalorieCalc()">إحسب أرقام جسمك الآن 🎯</button>
 
             <div class="result-box" id="resultBorder">
                 <h3>سعرات المحافظة على الوزن: <span id="caloriesRet" style="color: #00ffcc;">0</span> سعرة</h3>
@@ -459,8 +414,8 @@
             </div>
 
             <div class="diet-buttons" id="dietButtons">
-                <button class="diet-btn btn-tanshif" onclick="showDiet('tanshif')">🔥 نظام التنشيف</button>
-                <button class="diet-btn btn-tadkhim" onclick="showDiet('tadkhim')">💪 نظام التضخيم</button>
+                <button class="diet-btn btn-tanshif" onclick="runDietShow('tanshif')">🔥 نظام التنشيف</button>
+                <button class="diet-btn btn-tadkhim" onclick="runDietShow('tadkhim')">💪 نظام التضخيم</button>
             </div>
         </div>
 
@@ -480,44 +435,22 @@
 
 
     <script>
-        var savedCalories = 2000;
+        var freshCalories = 2000;
 
-        // 1. دالة التنقل والتبديل المباشر بين الصفحات الكبيرة
-        function switchPage(pageName) {
-            if(pageName === 'workout') {
-                // إظهار صفحة التمرين وإخفاء صفحة الدايت
-                document.getElementById('page-workout').style.display = 'block';
-                document.getElementById('page-diet').style.display = 'none';
-                
-                // تعديل شكل الأزرار
-                document.getElementById('nav-workout').classList.add('active-nav');
-                document.getElementById('nav-diet').classList.remove('active-nav');
-            } 
-            else if(pageName === 'diet') {
-                // إظهار صفحة الدايت وإخفاء صفحة التمرين
-                document.getElementById('page-workout').style.display = 'none';
-                document.getElementById('page-diet').style.display = 'block';
-                
-                // تعديل شكل الأزرار
-                document.getElementById('nav-workout').classList.remove('active-nav');
-                document.getElementById('nav-diet').classList.add('active-nav');
-            }
-        }
-
-        // 2. دالة حساب كمية شرب المياه
-        function calculateWater() {
-            var waterW = parseFloat(document.getElementById('waterWeight').value);
-            if(!waterW) {
+        // دالة حساب المياه باسم جديد
+        function runWaterCalc() {
+            var inputWeight = parseFloat(document.getElementById('waterWeight').value);
+            if(!inputWeight) {
                 alert("دخل وزنك الأول يا بطل عشان نحسب المية صح! 💧");
                 return;
             }
-            var waterAmount = (waterW * 0.035).toFixed(1);
-            document.getElementById('waterRet').innerText = waterAmount;
+            var result = (inputWeight * 0.035).toFixed(1);
+            document.getElementById('waterRet').innerText = result;
             document.getElementById('waterResultBox').style.display = 'block';
         }
 
-        // 3. دالة حساب السعرات والبروتين
-        function calculateCalories() {
+        // دالة حساب السعرات باسم جديد
+        function runCalorieCalc() {
             var w = parseFloat(document.getElementById('weight').value);
             var h = parseFloat(document.getElementById('height').value);
             var a = parseFloat(document.getElementById('age').value);
@@ -530,7 +463,7 @@
 
             var bmr = (10 * w) + (6.25 * h) - (5 * a) + 5;
             var maintenance = Math.round(bmr * act);
-            savedCalories = maintenance;
+            freshCalories = maintenance;
             var protein = Math.round(w * 2);
 
             document.getElementById('caloriesRet').innerText = maintenance;
@@ -538,4 +471,32 @@
 
             document.getElementById('resultBorder').style.display = 'block';
             document.getElementById('dietButtons').style.display = 'flex';
-            document.getElementById('
+            document.getElementById('dietPlanBox').style.display = 'none';
+        }
+
+        // دالة عرض الدايت باسم جديد
+        function runDietShow(goal) {
+            var box = document.getElementById('dietPlanBox');
+            var title = document.getElementById('dietTitle');
+            var content = document.getElementById('dietContent');
+            
+            var tanshifCal = freshCalories - 500;
+            var tadkhimCal = freshCalories + 500;
+
+            if (goal === 'tanshif') {
+                title.innerText = "🔥 نظام التنشيف المقترح (حرق الدهون مع ثبات العضل)";
+                content.innerHTML = `
+                    <p style="color: #ff3333; font-weight: bold; font-size: 1.1rem;">🎯 هدفك الحالي يحتاج حوالي: ${tanshifCal} سعرة حرارية يومياً.</p>
+                    <ul>
+                        <li><strong>الوجبة 1 (الفطار):</strong> 4 بياض بيض + بيضة كاملة مسلوقة + 50 جرام شوفان بلبن خالي الدسم.</li>
+                        <li><strong>الوجبة 2 (الغدا):</strong> 200 جرام صدور دجاج مشوية + 100 جرام رز مسلوق + طبق سلطة خضراء كبير.</li>
+                        <li><strong>الوجبة 3 (سناك):</strong> علبة تونة مصفاة من الزيت + كمشة مكسرات صغيرة.</li>
+                        <li><strong>الوجبة 4 (العشا):</strong> 200 جرام جبنة قريش + خيارتين + معلقة صغيرة زيت زيتون.</li>
+                    </ul>
+                `;
+            } else if (goal === 'tadkhim') {
+                title.innerText = "💪 نظام التضخيم ونمو العضلات (Bulk)";
+                content.innerHTML = `
+                    <p style="color: #33cc33; font-weight: bold; font-size: 1.1rem;">🎯 هدفك الحالي يحتاج حوالي: ${tadkhimCal} سعرة حرارية يومياً.</p>
+                    <ul>
+                        <li><strong>الوجبة 1 (الفطار):</strong> 3 بيضات كاملة مقلية بزيت زيتون + 80 جرام شو
