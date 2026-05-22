@@ -207,6 +207,8 @@ footer {
 <button class="toggle-btn" onclick="showProgram('ppl')">🔥 PPL</button>
 <button class="toggle-btn" onclick="showProgram('upper')">💪 Upper / Lower</button>
 <button class="toggle-btn" onclick="showProgram('full')">🏋️ Full Body</button>
+<button class="toggle-btn" onclick="showProgram('arnold')">🦾 Arnold Split</button>
+<button class="toggle-btn" onclick="showProgram('ap')">⚡ Anterior / Posterior</button>
 </div>
 
 <div id="ppl" class="grid">
@@ -273,14 +275,82 @@ footer {
 <div class="card">
 <h3>Full Body</h3>
 <ul>
-<li>سكوات 3 × 10</li>
-<li>بنش بار 3 × 10</li>
-<li>تجديف بار 3 × 10</li>
-<li>كتف دمبل 3 × 10</li>
-<li>بايسبس + ترايسبس 3 × 12</li>
-<li>بطن 3 × 20</li>
+<li onclick="toggleExercise('fb1')" style="cursor:pointer;">سكوات 3 × 10</li>
+<div id="fb1" style="display:none;">
+<p>تمرين أساسي للرجل بالكامل ويقوي الجزء السفلي.</p>
+<img src="https://media.tenor.com/4vJCJZQz9WAAAAAC/squat.gif" width="100%">
+</div>
+
+<li onclick="toggleExercise('fb2')" style="cursor:pointer;">بنش بار 3 × 10</li>
+<div id="fb2" style="display:none;">
+<p>تمرين ممتاز لبناء الصدر وزيادة القوة.</p>
+<img src="https://media.tenor.com/uRzjK8Q5sW4AAAAC/bench-press.gif" width="100%">
+</div>
 </ul>
 </div>
+</div>
+
+<div id="arnold" class="grid" style="display:none;">
+<div class="card">
+<h3>Chest & Back</h3>
+<ul>
+<li onclick="toggleExercise('arnold1')" style="cursor:pointer;">Incline Dumbbell Press</li>
+<div id="arnold1" style="display:none;">
+<p>تمرين قوي لتضخيم الجزء العلوي من الصدر.
+ثبت كتفك وانزل ببطء واطلع بقوة.</p>
+<img src="https://media.tenor.com/8WbZQ4mS7hMAAAAC/incline-dumbbell.gif" width="100%">
+</div>
+
+<li onclick="toggleExercise('arnold2')" style="cursor:pointer;">Barbell Row</li>
+<div id="arnold2" style="display:none;">
+<p>يقوي منتصف الظهر ويحسن السماكة.</p>
+<img src="https://media.tenor.com/0iK9a1mR8WIAAAAC/barbell-row.gif" width="100%">
+</div>
+</ul>
+</div>
+
+<div class="card">
+<h3>Shoulders & Arms</h3>
+<ul>
+<li onclick="toggleExercise('arnold3')" style="cursor:pointer;">Shoulder Press</li>
+<div id="arnold3" style="display:none;">
+<p>يبني حجم وقوة الكتف الأمامي والجانبي.</p>
+<img src="https://media.tenor.com/GiuxsJqS6wAAAAAC/shoulder-press.gif" width="100%">
+</div>
+</ul>
+</div>
+</div>
+
+<div id="ap" class="grid" style="display:none;">
+<div class="card">
+<h3>Anterior Day</h3>
+<ul>
+<li onclick="toggleExercise('ap1')" style="cursor:pointer;">Leg Extension</li>
+<div id="ap1" style="display:none;">
+<p>يعزل الفخذ الأمامي ويساعد في إبراز العضلة.</p>
+<img src="https://media.tenor.com/V1K-8S5D7zQAAAAC/leg-extension.gif" width="100%">
+</div>
+
+<li onclick="toggleExercise('ap2')" style="cursor:pointer;">Chest Press</li>
+<div id="ap2" style="display:none;">
+<p>تمرين ممتاز لبناء الصدر الأمامي.</p>
+<img src="https://media.tenor.com/uRzjK8Q5sW4AAAAC/bench-press.gif" width="100%">
+</div>
+</ul>
+</div>
+
+<div class="card">
+<h3>Posterior Day</h3>
+<ul>
+<li onclick="toggleExercise('ap3')" style="cursor:pointer;">Romanian Deadlift</li>
+<div id="ap3" style="display:none;">
+<p>يقوي الخلفية وأسفل الظهر والمؤخرة.</p>
+<img src="https://media.tenor.com/4bJ8C6F4W9IAAAAC/deadlift.gif" width="100%">
+</div>
+</ul>
+</div>
+</div>
+
 </div>
 
 </div>
@@ -432,6 +502,8 @@ function showProgram(program){
 document.getElementById('ppl').style.display='none';
 document.getElementById('upper').style.display='none';
 document.getElementById('full').style.display='none';
+document.getElementById('arnold').style.display='none';
+document.getElementById('ap').style.display='none';
 
 document.getElementById(program).style.display='grid';
 }
