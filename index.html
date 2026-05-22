@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نظام تمرين الأبطال | PPL</title>
+    <title>نظام تمرين الأبطال | المطور الهنداوي وسلكاوي</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -25,7 +25,7 @@
         }
         
         .header h1 {
-            margin: 0 0 10px 0;
+            margin: 10px 0;
             font-size: 2.2rem;
             color: #ffcc00;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
@@ -38,9 +38,29 @@
         }
 
         .header p {
-            margin: 10px 0 0 0;
+            margin: 10px 0 15px 0;
             color: #aaaaaa;
             font-size: 1.1rem;
+        }
+
+        /* ستايل زرار التبديل الاحترافي */
+        .toggle-btn {
+            background-color: #00ffcc;
+            color: #121212;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 255, 204, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .toggle-btn:hover {
+            background-color: #ffcc00;
+            box-shadow: 0 4px 15px rgba(255, 204, 0, 0.4);
+            transform: scale(1.05);
         }
 
         /* شبكة عرض أيام التمرين والكروت */
@@ -48,7 +68,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
-            margin-top: 20px;
+            margin-top: 25px;
         }
 
         /* ستايل كارت اليوم الواحد */
@@ -104,13 +124,19 @@
             color: #ffffff;
         }
 
-        /* الفوتر السفلي للتحفيز */
+        /* إخفاء نظام الـ Upper/Lower في الأول */
+        .hidden {
+            display: none !important;
+        }
+
+        /* الفوتر السفلي للحقوق والمطور */
         footer {
-            margin-top: 40px;
-            padding: 20px;
-            color: #666;
-            font-size: 0.95rem;
+            margin-top: 50px;
+            padding: 25px;
+            color: #888888;
+            font-size: 1rem;
             border-top: 1px solid #222;
+            font-weight: 500;
         }
     </style>
 </head>
@@ -118,50 +144,101 @@
 
     <div class="header">
         <h2>يارب ادعو لمحمود الهنداوي وأدهم السلكاوي يجيبو 95% 🎯</h2>
-        <h1>💪 لوحة تمرين الـ PPL للأبطال 💪</h1>
+        <h1 id="main-title">💪 لوحة تمرين الـ PPL للأبطال 💪</h1>
         <p>الهدف: تدمير الحديد في الجيم، زيادة كتلة عضلية، وحرق دهون!</p>
+        
+        <button class="toggle-btn" id="toggle-program" onclick="switchProgram()">التحويل إلى نظام Upper / Lower</button>
     </div>
 
-    <div class="grid">
+    <div class="grid" id="ppl-program">
         
         <div class="card">
             <h3><span>1️⃣ يوم الدفع (Push)</span> <span class="target-muscle">بنش / كتف / تراي</span></h3>
             <ul>
-                <li><strong>بنش مستوي بالبار (Bench Press):</strong> 4 مجاميع × 10 عدات.</li>
-                <li><strong>بنش عالي بالدمبل (Incline Dumbbell Press):</strong> 3 مجاميع × 12 عدة.</li>
-                <li><strong>تجميع كتف بالدمبل (Dumbbell Shoulder Press):</strong> 3 مجاميع × 10 عدات.</li>
-                <li><strong>جانبي كتف بالدمبل (Lateral Raises):</strong> 4 مجاميع × 15 عدة (تركيز عالي).</li>
-                <li><strong>ترايسبس بالروب (Triceps Pushdown):</strong> 3 مجاميع × 12 عدة.</li>
+                <li><strong>بنش مستوي بالبار (Bench Press):</strong> 4 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>بنش عالي بالدمبل (Incline Dumbbell Press):</strong> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>تجميع كتف بالدمبل (Shoulder Press):</strong> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>جانبي كتف بالدمبل (Lateral Raises):</strong> 4 مجاميع × 10 عدات بتركيز.</li>
+                <li><strong>ترايسبس بالروب (Triceps Pushdown):</strong> 3 مجاميع × 8 - 10 عدات.</li>
             </ul>
         </div>
 
         <div class="card">
             <h3><span>2️⃣ يوم السحب (Pull)</span> <span class="target-muscle">ظهر / باي / كتف خلفي</span></h3>
             <ul>
-                <li><strong>سحب عالي للظهر (Lat Pulldown):</strong> 4 مجاميع × 10 عدات.</li>
-                <li><strong>تجديف بالدمبل (Dumbbell Row):</strong> 3 مجاميع × 12 عدة.</li>
-                <li><strong>سحب أرضي ضيق (Seated Cable Row):</strong> 3 مجاميع × 10 عدات.</li>
-                <li><strong>رفرفة كتف خلفي (Rear Delt Flyes):</strong> 4 مجاميع × 15 عدة.</li>
-                <li><strong>بايسبس بالتبادل دمبل (Bicep Curls):</strong> 4 مجاميع × 12 عدة.</li>
+                <li><strong>سحب عالي للظهر (Lat Pulldown):</strong> 4 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>تجديف بالدمبل (Dumbbell Row):</strong> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>سحب أرضي ضيق (Seated Cable Row):</strong> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>رفرفة كتف خلفي (Rear Delt Flyes):</strong> 4 مجاميع × 10 عدات.</li>
+                <li><strong>بايسبس بالتبادل دمبل (Bicep Curls):</strong> 4 مجاميع × 8 - 10 عدات.</li>
             </ul>
         </div>
 
         <div class="card">
             <h3><span>3️⃣ يوم الرجلين والبطن (Legs)</span> <span class="target-muscle">رجل كامل / بطن</span></h3>
             <ul>
-                <li><strong>سكوات بالبار (Barbell Squat):</strong> 4 مجاميع × 10 عدات.</li>
-                <li><strong>لج بريس بالرجل (Leg Press):</strong> 3 مجاميع × 12 عدة.</li>
-                <li><strong>ماد أمامي أرجل (Leg Extensions):</strong> 3 مجاميع × 15 عدة.</li>
-                <li><strong>خلفيات رجل جهاز (Lying Leg Curls):</strong> 3 مجاميع × 12 عدة.</li>
-                <li><strong>تحدي الأبطال (بطن):</strong> 50 عدة كرانشيز (Crunches) لتقوية البطن.</li>
+                <li><strong>سكوات بالبار (Barbell Squat):</strong> 4 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>لج بريس بالرجل (Leg Press):</strong> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>ماد أمامي أرجل (Leg Extensions):</strong> 3 مجاميع × 8 - 10 عدات.</li>
+                <li><strong>خلفيات رجل جهاز (Lying Leg Curls):</strong> 3 مجاميع × 8 - 10 عدات.</li>
+                <li><strong>تحدي الأبطال (بطن):</strong> 50 عدة كرانشيز (Crunches).</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="grid hidden" id="ul-program">
+        
+        <div class="card">
+            <h3><span>1️⃣ الجزء العلوي (Upper Body)</span> <span class="target-muscle">عضلات فوق كاملة</span></h3>
+            <ul>
+                <li><strong>بنش مستوي بالبار (Bench Press):</strong> 4 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>تجديف ظهر بالبار (Barbell Row):</strong> 4 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>تجميع كتف بالدمبل (Shoulder Press):</strong> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>سحب عالي للظهر واسع (Lat Pulldown):</strong> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>بايسبس بالبار (Barbell Curls):</strong> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>ترايسبس ديبس أو بالروب:</strong> 3 مجاميع × 6 - 10 عدات.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3><span>2️⃣ الجزء السفلي والبطن (Lower Body)</span> <span class="target-muscle">رجل كامل / بطن</span></h3>
+            <ul>
+                <li><strong>سكوات بالبار حر (Squats):</strong> 4 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>الرفعة الميتة (Deadlift):</strong> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>لج بريس على الجهاز (Leg Press):</strong> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>خلفيات رجل جهاز (Leg Curls):</strong> 3 مجاميع × 8 - 10 عدات.</li>
+                <li><strong>سمانة واقف بالوزن (Calves):</strong> 4 مجاميع × 10 عدات.</li>
+                <li><strong>تحدي بطن (تجميع):</strong> 50 عدة ضغط بطن كرانشيز.</li>
             </ul>
         </div>
 
     </div>
 
     <footer>
-        عاش يا وحوش.. الاستمرارية في الجيم ونظام هي اللي بتصنع الفارق! 🏋️‍♂️📚
+        كل الحقوق محفوظة لدي المالك محمود الهنداوي و ادهم السلكاوي
     </footer>
+
+    <script>
+        function switchProgram() {
+            var ppl = document.getElementById("ppl-program");
+            var ul = document.getElementById("ul-program");
+            var btn = document.getElementById("toggle-program");
+            var title = document.getElementById("main-title");
+
+            if (ul.classList.contains("hidden")) {
+                ul.classList.remove("hidden");
+                ppl.classList.add("hidden");
+                btn.innerHTML = "التحويل إلى نظام PPL (دفع/سحب/رجل)";
+                title.innerHTML = "💪 لوحة تمرين الـ Upper / Lower للأبطال 💪";
+            } else {
+                ppl.classList.remove("hidden");
+                ul.classList.add("hidden");
+                btn.innerHTML = "التحويل إلى نظام Upper / Lower";
+                title.innerHTML = "💪 لوحة تمرين الـ PPL للأبطال 💪";
+            }
+        }
+    </script>
 
 </body>
 </html>
