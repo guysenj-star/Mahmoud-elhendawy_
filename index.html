@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>جميع أنظمة التمارين | الهنداوي وسلكاوي</title>
+    <title>أنظمة التمارين وحاسبة السعرات | الهنداوي وسلكاوي</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -30,12 +30,117 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
         }
 
-        .header p {
-            margin: 10px 0 20px 0;
-            color: #aaaaaa;
-            font-size: 1.1rem;
+        /* ستايل مستطيل حاسبة السعرات والبروتين الجديد */
+        .calculator-box {
+            background-color: #1e1e1e;
+            max-width: 500px;
+            margin: 0 auto 30px auto;
+            padding: 25px;
+            border-radius: 12px;
+            border: 2px solid #00ffcc;
+            text-align: right;
+            box-shadow: 0 4px 15px rgba(0, 255, 204, 0.1);
         }
 
+        .calculator-box h2 {
+            color: #00ffcc;
+            text-align: center;
+            margin-top: 0;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #aaaaaa;
+            font-weight: bold;
+        }
+
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #333;
+            background-color: #2b2b2b;
+            color: #fff;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        .calc-btn {
+            background-color: #00ffcc;
+            color: #121212;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .calc-btn:hover {
+            background-color: #ffcc00;
+            transform: scale(1.02);
+        }
+
+        /* ستايل النتيجة وأنظمة التغذية */
+        .result-box {
+            display: none;
+            background-color: #252525;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 5px solid #ffcc00;
+            text-align: center;
+        }
+
+        .result-box h3 {
+            margin: 5px 0;
+            color: #ffcc00;
+        }
+
+        .diet-buttons {
+            display: none;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .diet-btn {
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-tanshif { background-color: #ff3333; color: white; }
+        .btn-tadkhim { background-color: #33cc33; color: white; }
+
+        .diet-plan-box {
+            display: none;
+            background-color: #1e1e1e;
+            max-width: 600px;
+            margin: 20px auto 0 auto;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px dashed #ffcc00;
+            text-align: right;
+        }
+
+        .diet-plan-box h3 { color: #ffcc00; text-align: center; }
+
+        /* تنسيق كروت التمارين (القديمة) */
         .btn-container {
             display: flex;
             flex-wrap: wrap;
@@ -65,7 +170,6 @@
             background-color: #ffcc00;
             color: #121212;
             border-color: #ffcc00;
-            box-shadow: 0 4px 12px rgba(255, 204, 0, 0.4);
             transform: scale(1.05);
         }
 
@@ -76,9 +180,7 @@
             margin-top: 25px;
         }
 
-        .grid.active-program {
-            display: grid !important;
-        }
+        .grid.active-program { display: grid !important; }
 
         .card {
             background-color: #1e1e1e;
@@ -86,13 +188,6 @@
             border-radius: 10px;
             text-align: right;
             border: 1px solid #333;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: #ffcc00;
-            box-shadow: 0 5px 15px rgba(255, 204, 0, 0.1);
         }
 
         .card h3 {
@@ -114,67 +209,71 @@
             border-radius: 5px;
         }
 
-        ul {
-            padding-right: 20px;
-            margin: 15px 0 0 0;
-            color: #dddddd;
-            line-height: 1.8;
-        }
-
-        li {
-            margin-bottom: 12px;
-            font-size: 1.05rem;
-        }
-
-        li a {
-            color: #ffffff;
-            text-decoration: none;
-            border-bottom: 1px dashed #555;
-            transition: all 0.2s;
-        }
-
-        li a:hover {
-            color: #00ffcc;
-            border-bottom-color: #00ffcc;
-            padding-right: 5px;
-        }
-
-        .tip {
-            font-size: 0.85rem;
-            color: #ffcc00;
-            margin-top: -10px;
-            margin-bottom: 15px;
-            font-weight: bold;
-        }
-
-        footer {
-            margin-top: 60px;
-            padding: 30px 20px;
-            border-top: 1px solid #222;
-        }
-
-        .prayer {
-            font-size: 1.6rem;
-            color: #00ffcc;
-            margin-bottom: 20px;
-            font-weight: bold;
-            text-shadow: 0 0 10px rgba(0, 255, 204, 0.2);
-        }
-
-        .copyright {
-            color: #888888;
-            font-size: 1rem;
-            font-family: 'Arial', sans-serif;
-        }
+        ul { padding-right: 20px; margin: 15px 0 0 0; color: #dddddd; line-height: 1.8; }
+        li { margin-bottom: 12px; font-size: 1.05rem; }
+        
+        footer { margin-top: 60px; padding: 30px 20px; border-top: 1px solid #222; }
+        .prayer { font-size: 1.6rem; color: #00ffcc; margin-bottom: 20px; font-weight: bold; }
+        .copyright { color: #888888; font-size: 1rem; }
     </style>
 </head>
 <body>
 
     <div class="header">
-        <h1>💪 جميع أنظمة التمارين 💪</h1>
-        <p>اضغط على اسم النظام للتبديل، واضغط على اسم التمرين لمشاهدة شرح متحرك دقيق وصحيح!</p>
-        <p class="tip">💡 الروابط متصلحة وبتفتح صور مباشرة وسريعة دلوقتي</p>
+        <h1>💪 موقع الأبطال المتكامل 💪</h1>
+        <p>احسب سعراتك ونظامك الغذائي تحت، واختار نظام تمرينك المفضل!</p>
+    </div>
+
+    <div class="calculator-box">
+        <h2>🔥 حاسبة السعرات والبروتين الذكية</h2>
         
+        <div class="input-group">
+            <label>الوزن (كيلو جرام):</label>
+            <input type="number" id="weight" placeholder="مثال: 80" required>
+        </div>
+        
+        <div class="input-group">
+            <label>الطول (سم):</label>
+            <input type="number" id="height" placeholder="مثال: 175" required>
+        </div>
+        
+        <div class="input-group">
+            <label>السن:</label>
+            <input type="number" id="age" placeholder="مثال: 16" required>
+        </div>
+
+        <div class="input-group">
+            <label>مستوى النشاط اليومي:</label>
+            <select id="activity">
+                <option value="1.2">خامل (مفيش تمرين)</option>
+                <option value="1.375">نشاط خفيف (تمرين 1-3 أيام)</option>
+                <option value="1.55" selected>نشاط متوسط (تمرين 3-5 أيام)</option>
+                <option value="1.725">نشاط عالي (تمرين قوي 6-7 أيام)</option>
+            </select>
+        </div>
+
+        <button class="calc-btn" onclick="calculateEverything()">إحسب السعرات والبروتين الآن 🎯</button>
+
+        <div class="result-box" id="resultBorder">
+            <h3>سعرات المحافظة على الوزن: <span id="caloriesRet" style="color: #00ffcc;">0</span> سعرة</h3>
+            <h3>كمية البروتين اليومية المطلوبة: <span id="proteinRet" style="color: #00ffcc;">0</span> جرام بروتين</h3>
+        </div>
+
+        <div class="diet-buttons" id="dietButtons">
+            <button class="diet-btn btn-tanshif" onclick="showDiet('tanshif')">🔥 نظام التنشيف</button>
+            <button class="diet-btn btn-tadkhim" onclick="showDiet('tadkhim')">💪 نظام التضخيم</button>
+        </div>
+    </div>
+
+    <div class="diet-plan-box" id="dietPlanBox">
+        <h3 id="dietTitle">النظام الغذائي</h3>
+        <div id="dietContent"></div>
+    </div>
+
+    <hr style="border: 1px solid #222; margin: 40px 0;">
+
+    <div class="header" style="border-bottom: 4px solid #00ffcc;">
+        <h2>🏋️‍♂️ اختر نظام تمرينك المفضل</h2>
         <div class="btn-container">
             <button class="toggle-btn active" id="btn-ppl" onclick="changeProgram('ppl')">نظام PPL</button>
             <button class="toggle-btn" id="btn-ul" onclick="changeProgram('ul')">نظام Upper / Lower</button>
@@ -187,31 +286,31 @@
         <div class="card">
             <h3><span>1️⃣ يوم الدفع (Push)</span> <span class="target-muscle">بنش / كتف / تراي</span></h3>
             <ul>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/developpe-couche-barre.gif" target="_blank"><strong>بنش مستوي بالبار:</strong></a> 4 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/developpe-incline-halteres.gif" target="_blank"><strong>بنش عالي بالدمبل:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/developpe-militaire-halteres.gif" target="_blank"><strong>تجميع كتف بالدمبل:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/elevations-laterales-halteres.gif" target="_blank"><strong>جانبي كتف بالدمبل:</strong></a> 4 مجاميع × 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/extension-triceps-poulie-haute.gif" target="_blank"><strong>ترايسبس بالروب:</strong></a> 3 مجاميع × 8 - 10 عدات.</li>
+                <li><strong>بنش مستوي بالبار:</strong> 4 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>بنش عالي بالدمبل:</strong> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>تجميع كتف بالدمبل:</strong> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>جانبي كتف بالدمبل:</strong> 4 مجاميع × 10 عدات.</li>
+                <li><strong>ترايسبس بالروب:</strong> 3 مجاميع × 8 - 10 عدات.</li>
             </ul>
         </div>
         <div class="card">
             <h3><span>2️⃣ يوم السحب (Pull)</span> <span class="target-muscle">ظهر / باي / خلفي</span></h3>
             <ul>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/tirage-poitrine-poulie-haute.gif" target="_blank"><strong>سحب عالي للظهر:</strong></a> 4 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/tirage-unilateral-haltere.gif" target="_blank"><strong>تجديف بالدمبل:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/tirage-horizontal-poulie-basse.gif" target="_blank"><strong>سحب أرضي ضيق:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/oiseau-halteres.gif" target="_blank"><strong>رفرفة كتف خلفي:</strong></a> 4 مجاميع × 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/curl-halteres-alterne.gif" target="_blank"><strong>بايسبس بالتبادل دمبل:</strong></a> 4 مجاميع × 8 - 10 عدات.</li>
+                <li><strong>سحب عالي للظهر:</strong> 4 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>تجديف بالدمبل:</strong> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>سحب أرضي ضيق:</strong> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>رفرفة كتف خلفي:</strong> 4 مجاميع × 10 عدات.</li>
+                <li><strong>بايسبس بالتبادل دمبل:</strong> 4 مجاميع × 8 - 10 عدات.</li>
             </ul>
         </div>
         <div class="card">
             <h3><span>3️⃣ يوم الرجلين والبطن (Legs)</span> <span class="target-muscle">رجل / بطن</span></h3>
             <ul>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/squat-barre.gif" target="_blank"><strong>سكوات بالبار:</strong></a> 4 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/presse-a-cuisses.gif" target="_blank"><strong>لج بريس بالرجل:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/leg-extension.gif" target="_blank"><strong>ماد أمامي أرجل:</strong></a> 3 مجاميع × 8 - 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/leg-curl-allonge.gif" target="_blank"><strong>خلفيات رجل جهاز:</strong></a> 3 مجاميع × 8 - 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/crunch-abdominaux.gif" target="_blank"><strong>تحدي الأبطال (بطن):</strong></a> 50 عدة كرانشيز.</li>
+                <li><strong>سكوات بالبار:</strong> 4 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>لج بريس بالرجل:</strong> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>ماد أمامي أرجل:</strong> 3 مجاميع × 8 - 10 عدات.</li>
+                <li><strong>خلفيات رجل جهاز:</strong> 3 مجاميع × 8 - 10 عدات.</li>
+                <li><strong>تحدي الأبطال (بطن):</strong> 50 عدة كرانشيز.</li>
             </ul>
         </div>
     </div>
@@ -220,56 +319,35 @@
         <div class="card">
             <h3><span>1️⃣ الجزء العلوي (Upper Body)</span> <span class="target-muscle">عضلات كاملة</span></h3>
             <ul>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/developpe-couche-barre.gif" target="_blank"><strong>بنش مستوي بالبار:</strong></a> 4 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/rowing-barre.gif" target="_blank"><strong>تجديف ظهر بالبار:</strong></a> 4 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/developpe-militaire-halteres.gif" target="_blank"><strong>تجميع كتف بالدمبل:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/tirage-poitrine-poulie-haute.gif" target="_blank"><strong>سحب عالي للظهر واسع:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/curl-barre.gif" target="_blank"><strong>بايسبس بالبار:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/extension-triceps-poulie-haute.gif" target="_blank"><strong>ترايسبس بالروب:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>بنش مستوي بالبار:</strong> 4 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>تجديف ظهر بالبار:</strong> 4 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>تجميع كتف بالدمبل:</strong> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>سحب عالي للظهر واسع:</strong> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>بايسبس بالبار:</strong> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>ترايسبس بالروب:</strong> 3 مجاميع × 6 - 10 عدات.</li>
             </ul>
         </div>
         <div class="card">
             <h3><span>2️⃣ الجزء السفلي والبطن (Lower Body)</span> <span class="target-muscle">رجل كامل / بطن</span></h3>
             <ul>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/squat-barre.gif" target="_blank"><strong>سكوات بالبار حر:</strong></a> 4 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/souleve-de-terre.gif" target="_blank"><strong>الرفعة الميتة (Deadlift):</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/presse-a-cuisses.gif" target="_blank"><strong>لج بريس على الجهاز:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/leg-curl-allonge.gif" target="_blank"><strong>خلفيات رجل جهاز:</strong></a> 3 مجاميع × 8 - 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/extensions-mollets-debout.gif" target="_blank"><strong>سمانة واقف بالوزن:</strong></a> 4 مجاميع × 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/crunch-abdominaux.gif" target="_blank"><strong>تحدي بطن (تجميع):</strong></a> 50 عدة.</li>
+                <li><strong>سكوات بالبار حر:</strong> 4 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>الرفعة الميتة (Deadlift):</strong> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>لج بريس على الجهاز:</strong> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>خلفيات رجل جهاز:</strong> 3 مجاميع × 8 - 10 عدات.</li>
+                <li><strong>سمانة واقف بالوزن:</strong> 4 مجاميع × 10 عدات.</li>
             </ul>
         </div>
     </div>
 
     <div class="grid" id="fb-program">
         <div class="card">
-            <h3><span>1️⃣ اليوم الأول (Day 1)</span> <span class="target-muscle">قوة أساسية</span></h3>
+            <h3><span>1️⃣ اليوم الأول</span> <span class="target-muscle">جسم كامل قوة</span></h3>
             <ul>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/squat-barre.gif" target="_blank"><strong>سكوات بالبار:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/developpe-couche-barre.gif" target="_blank"><strong>بنش مستوي بالبار:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/rowing-barre.gif" target="_blank"><strong>تجديف ظهر بالبار:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/developpe-militaire-halteres.gif" target="_blank"><strong>تجميع كتف دمبل:</strong></a> 3 مجاميع × 8 - 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/curl-halteres-alterne.gif" target="_blank"><strong>بايسبس دمبل:</strong></a> 3 مجاميع × 10 عدات.</li>
-            </ul>
-        </div>
-        <div class="card">
-            <h3><span>2️⃣ اليوم الثاني (Day 2)</span> <span class="target-muscle">استهداف زوايا</span></h3>
-            <ul>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/souleve-de-terre-jambes-tendues.gif" target="_blank"><strong>الرفعة الميتة روماني:</strong></a> 3 مجاميع × 8 - 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/developpe-incline-halteres.gif" target="_blank"><strong>بنش عالي دمبل:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/tirage-poitrine-poulie-haute.gif" target="_blank"><strong>سحب عالي للظهر:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/elevations-laterales-halteres.gif" target="_blank"><strong>جانبي كتف دمبل:</strong></a> 3 مجاميع × 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/extension-triceps-poulie-haute.gif" target="_blank"><strong>ترايسبس بالروب:</strong></a> 3 مجاميع × 10 عدات.</li>
-            </ul>
-        </div>
-        <div class="card">
-            <h3><span>3️⃣ اليوم الثالث (Day 3)</span> <span class="target-muscle">ضخامة وتحمل</span></h3>
-            <ul>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/presse-a-cuisses.gif" target="_blank"><strong>لج بريس جهاز:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/developpe-couche-halteres.gif" target="_blank"><strong>تجميع صدر دمبل مستوي:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/tirage-horizontal-poulie-basse.gif" target="_blank"><strong>سحب أرضي ضيق للظهر:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/oiseau-halteres.gif" target="_blank"><strong>رفرفة كتف خلفي:</strong></a> 3 مجاميع × 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/crunch-abdominaux.gif" target="_blank"><strong>تحدي بطن الأبطال:</strong></a> 50 عدة كرانشيز.</li>
+                <li><strong>سكوات بالبار:</strong> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>بنش مستوي بالبار:</strong> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>تجديف ظهر بالبار:</strong> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>تجميع كتف دمبل:</strong> 3 مجاميع × 8 - 10 عدات.</li>
+                <li><strong>بايسبس دمبل:</strong> 3 مجاميع × 10 عدات.</li>
             </ul>
         </div>
     </div>
@@ -278,28 +356,10 @@
         <div class="card">
             <h3><span>1️⃣ الصدر والظهر (Chest & Back)</span> <span class="target-muscle">تفجير</span></h3>
             <ul>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/developpe-couche-barre.gif" target="_blank"><strong>بنش مستوي بالبار:</strong></a> 4 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/tirage-poitrine-poulie-haute.gif" target="_blank"><strong>سحب عالي للظهر واسع:</strong></a> 4 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/developpe-incline-halteres.gif" target="_blank"><strong>بنش عالي دمبل:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/rowing-barre.gif" target="_blank"><strong>تجديف بالبار حر:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-            </ul>
-        </div>
-        <div class="card">
-            <h3><span>2️⃣ الأكتاف والذراعين (Shoulders & Arms)</span> <span class="target-muscle">بامب</span></h3>
-            <ul>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/developpe-militaire-halteres.gif" target="_blank"><strong>تجميع كتف بالدمبل:</strong></a> 4 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/elevations-laterales-halteres.gif" target="_blank"><strong>جانبي دمبل (توسيع):</strong></a> 4 مجاميع × 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/curl-barre.gif" target="_blank"><strong>باي بالبار واقف:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/extension-triceps-poulie-haute.gif" target="_blank"><strong>تراي بالروب على الكيبل:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-            </ul>
-        </div>
-        <div class="card">
-            <h3><span>3️⃣ الأرجل والبطن (Legs & Abs)</span> <span class="target-muscle">قوة</span></h3>
-            <ul>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/squat-barre.gif" target="_blank"><strong>سكوات بار خلفي حر:</strong></a> 4 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/presse-a-cuisses.gif" target="_blank"><strong>لج بريس وزن عالي:</strong></a> 3 مجاميع × 6 - 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/leg-curl-allonge.gif" target="_blank"><strong>خلفيات أرجل جهاز:</strong></a> 3 مجاميع × 8 - 10 عدات.</li>
-                <li><a href="https://www.coaching-perso.fr/wp-content/uploads/2017/06/crunch-abdominaux.gif" target="_blank"><strong>تحدي بطن الأبطال:</strong></a> 50 عدة كرانشيز.</li>
+                <li><strong>بنش مستوي بالبار:</strong> 4 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>سحب عالي للظهر واسع:</strong> 4 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>بنش عالي دمبل:</strong> 3 مجاميع × 6 - 10 عدات.</li>
+                <li><strong>تجديف بالبار حر:</strong> 3 مجاميع × 6 - 10 عدات.</li>
             </ul>
         </div>
     </div>
@@ -312,16 +372,80 @@
     </footer>
 
     <script>
+        var globalCalories = 2000; // قيمة افتراضية
+
+        function calculateEverything() {
+            var w = parseFloat(document.getElementById('weight').value);
+            var h = parseFloat(document.getElementById('height').value);
+            var a = parseFloat(document.getElementById('age').value);
+            var act = parseFloat(document.getElementById('activity').value);
+
+            if(!w || !h || !a) {
+                alert("يا بطل دخل كل البيانات الأول عشان نحسب صح! 😉");
+                return;
+            }
+
+            // معادلة Mifflin-St Jeor لحساب السعرات بدقة للذكور
+            var bmr = (10 * w) + (6.25 * h) - (5 * a) + 5;
+            var maintenanceCalories = Math.round(bmr * act);
+            globalCalories = maintenanceCalories;
+
+            // حساب البروتين (2 جرام لكل كيلو من وزن الجسم)
+            var proteinNeeded = Math.round(w * 2);
+
+            // عرض النتيجة
+            document.getElementById('caloriesRet').innerText = maintenanceCalories;
+            document.getElementById('proteinRet').innerText = proteinNeeded;
+            document.getElementById('resultBorder').style.display = 'block';
+            document.getElementById('dietButtons').style.display = 'flex';
+            document.getElementById('dietPlanBox').style.display = 'none'; // إخفاء الخطة القديمة لو اتوجدت
+        }
+
+        function showDiet(goal) {
+            var box = document.getElementById('dietPlanBox');
+            var title = document.getElementById('dietTitle');
+            var content = document.getElementById('dietContent');
+            
+            var tanshifCalories = globalCalories - 500;
+            var tadkhimCalories = globalCalories + 500;
+
+            if (goal === 'tanshif') {
+                title.innerText = "🔥 نظام التنشيف المقترح (حرق الدهون مع ثبات العضل)";
+                content.innerHTML = `
+                    <p style="color: #ff3333; font-weight: bold; font-size: 1.1rem;">🎯 هدفك الحالي يحتاج حوالي: ${tanshifCalories} سعرة حرارية يومياً.</p>
+                    <ul>
+                        <li><strong>الوجبة 1 (الفطار):</strong> 4 بياض بيض + بيضة كاملة مسلوقة + 50 جرام شوفان بلبن خالي الدسم.</li>
+                        <li><strong>الوجبة 2 (الغدا):</strong> 200 جرام صدور دجاج مشوية + 100 جرام رز مسلوق (حوالي 4 معالق كبار) + طبق سلطة خضراء كبير.</li>
+                        <li><strong>الوجبة 3 (سناك):</strong> سكوب واي بروتين أو علبة تونة مصفاة من الزيت + كمشة مكسرات صغيرة (دهون صحية).</li>
+                        <li><strong>الوجبة 4 (العشا):</strong> 200 جرام جبنة قريش + خيارتين + معلقة صغيرة زيت زيتون.</li>
+                    </ul>
+                    <p style="color: #ffcc00;">💡 نصيحة الكابتن: اشرب مش أقل من 3 لتر مياه في اليوم وقلل الملح والحلويات تماماً!</p>
+                `;
+            } else if (goal === 'tadkhim') {
+                title.innerText = "💪 نظام التضخيم ونمو العضلات (Bulk)";
+                content.innerHTML = `
+                    <p style="color: #33cc33; font-weight: bold; font-size: 1.1rem;">🎯 هدفك الحالي يحتاج حوالي: ${tadkhimCalories} سعرة حرارية يومياً.</p>
+                    <ul>
+                        <li><strong>الوجبة 1 (الفطار):</strong> 3 بيضات كاملة مقلية بزيت زيتون + 80 جرام شوفان بالموز والعسل واللبن كامل الدسم.</li>
+                        <li><strong>الوجبة 2 (الغدا):</strong> 200 جرام لحمة مفرومة أو صدور دجاج + 250 جرام رز مطبوخ + بطاطس بوريه (150 جرام).</li>
+                        <li><strong>الوجبة 3 (سناك قبل التمرين):</strong> موزتين + معلقتين كبار زبدة فول سوداني + كوب قهوة سادة.</li>
+                        <li><strong>الوجبة 4 (العشا):</strong> علبة تونة كبيرة أو 4 بيضات مسلوقين + رغيف عيش بلدي + علبة زبادي كامل الدسم.</li>
+                    </ul>
+                    <p style="color: #ffcc00;">💡 نصيحة الكابتن: التضخيم مش معناه تاكل أكل غير صحي، ركز على الكارب المعقد والبروتين النظيف عشان تعمل عضل صافي بدون دهون عالية!</p>
+                `;
+            }
+            box.style.display = 'block';
+            // النزول تلقائياً لعرض النظام
+            box.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // جافا سكريبت لتغيير أنظمة التمارين بالزراير
         function changeProgram(programName) {
             var grids = document.querySelectorAll('.grid');
-            grids.forEach(function(grid) {
-                grid.classList.remove('active-program');
-            });
+            grids.forEach(function(grid) { grid.classList.remove('active-program'); });
 
             var buttons = document.querySelectorAll('.toggle-btn');
-            buttons.forEach(function(btn) {
-                btn.classList.remove('active');
-            });
+            buttons.forEach(function(btn) { btn.classList.remove('active'); });
 
             if (programName === 'ppl') {
                 document.getElementById("ppl-program").classList.add("active-program");
@@ -338,7 +462,5 @@
             }
         }
     </script>
-
 </body>
-    </html>
-    
+</html>
