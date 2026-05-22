@@ -3,95 +3,113 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>موقع الجيم المتكامل</title>
+<title>Fitness Pro</title>
 
 <style>
 body{
-    font-family: Arial;
-    background:#121212;
-    color:white;
-    text-align:center;
     margin:0;
+    font-family: "Segoe UI";
+    background: linear-gradient(135deg,#0f0f0f,#1b1b1b);
+    color:white;
     padding:20px;
+    text-align:center;
 }
 
-.header{
-    background:#1e1e1e;
+/* HEADER */
+header{
+    background:#151515;
     padding:20px;
-    border-radius:12px;
+    border-radius:15px;
     margin-bottom:20px;
+    border:1px solid #2a2a2a;
 }
 
-h2{color:#ffcc00}
+header h1{
+    color:#00ffcc;
+    margin:0;
+}
 
+/* CARDS */
+.box{
+    background:#151515;
+    padding:20px;
+    margin:20px auto;
+    border-radius:15px;
+    max-width:750px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.4);
+    border:1px solid #222;
+}
+
+/* INPUTS */
 input,select{
     width:100%;
-    padding:10px;
-    margin:5px 0;
-    border-radius:6px;
+    padding:12px;
+    margin:8px 0;
+    border-radius:10px;
     border:none;
-    background:#2b2b2b;
+    background:#0f0f0f;
     color:white;
 }
 
+/* BUTTONS */
 button{
-    padding:10px 15px;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
+    padding:12px 15px;
     margin:5px;
-    background:#00ffcc;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
     font-weight:bold;
+    background:linear-gradient(135deg,#00ffcc,#00bfff);
+    transition:0.3s;
 }
 
-button:hover{background:#ffcc00}
+button:hover{
+    transform:scale(1.05);
+    background:linear-gradient(135deg,#ffcc00,#ff8800);
+}
 
-.box{
-    background:#1e1e1e;
+/* RESULT */
+.result{
+    margin-top:15px;
     padding:15px;
-    margin-top:20px;
-    border-radius:12px;
-}
-
-.grid{
+    background:#111;
+    border-radius:10px;
     display:none;
-    margin-top:20px;
 }
 
-.grid.active{
-    display:block;
-}
-
+/* WORKOUT CARDS */
 .card{
-    background:#151515;
+    background:#111;
     padding:15px;
     margin:10px 0;
-    border-radius:10px;
+    border-radius:12px;
     text-align:right;
+    border-right:3px solid #00ffcc;
 }
 
+/* FOOTER */
 footer{
-    margin-top:30px;
+    margin-top:40px;
+    padding:20px;
     border-top:1px solid #333;
-    padding-top:15px;
 }
 
-.water{
-    font-size:22px;
-    color:#00ffcc;
+footer p{
+    color:#888;
 }
 </style>
 </head>
 
 <body>
 
-<div class="header">
-<h1>💪 موقع الجيم</h1>
-</div>
+<header>
+<h1>💪 Fitness Pro</h1>
+<p>Build your body the smart way</p>
+</header>
 
-<!-- 🔥 CALCULATOR -->
+<!-- CALCULATOR -->
 <div class="box">
-<h2>حاسبة السعرات</h2>
+<h2>🔥 حاسبة السعرات</h2>
 
 <input id="weight" placeholder="الوزن">
 <input id="height" placeholder="الطول">
@@ -105,81 +123,46 @@ footer{
 
 <button onclick="calc()">احسب</button>
 
-<div id="result"></div>
+<div class="result" id="res"></div>
 
 <button onclick="diet('cut')">تنشيف</button>
 <button onclick="diet('bulk')">تضخيم</button>
 
-<div id="dietBox"></div>
+<div class="result" id="dietBox"></div>
 </div>
 
-<!-- 🔥 WORKOUT -->
+<!-- WORKOUT -->
 <div class="box">
-<h2>أنظمة التمرين</h2>
+<h2>🏋️ أنظمة التمرين</h2>
 
-<button onclick="show('ppl')">PPL</button>
-<button onclick="show('ul')">Upper/Lower</button>
-<button onclick="show('fb')">Full Body</button>
-
-<div id="ppl" class="grid active">
 <div class="card">
-<h3>PUSH</h3>
-<p>بنش - كتف - تراي</p>
+<h3>PPL</h3>
+<p>Push - Pull - Legs (أفضل نظام للمبتدئين والمتوسطين)</p>
 </div>
 
 <div class="card">
-<h3>PULL</h3>
-<p>ظهر - باي</p>
+<h3>Upper / Lower</h3>
+<p>تقسيم علوي وسفلي لبناء قوة متوازنة</p>
 </div>
 
-<div class="card">
-<h3>LEGS</h3>
-<p>رجل كامل</p>
-</div>
-</div>
-
-<div id="ul" class="grid">
-<div class="card">
-<h3>UPPER</h3>
-<p>صدر + ظهر + ذراع</p>
-</div>
-
-<div class="card">
-<h3>LOWER</h3>
-<p>رجل + بطن</p>
-</div>
-</div>
-
-<div id="fb" class="grid">
 <div class="card">
 <h3>Full Body</h3>
-<p>كل الجسم في يوم واحد</p>
-</div>
-</div>
-
+<p>تمرين الجسم بالكامل 3 أيام أسبوعياً</p>
 </div>
 
-<!-- 💧 WATER -->
+</div>
+
+<!-- WATER -->
 <div class="box">
 <h2>💧 المياه</h2>
-
-<div class="water" id="water">0 / 8</div>
+<h1 id="water">0 / 8</h1>
 
 <button onclick="addWater()">+ كوب</button>
 <button onclick="resetWater()">Reset</button>
 </div>
 
-<!-- 📊 TRACK -->
-<div class="box">
-<h2>📊 تتبع الوزن في التمارين</h2>
-
-<input placeholder="Bench Press">
-<input placeholder="Squat">
-<input placeholder="Deadlift">
-</div>
-
 <footer>
-<p>💪 استمر يا بطل</p>
+<p>© جميع حقوق الطبع والنشر محفوظة لمحمود الهنداوي</p>
 </footer>
 
 <script>
@@ -188,6 +171,7 @@ let calories = 2000;
 let water = 0;
 
 function calc(){
+
 let w = +document.getElementById("weight").value;
 let h = +document.getElementById("height").value;
 let a = +document.getElementById("age").value;
@@ -201,30 +185,23 @@ return;
 let bmr = (10*w)+(6.25*h)-(5*a)+5;
 calories = Math.round(bmr*act);
 
-document.getElementById("result").innerHTML =
-"السعرات: " + calories + "<br> البروتين: " + Math.round(w*2);
+document.getElementById("res").style.display="block";
+document.getElementById("res").innerHTML =
+"🔥 السعرات: " + calories + "<br>💪 البروتين: " + Math.round(w*2);
 }
 
 function diet(type){
 
+let box = document.getElementById("dietBox");
+
 if(type=="cut"){
-document.getElementById("dietBox").innerHTML =
-"تنشيف: " + (calories-500) + "<br> 3 بيض + ربع فرخة + رز";
-}else{
-document.getElementById("dietBox").innerHTML =
-"تضخيم: " + (calories+500) + "<br> 3 بيض + رز + فراخ + عيش";
+box.style.display="block";
+box.innerHTML="🔥 تنشيف: " + (calories-500) + " سعرة";
 }
-
+else{
+box.style.display="block";
+box.innerHTML="💪 تضخيم: " + (calories+500) + " سعرة";
 }
-
-function show(id){
-
-document.getElementById("ppl").classList.remove("active");
-document.getElementById("ul").classList.remove("active");
-document.getElementById("fb").classList.remove("active");
-
-document.getElementById(id).classList.add("active");
-
 }
 
 function addWater(){
@@ -236,7 +213,7 @@ document.getElementById("water").innerText = water + " / 8";
 
 function resetWater(){
 water=0;
-document.getElementById("water").innerText = "0 / 8";
+document.getElementById("water").innerText="0 / 8";
 }
 
 </script>
