@@ -59,7 +59,7 @@
             box-shadow: inset 0 0 10px rgba(0, 255, 204, 0.2);
         }
 
-        /* شريط تنقل ذكي بالـ Scroll */
+        /* شريط تنقل سريع */
         .quick-nav {
             background-color: #151c24;
             padding: 12px;
@@ -170,7 +170,7 @@
             box-shadow: 0 6px 20px rgba(0, 255, 204, 0.5);
         }
 
-        /* صناديق استعراض النتائج الثابتة */
+        /* صناديق النتائج */
         .output-box {
             display: none;
             background-color: #151c24;
@@ -193,6 +193,10 @@
             margin-top: 20px;
         }
 
+        @media (max-width: 600px) {
+            .diet-split-grid { grid-template-columns: 1fr; }
+        }
+
         .diet-choice-box {
             background: #1a232d;
             border: 1px solid #2c3b4e;
@@ -202,7 +206,42 @@
 
         .diet-choice-box h5 { margin: 0 0 10px 0; font-size: 1.2rem; }
 
-        /* جداول التمارين المفرودة الاحترافية */
+        /* أزرار اختيار نظام التمرين */
+        .workout-selector {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+            background: #151c24;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid #2c3b4e;
+        }
+
+        .selector-btn {
+            background-color: #202b36;
+            color: var(--neon-green);
+            border: 2px solid var(--neon-green);
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .selector-btn.active {
+            background-color: var(--neon-green);
+            color: var(--bg-main);
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.4);
+        }
+
+        /* جداول التمارين */
+        .workout-group {
+            display: none;
+        }
+
         .workout-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -266,7 +305,7 @@
     <div class="quick-nav">
         <a href="#water-section">💧 حاسبة المياه</a>
         <a href="#calories-section">🔥 حاسبة السعرات والدايت</a>
-        <a href="#workout-section">🏋️‍♂️ جدول تمرين PPL</a>
+        <a href="#workout-section">🏋️‍♂️ أنظمة تمرين الأبطال</a>
     </div>
 
     <div class="container">
@@ -349,94 +388,115 @@
         </div>
 
 
-        <div class="section-title" id="workout-section">03 / نظام تمرين الأبطال المعتمد (Push Pull Legs)</div>
-        <div class="workout-grid">
-            
-            <div class="workout-card">
-                <h4>1️⃣ يوم الدفع (Push) - بنش / كتف / تراي</h4>
-                <ul>
-                    <li><strong>بنش مستوي بالبار:</strong> 4 مجاميع × 6 - 10 عدات.</li>
-                    <li><strong>بنش عالي بالدمبل:</strong> 3 مجاميع × 6 - 10 عدات.</li>
-                    <li><strong>تجميع كتف بالدمبل:</strong> 3 مجاميع × 6 - 10 عدات.</li>
-                    <li><strong>جانبي كتف بالدمبل:</strong> 4 مجاميع × 10 عدات.</li>
-                    <li><strong>ترايسبس بالروب كيبل:</strong> 3 مجاميع × 8 - 10 عدات.</li>
-                </ul>
-            </div>
-
-            <div class="workout-card" style="border-top-color: var(--neon-gold);">
-                <h4>2️⃣ يوم السحب (Pull) - ظهر / باي / خلفيات</h4>
-                <ul>
-                    <li><strong>سحب عالي للظهر واسع:</strong> 4 مجاميع × 6 - 10 عدات.</li>
-                    <li><strong>تجديف ظهر بالدمبل:</strong> 3 مجاميع × 6 - 10 عدات.</li>
-                    <li><strong>سحب أرضي ضيق للظهر:</strong> 3 مجاميع × 6 - 10 عدات.</li>
-                    <li><strong>رفرفة كتف خلفي:</strong> 4 مجاميع × 10 عدات.</li>
-                    <li><strong>بايسبس تبادل دمبل:</strong> 4 مجاميع × 8 - 10 عدات.</li>
-                </ul>
-            </div>
-
-            <div class="workout-card">
-                <h4>3️⃣ يوم الأرجل والبطن الشامل</h4>
-                <ul>
-                    <li><strong>سكوات حر بالبار:</strong> 4 مجاميع × 6 - 10 عدات.</li>
-                    <li><strong>لج بريس على الجهاز:</strong> 3 مجاميع × 6 - 10 عدات.</li>
-                    <li><strong>ماد أمامي أرجل جهاز:</strong> 3 مجاميع × 8 - 10 عدات.</li>
-                    <li><strong>خلفيات رجل على الجهاز:</strong> 3 مجاميع × 8 - 10 عدات.</li>
-                    <li><strong>بطن كرانشيز على الأرض:</strong> 3 مجاميع × 15 - 20 عدة.</li>
-                </ul>
-            </div>
-
+        <div class="section-title" id="workout-section">03 / اختيار نظام تمرين الأبطال المعتمد</div>
+        
+        <div class="workout-selector">
+            <button class="selector-btn active" id="btn-ppl" onclick="selectWorkoutGroup('ppl')">نظام Push Pull Legs</button>
+            <button class="selector-btn" id="btn-arnold" onclick="selectWorkoutGroup('arnold')">نظام Arnold Split</button>
+            <button class="selector-btn" id="btn-ul" onclick="selectWorkoutGroup('ul')">نظام Upper / Lower</button>
+            <button class="selector-btn" id="btn-fb" onclick="selectWorkoutGroup('fb')">نظام Full Body</button>
         </div>
 
-    </div>
-
-    <footer>
-        <div class="footer-prayer">يارب الهنداوي وسلكاوي يجيبو 95% 🎯</div>
-        <div class="footer-copy">
-            Copyright © 2026 All Rights Reserved | Owned by Mahmoud Elhendawy
+        <div class="workout-group" id="group-ppl" style="display: block;">
+            <div class="workout-grid">
+                <div class="workout-card">
+                    <h4>1️⃣ يوم الدفع (Push) - صدر / كتف أمامي وجانبي / تراي</h4>
+                    <ul>
+                        <li><strong>بنش مستوي بالبار:</strong> 4 مجاميع × 6 - 10 عدات.</li>
+                        <li><strong>بنش عالي بالدمبل:</strong> 3 مجاميع × 6 - 10 عدات.</li>
+                        <li><strong>تجميع كتف بالدمبل:</strong> 3 مجاميع × 6 - 10 عدات.</li>
+                        <li><strong>جانبي كتف بالدمبل:</strong> 4 مجاميع × 12 عدات.</li>
+                        <li><strong>ترايسبس بالروب كيبل:</strong> 3 مجاميع × 10 عدات.</li>
+                    </ul>
+                </div>
+                <div class="workout-card" style="border-top-color: var(--neon-gold);">
+                    <h4>2️⃣ يوم السحب (Pull) - ظهر كامل / باي / خلفي كتف</h4>
+                    <ul>
+                        <li><strong>سحب عالي للظهر واسع:</strong> 4 مجاميع × 8 - 10 عدات.</li>
+                        <li><strong>تجديف ظهر بالدمبل:</strong> 3 مجاميع × 6 - 10 عدات.</li>
+                        <li><strong>سحب أرضي ضيق:</strong> 3 مجاميع × 8 - 10 عدات.</li>
+                        <li><strong>رفرفة كتف خلفي:</strong> 4 مجاميع × 12 عدات.</li>
+                        <li><strong>تبادل بايسبس دمبل:</strong> 4 مجاميع × 10 عدات.</li>
+                    </ul>
+                </div>
+                <div class="workout-card">
+                    <h4>3️⃣ يوم الأرجل والبطن الشامل</h4>
+                    <ul>
+                        <li><strong>سكوات حر بالبار:</strong> 4 مجاميع × 6 - 10 عدات.</li>
+                        <li><strong>لج بريس على الجهاز:</strong> 3 مجاميع × 8 - 10 عدات.</li>
+                        <li><strong>ماد أمامي أرجل جهاز:</strong> 3 مجاميع × 10 عدات.</li>
+                        <li><strong>خلفيات رجل على الجهاز:</strong> 3 مجاميع × 10 عدات.</li>
+                        <li><strong>بطن كرانشيز على الأرض:</strong> 3 مجاميع × 15 عدات.</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-    </footer>
 
-    <script>
-        function calcWater() {
-            var w = parseFloat(document.getElementById('waterWeight').value);
-            if(!w || w <= 0) {
-                alert("اكتب وزنك الأول يا بطل عشان الحسبة تطلع صح! 💧");
-                return;
-            }
-            var total = (w * 0.035).toFixed(1);
-            document.getElementById('waterResult').innerText = total;
-            document.getElementById('waterOutput').style.display = 'block';
-        }
+        <div class="workout-group" id="group-arnold">
+            <div class="workout-grid">
+                <div class="workout-card">
+                    <h4>1️⃣ يوم الصدر والظهر (Antagonist)</h4>
+                    <ul>
+                        <li><strong>بنش مستوي بالبار:</strong> 4 مجاميع × 6 - 8 عدات.</li>
+                        <li><strong>سحب عالي بالبار للظهر:</strong> 4 مجاميع × 8 - 10 عدات.</li>
+                        <li><strong>بنش عالي بالدمبل:</strong> 3 مجاميع × 10 عدات.</li>
+                        <li><strong>تجديف بالبار حر للظهر:</strong> 3 مجاميع × 8 عدات.</li>
+                        <li><strong>تفتيح صدر كيبل:</strong> 3 مجاميع × 12 عدة.</li>
+                    </ul>
+                </div>
+                <div class="workout-card" style="border-top-color: var(--neon-gold);">
+                    <h4>2️⃣ يوم الأكتاف والذراعين (Arms & Shoulders)</h4>
+                    <ul>
+                        <li><strong>تجميع كتف بالدمبل:</strong> 4 مجاميع × 8 عدات.</li>
+                        <li><strong>رفرفة جانبي كتف مكثف:</strong> 4 مجاميع × 12 عدات.</li>
+                        <li><strong>بايسبس بار مستقيم:</strong> 4 مجاميع × 10 عدات.</li>
+                        <li><strong>ترايسبس ديبس (متوازي):</strong> 4 مجاميع × 10 عدات.</li>
+                        <li><strong>بايسبس جاكوش + ترايسبس روب:</strong> 3 مجاميع سوبر ست.</li>
+                    </ul>
+                </div>
+                <div class="workout-card">
+                    <h4>3️⃣ يوم أرجل كامل وسكوات قاسي</h4>
+                    <ul>
+                        <li><strong>سكوات خلفي بالبار:</strong> 4 مجاميع × 6 - 10 عدات.</li>
+                        <li><strong>الرفعة الميتة روماني (RDL):</strong> 4 مجاميع × 8 عدات.</li>
+                        <li><strong>سمانة واقف بالوزن:</strong> 5 مجاميع × 15 عدة.</li>
+                        <li><strong>رفع أرجل معلق (بطن):</strong> 3 مجاميع × 12 عدة.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-        function calcCaloriesAndDiet() {
-            var w = parseFloat(document.getElementById('weight').value);
-            var h = parseFloat(document.getElementById('height').value);
-            var a = parseFloat(document.getElementById('age').value);
-            var act = parseFloat(document.getElementById('activity').value);
+        <div class="workout-group" id="group-ul">
+            <div class="workout-grid">
+                <div class="workout-card">
+                    <h4>1️⃣ الجزء العلوي (Upper Body)</h4>
+                    <ul>
+                        <li><strong>بنش مستوي بالدمبل:</strong> 4 مجاميع × 8 عدات.</li>
+                        <li><strong>سحب أرضي واسع للظهر:</strong> 4 مجاميع × 8 عدات.</li>
+                        <li><strong>أوفر هيد بريس كتف (بار):</strong> 3 مجاميع × 8 عدات.</li>
+                        <li><strong>تبادل بايسبس على الانكلاين:</strong> 3 مجاميع × 10 عدات.</li>
+                        <li><strong>ترايسبس جبين بالبار الزجزاج:</strong> 3 مجاميع × 10 عدات.</li>
+                    </ul>
+                </div>
+                <div class="workout-card" style="border-top-color: var(--neon-gold);">
+                    <h4>2️⃣ الجزء السفلي (Lower Body + Abs)</h4>
+                    <ul>
+                        <li><strong>لج بريس أرجل دفع:</strong> 4 مجاميع × 10 عدات.</li>
+                        <li><strong>خلفيات رجل جهاز منبطح:</strong> 4 مجاميع × 10 عدات.</li>
+                        <li><strong>ماد أمامي فردي جهاز:</strong> 3 مجاميع × 12 عدة.</li>
+                        <li><strong>سمانة جالس على الجهاز:</strong> 4 مجاميع × 15 عدة.</li>
+                        <li><strong>تمرين بطن بلانك ثبات:</strong> 3 مجاميع × دقيقة كاملة.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-            if(!w || !h || !a) {
-                alert("دخل كل بيانات السعرات يا بطل عشان نحسبلك الأنظمة! 😉");
-                return;
-            }
-
-            // معادلة Mifflin-St Jeor
-            var bmr = (10 * w) + (6.25 * h) - (5 * a) + 5;
-            var maintenance = Math.round(bmr * act);
-            var protein = Math.round(w * 2);
-
-            // حساب السعرات للهدفين
-            var tanshif = maintenance - 500;
-            var tadkhim = maintenance + 500;
-
-            // طباعة النتائج في الأماكن المخصصة لها
-            document.getElementById('calBurn').innerText = maintenance;
-            document.getElementById('protNeed').innerText = protein;
-            document.getElementById('tanshifCal').innerText = tanshif;
-            document.getElementById('tadkhimCal').innerText = tadkhim;
-
-            // إظهار البوكس بالكامل
-            document.getElementById('dietOutput').style.display = 'block';
-        }
-    </script>
-</body>
-</html>
+        <div class="workout-group" id="group-fb">
+            <div class="workout-grid">
+                <div class="workout-card" style="grid-column: 1 / -1;">
+                    <h4>🏋️‍♂️ نظام الجسم الكامل التفاعلي (Full Body Workout)</h4>
+                    <p style="color: var(--neon-gold); font-weight: bold; text-align: center;">يُفضل لعبه 3 أيام في الأسبوع مع يوم راحة بين كل حصة تمرين.</p>
+                    <ul style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                        <li><strong>سكوات بار حر:</strong> 3 مجاميع × 8 عدات.</li>
+                        <li><strong>بنش مستوي بار:</strong> 3 مجاميع × 8 عدات.</li>
+                        <li><strong>عُقلة أو سحب عالي ظهر:</strong> 3 مجاميع × الحد الأق
