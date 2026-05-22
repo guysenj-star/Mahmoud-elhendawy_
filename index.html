@@ -78,10 +78,6 @@
             color: #ffcc00;
         }
 
-        .nav-btn.active-nav:hover {
-            color: #121212;
-        }
-
         /* حاويات الصفحات */
         .page-content {
             display: none;
@@ -97,7 +93,7 @@
         /* البوكسات الرئيسية */
         .main-box {
             background-color: #1e1e1e;
-            max-width: 600px;
+            max-width: 550px;
             margin: 0 auto 30px auto;
             padding: 25px;
             border-radius: 12px;
@@ -155,7 +151,7 @@
             transform: scale(1.02);
         }
 
-        /* النتائج */
+        /* النتائج والأنظمة */
         .result-box {
             display: none;
             background-color: #252525;
@@ -486,40 +482,41 @@
     <script>
         var savedCalories = 2000;
 
-        // دالة التنقل والتبديل بين الصفحات الكبيرة فوق
+        // 1. دالة التنقل والتبديل المباشر بين الصفحات الكبيرة
         function switchPage(pageName) {
-            // إخفاء الصفحتين
-            document.getElementById('page-workout').classList.remove('active-page');
-            document.getElementById('page-diet').classList.remove('active-page');
-
-            // إزالة نشاط زراير النافبار
-            document.getElementById('nav-workout').classList.remove('active-nav');
-            document.getElementById('nav-diet').classList.remove('active-nav');
-
-            // تفعيل الصفحة والزرار المختار
             if(pageName === 'workout') {
-                document.getElementById('page-workout').classList.add('active-page');
+                // إظهار صفحة التمرين وإخفاء صفحة الدايت
+                document.getElementById('page-workout').style.display = 'block';
+                document.getElementById('page-diet').style.display = 'none';
+                
+                // تعديل شكل الأزرار
                 document.getElementById('nav-workout').classList.add('active-nav');
-            } else if(pageName === 'diet') {
-                document.getElementById('page-diet').classList.add('active-page');
+                document.getElementById('nav-diet').classList.remove('active-nav');
+            } 
+            else if(pageName === 'diet') {
+                // إظهار صفحة الدايت وإخفاء صفحة التمرين
+                document.getElementById('page-workout').style.display = 'none';
+                document.getElementById('page-diet').style.display = 'block';
+                
+                // تعديل شكل الأزرار
+                document.getElementById('nav-workout').classList.remove('active-nav');
                 document.getElementById('nav-diet').classList.add('active-nav');
             }
         }
 
-        // دالة حساب كمية شرب المياه
+        // 2. دالة حساب كمية شرب المياه
         function calculateWater() {
             var waterW = parseFloat(document.getElementById('waterWeight').value);
             if(!waterW) {
                 alert("دخل وزنك الأول يا بطل عشان نحسب المية صح! 💧");
                 return;
             }
-            // معادلة تقريبية لحساب المية (الوزن × 0.035)
             var waterAmount = (waterW * 0.035).toFixed(1);
             document.getElementById('waterRet').innerText = waterAmount;
             document.getElementById('waterResultBox').style.display = 'block';
         }
 
-        // دالة حساب السعرات والبروتين
+        // 3. دالة حساب السعرات والبروتين
         function calculateCalories() {
             var w = parseFloat(document.getElementById('weight').value);
             var h = parseFloat(document.getElementById('height').value);
@@ -541,4 +538,4 @@
 
             document.getElementById('resultBorder').style.display = 'block';
             document.getElementById('dietButtons').style.display = 'flex';
-            document.getElementB
+            document.getElementById('
