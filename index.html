@@ -213,60 +213,60 @@ footer {
 
 <div id="ppl" class="grid">
 <div class="card">
-<h3>Push Day</h3>
+<h3>🔥 اليوم الأول Push</h3>
 <ul>
-<li>بنش بار 4 × 10</li>
-<li>بنش عالي دمبل 3 × 10</li>
-<li>كتف دمبل 3 × 10</li>
-<li>جانبي كتف 4 × 12</li>
-<li>ترايسبس روب 3 × 12</li>
+<li>Bench Press — 4 × 8</li>
+<li>Incline Dumbbell Press — 4 × 10</li>
+<li>Shoulder Press — 3 × 10</li>
+<li>Lateral Raise — 4 × 12</li>
+<li>Triceps Rope Pushdown — 3 × 12</li>
 </ul>
 </div>
 
 <div class="card">
-<h3>Pull Day</h3>
+<h3>💪 اليوم الثاني Pull</h3>
 <ul>
-<li>سحب عالي 4 × 10</li>
-<li>تجديف 3 × 10</li>
-<li>سحب أرضي 3 × 10</li>
-<li>كتف خلفي 4 × 12</li>
-<li>بايسبس دمبل 4 × 12</li>
+<li>Lat Pulldown — 4 × 10</li>
+<li>Barbell Row — 4 × 8</li>
+<li>Seated Cable Row — 3 × 10</li>
+<li>Rear Delt Fly — 4 × 12</li>
+<li>Dumbbell Curl — 3 × 12</li>
 </ul>
 </div>
 
 <div class="card">
-<h3>Leg Day</h3>
+<h3>🦵 اليوم الثالث Legs</h3>
 <ul>
-<li>سكوات 4 × 10</li>
-<li>لج بريس 3 × 10</li>
-<li>خلفية رجل 3 × 12</li>
-<li>سمانة 4 × 15</li>
-<li>بطن 3 × 20</li>
+<li>Squat — 4 × 8</li>
+<li>Leg Press — 4 × 10</li>
+<li>Romanian Deadlift — 3 × 10</li>
+<li>Leg Curl — 3 × 12</li>
+<li>Standing Calf Raise — 4 × 15</li>
 </ul>
 </div>
 </div>
 
 <div id="upper" class="grid" style="display:none;">
 <div class="card">
-<h3>Upper Body</h3>
+<h3>💪 اليوم الأول Upper</h3>
 <ul>
-<li>بنش بار 4 × 10</li>
-<li>تجديف بار 4 × 10</li>
-<li>كتف دمبل 3 × 10</li>
-<li>سحب عالي 3 × 10</li>
-<li>بايسبس بار 3 × 12</li>
-<li>ترايسبس روب 3 × 12</li>
+<li>Bench Press — 4 × 8</li>
+<li>Barbell Row — 4 × 8</li>
+<li>Shoulder Press — 3 × 10</li>
+<li>Lat Pulldown — 3 × 10</li>
+<li>Barbell Curl — 3 × 12</li>
+<li>Triceps Pushdown — 3 × 12</li>
 </ul>
 </div>
 
 <div class="card">
-<h3>Lower Body</h3>
+<h3>🦵 اليوم الثاني Lower</h3>
 <ul>
-<li>سكوات 4 × 10</li>
-<li>ديدليفت 3 × 8</li>
-<li>لج بريس 3 × 10</li>
-<li>خلفية رجل 3 × 12</li>
-<li>سمانة 4 × 15</li>
+<li>Squat — 4 × 8</li>
+<li>Deadlift — 3 × 6</li>
+<li>Leg Press — 3 × 10</li>
+<li>Leg Curl — 3 × 12</li>
+<li>Standing Calf Raise — 4 × 15</li>
 </ul>
 </div>
 </div>
@@ -355,62 +355,78 @@ footer {
 
 </div>
 
+<div class="water-section calculator-box">
+<h2>💧 عداد شرب المياه</h2>
+
+<p id="waterCount" style="font-size:2rem; color:#00ffcc;">0 / 8 أكواب</p>
+
+<button class="calc-btn" onclick="addWater()">➕ شربت كوباية</button>
+<button class="calc-btn" onclick="resetWater()">🔄 تصفير</button>
+</div>
+
 <div class="workout-section">
-<h2>🔥 شرح التمارين بالصور</h2>
+<h2>🏋️‍♂️ تتبع التطور والأوزان</h2>
 
 <div class="grid">
 
 <div class="card">
-<h3 onclick="toggleExercise('bench-info')" style="cursor:pointer;">🏋️ بنش بار</h3>
-<div id="bench-info" style="display:none; margin-top:15px;">
-<p>تمرين أساسي لتقوية عضلات الصدر الأمامية والترايسبس والكتف الأمامي.</p>
-<img src="https://media.tenor.com/uRzjK8Q5sW4AAAAC/bench-press.gif" width="100%" style="border-radius:10px;">
+<h3>🦾 Push Day</h3>
+
+<div class="input-group">
+<label>Bench Press</label>
+<input type="number" placeholder="اكتب وزنك الحالي">
 </div>
+
+<div class="input-group">
+<label>Incline Dumbbell Press</label>
+<input type="number" placeholder="اكتب وزنك الحالي">
+</div>
+
+<div class="input-group">
+<label>Shoulder Press</label>
+<input type="number" placeholder="اكتب وزنك الحالي">
+</div>
+
 </div>
 
 <div class="card">
-<h3 onclick="toggleExercise('squat-info')" style="cursor:pointer;">🦵 سكوات</h3>
-<div id="squat-info" style="display:none; margin-top:15px;">
-<p>من أقوى تمارين الرجل ويستهدف الفخذ الأمامي والخلفي والمؤخرة.</p>
-<img src="https://media.tenor.com/4vJCJZQz9WAAAAAC/squat.gif" width="100%" style="border-radius:10px;">
+<h3>💪 Pull Day</h3>
+
+<div class="input-group">
+<label>Lat Pulldown</label>
+<input type="number" placeholder="اكتب وزنك الحالي">
 </div>
+
+<div class="input-group">
+<label>Barbell Row</label>
+<input type="number" placeholder="اكتب وزنك الحالي">
+</div>
+
+<div class="input-group">
+<label>Biceps Curl</label>
+<input type="number" placeholder="اكتب وزنك الحالي">
+</div>
+
 </div>
 
 <div class="card">
-<h3 onclick="toggleExercise('pull-info')" style="cursor:pointer;">💪 سحب عالي</h3>
-<div id="pull-info" style="display:none; margin-top:15px;">
-<p>تمرين ممتاز لتوسيع الظهر وتقوية عضلات اللاتس.</p>
-<img src="https://media.tenor.com/8x8P7P6Fq4YAAAAC/lat-pulldown.gif" width="100%" style="border-radius:10px;">
-</div>
-</div>
+<h3>🦵 Leg Day</h3>
 
-</div>
+<div class="input-group">
+<label>Squat</label>
+<input type="number" placeholder="اكتب وزنك الحالي">
 </div>
 
-<div class="workout-section">
-<h2>🔥 أنظمة تمرين إضافية</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>💪 Arnold Split</h3>
-<ul>
-<li>صدر + ظهر</li>
-<li>كتف + ذراع</li>
-<li>رجل</li>
-<li>تكرار الدورة مرتين أسبوعيًا</li>
-<li>مناسب للتضخيم القوي</li>
-</ul>
+<div class="input-group">
+<label>Leg Press</label>
+<input type="number" placeholder="اكتب وزنك الحالي">
 </div>
 
-<div class="card">
-<h3>⚡ Anterior / Posterior</h3>
-<ul>
-<li>Anterior Day: صدر + كتف أمامي + بايسبس + فخذ أمامي</li>
-<li>Posterior Day: ظهر + كتف خلفي + ترايسبس + خلفية رجل</li>
-<li>ممتاز لتحسين التوازن العضلي</li>
-<li>مناسب للرياضيين والمتقدمين</li>
-</ul>
+<div class="input-group">
+<label>Romanian Deadlift</label>
+<input type="number" placeholder="اكتب وزنك الحالي">
+</div>
+
 </div>
 
 </div>
@@ -508,12 +524,18 @@ document.getElementById('ap').style.display='none';
 document.getElementById(program).style.display='grid';
 }
 
-function toggleExercise(id){
+var water = 0;
 
-var element = document.getElementById(id);
+function addWater(){
+if(water < 8){
+water++;
+document.getElementById('waterCount').innerText = water + ' / 8 أكواب';
+}
+}
 
-if(element.style.display === 'none'){
-    element.style.display = 'block';
+function resetWater(){
+water = 0;
+document.getElementById('waterCount').innerText = '0 / 8 أكواب';
 }else{
     element.style.display = 'none';
 }
