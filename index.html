@@ -44,7 +44,7 @@
             text-shadow: 0 0 10px rgba(0, 255, 204, 0.3);
         }
 
-        /* مستطيل حاسبة السعرات والبروتين والدهون */
+        /* مستطيل حاسبة السعرات والبروتين */
         .calculator-box {
             background-color: #1e1e1e;
             max-width: 550px;
@@ -169,23 +169,6 @@
             margin-bottom: 20px;
         }
 
-        /* ستايل تايمر الراحة المطور (دقيقتين) */
-        .timer-container {
-            background-color: #252525;
-            padding: 15px;
-            border-radius: 8px;
-            max-width: 400px;
-            margin: 0 auto 25px auto;
-            border: 1px solid #333;
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-        }
-
-        .timer-display { font-size: 1.8rem; font-weight: bold; color: #00ffcc; font-family: monospace; }
-        .timer-btn { background-color: #ff3333; color: white; border: none; padding: 8px 16px; font-weight: bold; border-radius: 5px; cursor: pointer; transition: 0.2s; }
-        .timer-btn:hover { background-color: #cc0000; }
-
         .btn-container {
             display: flex;
             flex-wrap: wrap;
@@ -271,7 +254,7 @@
     </div>
 
     <div class="calculator-box">
-        <h2>🔥 حاسبة السعرات والبروتين ونسبة الدهون</h2>
+        <h2>🔥 حاسبة السعرات والبروتين</h2>
         
         <div class="input-group">
             <label>الوزن (كيلو جرام):</label>
@@ -289,11 +272,6 @@
         </div>
 
         <div class="input-group">
-            <label>محيط الخصر أو البطن بالمازورة (سم) - اختياري لنسبة الدهون:</label>
-            <input type="number" id="waist" placeholder="قيس بالمازورة عند السُّرة.. مثال: 88">
-        </div>
-
-        <div class="input-group">
             <label>مستوى النشاط اليومي:</label>
             <select id="activity">
                 <option value="1.2">خامل (مفيش تمرين)</option>
@@ -303,12 +281,11 @@
             </select>
         </div>
 
-        <button class="calc-btn" onclick="calculateEverything()">إحسب أرقام جسمك الآن 🎯</button>
+        <button class="calc-btn" onclick="calculateCalories()">إحسب أرقام جسمك الآن 🎯</button>
 
         <div class="result-box" id="resultBorder">
             <h3>سعرات المحافظة على الوزن: <span id="caloriesRet" style="color: #00ffcc;">0</span> سعرة</h3>
             <h3>كمية البروتين المطلوبة: <span id="proteinRet" style="color: #00ffcc;">0</span> جرام بروتين</h3>
-            <h3 id="fatResultRow" style="display:none;">نسبة الدهون التقديرية: <span id="fatRet" style="color: #00ffcc;">0</span>%</h3>
         </div>
 
         <div class="diet-buttons" id="dietButtons">
@@ -324,12 +301,6 @@
 
     <div class="workout-section">
         <h2>🏋️‍♂️ اختر نظام تمرينك المفضل</h2>
-
-        <div class="timer-container">
-            <span style="font-weight: bold; color: #aaa;">⏱️ تايمر الراحة بين المجاميع:</span>
-            <div class="timer-display" id="timerDisplay">02:00</div>
-            <button class="timer-btn" id="timerBtn" onclick="toggleTimer()">ابدأ الراحة 🚀</button>
-        </div>
 
         <div class="btn-container">
             <button class="toggle-btn active" id="btn-ppl" onclick="changeProgram('ppl')">نظام PPL</button>
@@ -433,76 +404,97 @@
     <footer>
         <div class="prayer">يارب الهنداوي وسلكاوي يجيبو 95% 🎯</div>
         <div class="copyright">
-            Copyright © 2026 All Rights Reserved | Owned by Mahmoud Elhendawy & Adham Elsalkawy
+            Copyright © 2026 All Rights Reserved | Owned by Mahmoud Elhendawy
         </div>
     </footer>
 
     <script>
-        // متغير السعرات العام المتاح لكل الدوال
-        window.globalCalories = 2000;
+        var savedCalories = 2000;
 
-        // 1. دالة حساب كل شيء
-        function calculateEverything() {
-            var weightInput = document.getElementById('weight');
-            var heightInput = document.getElementById('height');
-            var ageInput = document.getElementById('age');
-            var waistInput = document.getElementById('waist');
-            var activityInput = document.getElementById('activity');
+        function calculateCalories() {
+            var w = parseFloat(document.getElementById('weight').value);
+            var h = parseFloat(document.getElementById('height').value);
+            var a = parseFloat(document.getElementById('age').value);
+            var act = parseFloat(document.getElementById('activity').value);
 
-            var w = parseFloat(weightInput.value);
-            var h = parseFloat(heightInput.value);
-            var a = parseFloat(ageInput.value);
-            var waist = parseFloat(waistInput.value);
-            var act = parseFloat(activityInput.value);
-
-            if (!w || !h || !a) {
-                alert("يا بطل دخل كل البيانات الأساسية الأول عشان نحسب صح! 😉");
+            if(!w || !h || !a) {
+                alert("يا بطل دخل كل البيانات المطلوبة الأول! 😉");
                 return;
             }
 
             var bmr = (10 * w) + (6.25 * h) - (5 * a) + 5;
-            var maintenanceCalories = Math.round(bmr * act);
-            window.globalCalories = maintenanceCalories;
-            var proteinNeeded = Math.round(w * 2);
+            var maintenance = Math.round(bmr * act);
+            savedCalories = maintenance;
+            var protein = Math.round(w * 2);
 
-            document.getElementById('caloriesRet').innerText = maintenanceCalories;
-            document.getElementById('proteinRet').innerText = proteinNeeded;
-
-            if (waist) {
-                var fatEstimate = Math.round((74 * (waist / h)) - (44.9 * (w / (h * h / 10000))) / 10);
-                if (fatEstimate < 4) fatEstimate = 12;
-                document.getElementById('fatRet').innerText = fatEstimate;
-                document.getElementById('fatResultRow').style.display = 'block';
-            } else {
-                document.getElementById('fatResultRow').style.display = 'none';
-            }
+            document.getElementById('caloriesRet').innerText = maintenance;
+            document.getElementById('proteinRet').innerText = protein;
 
             document.getElementById('resultBorder').style.display = 'block';
             document.getElementById('dietButtons').style.display = 'flex';
             document.getElementById('dietPlanBox').style.display = 'none';
         }
 
-        // 2. دالة عرض أنظمة التغذية
         function showDiet(goal) {
             var box = document.getElementById('dietPlanBox');
             var title = document.getElementById('dietTitle');
             var content = document.getElementById('dietContent');
             
-            var tanshifCalories = window.globalCalories - 500;
-            var tadkhimCalories = window.globalCalories + 500;
+            var tanshifCal = savedCalories - 500;
+            var tadkhimCal = savedCalories + 500;
 
             if (goal === 'tanshif') {
                 title.innerText = "🔥 نظام التنشيف المقترح (حرق الدهون مع ثبات العضل)";
                 content.innerHTML = `
-                    <p style="color: #ff3333; font-weight: bold; font-size: 1.1rem;">🎯 هدفك الحالي يحتاج حوالي: ${tanshifCalories} سعرة حرارية يومياً.</p>
+                    <p style="color: #ff3333; font-weight: bold; font-size: 1.1rem;">🎯 هدفك الحالي يحتاج حوالي: ${tanshifCal} سعرة حرارية يومياً.</p>
                     <ul>
                         <li><strong>الوجبة 1 (الفطار):</strong> 4 بياض بيض + بيضة كاملة مسلوقة + 50 جرام شوفان بلبن خالي الدسم.</li>
                         <li><strong>الوجبة 2 (الغدا):</strong> 200 جرام صدور دجاج مشوية + 100 جرام رز مسلوق + طبق سلطة خضراء كبير.</li>
-                        <li><strong>الوجبة 3 (سناك):</strong> علبة تونة مصفاة من الزيت + كمشة مكسرات صغيرة (دهون صحية).</li>
+                        <li><strong>الوجبة 3 (سناك):</strong> علبة تونة مصفاة من الزيت + كمشة مكسرات صغيرة.</li>
                         <li><strong>الوجبة 4 (العشا):</strong> 200 جرام جبنة قريش + خيارتين + معلقة صغيرة زيت زيتون.</li>
                     </ul>
                 `;
             } else if (goal === 'tadkhim') {
                 title.innerText = "💪 نظام التضخيم ونمو العضلات (Bulk)";
                 content.innerHTML = `
-                    <p style="color: #33cc33; font-weight: bold; font-si
+                    <p style="color: #33cc33; font-weight: bold; font-size: 1.1rem;">🎯 هدفك الحالي يحتاج حوالي: ${tadkhimCal} سعرة حرارية يومياً.</p>
+                    <ul>
+                        <li><strong>الوجبة 1 (الفطار):</strong> 3 بيضات كاملة مقلية بزيت زيتون + 80 جرام شوفان بالموز والعسل واللبن كامل الدسم.</li>
+                        <li><strong>الوجبة 2 (الغدا):</strong> 200 جرام لحمة مفرومة أو صدور دجاج + 250 جرام رز مطبوخ + بطاطس بوريه.</li>
+                        <li><strong>الوجبة 3 (سناك قبل التمرين):</strong> موزتين + معلقتين كبار زبدة فول سوداني + كوب قهوة سادة.</li>
+                        <li><strong>الوجبة 4 (العشا):</strong> علبة تونة كبيرة أو 4 بيضات مسلوقين + رغيف عيش بلدي + علبة زبادي كامل الدسم.</li>
+                    </ul>
+                `;
+            }
+            box.style.display = 'block';
+        }
+
+        function changeProgram(programName) {
+            var grids = document.getElementsByClassName('grid');
+            for (var i = 0; i < grids.length; i++) {
+                grids[i].classList.remove('active-program');
+            }
+
+            var buttons = document.getElementsByClassName('toggle-btn');
+            for (var j = 0; j < buttons.length; j++) {
+                buttons[j].classList.remove('active');
+            }
+
+            if (programName === 'ppl') {
+                document.getElementById("ppl-program").classList.add("active-program");
+                document.getElementById("btn-ppl").classList.add("active");
+            } else if (programName === 'ul') {
+                document.getElementById("ul-program").classList.add("active-program");
+                document.getElementById("btn-ul").classList.add("active");
+            } else if (programName === 'fb') {
+                document.getElementById("fb-program").classList.add("active-program");
+                document.getElementById("btn-fb").classList.add("active");
+            } else if (programName === 'arnold') {
+                document.getElementById("arnold-program").classList.add("active-program");
+                document.getElementById("btn-arnold").classList.add("active");
+            }
+        }
+    </script>
+</body>
+    </html>
+    
