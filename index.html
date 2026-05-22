@@ -201,16 +201,22 @@ footer {
 </div>
 
 <div class="workout-section">
-<h2>🏋️‍♂️ أنظمة التمرين</h2>
+<h2>🏋️‍♂️ اختر نظام التمرين</h2>
 
-<div class="grid">
+<div class="btn-container">
+<button class="toggle-btn" onclick="showProgram('ppl')">🔥 PPL</button>
+<button class="toggle-btn" onclick="showProgram('upper')">💪 Upper / Lower</button>
+<button class="toggle-btn" onclick="showProgram('full')">🏋️ Full Body</button>
+</div>
 
+<div id="ppl" class="grid">
 <div class="card">
 <h3>Push Day</h3>
 <ul>
 <li>بنش بار 4 × 10</li>
 <li>بنش عالي دمبل 3 × 10</li>
 <li>كتف دمبل 3 × 10</li>
+<li>جانبي كتف 4 × 12</li>
 <li>ترايسبس روب 3 × 12</li>
 </ul>
 </div>
@@ -220,6 +226,8 @@ footer {
 <ul>
 <li>سحب عالي 4 × 10</li>
 <li>تجديف 3 × 10</li>
+<li>سحب أرضي 3 × 10</li>
+<li>كتف خلفي 4 × 12</li>
 <li>بايسبس دمبل 4 × 12</li>
 </ul>
 </div>
@@ -230,10 +238,51 @@ footer {
 <li>سكوات 4 × 10</li>
 <li>لج بريس 3 × 10</li>
 <li>خلفية رجل 3 × 12</li>
+<li>سمانة 4 × 15</li>
+<li>بطن 3 × 20</li>
+</ul>
+</div>
+</div>
+
+<div id="upper" class="grid" style="display:none;">
+<div class="card">
+<h3>Upper Body</h3>
+<ul>
+<li>بنش بار 4 × 10</li>
+<li>تجديف بار 4 × 10</li>
+<li>كتف دمبل 3 × 10</li>
+<li>سحب عالي 3 × 10</li>
+<li>بايسبس بار 3 × 12</li>
+<li>ترايسبس روب 3 × 12</li>
 </ul>
 </div>
 
+<div class="card">
+<h3>Lower Body</h3>
+<ul>
+<li>سكوات 4 × 10</li>
+<li>ديدليفت 3 × 8</li>
+<li>لج بريس 3 × 10</li>
+<li>خلفية رجل 3 × 12</li>
+<li>سمانة 4 × 15</li>
+</ul>
 </div>
+</div>
+
+<div id="full" class="grid" style="display:none;">
+<div class="card">
+<h3>Full Body</h3>
+<ul>
+<li>سكوات 3 × 10</li>
+<li>بنش بار 3 × 10</li>
+<li>تجديف بار 3 × 10</li>
+<li>كتف دمبل 3 × 10</li>
+<li>بايسبس + ترايسبس 3 × 12</li>
+<li>بطن 3 × 20</li>
+</ul>
+</div>
+</div>
+
 </div>
 
 <div class="level-test-section">
@@ -317,12 +366,12 @@ var cut = savedCalories - 500;
 title.innerText = '🔥 نظام تنشيف';
 
 content.innerHTML = `
-<p>سعراتك: ${cut}</p>
+<p>سعراتك اليومية للتنشيف: ${cut} سعرة 🔥</p>
 <ul>
-<li>بيض + شوفان</li>
-<li>فراخ + رز + سلطة</li>
-<li>تونة + مكسرات</li>
-<li>جبنة قريش</li>
+<li>🍳 الفطار: 3 بياض + 2 بيضة كاملة + 70 جرام شوفان</li>
+<li>🍗 الغدا: ربع فرخة مشوية + 150 جرام رز + سلطة</li>
+<li>🥜 سناك: ثمرة موز + 15 جرام فول سوداني</li>
+<li>🐟 العشا: علبة تونة + زبادي يوناني</li>
 </ul>
 `;
 
@@ -333,17 +382,26 @@ var bulk = savedCalories + 500;
 title.innerText = '💪 نظام تضخيم';
 
 content.innerHTML = `
-<p>سعراتك: ${bulk}</p>
+<p>سعراتك اليومية للتضخيم: ${bulk} سعرة 💪</p>
 <ul>
-<li>بيض + شوفان + موز</li>
-<li>رز + فراخ</li>
-<li>زبدة فول سوداني</li>
-<li>تونة + عيش</li>
+<li>🍳 الفطار: 3 بيضات كاملة + 100 جرام شوفان + موزة</li>
+<li>🍗 الغدا: ربع فرخة + 250 جرام رز + بطاطس</li>
+<li>🥤 قبل التمرين: موزتين + قهوة</li>
+<li>🥩 العشا: 200 جرام لحمة أو تونة + عيش بلدي + زبادي</li>
 </ul>
 `;
 }
 
 box.style.display='block';
+}
+
+function showProgram(program){
+
+document.getElementById('ppl').style.display='none';
+document.getElementById('upper').style.display='none';
+document.getElementById('full').style.display='none';
+
+document.getElementById(program).style.display='grid';
 }
 
 function calculateLevel(){
