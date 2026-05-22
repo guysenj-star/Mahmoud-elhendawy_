@@ -285,33 +285,65 @@ footer {
 
 </div>
 
-<div class="level-test-section">
-<h2>🏆 اختبر مستواك الرياضي</h2>
+<div class="workout-section">
+<h2>🔥 شرح التمارين بالصور</h2>
 
-<div class="input-group">
-<label>كام عدة ضغط؟</label>
-<input type="number" id="pushups">
+<div class="grid">
+
+<div class="card">
+<h3 onclick="toggleExercise('bench-info')" style="cursor:pointer;">🏋️ بنش بار</h3>
+<div id="bench-info" style="display:none; margin-top:15px;">
+<p>تمرين أساسي لتقوية عضلات الصدر الأمامية والترايسبس والكتف الأمامي.</p>
+<img src="https://media.tenor.com/uRzjK8Q5sW4AAAAC/bench-press.gif" width="100%" style="border-radius:10px;">
+</div>
 </div>
 
-<div class="input-group">
-<label>أقصى وزن بنش؟</label>
-<input type="number" id="bench">
+<div class="card">
+<h3 onclick="toggleExercise('squat-info')" style="cursor:pointer;">🦵 سكوات</h3>
+<div id="squat-info" style="display:none; margin-top:15px;">
+<p>من أقوى تمارين الرجل ويستهدف الفخذ الأمامي والخلفي والمؤخرة.</p>
+<img src="https://media.tenor.com/4vJCJZQz9WAAAAAC/squat.gif" width="100%" style="border-radius:10px;">
+</div>
 </div>
 
-<div class="input-group">
-<label>من كام شهر بتتمرن؟</label>
-<input type="number" id="months">
+<div class="card">
+<h3 onclick="toggleExercise('pull-info')" style="cursor:pointer;">💪 سحب عالي</h3>
+<div id="pull-info" style="display:none; margin-top:15px;">
+<p>تمرين ممتاز لتوسيع الظهر وتقوية عضلات اللاتس.</p>
+<img src="https://media.tenor.com/8x8P7P6Fq4YAAAAC/lat-pulldown.gif" width="100%" style="border-radius:10px;">
+</div>
 </div>
 
-<button class="calc-btn" onclick="calculateLevel()">
-🎯 اعرف مستواك
-</button>
-
-<div class="level-result" id="levelResult">
-<h3 id="levelTitle"></h3>
-<p id="levelText"></p>
+</div>
 </div>
 
+<div class="workout-section">
+<h2>🔥 أنظمة تمرين إضافية</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>💪 Arnold Split</h3>
+<ul>
+<li>صدر + ظهر</li>
+<li>كتف + ذراع</li>
+<li>رجل</li>
+<li>تكرار الدورة مرتين أسبوعيًا</li>
+<li>مناسب للتضخيم القوي</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>⚡ Anterior / Posterior</h3>
+<ul>
+<li>Anterior Day: صدر + كتف أمامي + بايسبس + فخذ أمامي</li>
+<li>Posterior Day: ظهر + كتف خلفي + ترايسبس + خلفية رجل</li>
+<li>ممتاز لتحسين التوازن العضلي</li>
+<li>مناسب للرياضيين والمتقدمين</li>
+</ul>
+</div>
+
+</div>
 </div>
 
 <footer>
@@ -404,38 +436,15 @@ document.getElementById('full').style.display='none';
 document.getElementById(program).style.display='grid';
 }
 
-function calculateLevel(){
+function toggleExercise(id){
 
-var pushups = parseInt(document.getElementById('pushups').value);
-var bench = parseInt(document.getElementById('bench').value);
-var months = parseInt(document.getElementById('months').value);
+var element = document.getElementById(id);
 
-var resultBox = document.getElementById('levelResult');
-var title = document.getElementById('levelTitle');
-var text = document.getElementById('levelText');
-
-if(!pushups || !bench || !months){
-alert('دخل البيانات كلها 💪');
-return;
-}
-
-if(pushups < 15 || bench < 50 || months < 3){
-
-title.innerText = '🔥 مبتدئ';
-text.innerText = 'لسه في بداية الرحلة ركز على الاستمرار.';
-
-}else if(pushups <= 35 || bench <= 90){
-
-title.innerText = '⚡ متوسط';
-text.innerText = 'مستواك كويس جدًا وعندك قاعدة عضلية محترمة.';
-
+if(element.style.display === 'none'){
+    element.style.display = 'block';
 }else{
-
-title.innerText = '🏆 متقدم';
-text.innerText = 'واضح إنك ملتزم جدًا بالجيم 💪';
+    element.style.display = 'none';
 }
-
-resultBox.style.display='block';
 }
 
 </script>
