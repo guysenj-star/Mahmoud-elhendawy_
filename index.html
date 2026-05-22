@@ -41,15 +41,13 @@
             font-size: 1.2rem;
         }
 
-        /* شريط التنقل العلوي */
+        /* شريط التنقل (Navbar) المضمون */
         .navbar {
             background-color: #1a1a1a;
             display: flex;
             justify-content: center;
             gap: 15px;
             padding: 15px;
-            position: relative;
-            z-index: 999;
             border-bottom: 1px solid #333;
         }
 
@@ -65,7 +63,7 @@
             transition: all 0.2s ease;
         }
 
-        .nav-btn.active-nav {
+        .nav-btn:hover, .nav-btn.active {
             background-color: #00ffcc;
             color: #121212;
             border-color: #00ffcc;
@@ -89,7 +87,6 @@
             border: 2px solid #00ffcc;
             text-align: right;
             box-shadow: 0 4px 15px rgba(0, 255, 204, 0.1);
-            position: relative;
         }
 
         .main-box h2 {
@@ -135,7 +132,7 @@
 
         .action-btn:hover { background-color: #ffcc00; }
 
-        /* النتائج وأنظمة الدايت */
+        /* النتائج */
         .result-box {
             display: none;
             background-color: #252525;
@@ -201,7 +198,6 @@
         .toggle-btn.active {
             background-color: #00ffcc;
             color: #121212;
-            box-shadow: 0 4px 12px rgba(0, 255, 204, 0.4);
         }
 
         /* كروت الجداول */
@@ -252,12 +248,12 @@
     </div>
 
     <div class="navbar">
-        <button class="nav-btn active-nav" id="nav-workout" onclick="switchMainTab('workout')">🏋️‍♂️ أنظمة التمرين والمياه</button>
-        <button class="nav-btn" id="nav-diet" onclick="switchMainTab('diet')">🍏 الأنظمة الغذائية والسعرات</button>
+        <button class="nav-btn active" id="nav1" onclick="showWorkoutPage()">🏋️‍♂️ أنظمة التمرين والمياه</button>
+        <button class="nav-btn" id="nav2" onclick="showDietPage()">🍏 الأنظمة الغذائية والسعرات</button>
     </div>
 
 
-    <div class="page-content" id="page-workout" style="display: block;">
+    <div class="page-content" id="section-workout" style="display: block;">
         
         <div class="main-box">
             <h2>💧 حاسبة شرب المياه اليومية الذكية</h2>
@@ -265,23 +261,23 @@
                 <label>أدخل وزنك الحالي (كيلو جرام):</label>
                 <input type="number" id="waterWeight" placeholder="مثال: 80">
             </div>
-            <button class="action-btn" onclick="executeWaterCalc()">احسب احتياجك من المياه 🌊</button>
-            <div class="result-box" id="waterResultBox">
-                <h3>تحتاج شرب حوالي: <span id="waterRet" style="color: #00ffcc;">0</span> لتر مياه يومياً</h3>
+            <button class="action-btn" onclick="calcWaterNow()">احسب احتياجك من المياه 🌊</button>
+            <div class="result-box" id="wBox">
+                <h3>تحتاج شرب حوالي: <span id="wResult" style="color: #00ffcc;">0</span> لتر مياه يومياً</h3>
             </div>
         </div>
 
         <div class="program-selector">
             <h2>🏋️‍♂️ اختر نظام تمرينك لعرض الجدول بالكامل</h2>
             <div class="btn-container">
-                <button class="toggle-btn active" id="btn-ppl" onclick="executeProgramSwitch('ppl')">نظام PPL</button>
-                <button class="toggle-btn" id="btn-ul" onclick="executeProgramSwitch('ul')">نظام Upper / Lower</button>
-                <button class="toggle-btn" id="btn-fb" onclick="executeProgramSwitch('fb')">نظام Full Body</button>
-                <button class="toggle-btn" id="btn-arnold" onclick="executeProgramSwitch('arnold')">نظام Arnold Split</button>
+                <button class="toggle-btn active" id="b-ppl" onclick="switchWorkoutTable('ppl')">نظام PPL</button>
+                <button class="toggle-btn" id="b-ul" onclick="switchWorkoutTable('ul')">نظام Upper / Lower</button>
+                <button class="toggle-btn" id="b-fb" onclick="switchWorkoutTable('fb')">نظام Full Body</button>
+                <button class="toggle-btn" id="b-arnold" onclick="switchWorkoutTable('arnold')">نظام Arnold Split</button>
             </div>
         </div>
 
-        <div class="grid" id="ppl-program" style="display: grid;">
+        <div class="grid" id="t-ppl" style="display: grid;">
             <div class="card">
                 <h3><span>1️⃣ يوم الدفع (Push)</span> <span class="target-muscle">بنش / كتف / تراي</span></h3>
                 <ul>
@@ -314,7 +310,7 @@
             </div>
         </div>
 
-        <div class="grid" id="ul-program" style="display: none;">
+        <div class="grid" id="t-ul" style="display: none;">
             <div class="card">
                 <h3><span>1️⃣ الجزء العلوي (Upper Body)</span> <span class="target-muscle">عضلات كاملة</span></h3>
                 <ul>
@@ -338,7 +334,7 @@
             </div>
         </div>
 
-        <div class="grid" id="fb-program" style="display: none;">
+        <div class="grid" id="t-fb" style="display: none;">
             <div class="card" style="grid-column: 1 / -1;">
                 <h3><span>🏋️‍♂️ تمرين الجسم الكامل</span> <span class="target-muscle">قوة شاملة</span></h3>
                 <ul>
@@ -351,7 +347,7 @@
             </div>
         </div>
 
-        <div class="grid" id="arnold-program" style="display: none;">
+        <div class="grid" id="t-arnold" style="display: none;">
             <div class="card">
                 <h3><span>1️⃣ الصدر والظهر (Chest & Back)</span> <span class="target-muscle">ضخامة</span></h3>
                 <ul>
@@ -374,7 +370,7 @@
     </div>
 
 
-    <div class="page-content" id="page-diet" style="display: none;">
+    <div class="page-content" id="section-diet" style="display: none;">
         
         <div class="main-box">
             <h2>🔥 حاسبة السعرات والبروتين التقديرية</h2>
@@ -404,7 +400,7 @@
                 </select>
             </div>
 
-            <button class="action-btn" onclick="executeCalorieCalc()">إحسب أرقام جسمك الآن 🎯</button>
+            <button class="action-btn" onclick="calcCaloriesNow()">إحسب أرقام جسمك الآن 🎯</button>
 
             <div class="result-box" id="resultBorder">
                 <h3>سعرات المحافظة على الوزن: <span id="caloriesRet" style="color: #00ffcc;">0</span> سعرة</h3>
@@ -412,8 +408,8 @@
             </div>
 
             <div class="diet-buttons" id="dietButtons">
-                <button class="diet-btn btn-tanshif" onclick="executeDietShow('tanshif')">🔥 نظام التنشيف</button>
-                <button class="diet-btn btn-tadkhim" onclick="executeDietShow('tadkhim')">💪 نظام التضخيم</button>
+                <button class="diet-btn btn-tanshif" onclick="showDietPlan('tanshif')">🔥 نظام التنشيف</button>
+                <button class="diet-btn btn-tadkhim" onclick="showDietPlan('tadkhim')">💪 نظام التضخيم</button>
             </div>
         </div>
 
@@ -433,42 +429,67 @@
 
 
     <script>
-        var absoluteCalories = 2000;
+        var globalCalories = 2000;
 
-        // دالة تبديل الصفحات الرئيسية (مضمونة ومجربة)
-        function switchMainTab(tabName) {
-            var workoutPage = document.getElementById('page-workout');
-            var dietPage = document.getElementById('page-diet');
-            var workoutBtn = document.getElementById('nav-workout');
-            var dietBtn = document.getElementById('nav-diet');
-
-            if (tabName === 'workout') {
-                workoutPage.style.display = 'block';
-                dietPage.style.display = 'none';
-                workoutBtn.classList.add('active-nav');
-                dietBtn.classList.remove('active-nav');
-            } else if (tabName === 'diet') {
-                workoutPage.style.display = 'none';
-                dietPage.style.display = 'block';
-                workoutBtn.classList.remove('active-nav');
-                dietBtn.classList.add('active-nav');
-            }
+        // 1. فتح صفحة التمرين والمياه
+        function showWorkoutPage() {
+            document.getElementById('section-workout').style.display = 'block';
+            document.getElementById('section-diet').style.display = 'none';
+            document.getElementById('nav1').classList.add('active');
+            document.getElementById('nav2').classList.remove('active');
         }
 
-        // دالة حساب المياه
-        function executeWaterCalc() {
-            var waterW = parseFloat(document.getElementById('waterWeight').value);
-            if(!waterW) {
+        // 2. فتح صفحة الدايت والسعرات
+        function showDietPage() {
+            document.getElementById('section-workout').style.display = 'none';
+            document.getElementById('section-diet').style.display = 'block';
+            document.getElementById('nav1').classList.remove('active');
+            document.getElementById('nav2').classList.add('active');
+        }
+
+        // 3. دالة حساب المياه المباشرة
+        function calcWaterNow() {
+            var wInput = document.getElementById('waterWeight').value;
+            if(!wInput || wInput <= 0) {
                 alert("دخل وزنك الأول يا بطل عشان نحسب المية صح! 💧");
                 return;
             }
-            var result = (waterW * 0.035).toFixed(1);
-            document.getElementById('waterRet').innerText = result;
-            document.getElementById('waterResultBox').style.display = 'block';
+            var res = (parseFloat(wInput) * 0.035).toFixed(1);
+            document.getElementById('wResult').innerText = res;
+            document.getElementById('wBox').style.display = 'block';
         }
 
-        // دالة حساب السعرات والبروتين
-        function executeCalorieCalc() {
+        // 4. دالة تبديل جداول التمرين الأربعة
+        function switchWorkoutTable(tableName) {
+            // إخفاء الكل
+            document.getElementById("t-ppl").style.display = "none";
+            document.getElementById("t-ul").style.display = "none";
+            document.getElementById("t-fb").style.display = "none";
+            document.getElementById("t-arnold").style.display = "none";
+
+            document.getElementById("b-ppl").classList.remove("active");
+            document.getElementById("b-ul").classList.remove("active");
+            document.getElementById("b-fb").classList.remove("active");
+            document.getElementById("b-arnold").classList.remove("active");
+
+            // إظهار المختار
+            if (tableName === 'ppl') {
+                document.getElementById("t-ppl").style.display = "grid";
+                document.getElementById("b-ppl").classList.add("active");
+            } else if (tableName === 'ul') {
+                document.getElementById("t-ul").style.display = "grid";
+                document.getElementById("b-ul").classList.add("active");
+            } else if (tableName === 'fb') {
+                document.getElementById("t-fb").style.display = "grid";
+                document.getElementById("b-fb").classList.add("active");
+            } else if (tableName === 'arnold') {
+                document.getElementById("t-arnold").style.display = "grid";
+                document.getElementById("b-arnold").classList.add("active");
+            }
+        }
+
+        // 5. حاسبة السعرات والبروتين
+        function calcCaloriesNow() {
             var w = parseFloat(document.getElementById('weight').value);
             var h = parseFloat(document.getElementById('height').value);
             var a = parseFloat(document.getElementById('age').value);
@@ -481,7 +502,7 @@
 
             var bmr = (10 * w) + (6.25 * h) - (5 * a) + 5;
             var maintenance = Math.round(bmr * act);
-            absoluteCalories = maintenance;
+            globalCalories = maintenance;
             var protein = Math.round(w * 2);
 
             document.getElementById('caloriesRet').innerText = maintenance;
@@ -492,21 +513,4 @@
             document.getElementById('dietPlanBox').style.display = 'none';
         }
 
-        // دالة عرض أنظمة الأكل
-        function executeDietShow(goal) {
-            var box = document.getElementById('dietPlanBox');
-            var title = document.getElementById('dietTitle');
-            var content = document.getElementById('dietContent');
-            
-            var tanshifCal = absoluteCalories - 500;
-            var tadkhimCal = absoluteCalories + 500;
-
-            if (goal === 'tanshif') {
-                title.innerText = "🔥 نظام التنشيف المقترح (حرق الدهون مع ثبات العضل)";
-                content.innerHTML = `
-                    <p style="color: #ff3333; font-weight: bold; font-size: 1.1rem;">🎯 هدفك الحالي يحتاج حوالي: ${tanshifCal} سعرة حرارية يومياً.</p>
-                    <ul>
-                        <li><strong>الوجبة 1 (الفطار):</strong> 4 بياض بيض + بيضة كاملة مسلوقة + 50 جرام شوفان بلبن خالي الدسم.</li>
-                        <li><strong>الوجبة 2 (الغدا):</strong> 200 جرام صدور دجاج مشوية + 100 جرام رز مسلوق + طبق سلطة خضراء كبير.</li>
-                        <li><strong>الوجبة 3 (سناك):</strong> علبة تونة مصفاة من الزيت + كمشة مكسرات صغيرة.</li>
-                        <li><strong>الوجبة 4 (ا
+      
