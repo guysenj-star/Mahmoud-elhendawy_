@@ -3,71 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مفكرة الفورمة | الهنداوي وسلكاوي</title>
+    <title>نظام تمرين الأبطال | PPL</title>
     <style>
         body {
-            font-family: sans-serif;
-            background-color: #1a1a1a;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
             color: #ffffff;
             margin: 0;
             padding: 20px;
             text-align: center;
         }
+
+        /* الهيدر وفيه الدعوة والهدف الرئيسي */
         .header {
-            background-color: #262626;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
+            background: linear-gradient(135deg, #1e1e1e, #2d2d2d);
+            padding: 30px 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
             border-bottom: 4px solid #ffcc00;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
         }
-        h1 { margin: 0; font-size: 2rem; color: #ffcc00; }
+        
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.2rem;
+            color: #ffcc00;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+        }
+
+        .header h2 {
+            margin: 5px 0;
+            font-size: 1.5rem;
+            color: #00ffcc;
+        }
+
+        .header p {
+            margin: 10px 0 0 0;
+            color: #aaaaaa;
+            font-size: 1.1rem;
+        }
+
+        /* شبكة عرض أيام التمرين والكروت */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
             margin-top: 20px;
         }
+
+        /* ستايل كارت اليوم الواحد */
         .card {
-            background-color: #262626;
-            padding: 20px;
-            border-radius: 8px;
+            background-color: #1e1e1e;
+            padding: 25px;
+            border-radius: 10px;
             text-align: right;
             border: 1px solid #333;
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
-        .card h3 { color: #ffcc00; margin-top: 0; border-bottom: 1px solid #444; padding-bottom: 5px; }
-        ul { padding-right: 20px; margin: 10px 0 0 0; color: #ddd; }
-        li { margin-bottom: 8px; }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #ffcc00;
+            box-shadow: 0 5px 15px rgba(255, 204, 0, 0.1);
+        }
+
+        /* عناوين الأيام */
+        .card h3 {
+            color: #ffcc00;
+            margin-top: 0;
+            font-size: 1.4rem;
+            border-bottom: 2px solid #333;
+            padding-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .target-muscle {
+            font-size: 0.9rem;
+            background-color: #333;
+            color: #00ffcc;
+            padding: 3px 8px;
+            border-radius: 5px;
+        }
+
+        /* قائمة التمارين */
+        ul {
+            padding-right: 20px;
+            margin: 15px 0 0 0;
+            color: #dddddd;
+            line-height: 1.8;
+        }
+
+        li {
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+        }
+
+        li strong {
+            color: #ffffff;
+        }
+
+        /* الفوتر السفلي للتحفيز */
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            color: #666;
+            font-size: 0.95rem;
+            border-top: 1px solid #222;
+        }
     </style>
 </head>
 <body>
 
     <div class="header">
-        <h1>🏋️‍♂️ لوحة تمرين الأبطال 🏋️‍♂️</h1>
-        <p>الهدف: حرق دهون، الحفاظ على العضلات، والوصول لأقوى فورمة!</p>
+        <h2>يارب ادعو لمحمود الهنداوي وأدهم السلكاوي يجيبو 95% 🎯</h2>
+        <h1>💪 لوحة تمرين الـ PPL للأبطال 💪</h1>
+        <p>الهدف: تدمير الحديد في الجيم، زيادة كتلة عضلية، وحرق دهون!</p>
     </div>
 
     <div class="grid">
+        
         <div class="card">
-            <h3>🔥 التحدي اليومي</h3>
+            <h3><span>1️⃣ يوم الدفع (Push)</span> <span class="target-muscle">بنش / كتف / تراي</span></h3>
             <ul>
-                <li>تجميع 50 ضغط (Push-ups) بأعلى كفاءة.</li>
-                <li>تجميع 50 بطن (Crunches) لتقوية العضلات الأساسية.</li>
+                <li><strong>بنش مستوي بالبار (Bench Press):</strong> 4 مجاميع × 10 عدات.</li>
+                <li><strong>بنش عالي بالدمبل (Incline Dumbbell Press):</strong> 3 مجاميع × 12 عدة.</li>
+                <li><strong>تجميع كتف بالدمبل (Dumbbell Shoulder Press):</strong> 3 مجاميع × 10 عدات.</li>
+                <li><strong>جانبي كتف بالدمبل (Lateral Raises):</strong> 4 مجاميع × 15 عدة (تركيز عالي).</li>
+                <li><strong>ترايسبس بالروب (Triceps Pushdown):</strong> 3 مجاميع × 12 عدة.</li>
             </ul>
         </div>
 
         <div class="card">
-            <h3>🍗 التغذية والبروتين</h3>
+            <h3><span>2️⃣ يوم السحب (Pull)</span> <span class="target-muscle">ظهر / باي / كتف خلفي</span></h3>
             <ul>
-                <li>الهدف اليومي: الوصول لـ 160 جرام بروتين.</li>
-                <li>شرب كميات مياه كافية على مدار اليوم للتشفير.</li>
+                <li><strong>سحب عالي للظهر (Lat Pulldown):</strong> 4 مجاميع × 10 عدات.</li>
+                <li><strong>تجديف بالدمبل (Dumbbell Row):</strong> 3 مجاميع × 12 عدة.</li>
+                <li><strong>سحب أرضي ضيق (Seated Cable Row):</strong> 3 مجاميع × 10 عدات.</li>
+                <li><strong>رفرفة كتف خلفي (Rear Delt Flyes):</strong> 4 مجاميع × 15 عدة.</li>
+                <li><strong>بايسبس بالتبادل دمبل (Bicep Curls):</strong> 4 مجاميع × 12 عدة.</li>
             </ul>
         </div>
 
         <div class="card">
-            <h3>💪 الروح المعنوية</h3>
-            <p style="color: #aaa; font-style: italic;">"الاستمرارية هي السر. يوم ورا يوم النتيجة بتظهر في المراية، والـ 95% في جيبنا بإذن الله!"</p>
+            <h3><span>3️⃣ يوم الرجلين والبطن (Legs)</span> <span class="target-muscle">رجل كامل / بطن</span></h3>
+            <ul>
+                <li><strong>سكوات بالبار (Barbell Squat):</strong> 4 مجاميع × 10 عدات.</li>
+                <li><strong>لج بريس بالرجل (Leg Press):</strong> 3 مجاميع × 12 عدة.</li>
+                <li><strong>ماد أمامي أرجل (Leg Extensions):</strong> 3 مجاميع × 15 عدة.</li>
+                <li><strong>خلفيات رجل جهاز (Lying Leg Curls):</strong> 3 مجاميع × 12 عدة.</li>
+                <li><strong>تحدي الأبطال (بطن):</strong> 50 عدة كرانشيز (Crunches) لتقوية البطن.</li>
+            </ul>
         </div>
+
     </div>
+
+    <footer>
+        عاش يا وحوش.. الاستمرارية في الجيم ونظام هي اللي بتصنع الفارق! 🏋️‍♂️📚
+    </footer>
 
 </body>
 </html>
