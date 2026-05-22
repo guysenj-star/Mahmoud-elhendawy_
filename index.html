@@ -154,48 +154,6 @@
 
         .diet-plan-box h3 { color: #ffcc00; text-align: center; margin-top: 0; }
 
-        /* ستايل تحدي الـ 50 عدة الذكي */
-        .challenge-box {
-            background-color: #1e1e1e;
-            max-width: 550px;
-            margin: 30px auto;
-            padding: 20px;
-            border-radius: 12px;
-            border: 2px solid #ffcc00;
-            box-shadow: 0 4px 15px rgba(255, 204, 0, 0.1);
-        }
-
-        .challenge-box h2 {
-            color: #ffcc00;
-            margin-top: 0;
-            font-size: 1.5rem;
-        }
-
-        .challenge-flex {
-            display: flex;
-            justify-content: space-around;
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .challenge-card {
-            background-color: #252525;
-            padding: 15px;
-            border-radius: 8px;
-            width: 45%;
-            border: 1px solid #333;
-        }
-
-        .challenge-card h4 { margin: 0 0 10px 0; color: #00ffcc; font-size: 1.1rem; }
-        .challenge-count { font-size: 2rem; font-weight: bold; margin-bottom: 10px; color: #fff; }
-        
-        .plus-btn {
-            background-color: #00ffcc; color: #121212; border: none; padding: 8px 20px;
-            font-size: 1.2rem; font-weight: bold; border-radius: 5px; cursor: pointer; transition: 0.2s;
-        }
-        .plus-btn:hover { background-color: #ffcc00; }
-        .reset-challenge { background-color: #444; color: #ccc; border: none; padding: 5px 12px; border-radius: 4px; cursor: pointer; font-size: 0.85rem; margin-top: 10px; }
-
         /* تنسيق قسم زراير التمارين وجداولها */
         .workout-section {
             background: #1e1e1e;
@@ -211,7 +169,7 @@
             margin-bottom: 20px;
         }
 
-        /* ستايل تايمر الراحة الذكي */
+        /* ستايل تايمر الراحة المطور (دقيقتين) */
         .timer-container {
             background-color: #252525;
             padding: 15px;
@@ -364,29 +322,12 @@
         <div id="dietContent"></div>
     </div>
 
-    <div class="challenge-box">
-        <h2>⚡ تحدي الأبطال اليومي (50 عدة) ⚡</h2>
-        <div class="challenge-flex">
-            <div class="challenge-card">
-                <h4>تحدي الضغط (Push-ups)</h4>
-                <div class="challenge-count" id="pushCount">0 / 50</div>
-                <button class="plus-btn" onclick="addRep('push')">+</button>
-            </div>
-            <div class="challenge-card">
-                <h4>تحدي البطن (Crunches)</h4>
-                <div class="challenge-count" id="crunchCount">0 / 50</div>
-                <button class="plus-btn" onclick="addRep('crunch')">+</button>
-            </div>
-        </div>
-        <button class="reset-challenge" onclick="resetChallenges()">تصفير التحدي 🔄</button>
-    </div>
-
     <div class="workout-section">
         <h2>🏋️‍♂️ اختر نظام تمرينك المفضل</h2>
 
         <div class="timer-container">
-            <span style="font-weight: bold; color: #aaa;">⏱️ تايمر الراحة:</span>
-            <div class="timer-display" id="timerDisplay">01:00</div>
+            <span style="font-weight: bold; color: #aaa;">⏱️ تايمر الراحة بين المجاميع:</span>
+            <div class="timer-display" id="timerDisplay">02:00</div>
             <button class="timer-btn" id="timerBtn" onclick="toggleTimer()">ابدأ الراحة 🚀</button>
         </div>
 
@@ -425,7 +366,7 @@
                     <li><strong>لج بريس بالرجل:</strong> 3 مجاميع × 6 - 10 عدات.</li>
                     <li><strong>ماد أمامي أرجل:</strong> 3 مجاميع × 8 - 10 عدات.</li>
                     <li><strong>خلفيات رجل جهاز:</strong> 3 مجاميع × 8 - 10 عدات.</li>
-                    <li><strong>تحدي الأبطال (بطن):</strong> انزل تحت وفعل العداد وقفل الـ 50 عدة! 🔥</li>
+                    <li><strong>عضلات البطن:</strong> 3 مجاميع × 15-20 عدة كرانشيز.</li>
                 </ul>
             </div>
         </div>
@@ -492,7 +433,7 @@
     <footer>
         <div class="prayer">يارب الهنداوي وسلكاوي يجيبو 95% 🎯</div>
         <div class="copyright">
-            Copyright © 2026 All Rights Reserved | Mahmoud Elhendawy
+            Copyright © 2026 All Rights Reserved | Owned by Mahmoud Elhendawy & Adham Elsalkawy
         </div>
     </footer>
 
@@ -512,7 +453,6 @@
                 return;
             }
 
-            // معادلة السعرات والبروتين الأساسية
             var bmr = (10 * w) + (6.25 * h) - (5 * a) + 5;
             var maintenanceCalories = Math.round(bmr * act);
             globalCalories = maintenanceCalories;
@@ -521,7 +461,44 @@
             document.getElementById('caloriesRet').innerText = maintenanceCalories;
             document.getElementById('proteinRet').innerText = proteinNeeded;
 
-            // حساب نسبة الدهون التقديرية لو دخل محيط الخصر
             if(waist) {
-                // معادلة تقديرية سريعة ومستقرة ومجربة تعتمد على الوزن والطول ومحيط الوسط
-                var fatEstimate = M
+                var fatEstimate = Math.round((74 * (waist / h)) - (44.9 * (w / (h*h/10000))) / 10);
+                if (fatEstimate < 4) fatEstimate = 12;
+                document.getElementById('fatRet').innerText = fatEstimate;
+                document.getElementById('fatResultRow').style.display = 'block';
+            } else {
+                document.getElementById('fatResultRow').style.display = 'none';
+            }
+
+            document.getElementById('resultBorder').style.display = 'block';
+            document.getElementById('dietButtons').style.display = 'flex';
+            document.getElementById('dietPlanBox').style.display = 'none';
+        }
+
+        // 2. عرض أنظمة التغذية
+        function showDiet(goal) {
+            var box = document.getElementById('dietPlanBox');
+            var title = document.getElementById('dietTitle');
+            var content = document.getElementById('dietContent');
+            
+            var tanshifCalories = globalCalories - 500;
+            var tadkhimCalories = globalCalories + 500;
+
+            if (goal === 'tanshif') {
+                title.innerText = "🔥 نظام التنشيف المقترح (حرق الدهون مع ثبات العضل)";
+                content.innerHTML = `
+                    <p style="color: #ff3333; font-weight: bold; font-size: 1.1rem;">🎯 هدفك الحالي يحتاج حوالي: ${tanshifCalories} سعرة حرارية يومياً.</p>
+                    <ul>
+                        <li><strong>الوجبة 1 (الفطار):</strong> 4 بياض بيض + بيضة كاملة مسلوقة + 50 جرام شوفان بلبن خالي الدسم.</li>
+                        <li><strong>الوجبة 2 (الغدا):</strong> 200 جرام صدور دجاج مشوية + 100 جرام رز مسلوق + طبق سلطة خضراء كبير.</li>
+                        <li><strong>الوجبة 3 (سناك):</strong> علبة تونة مصفاة من الزيت + كمشة مكسرات صغيرة (دهون صحية).</li>
+                        <li><strong>الوجبة 4 (العشا):</strong> 200 جرام جبنة قريش + خيارتين + معلقة صغيرة زيت زيتون.</li>
+                    </ul>
+                `;
+            } else if (goal === 'tadkhim') {
+                title.innerText = "💪 نظام التضخيم ونمو العضلات (Bulk)";
+                content.innerHTML = `
+                    <p style="color: #33cc33; font-weight: bold; font-size: 1.1rem;">🎯 هدفك الحالي يحتاج حوالي: ${tadkhimCalories} سعرة حرارية يومياً.</p>
+                    <ul>
+                        <li><strong>الوجبة 1 (الفطار):</strong> 3 بيضات كاملة مقلية بزيت زيتون + 80 جرام شوفان بالموز والعسل واللبن كامل الدسم.</li>
+         
