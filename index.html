@@ -26,7 +26,7 @@
             box-sizing: border-box;
         }
 
-        /* 🚫 إخفاء عناصر الراديو */
+        /* 🚫 إخفاء عناصر الراديو للتبديل */
         input[type="radio"] { display: none; }
 
         /* 🧭 شريط التنقل الاحترافي (Navbar) */
@@ -168,11 +168,12 @@
         }
         .input-group input:focus { border-color: var(--primary); }
 
+        /* تعديل الأزرار لتصبح عناصر button نظيفة لحل مشكلة التعليق */
         .btn-action {
             display: block; width: 100%; padding: 14px; text-align: center;
             background: linear-gradient(90deg, var(--secondary), var(--primary));
-            color: #000; border-radius: 8px; font-size: 1.1rem; font-weight: bold;
-            cursor: pointer; transition: 0.3s; box-sizing: border-box;
+            color: #000; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: bold;
+            cursor: pointer; transition: 0.3s; box-sizing: border-box; font-family: inherit;
         }
         .btn-action:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0, 242, 254, 0.25); }
 
@@ -194,8 +195,7 @@
         #w-arnold:checked ~ .sub-nav .l-arnold,
         #w-ul:checked ~ .sub-nav .l-ul,
         #w-fb:checked ~ .sub-nav .l-fb,
-        #w-int:checked ~ .sub-nav .l-int,
-        #w-bro:checked ~ .sub-nav .l-bro {
+        #w-int:checked ~ .sub-nav .l-int {
             background-color: var(--primary); color: #000; border-color: var(--primary); font-weight: bold;
         }
 
@@ -204,8 +204,7 @@
         #w-arnold:checked ~ .workouts-wrapper #c-arnold,
         #w-ul:checked ~ .workouts-wrapper #c-ul,
         #w-fb:checked ~ .workouts-wrapper #c-fb,
-        #w-int:checked ~ .workouts-wrapper #c-int,
-        #w-bro:checked ~ .workouts-wrapper #c-bro { display: block; }
+        #w-int:checked ~ .workouts-wrapper #c-int { display: block; }
 
         .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .day-card { background-color: var(--bg-card); border-top: 3px solid var(--primary); border-radius: 12px; padding: 20px; box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
@@ -253,7 +252,7 @@
                     </div>
                     <div class="feat-item">
                         <h3>🏋️‍♂️ جداول تمارين</h3>
-                        <p>اختر النظام المناسب لوقتك وهدفك من بين 6 أنظمة تدريبية عالمية.</p>
+                        <p>اختر النظام المناسب لوقتك وهدفك من بين 5 أنظمة تدريبية عالمية.</p>
                     </div>
                 </div>
                 
@@ -303,7 +302,7 @@
                         <input type="number" id="w_water" placeholder="مثال: 80">
                     </div>
                 </div>
-                <div class="btn-action" onclick="calcWater()">احسب احتياجك من المياه 🌊</div>
+                <button type="button" id="btn_water" class="btn-action">احسب احتياجك من المياه 🌊</button>
                 <div class="result-box" id="res_water">
                     <h3>احتياجك اليومي الأدنى: <span class="result-value" id="val_water">0</span> لتر</h3>
                 </div>
@@ -337,7 +336,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="btn-action" onclick="calcMacros()">تحليل الجسم وحساب السعرات 🎯</div>
+                <button type="button" id="btn_macros" class="btn-action">تحليل الجسم وحساب السعرات 🎯</button>
                 
                 <div class="result-box" id="res_macros">
                     <h3>سعرات المحافظة على الوزن (الثبات): <span class="result-value" id="val_cals">0</span> سعرة</h3>
@@ -354,7 +353,6 @@
             <input type="radio" name="workout_nav" id="w-ul">
             <input type="radio" name="workout_nav" id="w-fb">
             <input type="radio" name="workout_nav" id="w-int">
-            <input type="radio" name="workout_nav" id="w-bro">
 
             <div class="sub-nav">
                 <label for="w-ppl" class="sub-label l-ppl">Push Pull Legs</label>
@@ -362,7 +360,6 @@
                 <label for="w-ul" class="sub-label l-ul">Upper / Lower</label>
                 <label for="w-fb" class="sub-label l-fb">Full Body</label>
                 <label for="w-int" class="sub-label l-int">Interior / Posterior</label>
-                <label for="w-bro" class="sub-label l-bro">Bro Split (مقلوب) 🔥</label>
             </div>
 
             <div class="workouts-wrapper">
@@ -438,4 +435,5 @@
                         <div class="day-card">
                             <h4>يوم 1: علوي (Upper Body)</h4>
                             <ul>
- 
+                                <li>بنش مستوي دمبل: 4 × 8</li>
+                                <li>تجديف
