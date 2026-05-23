@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>منصة الأبطال المتكاملة | محمود الهنداوي</title>
     <style>
-        /* 🎨 الألوان والتصميم السيبراني الحديث */
+        /* 🎨 تصميم احترافي متناسق وسريع */
         :root {
             --bg-dark: #090d16;
             --bg-card: #121826;
@@ -23,77 +23,48 @@
             color: var(--text-main);
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
-        /* 🚫 إخفاء عناصر الراديو للتبديل */
-        input[type="radio"] { display: none; }
-
-        /* 🧭 شريط التنقل الاحترافي (Navbar) */
+        /* 🧭 شريط التنقل العلوي الأكيد */
         .navbar {
-            background-color: rgba(18, 24, 38, 0.9);
-            backdrop-filter: blur(12px);
+            background-color: #121826;
             padding: 15px;
             display: flex;
             justify-content: center;
-            gap: 12px;
+            gap: 10px;
             position: sticky;
             top: 0;
             z-index: 1000;
             border-bottom: 2px solid var(--primary);
-            box-shadow: 0 4px 25px rgba(0, 242, 254, 0.15);
         }
 
-        .nav-label {
-            color: var(--text-muted);
-            padding: 10px 22px;
+        .nav-btn {
+            background-color: #182032;
+            color: var(--text-main);
+            border: 1px solid #2d3748;
+            padding: 10px 20px;
             font-weight: bold;
             font-size: 1rem;
-            border-radius: 10px;
+            border-radius: 8px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            font-family: inherit;
         }
 
-        .nav-label:hover { color: var(--text-main); background-color: rgba(255,255,255,0.05); }
-
-        /* تفاعل التابات الرئيسية */
-        #tab-home:checked ~ .navbar .label-home,
-        #tab-diet:checked ~ .navbar .label-diet,
-        #tab-workout:checked ~ .navbar .label-workout {
-            background: linear-gradient(135deg, var(--secondary), var(--primary));
-            color: #000;
-            font-weight: 900;
-            box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
-        }
-
-        /* 📦 حاويات الصفحات */
+        /* 📦 الصفحات */
         .page-content {
-            display: none;
+            display: none; /* سيتم إظهار الصفحة النشطة فقط بالجافاسكريبت */
             max-width: 1000px;
             margin: 30px auto;
             padding: 0 20px;
-            animation: fadeIn 0.4s ease-in-out;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        #tab-home:checked ~ .pages-wrapper #page-home,
-        #tab-diet:checked ~ .pages-wrapper #page-diet,
-        #tab-workout:checked ~ .pages-wrapper #page-workout {
-            display: block;
-        }
-
-        /* ================= 🏠 تصميم الصفحة الرئيسية ================= */
+        /* 🏠 الصفحة الرئيسية */
         .hero-card {
             text-align: center;
             background: linear-gradient(145deg, #161f33, #0d1322);
             border: 1px solid #223150;
             border-radius: 20px;
             padding: 40px 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
         }
 
         .hero-card h1 {
@@ -104,336 +75,365 @@
             margin: 0 0 10px 0;
         }
 
-        .site-desc {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto 25px auto;
-            line-height: 1.6;
-        }
+        .site-desc { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto 25px auto; }
 
-        .features-summary {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-
-        .feat-item {
-            background-color: rgba(255,255,255,0.02);
-            padding: 15px;
-            border-radius: 12px;
-            border: 1px solid #1e293b;
-        }
-        .feat-item h3 { margin: 0 0 5px 0; color: var(--primary); font-size: 1.1rem; }
+        .features-summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 30px; }
+        .feat-item { background-color: rgba(255,255,255,0.02); padding: 15px; border-radius: 12px; border: 1px solid #1e293b; }
+        .feat-item h3 { margin: 0 0 5px 0; color: var(--primary); }
         .feat-item p { margin: 0; color: var(--text-muted); font-size: 0.9rem; }
 
         .prayer-mini-box {
-            background: rgba(255, 183, 3, 0.08);
-            border: 1px dashed var(--accent);
-            padding: 15px 25px;
-            border-radius: 12px;
-            display: inline-block;
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #fff;
-        }
-        .prayer-mini-box span { color: var(--primary); }
-        .prayer-mini-box .score { color: var(--accent); }
-
-        /* ================= 🍏 تصميم صفحة التغذية ================= */
-        .card {
-            background-color: var(--bg-card);
-            border-radius: 16px;
-            padding: 25px;
-            margin-bottom: 25px;
-            border: 1px solid #1e293b;
+            background: rgba(255, 183, 3, 0.08); border: 1px dashed var(--accent);
+            padding: 15px 25px; border-radius: 12px; display: inline-block; font-size: 1.3rem; font-weight: bold;
         }
 
+        /* 🍏 صفحة التغذية والحسابات */
+        .card { background-color: var(--bg-card); border-radius: 16px; padding: 25px; margin-bottom: 25px; border: 1px solid #1e293b; }
         .card-title { color: var(--primary); font-size: 1.4rem; margin-top: 0; border-bottom: 1px solid #1e293b; padding-bottom: 10px; margin-bottom: 20px; }
 
-        /* الأنظمة الجاهزة */
-        .diet-systems-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .diet-systems-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
         .diet-sys-card { background-color: #182032; border-radius: 12px; padding: 20px; border-right: 4px solid var(--secondary); }
         .diet-sys-card h3 { margin-top: 0; color: var(--accent); }
-        .diet-sys-card ul { padding-right: 20px; margin: 10px 0 0 0; font-size: 0.95rem; color: #cbd5e1; }
-        .diet-sys-card li { margin-bottom: 8px; }
+        .diet-sys-card ul { padding-right: 20px; color: #cbd5e1; font-size: 0.95rem; }
 
-        /* الحسابات */
         .input-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-bottom: 20px; }
         .input-group label { display: block; color: var(--text-muted); margin-bottom: 6px; font-size: 0.9rem; font-weight: bold; }
         .input-group input, .input-group select {
             width: 100%; padding: 12px; background-color: #090d16; border: 1px solid #2d3748;
             color: #fff; border-radius: 8px; font-size: 1rem; box-sizing: border-box; outline: none;
         }
-        .input-group input:focus { border-color: var(--primary); }
 
-        /* تعديل الأزرار لتصبح عناصر button نظيفة لحل مشكلة التعليق */
         .btn-action {
             display: block; width: 100%; padding: 14px; text-align: center;
             background: linear-gradient(90deg, var(--secondary), var(--primary));
             color: #000; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: bold;
-            cursor: pointer; transition: 0.3s; box-sizing: border-box; font-family: inherit;
+            cursor: pointer; font-family: inherit;
         }
-        .btn-action:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0, 242, 254, 0.25); }
 
         .result-box {
             display: none; background-color: #090d16; border-right: 4px solid var(--success);
             padding: 15px; border-radius: 8px; margin-top: 20px; text-align: center;
         }
-        .result-box h3 { margin: 8px 0; font-size: 1.2rem; }
         .result-value { color: var(--primary); font-size: 1.6rem; font-weight: bold; }
 
-        /* ================= 🏋️‍♂️ تصميم صفحة التمارين ================= */
+        /* 🏋️‍♂️ صفحة التمارين */
         .sub-nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-bottom: 25px; }
-        .sub-label {
-            background-color: #182032; color: var(--text-muted); border: 1px solid #2d3748;
-            padding: 10px 18px; border-radius: 20px; cursor: pointer; font-weight: bold; font-size: 0.9rem; transition: 0.3s;
-        }
-
-        #w-ppl:checked ~ .sub-nav .l-ppl,
-        #w-arnold:checked ~ .sub-nav .l-arnold,
-        #w-ul:checked ~ .sub-nav .l-ul,
-        #w-fb:checked ~ .sub-nav .l-fb,
-        #w-int:checked ~ .sub-nav .l-int {
-            background-color: var(--primary); color: #000; border-color: var(--primary); font-weight: bold;
-        }
+        .sub-btn { background-color: #182032; color: var(--text-muted); border: 1px solid #2d3748; padding: 10px 18px; border-radius: 20px; cursor: pointer; font-weight: bold; font-family: inherit; }
 
         .workout-content { display: none; }
-        #w-ppl:checked ~ .workouts-wrapper #c-ppl,
-        #w-arnold:checked ~ .workouts-wrapper #c-arnold,
-        #w-ul:checked ~ .workouts-wrapper #c-ul,
-        #w-fb:checked ~ .workouts-wrapper #c-fb,
-        #w-int:checked ~ .workouts-wrapper #c-int { display: block; }
-
         .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .day-card { background-color: var(--bg-card); border-top: 3px solid var(--primary); border-radius: 12px; padding: 20px; box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+        .day-card { background-color: var(--bg-card); border-top: 3px solid var(--primary); border-radius: 12px; padding: 20px; }
         .day-card h4 { color: var(--accent); font-size: 1.2rem; margin-top: 0; border-bottom: 1px solid #1e293b; padding-bottom: 8px; }
-        .day-card ul { padding-right: 18px; color: #cbd5e1; font-size: 1rem; }
-        .day-card li { margin-bottom: 10px; }
+        .day-card ul { padding-right: 18px; color: #cbd5e1; }
 
-        /* ================= 📌 الفوتر ================= */
-        footer {
-            text-align: center; padding: 30px 20px; background-color: #05070f;
-            border-top: 1px solid #121826; margin-top: 60px; color: var(--text-muted); font-size: 0.85rem;
-        }
+        footer { text-align: center; padding: 30px 20px; background-color: #05070f; border-top: 1px solid #121826; margin-top: 60px; color: var(--text-muted); font-size: 0.85rem; }
     </style>
 </head>
 <body>
 
-    <input type="radio" name="main_tab" id="tab-home" checked>
-    <input type="radio" name="main_tab" id="tab-diet">
-    <input type="radio" name="main_tab" id="tab-workout">
-
     <nav class="navbar">
-        <label for="tab-home" class="nav-label label-home">🏠 الرئيسية</label>
-        <label for="tab-diet" class="nav-label label-diet">🍏 أنظمة التغذية</label>
-        <label for="tab-workout" class="nav-label label-workout">🏋️‍♂️ أنظمة التمرين</label>
+        <button class="nav-btn" onclick="openPage('page-home')">🏠 الرئيسية</button>
+        <button class="nav-btn" onclick="openPage('page-diet')">🍏 أنظمة التغذية والحسابات</button>
+        <button class="nav-btn" onclick="openPage('page-workout')">🏋️‍♂️ أنظمة التمرين</button>
     </nav>
 
-    <div class="pages-wrapper">
-
-        <div class="page-content" id="page-home">
-            <div class="hero-card">
-                <h1>مـنـصـة الأبـطـال الـمـتـكـامـلـة</h1>
-                <p style="color: var(--accent); font-weight: bold; margin-bottom: 5px;">صلوا على النبي محمد ﷺ</p>
-                <p class="site-desc">
-                    مرحباً بك في دليلك الرياضي الشامل لتنظيم وحساب كل ما يخص تطوير جسمك وبنائك العضلي. تم تصميم المنصة لتوفر لك أدوات دقيقة وجداول تمارين احترافية في مكان واحد.
-                </p>
-                
-                <div class="features-summary">
-                    <div class="feat-item">
-                        <h3>📊 حسابات دقيقة</h3>
-                        <p>احسب سعراتك الحرارية، احتياج البروتين، وكمية الماء اليومية بدقة.</p>
-                    </div>
-                    <div class="feat-item">
-                        <h3>🍏 خطط غذائية</h3>
-                        <p>استكشف الأنظمة الأساسية للتضخيم، التنشيف، وإعادة التشكيل العضلي.</p>
-                    </div>
-                    <div class="feat-item">
-                        <h3>🏋️‍♂️ جداول تمارين</h3>
-                        <p>اختر النظام المناسب لوقتك وهدفك من بين 5 أنظمة تدريبية عالمية.</p>
-                    </div>
+    <div class="page-content" id="page-home" style="display: block;">
+        <div class="hero-card">
+            <h1>مـنـصـة الأبـطـال الـمـتـكـامـلـة</h1>
+            <p style="color: var(--accent); font-weight: bold; margin-bottom: 5px;">صلوا على النبي محمد ﷺ</p>
+            <p class="site-desc">
+                مرحباً بك في دليلك الرياضي الشامل لتنظيم وحساب كل ما يخص تطوير جسمك وبنائك العضلي. تم تصميم المنصة لتوفر لك أدوات دقيقة وجداول تمارين احترافية في مكان واحد.
+            </p>
+            
+            <div class="features-summary">
+                <div class="feat-item">
+                    <h3>📊 حسابات دقيقة</h3>
+                    <p>احسب سعراتك الحرارية، احتياج البروتين، وكمية الماء اليومية بدقة.</p>
                 </div>
-                
-                <div class="prayer-mini-box">
-                    يارب <span>محمود الهنداوي</span> و سلكاوي يقفلوها ويجيبو <span class="score">95%</span> في 3 ثانوي! 🎯🏆
+                <div class="feat-item">
+                    <h3>🍏 خطط غذائية</h3>
+                    <p>استكشف الأنظمة الأساسية للتضخيم، التنشيف، وإعادة التشكيل العضلي.</p>
+                </div>
+                <div class="feat-item">
+                    <h3>🏋️‍♂️ جداول تمارين</h3>
+                    <p>اختر النظام المناسب لوقتك وهدفك من بين الأنظمة العالمية المفصلة.</p>
+                </div>
+            </div>
+            
+            <div class="prayer-mini-box">
+                يارب <span style="color:var(--primary);">محمود الهنداوي</span> و سلكاوي يقفلوها ويجيبو <span style="color:var(--accent);">95%</span> في 3 ثانوي! 🎯🏆
+            </div>
+        </div>
+    </div>
+
+    <div class="page-content" id="page-diet">
+        
+        <div class="card">
+            <h2 class="card-title">📋 الأنظمة الغذائية الأساسية</h2>
+            <div class="diet-systems-grid">
+                <div class="diet-sys-card">
+                    <h3>1. التضخيم الذكي (Bulking)</h3>
+                    <ul>
+                        <li>زيادة 300-500 سعرة فوق سعرات الثبات.</li>
+                        <li>التركيز على الكارب المعقد (أرز، شوفان).</li>
+                        <li>بروتين لا يقل عن 2 جرام لكل كيلو من وزنك.</li>
+                    </ul>
+                </div>
+                <div class="diet-sys-card" style="border-right-color: var(--accent);">
+                    <h3>2. التنشيف الاحترافي (Cutting)</h3>
+                    <ul>
+                        <li>عجز 500 سعرة حرارية من سعرات الثبات.</li>
+                        <li>رفع نسبة البروتين لحماية الكتلة العضلية من الهدم.</li>
+                        <li>تقليل الدهون الصحية والكارب تدريجياً مع الماء بكثرة.</li>
+                    </ul>
+                </div>
+                <div class="diet-sys-card" style="border-right-color: var(--success);">
+                    <h3>3. إعادة التشكيل (Recomposition)</h3>
+                    <ul>
+                        <li>تناول نفس سعرات الثبات تماماً أو عجز طفيف (100 سعرة).</li>
+                        <li>مثالي لبناء العضل وحرق الدهون معاً في نفس الوقت.</li>
+                        <li>الالتزام التام بنسبة بروتين عالية يومياً.</li>
+                    </ul>
                 </div>
             </div>
         </div>
 
-        <div class="page-content" id="page-diet">
-            
-            <div class="card">
-                <h2 class="card-title">📋 الأنظمة الغذائية الأساسية</h2>
-                <div class="diet-systems-grid">
-                    <div class="diet-sys-card">
-                        <h3>1. التضخيم الذكي (Bulking)</h3>
-                        <ul>
-                            <li>زيادة 300-500 سعرة فوق سعرات الثبات.</li>
-                            <li>التركيز على الكارب المعقد (أرز، شوفان، بطاطس).</li>
-                            <li>نسبة بروتين لا تقل عن 2 جرام لكل كيلو من وزنك.</li>
-                        </ul>
-                    </div>
-                    <div class="diet-sys-card" style="border-right-color: var(--accent);">
-                        <h3>2. التنشيف الاحترافي (Cutting)</h3>
-                        <ul>
-                            <li>عجز 500 سعرة حرارية من سعرات الثبات.</li>
-                            <li>رفع نسبة البروتين لحماية الكتلة العضلية من الهدم.</li>
-                            <li>تقليل الدهون الصحية والكارب تدريجياً مع شرب ماء بكثرة.</li>
-                        </ul>
-                    </div>
-                    <div class="diet-sys-card" style="border-right-color: var(--success);">
-                        <h3>3. إعادة التشكيل (Recomposition)</h3>
-                        <ul>
-                            <li>تناول نفس سعرات الثبات تماماً أو عجز طفيف جداً (100 سعرة).</li>
-                            <li>مثالي للمبتدئين أو العائدين من انقطاع لبناء عضل وحرق دهون معاً.</li>
-                            <li>الالتزام التام بنسبة بروتين عالية يومياً.</li>
-                        </ul>
-                    </div>
+        <div class="card">
+            <h2 class="card-title">💧 حاسبة المياه الذكية</h2>
+            <div class="input-grid" style="grid-template-columns: 1fr;">
+                <div class="input-group">
+                    <label>الوزن الحالي (كجم):</label>
+                    <input type="number" id="w_water" placeholder="مثال: 80">
                 </div>
             </div>
-
-            <div class="card">
-                <h2 class="card-title">💧 حاسبة المياه الذكية</h2>
-                <div class="input-grid" style="grid-template-columns: 1fr;">
-                    <div class="input-group">
-                        <label>الوزن الحقيقي (كجم):</label>
-                        <input type="number" id="w_water" placeholder="مثال: 80">
-                    </div>
-                </div>
-                <button type="button" id="btn_water" class="btn-action">احسب احتياجك من المياه 🌊</button>
-                <div class="result-box" id="res_water">
-                    <h3>احتياجك اليومي الأدنى: <span class="result-value" id="val_water">0</span> لتر</h3>
-                </div>
+            <button type="button" class="btn-action" onclick="runWaterCalculator()">احسب احتياجك من المياه 🌊</button>
+            <div class="result-box" id="res_water">
+                <h3>احتياجك اليومي الأدنى: <span class="result-value" id="val_water">0</span> لتر</h3>
             </div>
-
-            <div class="card">
-                <h2 class="card-title">🔥 حاسبة السعرات ونسبة البروتين</h2>
-                <div class="input-grid">
-                    <div class="input-group">
-                        <label>الوزن (كجم):</label>
-                        <input type="number" id="w_cal" placeholder="مثال: 80">
-                    </div>
-                    <div class="input-group">
-                        <label>الطول (سم):</label>
-                        <input type="number" id="h_cal" placeholder="مثال: 175">
-                    </div>
-                    <div class="input-group">
-                        <label>السن:</label>
-                        <input type="number" id="a_cal" placeholder="مثال: 17">
-                    </div>
-                    <div class="input-group">
-                        <label>نسبة العضلات الحالية (اختياري):</label>
-                        <input type="number" id="m_cal" placeholder="31%" value="31">
-                    </div>
-                    <div class="input-group" style="grid-column: 1 / -1;">
-                        <label>معدل المجهود البدني الأسبوعي:</label>
-                        <select id="act_cal">
-                            <option value="1.2">خامل (بدون تمرين ومجهود مكتبي)</option>
-                            <option value="1.55" selected>متوسط (تمرين حديد من 3 إلى 5 أيام أسبوعياً)</option>
-                            <option value="1.725">عالي جداً (تمرين يومي شديد ومجهود بدني عالي)</option>
-                        </select>
-                    </div>
-                </div>
-                <button type="button" id="btn_macros" class="btn-action">تحليل الجسم وحساب السعرات 🎯</button>
-                
-                <div class="result-box" id="res_macros">
-                    <h3>سعرات المحافظة على الوزن (الثبات): <span class="result-value" id="val_cals">0</span> سعرة</h3>
-                    <h3 style="border-top: 1px dashed #2d3748; padding-top: 15px; margin-top: 15px;">صافي البروتين اليومي للبناء العضلي: <span class="result-value" id="val_protein">0</span> جرام</h3>
-                </div>
-            </div>
-
         </div>
 
-        <div class="page-content" id="page-workout">
-            
-            <input type="radio" name="workout_nav" id="w-ppl" checked>
-            <input type="radio" name="workout_nav" id="w-arnold">
-            <input type="radio" name="workout_nav" id="w-ul">
-            <input type="radio" name="workout_nav" id="w-fb">
-            <input type="radio" name="workout_nav" id="w-int">
-
-            <div class="sub-nav">
-                <label for="w-ppl" class="sub-label l-ppl">Push Pull Legs</label>
-                <label for="w-arnold" class="sub-label l-arnold">Arnold Split</label>
-                <label for="w-ul" class="sub-label l-ul">Upper / Lower</label>
-                <label for="w-fb" class="sub-label l-fb">Full Body</label>
-                <label for="w-int" class="sub-label l-int">Interior / Posterior</label>
+        <div class="card">
+            <h2 class="card-title">🔥 حاسبة السعرات ونسبة البروتين</h2>
+            <div class="input-grid">
+                <div class="input-group">
+                    <label>الوزن (كجم):</label>
+                    <input type="number" id="w_cal" placeholder="مثال: 80">
+                </div>
+                <div class="input-group">
+                    <label>الطول (سم):</label>
+                    <input type="number" id="h_cal" placeholder="مثال: 175">
+                </div>
+                <div class="input-group">
+                    <label>السن:</label>
+                    <input type="number" id="a_cal" placeholder="مثال: 17">
+                </div>
+                <div class="input-group">
+                    <label>نسبة العضلات الحالية % (اختياري):</label>
+                    <input type="number" id="m_cal" value="31">
+                </div>
+                <div class="input-group" style="grid-column: 1 / -1;">
+                    <label>معدل المجهود البدني الأسبوعي:</label>
+                    <select id="act_cal">
+                        <option value="1.2">خامل (بدون تمرين)</option>
+                        <option value="1.55" selected>متوسط (تمرين حديد 3 إلى 5 أيام)</option>
+                        <option value="1.725">عالي جداً (تمرين يومي شديد)</option>
+                    </select>
+                </div>
             </div>
+            <button type="button" class="btn-action" onclick="runMacrosCalculator()">تحليل الجسم وحساب السعرات 🎯</button>
+            
+            <div class="result-box" id="res_macros">
+                <h3>سعرات المحافظة على الوزن (الثبات): <span class="result-value" id="val_cals">0</span> سعرة</h3>
+                <h3 style="border-top: 1px dashed #2d3748; padding-top: 15px; margin-top: 15px;">صافي البروتين اليومي للبناء العضلي: <span class="result-value" id="val_protein">0</span> جرام</h3>
+            </div>
+        </div>
 
-            <div class="workouts-wrapper">
-                
-                <div class="workout-content" id="c-ppl">
-                    <div class="grid-cards">
-                        <div class="day-card">
-                            <h4>يوم 1: دفع (صدر، كتف أمامي وجانبي، تراي)</h4>
-                            <ul>
-                                <li>بنش مستوي بار: 4 × 8-10</li>
-                                <li>بنش عالي دمبل: 3 × 10</li>
-                                <li>تجميع كتف دمبل: 4 × 8</li>
-                                <li>رفرفة جانبي: 4 × 12</li>
-                                <li>ترايسبس حبل: 3 × 12</li>
-                            </ul>
-                        </div>
-                        <div class="day-card">
-                            <h4>يوم 2: سحب (ظهر كامل، باي، كتف خلفي)</h4>
-                            <ul>
-                                <li>سحب عالي واسع: 4 × 10</li>
-                                <li>تجديف بار حر: 3 × 8</li>
-                                <li>سحب أرضي ضيق: 3 × 10</li>
-                                <li>رفرفة خلفي دمبل: 4 × 15</li>
-                                <li>بايسبس بار زجزاج: 4 × 10</li>
-                            </ul>
-                        </div>
-                        <div class="day-card">
-                            <h4>يوم 3: أرجل وبطن</h4>
-                            <ul>
-                                <li>سكوات بار حر: 4 × 8</li>
-                                <li>لج بريس جهاز: 3 × 10</li>
-                                <li>تمديد أمامي جهاز: 3 × 12</li>
-                                <li>خلفيات أرجل جهاز: 3 × 12</li>
-                                <li>طحن بطن (كرانشيز): 4 × 15</li>
-                            </ul>
-                        </div>
-                    </div>
+    </div>
+
+    <div class="page-content" id="page-workout">
+        
+        <div class="sub-nav">
+            <button class="sub-btn" onclick="openWorkout('c-ppl')">Push Pull Legs</button>
+            <button class="sub-btn" onclick="openWorkout('c-arnold')">Arnold Split</button>
+            <button class="sub-btn" onclick="openWorkout('c-ul')">Upper / Lower</button>
+            <button class="sub-btn" onclick="openWorkout('c-fb')">Full Body</button>
+        </div>
+
+        <div class="workout-content" id="c-ppl" style="display: block;">
+            <div class="grid-cards">
+                <div class="day-card">
+                    <h4>يوم 1: دفع (صدر، كتف أمامي وجانبي، تراي)</h4>
+                    <ul>
+                        <li>بنش مستوي بار: 4 × 8-10</li>
+                        <li>بنش عالي دمبل: 3 × 10</li>
+                        <li>تجميع كتف دمبل: 4 × 8</li>
+                        <li>رفرفة جانبي: 4 × 12</li>
+                        <li>ترايسبس حبل: 3 × 12</li>
+                    </ul>
                 </div>
-
-                <div class="workout-content" id="c-arnold">
-                    <div class="grid-cards">
-                        <div class="day-card">
-                            <h4>يوم 1: صدر وظهر</h4>
-                            <ul>
-                                <li>بنش مستوي بار: 4 × 8</li>
-                                <li>سحب عالي ظهر: 4 × 10</li>
-                                <li>بنش عالي دمبل: 3 × 10</li>
-                                <li>تجديف بار حر: 3 × 8</li>
-                            </ul>
-                        </div>
-                        <div class="day-card">
-                            <h4>يوم 2: أكتاف وذراع كامل</h4>
-                            <ul>
-                                <li>تجميع كتف أمامي: 4 × 8</li>
-                                <li>رفرفة جانبي دمبل: 4 × 12</li>
-                                <li>بايسبس بار واقف: 4 × 10</li>
-                                <li>ترايسبس متوازي جسم: 4 × 10</li>
-                            </ul>
-                        </div>
-                        <div class="day-card">
-                            <h4>يوم 3: أرجل شاملة</h4>
-                            <ul>
-                                <li>سكوات خلفي بار: 4 × 8</li>
-                                <li>رفعة ميتة روماني (RDL): 4 × 8</li>
-                                <li>سمانة واقف بالبار: 5 × 15</li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="day-card">
+                    <h4>يوم 2: سحب (ظهر كامل، باي، كتف خلفي)</h4>
+                    <ul>
+                        <li>سحب عالي واسع: 4 × 10</li>
+                        <li>تجديف بار حر: 3 × 8</li>
+                        <li>سحب أرضي ضيق: 3 × 10</li>
+                        <li>رفرفة خلفي دمبل: 4 × 15</li>
+                        <li>بايسبس بار زجزاج: 4 × 10</li>
+                    </ul>
                 </div>
+                <div class="day-card">
+                    <h4>يوم 3: أرجل وبطن</h4>
+                    <ul>
+                        <li>سكوات بار حر: 4 × 8</li>
+                        <li>لج بريس جهاز: 3 × 10</li>
+                        <li>تمديد أمامي جهاز: 3 × 12</li>
+                        <li>خلفيات أرجل جهاز: 3 × 12</li>
+                        <li>طحن بطن (كرانشيز): 4 × 15</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-                <div class="workout-content" id="c-ul">
-                    <div class="grid-cards">
-                        <div class="day-card">
-                            <h4>يوم 1: علوي (Upper Body)</h4>
-                            <ul>
-                                <li>بنش مستوي دمبل: 4 × 8</li>
-                                <li>تجديف
+        <div class="workout-content" id="c-arnold">
+            <div class="grid-cards">
+                <div class="day-card">
+                    <h4>يوم 1: صدر وظهر</h4>
+                    <ul>
+                        <li>بنش مستوي بار: 4 × 8</li>
+                        <li>سحب عالي ظهر: 4 × 10</li>
+                        <li>بنش عالي دمبل: 3 × 10</li>
+                        <li>تجديف بار حر: 3 × 8</li>
+                    </ul>
+                </div>
+                <div class="day-card">
+                    <h4>يوم 2: أكتاف وذراع كامل</h4>
+                    <ul>
+                        <li>تجميع كتف أمامي: 4 × 8</li>
+                        <li>رفرفة جانبي دمبل: 4 × 12</li>
+                        <li>بايسبس بار واقف: 4 × 10</li>
+                        <li>ترايسبس متوازي جسم: 4 × 10</li>
+                    </ul>
+                </div>
+                <div class="day-card">
+                    <h4>يوم 3: أرجل شاملة</h4>
+                    <ul>
+                        <li>سكوات خلفي بار: 4 × 8</li>
+                        <li>رفعة ميتة روماني (RDL): 4 × 8</li>
+                        <li>سمانة واقف بالبار: 5 × 15</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="workout-content" id="c-ul">
+            <div class="grid-cards">
+                <div class="day-card">
+                    <h4>يوم 1: علوي (Upper Body)</h4>
+                    <ul>
+                        <li>بنش مستوي دمبل: 4 × 8</li>
+                        <li>تجديف ظهر دمبل: 4 × 8</li>
+                        <li>أوفر هيد بريس بار: 3 × 8</li>
+                        <li>تبادل بايسبس دمبل: 3 × 10</li>
+                    </ul>
+                </div>
+                <div class="day-card">
+                    <h4>يوم 2: سفلي (Lower Body)</h4>
+                    <ul>
+                        <li>لج بريس جهاز: 4 × 10</li>
+                        <li>خلفيات جهاز منبطح: 4 × 10</li>
+                        <li>ماد أمامي فردي: 3 × 12</li>
+                        <li>بلانك ثبات للبطن: 3 × 60 ثانية</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="workout-content" id="c-fb">
+            <div class="grid-cards">
+                <div class="day-card" style="grid-column: 1 / -1;">
+                    <h4>🏋️‍♂️ نظام الجسم الكامل (يتكرر 3 أيام غير متتالية في الأسبوع)</h4>
+                    <ul style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px;">
+                        <li>سكوات بار: 3 × 8</li>
+                        <li>بنش مستوي بار: 3 × 8</li>
+                        <li>عقلة أو سحب عالي: 3 × 10</li>
+                        <li>تجميع كتف دمبل: 3 × 10</li>
+                        <li>سوبر سيت باي وتراي: 3 × 12</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Copyright © 2026 All Rights Reserved | Owned EXCLUSIVELY by <strong>Mahmoud El-Hindawy</strong></p>
+    </footer>
+
+    <script>
+        // دالة التنقل بين الصفحات الرئيسية الثلاثة
+        function openPage(pageId) {
+            var pages = document.getElementsByClassName('page-content');
+            for (var i = 0; i < pages.length; i++) {
+                pages[i].style.display = 'none';
+            }
+            document.getElementById(pageId).style.display = 'block';
+        }
+
+        // دالة التنقل بين جداول التمارين
+        function openWorkout(workoutId) {
+            var contents = document.getElementsByClassName('workout-content');
+            for (var i = 0; i < contents.length; i++) {
+                contents[i].style.display = 'none';
+            }
+            document.getElementById(workoutId).style.display = 'block';
+        }
+
+        // حاسبة المياه المباشرة
+        function runWaterCalculator() {
+            var weight = document.getElementById('w_water').value;
+            var w = parseFloat(weight);
+
+            if (w > 0 && !isNaN(w)) {
+                var liters = (w * 0.035).toFixed(1);
+                // إظهار في الصندوق المخصص
+                document.getElementById('val_water').innerText = liters;
+                document.getElementById('res_water').style.display = 'block';
+                // رسالة تأكيد إضافية في حال تعطل الصناديق في بعض الموبايلات
+                alert("احتياجك اليومي من الماء هو: " + liters + " لتر 🌊");
+            } else {
+                alert("برجاء كتابة الوزن بالأرقام يا بطل!");
+            }
+        }
+
+        // حاسبة السعرات والبروتين المباشرة
+        function runMacrosCalculator() {
+            var weight = document.getElementById('w_cal').value;
+            var height = document.getElementById('h_cal').value;
+            var age = document.getElementById('a_cal').value;
+            var activity = document.getElementById('act_cal').value;
+
+            var w = parseFloat(weight);
+            var h = parseFloat(height);
+            var a = parseFloat(age);
+            var act = parseFloat(activity);
+
+            if (w > 0 && h > 0 && a > 0 && !isNaN(w) && !isNaN(h) && !isNaN(a)) {
+                // المعادلة الرياضية المباشرة لـ BMR
+                var bmr = (10 * w) + (6.25 * h) - (5 * a) + 5;
+                var calories = Math.round(bmr * act);
+                var protein = Math.round(w * 2.2);
+
+                // إظهار في الصناديق
+                document.getElementById('val_cals').innerText = calories;
+                document.getElementById('val_protein').innerText = protein;
+                document.getElementById('res_macros').style.display = 'block';
+
+                // رسالة تأكيد احتياطية تظهر على الشاشة فوراً
+                alert("تحليل جسمك يا كابتن:\n" + "سعرات الثبات: " + calories + " سعرة حرارية 🔥\n" + "احتياج البروتين: " + protein + " جرام 💪");
+            } else {
+                alert("برجاء إدخال الوزن والطول والسن بشكل صحيح!");
+            }
+        }
+    </script>
+</body>
+</html>
