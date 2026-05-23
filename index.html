@@ -5,107 +5,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>موقع الأبطال المتكامل | محمود الهنداوي</title>
     <style>
-        :root {
-            --bg-dark: #07090d; --bg-card: #151a22;
-            --primary: #00e6b8; --secondary: #ffb703;
-            --text-main: #e2e8f0; --text-muted: #94a3b8;
-        }
-        body { font-family: 'Segoe UI', sans-serif; background-color: var(--bg-dark); color: var(--text-main); margin: 0; padding-bottom: 50px; }
-        
-        /* 🧭 Navbar */
-        .navbar { background-color: #0f141b; padding: 15px; display: flex; justify-content: center; gap: 10px; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid var(--primary); }
-        .nav-btn { background: #1f2733; color: var(--text-muted); border: none; padding: 10px 15px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s; }
-        .nav-btn.active { background: var(--primary); color: var(--bg-dark); }
-
-        .page-content { display: none; max-width: 900px; margin: 30px auto; padding: 0 20px; }
-        .page-content.active { display: block; animation: fadeIn 0.4s; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        /* 🏠 Home */
-        .hero-section { text-align: center; background: #10161e; border: 2px solid var(--secondary); border-radius: 20px; padding: 50px 20px; }
-        .prayer-box { border: 2px dashed var(--primary); padding: 20px; border-radius: 15px; display: inline-block; font-size: 1.5rem; }
-
-        /* 🍏 Diet */
-        .card { background: var(--bg-card); padding: 25px; border-radius: 15px; margin-bottom: 20px; border-top: 4px solid var(--primary); }
-        input, select { width: 100%; padding: 12px; margin: 8px 0; background: #0b0e14; border: 1px solid #2a3441; color: white; border-radius: 8px; box-sizing: border-box; }
-        .btn-action { width: 100%; padding: 15px; background: var(--primary); color: #000; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
-
-        /* 🏋️‍♂️ Workouts */
-        .sub-nav { display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
-        .sub-btn { background: #1f2733; color: var(--primary); border: 1px solid var(--primary); padding: 8px 15px; border-radius: 20px; cursor: pointer; }
-        .sub-btn.active { background: var(--primary); color: #000; }
-        .w-content { display: none; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
-        .w-content.active { display: grid; }
-        .day-card { background: #151a22; padding: 15px; border-radius: 10px; border-right: 4px solid var(--secondary); }
+        :root { --bg-dark: #07090d; --bg-card: #151a22; --primary: #00e6b8; --secondary: #ffb703; --text-main: #e2e8f0; --text-muted: #94a3b8; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg-dark); color: var(--text-main); margin: 0; padding: 0; }
+        .hidden-radio { display: none; }
+        .navbar { background-color: #0f141b; padding: 15px; display: flex; justify-content: center; gap: 15px; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid var(--primary); }
+        .nav-label { color: var(--text-muted); padding: 10px 20px; font-weight: bold; cursor: pointer; transition: 0.3s; border-radius: 8px; }
+        #tab-home:checked ~ .navbar .label-home, #tab-diet:checked ~ .navbar .label-diet, #tab-workout:checked ~ .navbar .label-workout { background-color: var(--primary); color: var(--bg-dark); }
+        .page-content { display: none; max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        #tab-home:checked ~ .pages-wrapper #page-home { display: block; }
+        #tab-diet:checked ~ .pages-wrapper #page-diet { display: block; }
+        #tab-workout:checked ~ .pages-wrapper #page-workout { display: block; }
+        .hero-section { text-align: center; background: #10161e; border: 2px solid var(--secondary); border-radius: 20px; padding: 60px 20px; }
+        .prayer-box { border: 2px dashed var(--primary); padding: 20px; border-radius: 15px; display: inline-block; font-size: 1.8rem; font-weight: bold; margin-top: 20px; }
+        .sub-nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; }
+        .sub-label { background: #1f2733; color: var(--primary); border: 1px solid var(--primary); padding: 10px 15px; border-radius: 30px; cursor: pointer; font-weight: bold; }
+        #w-ppl:checked ~ .sub-nav .l-ppl, #w-arnold:checked ~ .sub-nav .l-arnold, #w-ul:checked ~ .sub-nav .l-ul, #w-fb:checked ~ .sub-nav .l-fb, #w-intpost:checked ~ .sub-nav .l-intpost { background-color: var(--primary); color: #000; }
+        .workout-content { display: none; }
+        #w-ppl:checked ~ .workouts-wrapper #c-ppl, #w-arnold:checked ~ .workouts-wrapper #c-arnold, #w-ul:checked ~ .workouts-wrapper #c-ul, #w-fb:checked ~ .workouts-wrapper #c-fb, #w-intpost:checked ~ .workouts-wrapper #c-intpost { display: block; }
+        .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .day-card { background: #151a22; border-top: 4px solid var(--primary); padding: 20px; border-radius: 12px; }
+        .day-card h4 { color: var(--secondary); margin-top: 0; }
+        .day-card ul { color: #cbd5e1; list-style: none; padding: 0; }
+        footer { text-align: center; padding: 30px; color: var(--text-muted); border-top: 1px solid #1f2733; }
     </style>
 </head>
 <body>
 
+    <input type="radio" name="main_nav" id="tab-home" class="hidden-radio" checked>
+    <input type="radio" name="main_nav" id="tab-diet" class="hidden-radio">
+    <input type="radio" name="main_nav" id="tab-workout" class="hidden-radio">
+
     <nav class="navbar">
-        <button class="nav-btn active" onclick="show('home', this)">الرئيسية</button>
-        <button class="nav-btn" onclick="show('diet', this)">التغذية</button>
-        <button class="nav-btn" onclick="show('workout', this)">التمارين</button>
+        <label for="tab-home" class="nav-label label-home">🏠 الرئيسية</label>
+        <label for="tab-diet" class="nav-label label-diet">🍏 التغذية</label>
+        <label for="tab-workout" class="nav-label label-workout">🏋️‍♂️ التمارين</label>
     </nav>
 
-    <div id="home" class="page-content active">
-        <div class="hero-section">
-            <h1>موقع الأبطال المتكامل</h1>
-            <div class="prayer-box">
-                يارب <span style="color:var(--primary)">محمود الهنداوي</span> و <span style="color:var(--primary)">سلكاوي</span><br>
-                يقفلوها ويجيبو <span style="color:var(--secondary)">95%</span> في 3 ثانوي! 🎯
+    <div class="pages-wrapper">
+        <div class="page-content" id="page-home">
+            <div class="hero-section">
+                <h1>موقع الأبطال المتكامل</h1>
+                <div class="prayer-box">
+                    يارب <span style="color:var(--primary)">محمود الهنداوي</span> و <span style="color:var(--primary)">سلكاوي</span><br>
+                    يقفلوها ويجيبو <span style="color:var(--secondary)">95%</span> في 3 ثانوي! 🎯
+                </div>
+            </div>
+        </div>
+
+        <div class="page-content" id="page-diet">
+            <div class="card" style="background:#151a22; padding:30px; border-radius:15px;">
+                <h2 style="color:var(--primary)">حاسبة التغذية</h2>
+                <input type="number" id="w_cal" placeholder="الوزن (كجم)" style="width:100%; padding:10px; margin-bottom:10px;">
+                <button onclick="calc()" style="width:100%; padding:15px; background:var(--primary); border:none; cursor:pointer;">احسب</button>
+                <div id="res" style="margin-top:20px; display:none;"><h3>البروتين: <span id="prot" style="color:var(--secondary)"></span> جرام</h3></div>
+            </div>
+        </div>
+
+        <div class="page-content" id="page-workout">
+            <input type="radio" name="workout_nav" id="w-ppl" class="hidden-radio" checked>
+            <input type="radio" name="workout_nav" id="w-arnold" class="hidden-radio">
+            <input type="radio" name="workout_nav" id="w-ul" class="hidden-radio">
+            <input type="radio" name="workout_nav" id="w-fb" class="hidden-radio">
+            <input type="radio" name="workout_nav" id="w-intpost" class="hidden-radio">
+
+            <div class="sub-nav">
+                <label for="w-ppl" class="sub-label l-ppl">PPL</label>
+                <label for="w-arnold" class="sub-label l-arnold">Arnold</label>
+                <label for="w-ul" class="sub-label l-ul">Upper/Lower</label>
+                <label for="w-fb" class="sub-label l-fb">Full Body</label>
+                <label for="w-intpost" class="sub-label l-intpost">Interior/Posterior</label>
+            </div>
+
+            <div class="workouts-wrapper">
+                <div class="workout-content" id="c-ppl"><div class="day-card"><h4>PPL</h4><ul><li>دفع - سحب - أرجل</li></ul></div></div>
+                <div class="workout-content" id="c-arnold"><div class="day-card"><h4>Arnold</h4><ul><li>صدر وظهر - كتف وذراع - أرجل</li></ul></div></div>
+                <div class="workout-content" id="c-ul"><div class="day-card"><h4>Upper/Lower</h4><ul><li>علوي - سفلي</li></ul></div></div>
+                <div class="workout-content" id="c-fb"><div class="day-card"><h4>Full Body</h4><ul><li>جسم كامل</li></ul></div></div>
+                <div class="workout-content" id="c-intpost">
+                    <div class="grid-cards">
+                        <div class="day-card"><h4>الجانب الأمامي (Interior)</h4><ul><li>بنش عالي</li><li>رفرفة كتف جانبي</li><li>ماد أمامي</li><li>بطن</li></ul></div>
+                        <div class="day-card"><h4>الجانب الخلفي (Posterior)</h4><ul><li>رفعة ميتة</li><li>سحب عالي</li><li>خلفيات أرجل</li><li>رفرفة خلفي</li></ul></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <div id="diet" class="page-content">
-        <div class="card">
-            <h3>🔥 حاسبة الماكروز</h3>
-            <input type="number" id="w" placeholder="الوزن (كجم)">
-            <input type="number" id="h" placeholder="الطول (سم)">
-            <button class="btn-action" onclick="calc()">احسب النتائج</button>
-            <div id="res" style="margin-top:15px; display:none;">
-                <p>البروتين: <span id="prot" style="color:var(--primary)">0</span> جرام</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="workout" class="page-content">
-        <div class="sub-nav">
-            <button class="sub-btn active" onclick="showW('ppl', this)">PPL</button>
-            <button class="sub-btn" onclick="showW('int-ext', this)">Interior/Posterior</button>
-        </div>
-        
-        <div id="ppl" class="w-content active">
-            <div class="day-card"><h4>دفع</h4><ul><li>بنش مستوي 4×10</li><li>كتف جانبي 3×12</li></ul></div>
-            <div class="day-card"><h4>سحب</h4><ul><li>عقلة 4×10</li><li>بايسبس 3×12</li></ul></div>
-            <div class="day-card"><h4>أرجل</h4><ul><li>سكوات 4×10</li><li>سمانة 4×15</li></ul></div>
-        </div>
-
-        <div id="int-ext" class="w-content">
-            <div class="day-card"><h4>الجانب الأمامي (Interior)</h4><ul><li>بنش عالي 4×10</li><li>رفرفة كتف 4×12</li><li>ماد أمامي 3×12</li></ul></div>
-            <div class="day-card"><h4>الجانب الخلفي (Posterior)</h4><ul><li>رفعة ميتة 4×8</li><li>سحب عالي 4×10</li><li>خلفيات أرجل 3×12</li></ul></div>
-        </div>
-    </div>
+    <footer><p>Mahmoud El-Hindawy | 2026</p></footer>
 
     <script>
-        function show(id, btn) {
-            document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
-            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
-            btn.classList.add('active');
-        }
-        function showW(id, btn) {
-            document.querySelectorAll('.w-content').forEach(p => p.classList.remove('active'));
-            document.querySelectorAll('.sub-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
-            btn.classList.add('active');
-        }
         function calc() {
-            let w = document.getElementById('w').value;
-            if(w) {
-                document.getElementById('prot').innerText = Math.round(w * 2.2);
-                document.getElementById('res').style.display = 'block';
-            }
+            let w = document.getElementById('w_cal').value;
+            if(w) { document.getElementById('prot').innerText = Math.round(w * 2.2); document.getElementById('res').style.display = 'block'; }
         }
     </script>
 </body>
