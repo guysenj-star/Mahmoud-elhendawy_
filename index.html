@@ -15,7 +15,6 @@
             --text-main: #f1f5f9;
             --text-muted: #64748b;
             --success: #10b981;
-            --danger: #ef4444;
         }
 
         body {
@@ -43,9 +42,9 @@
             background-color: #182032;
             color: var(--text-main);
             border: 1px solid #2d3748;
-            padding: 10px 18px;
+            padding: 10px 20px;
             font-weight: bold;
-            font-size: 0.95rem;
+            font-size: 1rem;
             border-radius: 8px;
             cursor: pointer;
             font-family: inherit;
@@ -53,7 +52,7 @@
 
         /* 📦 الصفحات */
         .page-content {
-            display: none;
+            display: none; /* سيتم إظهار الصفحة النشطة فقط بالجافاسكريبت */
             max-width: 1000px;
             margin: 30px auto;
             padding: 0 20px;
@@ -86,16 +85,9 @@
         .prayer-mini-box {
             background: rgba(255, 183, 3, 0.08); border: 1px dashed var(--accent);
             padding: 15px 25px; border-radius: 12px; display: inline-block; font-size: 1.3rem; font-weight: bold;
-            margin-bottom: 20px;
         }
 
-        /* صندوق النصيحة المتجددة */
-        .tip-box {
-            background: rgba(16, 185, 129, 0.08); border: 1px solid var(--success);
-            padding: 15px; border-radius: 12px; margin-top: 25px; text-align: right;
-        }
-
-        /* 🍏 المشترك بين الكروت والحسابات */
+        /* 🍏 صفحة التغذية والحسابات */
         .card { background-color: var(--bg-card); border-radius: 16px; padding: 25px; margin-bottom: 25px; border: 1px solid #1e293b; }
         .card-title { color: var(--primary); font-size: 1.4rem; margin-top: 0; border-bottom: 1px solid #1e293b; padding-bottom: 10px; margin-bottom: 20px; }
 
@@ -118,13 +110,21 @@
             cursor: pointer; font-family: inherit;
         }
 
+        .btn-share {
+            display: block; width: 100%; padding: 10px; text-align: center;
+            background: rgba(16, 185, 129, 0.15); color: var(--success);
+            border: 1px solid var(--success); border-radius: 8px; font-size: 0.95rem; font-weight: bold;
+            cursor: pointer; font-family: inherit; margin-top: 15px; transition: 0.3s;
+        }
+        .btn-share:hover { background: var(--success); color: #000; }
+
         .result-box {
             display: none; background-color: #090d16; border-right: 4px solid var(--success);
             padding: 15px; border-radius: 8px; margin-top: 20px; text-align: center;
         }
         .result-value { color: var(--primary); font-size: 1.6rem; font-weight: bold; }
 
-        /* 🏋️‍♂️ صفحة التمارين والمؤقت */
+        /* 🏋️‍♂️ صفحة التمارين */
         .sub-nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-bottom: 25px; }
         .sub-btn { background-color: #182032; color: var(--text-muted); border: 1px solid #2d3748; padding: 10px 18px; border-radius: 20px; cursor: pointer; font-weight: bold; font-family: inherit; }
 
@@ -134,11 +134,6 @@
         .day-card h4 { color: var(--accent); font-size: 1.2rem; margin-top: 0; border-bottom: 1px solid #1e293b; padding-bottom: 8px; }
         .day-card ul { padding-right: 18px; color: #cbd5e1; }
 
-        /* أزرار المؤقت */
-        .timer-btn-group { display: flex; gap: 10px; margin-bottom: 15px; justify-content: center; }
-        .timer-btn { background-color: #1e293b; color: #fff; border: 1px solid var(--secondary); padding: 8px 15px; border-radius: 6px; cursor: pointer; font-weight: bold; }
-        .timer-display { font-size: 2rem; color: var(--accent); font-weight: bold; text-align: center; margin-bottom: 15px; letter-spacing: 2px; }
-
         footer { text-align: center; padding: 30px 20px; background-color: #05070f; border-top: 1px solid #121826; margin-top: 60px; color: var(--text-muted); font-size: 0.85rem; }
     </style>
 </head>
@@ -146,8 +141,8 @@
 
     <nav class="navbar">
         <button class="nav-btn" onclick="openPage('page-home')">🏠 الرئيسية</button>
-        <button class="nav-btn" onclick="openPage('page-diet')">🍏 التغذية والحسابات</button>
-        <button class="nav-btn" onclick="openPage('page-workout')">🏋️‍♂️ التمارين والمؤقت</button>
+        <button class="nav-btn" onclick="openPage('page-diet')">🍏 أنظمة التغذية والحسابات</button>
+        <button class="nav-btn" onclick="openPage('page-workout')">🏋️‍♂️ أنظمة التمرين</button>
     </nav>
 
     <div class="page-content" id="page-home" style="display: block;">
@@ -175,11 +170,6 @@
             
             <div class="prayer-mini-box">
                 يارب <span style="color:var(--primary);">محمود الهنداوي</span> و سلكاوي يقفلوها ويجيبو <span style="color:var(--accent);">95%</span> في 3 ثانوي! 🎯🏆
-            </div>
-
-            <div class="tip-box">
-                <strong style="color: var(--success);">💡 نصيحة اليوم الرياضية:</strong>
-                <p id="daily-tip" style="margin: 5px 0 0 0; color: #cbd5e1; font-size: 0.95rem;">شرب كمية كافية من الماء يحمي عضلاتك من الجفاف ويزيد من قوتك داخل التمرين!</p>
             </div>
         </div>
     </div>
@@ -237,7 +227,7 @@
                     <label>الوزن (كجم):</label>
                     <input type="number" id="w_cal" placeholder="مثال: 80">
                 </div>
-                <div class="input-grid-item input-group">
+                <div class="input-group">
                     <label>الطول (سم):</label>
                     <input type="number" id="h_cal" placeholder="مثال: 175">
                 </div>
@@ -263,6 +253,8 @@
             <div class="result-box" id="res_macros">
                 <h3>سعرات المحافظة على الوزن (الثبات): <span class="result-value" id="val_cals">0</span> سعرة</h3>
                 <h3 style="border-top: 1px dashed #2d3748; padding-top: 15px; margin-top: 15px;">صافي البروتين اليومي للبناء العضلي: <span class="result-value" id="val_protein">0</span> جرام</h3>
+                
+                <button type="button" class="btn-share" onclick="shareResults()">نسخ التقرير لمشاركته مع أصدقائك 🚀</button>
             </div>
         </div>
 
@@ -270,35 +262,6 @@
 
     <div class="page-content" id="page-workout">
         
-        <div class="card" style="border-color: var(--secondary);">
-            <h2 class="card-title" style="color: var(--secondary);">⏱️ مؤقت فترات الراحة بين المجموعات</h2>
-            <div class="timer-display" id="timer-count">00:00</div>
-            <div class="timer-btn-group">
-                <button type="button" class="timer-btn" onclick="startTimer(60)">دقيقة (60ث)</button>
-                <button type="button" class="timer-btn" onclick="startTimer(90)">دقيقة ونصف</button>
-                <button type="button" class="timer-btn" onclick="startTimer(120)">دقيقتين (120ث)</button>
-                <button type="button" class="timer-btn" onclick="stopTimer()" style="background-color: var(--danger); border-color: var(--danger); color: #fff;">إلغاء</button>
-            </div>
-        </div>
-
-        <div class="card">
-            <h2 class="card-title">🧮 حاسبة أقصى وزن لعدة واحدة (1RM)</h2>
-            <div class="input-grid">
-                <div class="input-group">
-                    <label>الوزن المرفوع (كجم):</label>
-                    <input type="number" id="1rm-weight" placeholder="مثال: 100">
-                </div>
-                <div class="input-group">
-                    <label>عدد التكرارات الحالية:</label>
-                    <input type="number" id="1rm-reps" placeholder="مثال: 5">
-                </div>
-            </div>
-            <button type="button" class="btn-action" onclick="run1RMCalculator()">احسب أقصى قوة لك 🦾</button>
-            <div class="result-box" id="res_1rm">
-                <h3>أقصى وزن تقديري لعدة واحدة (1RM): <span class="result-value" id="val_1rm">0</span> كجم</h3>
-            </div>
-        </div>
-
         <div class="sub-nav">
             <button class="sub-btn" onclick="openWorkout('c-ppl')">Push Pull Legs</button>
             <button class="sub-btn" onclick="openWorkout('c-arnold')">Arnold Split</button>
@@ -427,4 +390,50 @@
         }
 
         // دالة التنقل بين جداول التمارين
-    
+        function openWorkout(workoutId) {
+            var contents = document.getElementsByClassName('workout-content');
+            for (var i = 0; i < contents.length; i++) {
+                contents[i].style.display = 'none';
+            }
+            document.getElementById(workoutId).style.display = 'block';
+        }
+
+        // حاسبة المياه المباشرة
+        function runWaterCalculator() {
+            var weight = document.getElementById('w_water').value;
+            var w = parseFloat(weight);
+
+            if (w > 0 && !isNaN(w)) {
+                var liters = (w * 0.035).toFixed(1);
+                document.getElementById('val_water').innerText = liters;
+                document.getElementById('res_water').style.display = 'block';
+                alert("احتياجك اليومي من الماء هو: " + liters + " لتر 🌊");
+            } else {
+                alert("برجاء كتابة الوزن بالأرقام يا بطل!");
+            }
+        }
+
+        // حاسبة السعرات والبروتين المباشرة
+        function runMacrosCalculator() {
+            var weight = document.getElementById('w_cal').value;
+            var height = document.getElementById('h_cal').value;
+            var age = document.getElementById('a_cal').value;
+            var activity = document.getElementById('act_cal').value;
+
+            var w = parseFloat(weight);
+            var h = parseFloat(height);
+            var a = parseFloat(age);
+            var act = parseFloat(activity);
+
+            if (w > 0 && h > 0 && a > 0 && !isNaN(w) && !isNaN(h) && !isNaN(a)) {
+                var bmr = (10 * w) + (6.25 * h) - (5 * a) + 5;
+                var calories = Math.round(bmr * act);
+                var protein = Math.round(w * 2.2);
+
+                document.getElementById('val_cals').innerText = calories;
+                document.getElementById('val_protein').innerText = protein;
+                document.getElementById('res_macros').style.display = 'block';
+
+                alert("تحليل جسمك يا كابتن:\n" + "سعرات الثبات: " + calories + " سعرة حرارية 🔥\n" + "احتياج البروتين: " + protein + " جرام 💪");
+            } else {
+                alert("برجاء إدخال الوزن والطول والسن 
