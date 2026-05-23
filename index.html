@@ -215,7 +215,7 @@
             transition: 0.3s;
         }
 
-        /* تفاعل أزرار التمرين - تم إضافة نظام الانتريور هنا */
+        /* تفاعل أزرار التمرين */
         #w-ppl:checked ~ .sub-nav .l-ppl,
         #w-arnold:checked ~ .sub-nav .l-arnold,
         #w-ul:checked ~ .sub-nav .l-ul,
@@ -227,7 +227,6 @@
 
         .workout-content { display: none; }
         
-        /* إظهار المحتوى بناءً على الاختيار - تم إضافة نظام الانتريور هنا */
         #w-ppl:checked ~ .workouts-wrapper #c-ppl,
         #w-arnold:checked ~ .workouts-wrapper #c-arnold,
         #w-ul:checked ~ .workouts-wrapper #c-ul,
@@ -310,7 +309,7 @@
                         <input type="number" id="w_water" placeholder="مثال: 80">
                     </div>
                 </div>
-                <button type="button" class="btn-action" onclick="calcWater()">احسب المياه 🌊</button>
+                <button type="button" id="btn-calc-water" class="btn-action">احسب المياه 🌊</button>
                 <div class="result-box" id="res_water">
                     <h3>احتياجك اليومي: <span class="result-value" id="val_water">0</span> لتر</h3>
                 </div>
@@ -344,7 +343,7 @@
                         </select>
                     </div>
                 </div>
-                <button type="button" class="btn-action" onclick="calcMacros()">تحليل بيانات الجسم 🎯</button>
+                <button type="button" id="btn-calc-macros" class="btn-action">تحليل بيانات الجسم 🎯</button>
                 
                 <div class="result-box" id="res_macros">
                     <h3>سعرات المحافظة (الثبات): <span class="result-value" id="val_cals">0</span> سعرة</h3>
@@ -508,4 +507,8 @@
     </div>
 
     <footer>
-        <p>Copyright © 2026 All Right owned by Mahmoud Elhendawy 
+        <p>Copyright © 2026 All Rights Reserved | Owned EXCLUSIVELY by <strong>Mahmoud El-Hindawy</strong></p>
+    </footer>
+
+    <script>
+        /
