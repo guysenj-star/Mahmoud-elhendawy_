@@ -7,10 +7,6 @@
 <title>Elhendawy Exercises | Fitness</title>
 
 <style>
-/* =========================================================
-   ELHENDAWY EXERCISES
-   Single File Fitness Website
-========================================================= */
 
 :root{
     --bg:#070909;
@@ -53,6 +49,160 @@ a{
     text-decoration:none;
     color:inherit;
 }
+
+
+/* =========================================================
+   LOGIN SCREEN
+========================================================= */
+
+#loginScreen{
+    position:fixed;
+    inset:0;
+    z-index:99999;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+
+    background:
+        radial-gradient(circle at 80% 0%,rgba(0,230,184,.14),transparent 30%),
+        radial-gradient(circle at 10% 90%,rgba(255,201,40,.07),transparent 25%),
+        #070909;
+}
+
+.login-box{
+    width:min(430px,100%);
+    background:linear-gradient(145deg,#151d1b,#0d1211);
+    border:1px solid rgba(0,230,184,.18);
+    border-radius:25px;
+    padding:32px 25px;
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.55),
+        0 0 40px rgba(0,230,184,.06);
+    text-align:center;
+}
+
+.login-logo{
+    width:75px;
+    height:75px;
+    margin:0 auto 18px;
+    border-radius:22px;
+    display:grid;
+    place-items:center;
+    background:rgba(0,230,184,.09);
+    border:1px solid rgba(0,230,184,.22);
+    font-size:34px;
+}
+
+.login-box h1{
+    margin:0;
+    font-size:27px;
+    font-weight:1000;
+}
+
+.login-box h1 span{
+    color:var(--green);
+}
+
+.login-subtitle{
+    color:var(--muted);
+    margin:10px 0 25px;
+    line-height:1.6;
+    font-size:14px;
+}
+
+.login-field{
+    text-align:right;
+    margin-bottom:15px;
+}
+
+.login-field label{
+    display:block;
+    margin-bottom:7px;
+    color:#cbd5d2;
+    font-weight:800;
+    font-size:14px;
+}
+
+.login-field input{
+    width:100%;
+    padding:15px;
+    border-radius:13px;
+    border:1px solid var(--border);
+    background:#080c0b;
+    color:white;
+    outline:none;
+    font-size:15px;
+    direction:ltr;
+    text-align:left;
+}
+
+.login-field input:focus{
+    border-color:var(--green);
+    box-shadow:0 0 0 3px rgba(0,230,184,.06);
+}
+
+.login-button{
+    width:100%;
+    border:0;
+    border-radius:13px;
+    padding:15px;
+    background:var(--green);
+    color:#00130f;
+    font-weight:1000;
+    font-size:16px;
+    margin-top:5px;
+    transition:.25s;
+}
+
+.login-button:hover{
+    transform:translateY(-2px);
+    filter:brightness(1.08);
+}
+
+.login-button:disabled{
+    opacity:.45;
+    cursor:not-allowed;
+    transform:none;
+}
+
+.login-message{
+    display:none;
+    margin-top:17px;
+    padding:13px;
+    border-radius:12px;
+    background:rgba(255,77,90,.08);
+    border:1px solid rgba(255,77,90,.2);
+    color:#ff7c85;
+    font-weight:800;
+    line-height:1.6;
+    font-size:14px;
+}
+
+.login-attempts{
+    margin-top:15px;
+    color:#7f8c88;
+    font-size:13px;
+}
+
+.login-lock{
+    display:none;
+    margin-top:17px;
+    padding:15px;
+    border-radius:13px;
+    background:rgba(255,201,40,.07);
+    border:1px solid rgba(255,201,40,.2);
+    color:var(--gold);
+    font-weight:900;
+    line-height:1.7;
+}
+
+.login-footer{
+    margin-top:23px;
+    color:#697773;
+    font-size:12px;
+}
+
 
 /* ================= NAV ================= */
 
@@ -103,6 +253,7 @@ a{
     background:rgba(0,230,184,.08);
 }
 
+
 /* ================= PAGES ================= */
 
 .page{
@@ -118,6 +269,7 @@ a{
     width:min(1120px,92%);
     margin:auto;
 }
+
 
 /* ================= HERO ================= */
 
@@ -212,6 +364,7 @@ a{
     filter:brightness(1.08);
 }
 
+
 /* ================= STATS ================= */
 
 .stats{
@@ -239,6 +392,7 @@ a{
     font-size:13px;
 }
 
+
 /* ================= SECTION ================= */
 
 .section{
@@ -265,6 +419,7 @@ a{
 .section-title p{
     color:var(--muted);
 }
+
 
 /* ================= CARDS ================= */
 
@@ -307,6 +462,7 @@ a{
     line-height:1.7;
 }
 
+
 /* ================= DASHBOARD ================= */
 
 .dashboard{
@@ -334,6 +490,7 @@ a{
     color:var(--green);
 }
 
+
 /* ================= PAGE HEADER ================= */
 
 .page-header{
@@ -349,6 +506,7 @@ a{
 .page-header p{
     color:var(--muted);
 }
+
 
 /* ================= FORM ================= */
 
@@ -403,6 +561,7 @@ a{
     font-size:26px;
 }
 
+
 /* ================= GOAL ================= */
 
 .goal-buttons{
@@ -425,6 +584,7 @@ a{
 .goal-btn:hover{
     border-color:var(--green);
 }
+
 
 /* ================= WORKOUT ================= */
 
@@ -504,27 +664,6 @@ a{
     white-space:nowrap;
 }
 
-/* ================= WATER ================= */
-
-.water-circle{
-    width:210px;
-    height:210px;
-    border-radius:50%;
-    margin:25px auto;
-    display:grid;
-    place-items:center;
-    background:
-        radial-gradient(circle at center,#101615 58%,transparent 59%),
-        conic-gradient(var(--green) var(--water,0%),#1c2724 0);
-    font-size:28px;
-    font-weight:900;
-}
-
-.water-buttons{
-    display:flex;
-    justify-content:center;
-    gap:10px;
-}
 
 /* ================= PROGRESS ================= */
 
@@ -554,6 +693,7 @@ a{
     padding:8px;
     border-radius:8px;
 }
+
 
 /* ================= CONTACT ================= */
 
@@ -585,6 +725,7 @@ a{
     color:var(--muted);
 }
 
+
 /* ================= AD ================= */
 
 .ad-box{
@@ -598,6 +739,7 @@ a{
     padding:20px;
     text-align:center;
 }
+
 
 /* ================= PRAYER ================= */
 
@@ -614,6 +756,7 @@ a{
     color:var(--green);
 }
 
+
 /* ================= FOOTER ================= */
 
 footer{
@@ -625,6 +768,7 @@ footer{
 footer strong{
     color:var(--green);
 }
+
 
 /* ================= MOBILE ================= */
 
@@ -685,11 +829,108 @@ footer strong{
     .page-header h1{
         font-size:34px;
     }
+
+    .login-box{
+        padding:27px 20px;
+    }
+
 }
+
 </style>
 </head>
 
 <body>
+
+
+<!-- =====================================================
+     LOGIN SCREEN
+===================================================== -->
+
+<div id="loginScreen">
+
+    <div class="login-box">
+
+        <div class="login-logo">
+            🔐
+        </div>
+
+        <h1>
+            ELHENDAWY
+            <span>EXERCISES</span>
+        </h1>
+
+        <div class="login-subtitle">
+            قم بتسجيل الدخول للوصول إلى الموقع
+        </div>
+
+        <div class="login-field">
+
+            <label>
+                اسم المستخدم
+            </label>
+
+            <input
+                type="text"
+                id="loginUsername"
+                placeholder="Username"
+                autocomplete="username"
+            >
+
+        </div>
+
+        <div class="login-field">
+
+            <label>
+                كلمة المرور
+            </label>
+
+            <input
+                type="password"
+                id="loginPassword"
+                placeholder="Password"
+                autocomplete="current-password"
+            >
+
+        </div>
+
+        <button
+            class="login-button"
+            id="loginButton"
+            onclick="login()"
+        >
+            تسجيل الدخول 🔓
+        </button>
+
+        <div
+            class="login-message"
+            id="loginMessage"
+        ></div>
+
+        <div
+            class="login-lock"
+            id="loginLock"
+        >
+            🔒 تم إيقاف تسجيل الدخول مؤقتًا.<br>
+            حاول مرة أخرى بعد
+            <strong id="lockTimer">60</strong>
+            ثانية.
+        </div>
+
+        <div
+            class="login-attempts"
+            id="loginAttempts"
+        >
+            لديك 3 محاولات متاحة
+        </div>
+
+        <div class="login-footer">
+            Train Smart • Build Strong
+        </div>
+
+    </div>
+
+</div>
+
 
 <!-- =====================================================
      NAVIGATION
@@ -699,30 +940,34 @@ footer strong{
 
 <div class="nav-inner">
 
-<div class="logo">ELHENDAWY EXERCISES</div>
+<div class="logo">
+    ELHENDAWY EXERCISES
+</div>
 
 <div class="nav-links">
 
-<button class="active" onclick="showPage('home',this)">الرئيسية</button>
+<button class="active" onclick="showPage('home',this)">
+    الرئيسية
+</button>
 
 <button onclick="showPage('calculator',this)">
-الحاسبة
+    الحاسبة
 </button>
 
 <button onclick="showPage('workouts',this)">
-التمارين
+    التمارين
 </button>
 
 <button onclick="showPage('nutrition',this)">
-التغذية
+    التغذية
 </button>
 
 <button onclick="showPage('progress',this)">
-تطوري
+    تطوري
 </button>
 
 <button onclick="showPage('contact',this)">
-تواصل
+    تواصل
 </button>
 
 </div>
@@ -745,12 +990,12 @@ footer strong{
 <div class="hero-content">
 
 <div class="badge">
-🔥 FITNESS • TRAINING • NUTRITION
+    🔥 FITNESS • TRAINING • NUTRITION
 </div>
 
 <h1>
-ELHENDAWY<br>
-<span>EXERCISES</span>
+    ELHENDAWY<br>
+    <span>EXERCISES</span>
 </h1>
 
 <p>
@@ -762,12 +1007,12 @@ ELHENDAWY<br>
 
 <button class="btn btn-primary"
 onclick="showPage('workouts')">
-🏋️ ابدأ التمرين
+    🏋️ ابدأ التمرين
 </button>
 
 <button class="btn btn-secondary"
 onclick="showPage('calculator')">
-🔥 احسب احتياجك
+    🔥 احسب احتياجك
 </button>
 
 </div>
@@ -775,23 +1020,23 @@ onclick="showPage('calculator')">
 <div class="stats">
 
 <div class="stat">
-<strong>5+</strong>
-<span>أنظمة تدريب</span>
+    <strong>5+</strong>
+    <span>أنظمة تدريب</span>
 </div>
 
 <div class="stat">
-<strong>40+</strong>
-<span>تمرين</span>
+    <strong>40+</strong>
+    <span>تمرين</span>
 </div>
 
 <div class="stat">
-<strong>24/7</strong>
-<span>تتبع تقدمك</span>
+    <strong>24/7</strong>
+    <span>تتبع تقدمك</span>
 </div>
 
 <div class="stat">
-<strong>100%</strong>
-<span>مجاني</span>
+    <strong>100%</strong>
+    <span>مجاني</span>
 </div>
 
 </div>
@@ -808,12 +1053,16 @@ onclick="showPage('calculator')">
 
 <div class="section-title">
 
-<div class="small">YOUR FITNESS JOURNEY</div>
+<div class="small">
+    YOUR FITNESS JOURNEY
+</div>
 
-<h2>ماذا تريد أن تفعل اليوم؟</h2>
+<h2>
+    ماذا تريد أن تفعل اليوم؟
+</h2>
 
 <p>
-كل أدواتك في مكان واحد.
+    كل أدواتك في مكان واحد.
 </p>
 
 </div>
@@ -824,7 +1073,9 @@ onclick="showPage('calculator')">
 
 <div class="card-icon">🔥</div>
 
-<h3>احسب احتياجك</h3>
+<h3>
+    احسب احتياجك
+</h3>
 
 <p>
 اعرف السعرات والبروتين المناسبين حسب بياناتك ونشاطك.
@@ -832,7 +1083,7 @@ onclick="showPage('calculator')">
 
 <button class="btn btn-primary"
 onclick="showPage('calculator')">
-ابدأ الحاسبة
+    ابدأ الحاسبة
 </button>
 
 </div>
@@ -842,7 +1093,9 @@ onclick="showPage('calculator')">
 
 <div class="card-icon">🏋️</div>
 
-<h3>اختر برنامجك</h3>
+<h3>
+    اختر برنامجك
+</h3>
 
 <p>
 PPL و Upper/Lower و Full Body و Arnold وغيرها.
@@ -850,7 +1103,7 @@ PPL و Upper/Lower و Full Body و Arnold وغيرها.
 
 <button class="btn btn-primary"
 onclick="showPage('workouts')">
-شاهد البرامج
+    شاهد البرامج
 </button>
 
 </div>
@@ -860,7 +1113,9 @@ onclick="showPage('workouts')">
 
 <div class="card-icon">📈</div>
 
-<h3>تابع تطورك</h3>
+<h3>
+    تابع تطورك
+</h3>
 
 <p>
 سجل أوزانك في التمارين وتابع تقدمك باستمرار.
@@ -868,7 +1123,7 @@ onclick="showPage('workouts')">
 
 <button class="btn btn-primary"
 onclick="showPage('progress')">
-تطوري
+    تطوري
 </button>
 
 </div>
@@ -886,9 +1141,13 @@ onclick="showPage('progress')">
 
 <div class="section-title">
 
-<div class="small">FITNESS DASHBOARD</div>
+<div class="small">
+    FITNESS DASHBOARD
+</div>
 
-<h2>ملخصك السريع</h2>
+<h2>
+    ملخصك السريع
+</h2>
 
 </div>
 
@@ -897,11 +1156,11 @@ onclick="showPage('progress')">
 <div class="dash">
 
 <div class="dash-title">
-السعرات المحسوبة
+    السعرات المحسوبة
 </div>
 
 <div class="dash-value" id="homeCalories">
--- kcal
+    -- kcal
 </div>
 
 </div>
@@ -909,11 +1168,11 @@ onclick="showPage('progress')">
 <div class="dash">
 
 <div class="dash-title">
-البروتين
+    البروتين
 </div>
 
 <div class="dash-value" id="homeProtein">
--- g
+    -- g
 </div>
 
 </div>
@@ -921,11 +1180,11 @@ onclick="showPage('progress')">
 <div class="dash">
 
 <div class="dash-title">
-المياه اليوم
+    المياه اليوم
 </div>
 
 <div class="dash-value" id="homeWater">
-0 / 8
+    0 / 8
 </div>
 
 </div>
@@ -949,10 +1208,12 @@ onclick="showPage('progress')">
 
 <div class="page-header">
 
-<h1>🔥 حاسبة السعرات والبروتين</h1>
+<h1>
+    🔥 حاسبة السعرات والبروتين
+</h1>
 
 <p>
-احسب احتياجك اليومي بشكل تقريبي
+    احسب احتياجك اليومي بشكل تقريبي
 </p>
 
 </div>
@@ -962,60 +1223,71 @@ onclick="showPage('progress')">
 
 <div class="field">
 
-<label>الوزن بالكيلو</label>
+<label>
+    الوزن بالكيلو
+</label>
 
 <input
-type="number"
-id="weight"
-placeholder="مثال: 75">
+    type="number"
+    id="weight"
+    placeholder="مثال: 75"
+>
 
 </div>
 
 
 <div class="field">
 
-<label>الطول بالسنتيمتر</label>
+<label>
+    الطول بالسنتيمتر
+</label>
 
 <input
-type="number"
-id="height"
-placeholder="مثال: 175">
+    type="number"
+    id="height"
+    placeholder="مثال: 175"
+>
 
 </div>
 
 
 <div class="field">
 
-<label>العمر</label>
+<label>
+    العمر
+</label>
 
 <input
-type="number"
-id="age"
-placeholder="مثال: 17">
+    type="number"
+    id="age"
+    placeholder="مثال: 17"
+>
 
 </div>
 
 
 <div class="field">
 
-<label>النشاط</label>
+<label>
+    النشاط
+</label>
 
 <select id="activity">
 
 <option value="1.2">
-خامل
+    خامل
 </option>
 
 <option value="1.375">
-نشاط خفيف
+    نشاط خفيف
 </option>
 
 <option value="1.55" selected>
-نشاط متوسط
+    نشاط متوسط
 </option>
 
 <option value="1.725">
-نشاط مرتفع
+    نشاط مرتفع
 </option>
 
 </select>
@@ -1023,12 +1295,12 @@ placeholder="مثال: 17">
 </div>
 
 
-<button class="btn btn-primary"
-style="width:100%"
-onclick="calculate()">
-
-احسب احتياجي 🎯
-
+<button
+    class="btn btn-primary"
+    style="width:100%"
+    onclick="calculate()"
+>
+    احسب احتياجي 🎯
 </button>
 
 
@@ -1036,13 +1308,18 @@ onclick="calculate()">
 
 السعرات:
 
-<strong id="caloriesResult">0</strong>
+<strong id="caloriesResult">
+    0
+</strong>
 
 <br><br>
 
 البروتين:
 
-<strong id="proteinResult">0</strong>
+<strong id="proteinResult">
+    0
+</strong>
+
 جرام
 
 </div>
@@ -1054,10 +1331,12 @@ onclick="calculate()">
 
 <div class="section-title">
 
-<h2>🎯 اختر هدفك</h2>
+<h2>
+    🎯 اختر هدفك
+</h2>
 
 <p>
-بعد معرفة سعرات المحافظة، اختار هدفك.
+    بعد معرفة سعرات المحافظة، اختار هدفك.
 </p>
 
 </div>
@@ -1066,26 +1345,26 @@ onclick="calculate()">
 
 <button class="goal-btn"
 onclick="showGoal('cut')">
-🔥 تنشيف
+    🔥 تنشيف
 </button>
 
 <button class="goal-btn"
 onclick="showGoal('maintain')">
-⚖️ ثبات
+    ⚖️ ثبات
 </button>
 
 <button class="goal-btn"
 onclick="showGoal('bulk')">
-💪 زيادة تدريجية
+    💪 زيادة تدريجية
 </button>
 
 </div>
 
-<div id="goalResult"
-class="form-card"
-style="display:none;text-align:center">
-
-</div>
+<div
+    id="goalResult"
+    class="form-card"
+    style="display:none;text-align:center"
+></div>
 
 </div>
 
@@ -1104,10 +1383,12 @@ style="display:none;text-align:center">
 
 <div class="page-header">
 
-<h1>🏋️ Training Programs</h1>
+<h1>
+    🏋️ Training Programs
+</h1>
 
 <p>
-اختار النظام المناسب لك
+    اختار النظام المناسب لك
 </p>
 
 </div>
@@ -1117,23 +1398,23 @@ style="display:none;text-align:center">
 
 <button class="active"
 onclick="program('ppl',this)">
-PPL
+    PPL
 </button>
 
 <button onclick="program('ul',this)">
-Upper / Lower
+    Upper / Lower
 </button>
 
 <button onclick="program('fb',this)">
-Full Body
+    Full Body
 </button>
 
 <button onclick="program('arnold',this)">
-Arnold Split
+    Arnold Split
 </button>
 
 <button onclick="program('ap',this)">
-Anterior / Posterior
+    Anterior / Posterior
 </button>
 
 </div>
@@ -1147,80 +1428,108 @@ Anterior / Posterior
 
 <div class="day-header">
 
-<h3>1️⃣ Push — صدر / كتف / تراي</h3>
+<h3>
+    1️⃣ Push — صدر / كتف / تراي
+</h3>
 
-<span>5 تمارين</span>
+<span>
+    5 تمارين
+</span>
 
-</div>
-
-<div class="exercise">
-<div>
-<div class="exercise-name">
-Bench Press
-</div>
-<div class="exercise-muscle">
-الصدر
-</div>
-</div>
-<div class="exercise-info">
-4 × 6–10
-</div>
 </div>
 
 <div class="exercise">
+
 <div>
 <div class="exercise-name">
-Incline Dumbbell Press
+    Bench Press
 </div>
+
 <div class="exercise-muscle">
-أعلى الصدر
-</div>
-</div>
-<div class="exercise-info">
-3 × 8–12
+    الصدر
 </div>
 </div>
 
+<div class="exercise-info">
+    4 × 6–10
+</div>
+
+</div>
+
+
 <div class="exercise">
+
 <div>
 <div class="exercise-name">
-Shoulder Press
+    Incline Dumbbell Press
 </div>
+
 <div class="exercise-muscle">
-الكتف
-</div>
-</div>
-<div class="exercise-info">
-3 × 8–12
+    أعلى الصدر
 </div>
 </div>
 
+<div class="exercise-info">
+    3 × 8–12
+</div>
+
+</div>
+
+
 <div class="exercise">
+
 <div>
 <div class="exercise-name">
-Lateral Raise
+    Shoulder Press
 </div>
+
 <div class="exercise-muscle">
-الكتف الجانبي
-</div>
-</div>
-<div class="exercise-info">
-3 × 12–15
+    الكتف
 </div>
 </div>
 
+<div class="exercise-info">
+    3 × 8–12
+</div>
+
+</div>
+
+
 <div class="exercise">
+
 <div>
 <div class="exercise-name">
-Triceps Pushdown
+    Lateral Raise
 </div>
+
 <div class="exercise-muscle">
-الترايسبس
+    الكتف الجانبي
 </div>
 </div>
+
 <div class="exercise-info">
-3 × 10–15
+    3 × 12–15
 </div>
+
+</div>
+
+
+<div class="exercise">
+
+<div>
+<div class="exercise-name">
+    Triceps Pushdown
+</div>
+
+<div class="exercise-muscle">
+    الترايسبس
+</div>
+</div>
+
+<div class="exercise-info">
+    3 × 10–15
+</div>
+
 </div>
 
 </div>
@@ -1229,78 +1538,109 @@ Triceps Pushdown
 <div class="day">
 
 <div class="day-header">
-<h3>2️⃣ Pull — ظهر / باي</h3>
-<span>5 تمارين</span>
+
+<h3>
+    2️⃣ Pull — ظهر / باي
+</h3>
+
+<span>
+    5 تمارين
+</span>
+
 </div>
 
 <div class="exercise">
+
 <div>
 <div class="exercise-name">
-Lat Pulldown
+    Lat Pulldown
 </div>
+
 <div class="exercise-muscle">
-الظهر العريض
-</div>
-</div>
-<div class="exercise-info">
-4 × 8–12
+    الظهر العريض
 </div>
 </div>
 
+<div class="exercise-info">
+    4 × 8–12
+</div>
+
+</div>
+
+
 <div class="exercise">
+
 <div>
 <div class="exercise-name">
-Barbell Row
+    Barbell Row
 </div>
+
 <div class="exercise-muscle">
-سماكة الظهر
-</div>
-</div>
-<div class="exercise-info">
-3 × 6–10
+    سماكة الظهر
 </div>
 </div>
 
+<div class="exercise-info">
+    3 × 6–10
+</div>
+
+</div>
+
+
 <div class="exercise">
+
 <div>
 <div class="exercise-name">
-Seated Cable Row
+    Seated Cable Row
 </div>
+
 <div class="exercise-muscle">
-منتصف الظهر
-</div>
-</div>
-<div class="exercise-info">
-3 × 8–12
+    منتصف الظهر
 </div>
 </div>
 
+<div class="exercise-info">
+    3 × 8–12
+</div>
+
+</div>
+
+
 <div class="exercise">
+
 <div>
 <div class="exercise-name">
-Preacher Curl
+    Preacher Curl
 </div>
+
 <div class="exercise-muscle">
-البايسبس
-</div>
-</div>
-<div class="exercise-info">
-3 × 8–12
+    البايسبس
 </div>
 </div>
 
+<div class="exercise-info">
+    3 × 8–12
+</div>
+
+</div>
+
+
 <div class="exercise">
+
 <div>
 <div class="exercise-name">
-Hammer Curl
+    Hammer Curl
 </div>
+
 <div class="exercise-muscle">
-البايسبس / الساعد
+    البايسبس / الساعد
 </div>
 </div>
+
 <div class="exercise-info">
-3 × 10–12
+    3 × 10–12
 </div>
+
 </div>
 
 </div>
@@ -1309,48 +1649,109 @@ Hammer Curl
 <div class="day">
 
 <div class="day-header">
-<h3>3️⃣ Legs — الرجل</h3>
-<span>5 تمارين</span>
+
+<h3>
+    3️⃣ Legs — الرجل
+</h3>
+
+<span>
+    5 تمارين
+</span>
+
 </div>
 
 <div class="exercise">
+
 <div>
-<div class="exercise-name">Squat</div>
-<div class="exercise-muscle">الفخذ الأمامي</div>
-</div>
-<div class="exercise-info">4 × 6–10</div>
+<div class="exercise-name">
+    Squat
 </div>
 
-<div class="exercise">
-<div>
-<div class="exercise-name">Leg Press</div>
-<div class="exercise-muscle">الفخذ</div>
+<div class="exercise-muscle">
+    الفخذ الأمامي
 </div>
-<div class="exercise-info">3 × 8–12</div>
 </div>
 
-<div class="exercise">
-<div>
-<div class="exercise-name">Leg Extension</div>
-<div class="exercise-muscle">الفخذ الأمامي</div>
-</div>
-<div class="exercise-info">3 × 10–15</div>
+<div class="exercise-info">
+    4 × 6–10
 </div>
 
-<div class="exercise">
-<div>
-<div class="exercise-name">Leg Curl</div>
-<div class="exercise-muscle">الخلفية</div>
-</div>
-<div class="exercise-info">3 × 10–15</div>
 </div>
 
+
 <div class="exercise">
+
 <div>
-<div class="exercise-name">Calf Raise</div>
-<div class="exercise-muscle">السمانة</div>
+<div class="exercise-name">
+    Leg Press
 </div>
-<div class="exercise-info">4 × 12–15</div>
+
+<div class="exercise-muscle">
+    الفخذ
+</div>
+</div>
+
+<div class="exercise-info">
+    3 × 8–12
+</div>
+
+</div>
+
+
+<div class="exercise">
+
+<div>
+<div class="exercise-name">
+    Leg Extension
+</div>
+
+<div class="exercise-muscle">
+    الفخذ الأمامي
+</div>
+</div>
+
+<div class="exercise-info">
+    3 × 10–15
+</div>
+
+</div>
+
+
+<div class="exercise">
+
+<div>
+<div class="exercise-name">
+    Leg Curl
+</div>
+
+<div class="exercise-muscle">
+    الخلفية
+</div>
+</div>
+
+<div class="exercise-info">
+    3 × 10–15
+</div>
+
+</div>
+
+
+<div class="exercise">
+
+<div>
+<div class="exercise-name">
+    Calf Raise
+</div>
+
+<div class="exercise-muscle">
+    السمانة
+</div>
+</div>
+
+<div class="exercise-info">
+    4 × 12–15
+</div>
+
 </div>
 
 </div>
@@ -1364,4 +1765,1057 @@ Hammer Curl
 
 <div class="day">
 
-<div class="da
+<div class="day-header">
+<h3>1️⃣ Upper A</h3>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Bench Press</div>
+<div class="exercise-info">3 × 6–10</div>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Lat Pulldown</div>
+<div class="exercise-info">3 × 8–12</div>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Incline Dumbbell Press</div>
+<div class="exercise-info">3 × 8–12</div>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Cable Row</div>
+<div class="exercise-info">3 × 8–12</div>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Lateral Raise</div>
+<div class="exercise-info">3 × 12–15</div>
+</div>
+
+</div>
+
+
+<div class="day">
+
+<div class="day-header">
+<h3>2️⃣ Lower A</h3>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Squat</div>
+<div class="exercise-info">3 × 6–10</div>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Leg Press</div>
+<div class="exercise-info">3 × 8–12</div>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Leg Curl</div>
+<div class="exercise-info">3 × 10–15</div>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Calf Raise</div>
+<div class="exercise-info">4 × 12–15</div>
+</div>
+
+</div>
+
+
+<div class="day">
+
+<div class="day-header">
+<h3>3️⃣ Upper B</h3>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Incline Bench Press</div>
+<div class="exercise-info">3 × 6–10</div>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Barbell Row</div>
+<div class="exercise-info">3 × 6–10</div>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Shoulder Press</div>
+<div class="exercise-info">3 × 8–12</div>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Preacher Curl</div>
+<div class="exercise-info">3 × 10–12</div>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Triceps Pushdown</div>
+<div class="exercise-info">3 × 10–15</div>
+</div>
+
+</div>
+
+
+<div class="day">
+
+<div class="day-header">
+<h3>4️⃣ Lower B</h3>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Leg Press</div>
+<div class="exercise-info">3 × 8–12</div>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Romanian Deadlift</div>
+<div class="exercise-info">3 × 8–12</div>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Leg Extension</div>
+<div class="exercise-info">3 × 10–15</div>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Leg Curl</div>
+<div class="exercise-info">3 × 10–15</div>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- FULL BODY -->
+
+<div id="fb" class="program">
+
+<div class="day">
+
+<div class="day-header">
+<h3>Full Body A</h3>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Squat</div>
+<div class="exercise-info">3 × 6–10</div>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Bench Press</div>
+<div class="exercise-info">3 × 6–10</div>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Lat Pulldown</div>
+<div class="exercise-info">3 × 8–12</div>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Lateral Raise</div>
+<div class="exercise-info">3 × 12–15</div>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Preacher Curl</div>
+<div class="exercise-info">2 × 10–12</div>
+</div>
+
+</div>
+
+
+<div class="day">
+
+<div class="day-header">
+<h3>Full Body B</h3>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Leg Press</div>
+<div class="exercise-info">3 × 8–12</div>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Incline Dumbbell Press</div>
+<div class="exercise-info">3 × 8–12</div>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Cable Row</div>
+<div class="exercise-info">3 × 8–12</div>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Shoulder Press</div>
+<div class="exercise-info">2 × 8–12</div>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Hammer Curl</div>
+<div class="exercise-info">2 × 10–12</div>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ARNOLD -->
+
+<div id="arnold" class="program">
+
+<div class="day">
+
+<div class="day-header">
+<h3>1️⃣ Chest + Back</h3>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Bench Press</div>
+<div class="exercise-info">4 × 6–10</div>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Incline Dumbbell Press</div>
+<div class="exercise-info">3 × 8–12</div>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Lat Pulldown</div>
+<div class="exercise-info">4 × 8–12</div>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Barbell Row</div>
+<div class="exercise-info">3 × 6–10</div>
+</div>
+
+</div>
+
+
+<div class="day">
+
+<div class="day-header">
+<h3>2️⃣ Shoulders + Arms</h3>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Shoulder Press</div>
+<div class="exercise-info">3 × 8–12</div>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Lateral Raise</div>
+<div class="exercise-info">4 × 12–15</div>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Preacher Curl</div>
+<div class="exercise-info">3 × 8–12</div>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Hammer Curl</div>
+<div class="exercise-info">3 × 10–12</div>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Triceps Pushdown</div>
+<div class="exercise-info">3 × 10–15</div>
+</div>
+
+</div>
+
+
+<div class="day">
+
+<div class="day-header">
+<h3>3️⃣ Legs</h3>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Squat</div>
+<div class="exercise-info">4 × 6–10</div>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Leg Press</div>
+<div class="exercise-info">3 × 8–12</div>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Leg Extension</div>
+<div class="exercise-info">3 × 10–15</div>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Leg Curl</div>
+<div class="exercise-info">3 × 10–15</div>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ANTERIOR POSTERIOR -->
+
+<div id="ap" class="program">
+
+<div class="day">
+
+<div class="day-header">
+<h3>1️⃣ Anterior</h3>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Bench Press</div>
+<div class="exercise-info">3 × 6–10</div>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Incline Dumbbell Press</div>
+<div class="exercise-info">3 × 8–12</div>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Shoulder Press</div>
+<div class="exercise-info">3 × 8–12</div>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Squat</div>
+<div class="exercise-info">3 × 6–10</div>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Leg Extension</div>
+<div class="exercise-info">3 × 10–15</div>
+</div>
+
+</div>
+
+
+<div class="day">
+
+<div class="day-header">
+<h3>2️⃣ Posterior</h3>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Lat Pulldown</div>
+<div class="exercise-info">3 × 8–12</div>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Barbell Row</div>
+<div class="exercise-info">3 × 6–10</div>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Romanian Deadlift</div>
+<div class="exercise-info">3 × 8–12</div>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Leg Curl</div>
+<div class="exercise-info">3 × 10–15</div>
+</div>
+
+<div class="exercise">
+<div class="exercise-name">Calf Raise</div>
+<div class="exercise-info">4 × 12–15</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     NUTRITION
+===================================================== -->
+
+<section id="nutrition" class="page">
+
+<div class="container">
+
+<div class="page-header">
+
+<h1>
+    🥗 Nutrition Center
+</h1>
+
+<p>
+    أفكار غذائية منظمة حسب هدفك
+</p>
+
+</div>
+
+
+<div class="grid">
+
+<div class="card">
+
+<div class="card-icon">
+    🔥
+</div>
+
+<h3>
+    تنشيف
+</h3>
+
+<p>
+ركز على مصادر بروتين جيدة، خضار، فواكه، وكربوهيدرات مناسبة لاحتياجك.
+</p>
+
+<ul>
+<li>بيض</li>
+<li>دجاج</li>
+<li>أرز</li>
+<li>بطاطس</li>
+<li>خضار وفاكهة</li>
+</ul>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">
+    💪
+</div>
+
+<h3>
+    زيادة العضلات
+</h3>
+
+<p>
+زيادة السعرات بشكل تدريجي مع الحصول على بروتين كافٍ.
+</p>
+
+<ul>
+<li>بيض</li>
+<li>دجاج أو لحوم</li>
+<li>أرز</li>
+<li>شوفان</li>
+<li>لبن أو زبادي</li>
+</ul>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">
+    ⚖️
+</div>
+
+<h3>
+    ثبات الوزن
+</h3>
+
+<p>
+حافظ على سعرات قريبة من احتياجك مع نظام متوازن.
+</p>
+
+<ul>
+<li>بروتين</li>
+<li>كربوهيدرات</li>
+<li>دهون صحية</li>
+<li>خضار</li>
+<li>فواكه</li>
+</ul>
+
+</div>
+
+</div>
+
+
+<div class="section">
+
+<div class="section-title">
+
+<h2>
+    🍗 مثال لوجبة متوازنة
+</h2>
+
+<p>
+الأرقام تقريبية وتختلف حسب وزن الطعام وطريقة التحضير.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+    🍗 ربع فرخة + 🍚 أرز + 🥗 سلطة
+</h3>
+
+<p>
+وجبة تجمع بين البروتين والكربوهيدرات والخضار.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     PROGRESS
+===================================================== -->
+
+<section id="progress" class="page">
+
+<div class="container">
+
+<div class="page-header">
+
+<h1>
+    📈 متابعة التطور
+</h1>
+
+<p>
+    سجل أوزانك وشاهد تقدمك
+</p>
+
+</div>
+
+
+<div class="form-card">
+
+<div class="field">
+
+<label>
+    آخر وزن للجسم
+</label>
+
+<input
+    type="number"
+    id="bodyWeight"
+    placeholder="kg"
+>
+
+</div>
+
+<button class="btn btn-primary"
+onclick="saveBodyWeight()">
+    حفظ الوزن
+</button>
+
+<p
+    id="savedWeight"
+    style="color:var(--green);font-weight:bold"
+></p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+    🏋️ أوزان التمارين
+</h3>
+
+<table class="progress-table">
+
+<thead>
+
+<tr>
+<th>التمرين</th>
+<th>الوزن kg</th>
+<th>حفظ</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+    Bench Press
+</td>
+
+<td>
+<input id="bench">
+</td>
+
+<td>
+<button
+    class="btn btn-primary"
+    onclick="saveExercise('bench','benchSaved')"
+>
+    حفظ
+</button>
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+    Incline Dumbbell Press
+</td>
+
+<td>
+<input id="incline">
+</td>
+
+<td>
+<button
+    class="btn btn-primary"
+    onclick="saveExercise('incline','inclineSaved')"
+>
+    حفظ
+</button>
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+    Squat
+</td>
+
+<td>
+<input id="squat">
+</td>
+
+<td>
+<button
+    class="btn btn-primary"
+    onclick="saveExercise('squat','squatSaved')"
+>
+    حفظ
+</button>
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+    Preacher Curl
+</td>
+
+<td>
+<input id="preacher">
+</td>
+
+<td>
+<button
+    class="btn btn-primary"
+    onclick="saveExercise('preacher','preacherSaved')"
+>
+    حفظ
+</button>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section id="contact" class="page">
+
+<div class="container">
+
+<div class="page-header">
+
+<h1>
+    📱 تواصل معنا
+</h1>
+
+<p>
+    تابع Elhendawy Exercises
+</p>
+
+</div>
+
+
+<div class="social">
+
+<div class="social-card">
+
+<div class="icon">
+    📸
+</div>
+
+<h3>
+    Instagram
+</h3>
+
+<p>
+    @h_e_n_d_o_1
+</p>
+
+<a
+    class="btn btn-primary"
+    href="https://www.instagram.com/h_e_n_d_o_1/"
+    target="_blank"
+>
+    فتح Instagram
+</a>
+
+</div>
+
+
+<div class="social-card">
+
+<div class="icon">
+    📞
+</div>
+
+<h3>
+    الهاتف
+</h3>
+
+<p>
+    01015425809
+</p>
+
+<a
+    class="btn btn-primary"
+    href="tel:01015425809"
+>
+    اتصال
+</a>
+
+</div>
+
+</div>
+
+
+<div class="section">
+
+<div class="section-title">
+
+<div class="small">
+    ADVERTISEMENT
+</div>
+
+<h2>
+    📢 مساحة إعلانية
+</h2>
+
+<p>
+    مكان مخصص للإعلانات والشراكات.
+</p>
+
+</div>
+
+
+<div class="ad-box">
+
+<div>
+
+<h3>
+    مساحة إعلانية
+</h3>
+
+<p>
+    يمكن وضع إعلان أو شراكة هنا.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="prayer">
+
+<h2>
+    ❤️ اللهم صل وسلم وبارك على نبينا محمد ﷺ ❤️
+</h2>
+
+<p>
+    اجعلها صدقة جارية لنا ولكم.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<div>
+    ELHENDAWY EXERCISES
+</div>
+
+<p>
+    Train Smart • Build Strong
+</p>
+
+<p>
+    © 2026 جميع حقوق الطبع والنشر محفوظة
+</p>
+
+<p>
+    Owned by <strong>Mahmoud Elhendawy</strong>
+</p>
+
+</footer>
+
+
+<script>
+
+
+/* =========================================================
+   LOGIN SYSTEM
+========================================================= */
+
+const LOGIN_USERNAME = "elhendawy developer";
+const LOGIN_PASSWORD = "12345678";
+
+const MAX_ATTEMPTS = 3;
+const LOCK_TIME = 60 * 1000;
+
+let loginAttempts = 0;
+let lockInterval = null;
+
+
+/* =========================================================
+   LOGIN FUNCTION
+========================================================= */
+
+function login(){
+
+    const username =
+        document.getElementById(
+            "loginUsername"
+        ).value.trim();
+
+    const password =
+        document.getElementById(
+            "loginPassword"
+        ).value;
+
+    const message =
+        document.getElementById(
+            "loginMessage"
+        );
+
+    const attemptsText =
+        document.getElementById(
+            "loginAttempts"
+        );
+
+
+    /* منع المحاولة أثناء القفل */
+
+    if(isLocked()){
+
+        startLockTimer();
+
+        return;
+    }
+
+
+    /* البيانات صحيحة */
+
+    if(
+        username === LOGIN_USERNAME &&
+        password === LOGIN_PASSWORD
+    ){
+
+        localStorage.setItem(
+            "elhendawyLoggedIn",
+            "true"
+        );
+
+        loginAttempts = 0;
+
+        document.getElementById(
+            "loginScreen"
+        ).style.display = "none";
+
+        message.style.display = "none";
+
+        return;
+    }
+
+
+    /* البيانات خاطئة */
+
+    loginAttempts++;
+
+    const remaining =
+        MAX_ATTEMPTS - loginAttempts;
+
+
+    if(remaining > 0){
+
+        message.innerHTML =
+            "❌ اسم المستخدم أو كلمة المرور غير صحيحة.";
+
+        message.style.display = "block";
+
+        attemptsText.textContent =
+            "⚠️ متبقي لك " +
+            remaining +
+            " محاولة.";
+
+        return;
+    }
+
+
+    /* =====================================================
+       تم استنفاد 3 محاولات
+    ===================================================== */
+
+    localStorage.setItem(
+        "elhendawyLoginLock",
+        String(Date.now() + LOCK_TIME)
+    );
+
+    message.style.display = "none";
+
+    attemptsText.textContent =
+        "❌ تم استنفاد جميع المحاولات.";
+
+    startLockTimer();
+}
+
+
+/* =========================================================
+   CHECK LOCK
+========================================================= */
+
+function isLocked(){
+
+    const lockUntil =
+        parseInt(
+            localStorage.getItem(
+                "elhendawyLoginLock"
+            )
+        );
+
+    if(!lockUntil){
+        return false;
+    }
+
+
+    if(Date.now() >= lockUntil){
+
+        localStorage.removeItem(
+            "elhendawyLoginLock"
+        );
+
+        loginAttempts = 0;
+
+        return false;
+    }
+
+
+    return true;
+}
+
+
+/* =========================================================
+   LOCK TIMER
+========================================================= */
+
+function startLockTimer(){
+
+    const lockBox =
+        document.getElementById(
+            "loginLock"
+        );
+
+    const timer =
+        document.getElementById(
+            "lockTimer"
+        );
+
+    const button =
+        document.getElementById(
+            "loginButton"
+        );
+
+    const username =
+        document.getElementById(
+            "loginUsername"
+        );
+
+    const password =
+        document.getElementById(
+            "loginPassword"
+        );
+
+
+    lockBox.style.display = "block";
+
+    button.disabled = true;
+
+    username.disabled = true;
+
+    password.disabled = true;
+
+
+    if(lockInterval){
+
+        clearInterval(
+            lockInterval
+        );
+    }
+
+
+    function updateTimer(){
+
+        const lockUntil =
+            parseInt(
+                localStorage.getItem(
+                    "elhendawyLoginLock"
+                )
+            );
+
+
+        if(!lockUntil){
+
+            unlockLogin();
+
+            return;
+        }
+
+
+        const remainingMs =
+            lockUntil -
