@@ -2818,4 +2818,637 @@ function startLockTimer(){
 
 
         const remainingMs =
-            lockUntil -
+            lockUntil - Date.now();
+
+
+        if(remainingMs <= 0){
+
+            localStorage.removeItem(
+                "elhendawyLoginLock"
+            );
+
+            unlockLogin();
+
+            return;
+        }
+
+
+        const seconds =
+            Math.ceil(
+                remainingMs / 1000
+            );
+
+        timer.textContent =
+            seconds;
+    }
+
+
+    updateTimer();
+
+
+    lockInterval =
+        setInterval(
+            updateTimer,
+            250
+        );
+}
+
+
+/* =========================================================
+   UNLOCK AFTER 60 SECONDS
+========================================================= */
+
+function unlockLogin(){
+
+    if(lockInterval){
+
+        clearInterval(
+            lockInterval
+        );
+
+        lockInterval = null;
+    }
+
+
+    loginAttempts = 0;
+
+
+    const lockBox =
+        document.getElementById(
+            "loginLock"
+        );
+
+    const button =
+        document.getElementById(
+            "loginButton"
+        );
+
+    const username =
+        document.getElementById(
+            "loginUsername"
+        );
+
+    const password =
+        document.getElementById(
+            "loginPassword"
+        );
+
+    const attemptsText =
+        document.getElementById(
+            "loginAttempts"
+        );
+
+
+    lockBox.style.display =
+        "none";
+
+    button.disabled =
+        false;
+
+    username.disabled =
+        false;
+
+    password.disabled =
+        false;
+
+    attemptsText.textContent =
+        "لديك 3 محاولات متاحة";
+
+    username.focus();
+}
+
+
+/* =========================================================
+   ENTER KEY LOGIN
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        const loginScreen =
+            document.getElementById(
+                "loginScreen"
+            );
+
+
+        if(
+            event.key === "Enter" &&
+            loginScreen &&
+            loginScreen.style.display !== "none"
+        ){
+
+            login();
+        }
+
+    }
+);
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+function showPage(id,button){
+
+    document.querySelectorAll(".page")
+    .forEach(page=>{
+
+        page.classList.remove("active");
+
+    });
+
+
+    document.getElementById(id)
+    .classList.add("active");
+
+
+    document.querySelectorAll(
+        ".nav-links button"
+    )
+    .forEach(btn=>{
+
+        btn.classList.remove("active");
+
+    });
+
+
+    if(button){
+
+        button.classList.add("active");
+
+    }
+
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+}
+
+
+/* =========================================================
+   CALCULATOR
+========================================================= */
+
+let maintenanceCalories = 0;
+
+
+function calculate(){
+
+    const w =
+        parseFloat(
+            document.getElementById(
+                "weight"
+            ).value
+        );
+
+
+    const h =
+        parseFloat(
+            document.getElementById(
+                "height"
+            ).value
+        );
+
+
+    const a =
+        parseFloat(
+            document.getElementById(
+                "age"
+            ).value
+        );
+
+
+    const activity =
+        parseFloat(
+            document.getElementById(
+                "activity"
+            ).value
+        );
+
+
+    if(!w || !h || !a){
+
+        alert(
+            "من فضلك أدخل الوزن والطول والعمر."
+        );
+
+        return;
+    }
+
+
+    /*
+       معادلة Mifflin-St Jeor التقريبية للذكور.
+    */
+
+    const bmr =
+        (10*w) +
+        (6.25*h) -
+        (5*a) +
+        5;
+
+
+    maintenanceCalories =
+        Math.round(
+            bmr * activity
+        );
+
+
+    const protein =
+        Math.round(
+            w * 1.6
+        );
+
+
+    document.getElementById(
+        "caloriesResult"
+    ).textContent =
+        maintenanceCalories;
+
+
+    document.getElementById(
+        "proteinResult"
+    ).textContent =
+        protein;
+
+
+    document.getElementById(
+        "calcResult"
+    ).style.display =
+        "block";
+
+
+    document.getElementById(
+        "homeCalories"
+    ).textContent =
+        maintenanceCalories +
+        " kcal";
+
+
+    document.getElementById(
+        "homeProtein"
+    ).textContent =
+        protein +
+        " g";
+
+
+    localStorage.setItem(
+        "maintenanceCalories",
+        maintenanceCalories
+    );
+
+}
+
+
+/* =========================================================
+   GOALS
+========================================================= */
+
+function showGoal(goal){
+
+    if(!maintenanceCalories){
+
+        alert(
+            "احسب السعرات أولاً."
+        );
+
+        return;
+    }
+
+
+    let calories =
+        maintenanceCalories;
+
+    let title = "";
+
+
+    if(goal === "cut"){
+
+        calories =
+            Math.max(
+                maintenanceCalories - 300,
+                0
+            );
+
+        title =
+            "🔥 سعرات التنشيف التقريبية";
+    }
+
+
+    if(goal === "maintain"){
+
+        title =
+            "⚖️ سعرات المحافظة";
+    }
+
+
+    if(goal === "bulk"){
+
+        calories =
+            maintenanceCalories + 200;
+
+        title =
+            "💪 سعرات الزيادة التقريبية";
+    }
+
+
+    const box =
+        document.getElementById(
+            "goalResult"
+        );
+
+
+    box.innerHTML = `
+
+        <h2>
+            ${title}
+        </h2>
+
+        <div style="
+            font-size:34px;
+            font-weight:900;
+            color:var(--green);
+            margin:15px 0;
+        ">
+            ${calories} kcal
+        </div>
+
+        <p>
+        الرقم تقديري ويُفضّل تعديل السعرات تدريجيًا
+        حسب تغير الوزن والأداء والطاقة.
+        </p>
+
+    `;
+
+
+    box.style.display =
+        "block";
+}
+
+
+/* =========================================================
+   WORKOUT PROGRAM TABS
+========================================================= */
+
+function program(id,button){
+
+    document.querySelectorAll(
+        ".program"
+    )
+    .forEach(p=>{
+
+        p.classList.remove(
+            "active"
+        );
+
+    });
+
+
+    document.getElementById(id)
+    .classList.add("active");
+
+
+    document.querySelectorAll(
+        ".program-tabs button"
+    )
+    .forEach(btn=>{
+
+        btn.classList.remove(
+            "active"
+        );
+
+    });
+
+
+    button.classList.add(
+        "active"
+    );
+
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+function saveBodyWeight(){
+
+    const value =
+        document.getElementById(
+            "bodyWeight"
+        ).value;
+
+
+    if(!value){
+
+        alert(
+            "اكتب وزنك أولاً."
+        );
+
+        return;
+    }
+
+
+    localStorage.setItem(
+        "bodyWeight",
+        value
+    );
+
+
+    document.getElementById(
+        "savedWeight"
+    ).textContent =
+        "تم حفظ وزنك: " +
+        value +
+        " kg";
+}
+
+
+function saveExercise(
+    inputId,
+    resultId
+){
+
+    const value =
+        document.getElementById(
+            inputId
+        ).value;
+
+
+    if(!value){
+
+        alert(
+            "اكتب الوزن أولاً."
+        );
+
+        return;
+    }
+
+
+    localStorage.setItem(
+        inputId,
+        value
+    );
+
+
+    const saved =
+        document.getElementById(
+            resultId
+        );
+
+
+    if(saved){
+
+        saved.textContent =
+            "تم الحفظ";
+    }
+
+
+    alert(
+        "تم حفظ الوزن بنجاح 💪"
+    );
+}
+
+
+/* =========================================================
+   LOAD SAVED DATA
+========================================================= */
+
+window.addEventListener(
+    "load",
+    function(){
+
+        /* ================================================
+           LOGIN CHECK
+        ================================================ */
+
+        const loggedIn =
+            localStorage.getItem(
+                "elhendawyLoggedIn"
+            );
+
+
+        if(loggedIn === "true"){
+
+            document.getElementById(
+                "loginScreen"
+            ).style.display =
+                "none";
+
+        }else{
+
+            document.getElementById(
+                "loginScreen"
+            ).style.display =
+                "flex";
+
+
+            if(isLocked()){
+
+                startLockTimer();
+
+            }
+
+        }
+
+
+        /* ================================================
+           BODY WEIGHT
+        ================================================ */
+
+        const savedWeight =
+            localStorage.getItem(
+                "bodyWeight"
+            );
+
+
+        if(savedWeight){
+
+            document.getElementById(
+                "bodyWeight"
+            ).value =
+                savedWeight;
+
+
+            document.getElementById(
+                "savedWeight"
+            ).textContent =
+                "آخر وزن محفوظ: " +
+                savedWeight +
+                " kg";
+        }
+
+
+        /* ================================================
+           CALORIES
+        ================================================ */
+
+        const savedCalories =
+            localStorage.getItem(
+                "maintenanceCalories"
+            );
+
+
+        if(savedCalories){
+
+            maintenanceCalories =
+                parseInt(
+                    savedCalories
+                );
+
+
+            document.getElementById(
+                "homeCalories"
+            ).textContent =
+                maintenanceCalories +
+                " kcal";
+        }
+
+
+        /* ================================================
+           EXERCISE WEIGHTS
+        ================================================ */
+
+        [
+            "bench",
+            "incline",
+            "squat",
+            "preacher"
+        ]
+        .forEach(id=>{
+
+            const value =
+                localStorage.getItem(
+                    id
+                );
+
+
+            if(value){
+
+                document.getElementById(
+                    id
+                ).value =
+                    value;
+            }
+
+        });
+
+    }
+);
+
+</script>
+
+</body>
+</html>
