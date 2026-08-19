@@ -17,6 +17,8 @@
     --green2:#00b894;
     --gold:#ffc928;
     --red:#ff4d5a;
+    --blue:#4da3ff;
+    --purple:#9b6cff;
     --text:#ffffff;
     --muted:#94a39f;
     --border:rgba(255,255,255,.08);
@@ -50,9 +52,8 @@ a{
     color:inherit;
 }
 
-
 /* =========================================================
-   LOGIN SCREEN
+   LOGIN
 ========================================================= */
 
 #loginScreen{
@@ -204,7 +205,9 @@ a{
 }
 
 
-/* ================= NAV ================= */
+/* =========================================================
+   NAV
+========================================================= */
 
 .nav{
     position:sticky;
@@ -254,7 +257,9 @@ a{
 }
 
 
-/* ================= PAGES ================= */
+/* =========================================================
+   PAGES
+========================================================= */
 
 .page{
     display:none;
@@ -271,7 +276,9 @@ a{
 }
 
 
-/* ================= HERO ================= */
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero{
     min-height:720px;
@@ -365,7 +372,9 @@ a{
 }
 
 
-/* ================= STATS ================= */
+/* =========================================================
+   STATS
+========================================================= */
 
 .stats{
     display:grid;
@@ -393,7 +402,9 @@ a{
 }
 
 
-/* ================= SECTION ================= */
+/* =========================================================
+   SECTION
+========================================================= */
 
 .section{
     padding:70px 0;
@@ -421,7 +432,9 @@ a{
 }
 
 
-/* ================= CARDS ================= */
+/* =========================================================
+   CARDS
+========================================================= */
 
 .grid{
     display:grid;
@@ -463,7 +476,9 @@ a{
 }
 
 
-/* ================= DASHBOARD ================= */
+/* =========================================================
+   DASHBOARD
+========================================================= */
 
 .dashboard{
     display:grid;
@@ -491,7 +506,9 @@ a{
 }
 
 
-/* ================= PAGE HEADER ================= */
+/* =========================================================
+   PAGE HEADER
+========================================================= */
 
 .page-header{
     padding:55px 0 30px;
@@ -508,7 +525,9 @@ a{
 }
 
 
-/* ================= FORM ================= */
+/* =========================================================
+   FORM
+========================================================= */
 
 .form-card{
     max-width:650px;
@@ -562,7 +581,9 @@ a{
 }
 
 
-/* ================= GOAL ================= */
+/* =========================================================
+   GOALS
+========================================================= */
 
 .goal-buttons{
     display:flex;
@@ -586,7 +607,9 @@ a{
 }
 
 
-/* ================= WORKOUT ================= */
+/* =========================================================
+   WORKOUT
+========================================================= */
 
 .program-tabs{
     display:flex;
@@ -665,7 +688,367 @@ a{
 }
 
 
-/* ================= PROGRESS ================= */
+/* =========================================================
+   PROFESSIONAL PROGRESS
+========================================================= */
+
+.progress-hero{
+    position:relative;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at 90% 10%,rgba(0,230,184,.12),transparent 30%),
+        linear-gradient(145deg,#111817,#090d0c);
+    border:1px solid var(--border);
+    border-radius:28px;
+    padding:30px;
+    margin-bottom:25px;
+}
+
+.progress-hero:after{
+    content:"";
+    position:absolute;
+    width:250px;
+    height:250px;
+    background:rgba(0,230,184,.08);
+    filter:blur(80px);
+    left:-80px;
+    bottom:-120px;
+    border-radius:50%;
+}
+
+.progress-hero-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    position:relative;
+    z-index:2;
+}
+
+.progress-title h2{
+    margin:0 0 8px;
+    font-size:32px;
+}
+
+.progress-title p{
+    margin:0;
+    color:var(--muted);
+}
+
+.progress-badge{
+    background:rgba(0,230,184,.09);
+    border:1px solid rgba(0,230,184,.25);
+    color:var(--green);
+    padding:10px 15px;
+    border-radius:30px;
+    font-weight:900;
+}
+
+.progress-main-grid{
+    display:grid;
+    grid-template-columns:1.3fr .7fr;
+    gap:18px;
+    margin-top:25px;
+}
+
+.progress-score{
+    background:#0b100f;
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:25px;
+}
+
+.score-label{
+    color:var(--muted);
+    font-size:14px;
+}
+
+.score-number{
+    font-size:58px;
+    font-weight:1000;
+    color:var(--green);
+    line-height:1;
+    margin:12px 0;
+}
+
+.progress-bar{
+    height:12px;
+    border-radius:20px;
+    background:#202a27;
+    overflow:hidden;
+}
+
+.progress-fill{
+    width:0%;
+    height:100%;
+    background:linear-gradient(90deg,var(--green2),var(--green));
+    border-radius:20px;
+    transition:.5s;
+}
+
+.progress-meta{
+    display:flex;
+    justify-content:space-between;
+    color:var(--muted);
+    font-size:12px;
+    margin-top:9px;
+}
+
+.level-card{
+    background:linear-gradient(145deg,#171b27,#0c1016);
+    border:1px solid rgba(155,108,255,.2);
+    border-radius:22px;
+    padding:25px;
+}
+
+.level-icon{
+    font-size:42px;
+}
+
+.level-card h3{
+    margin:10px 0 5px;
+}
+
+.level-card p{
+    color:var(--muted);
+    line-height:1.6;
+}
+
+.progress-stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin:20px 0;
+}
+
+.progress-stat-card{
+    background:linear-gradient(145deg,var(--card2),var(--card));
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:20px;
+    position:relative;
+    overflow:hidden;
+}
+
+.progress-stat-card:before{
+    content:"";
+    position:absolute;
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    background:rgba(0,230,184,.06);
+    left:-30px;
+    bottom:-30px;
+}
+
+.progress-stat-icon{
+    font-size:27px;
+}
+
+.progress-stat-number{
+    display:block;
+    font-size:30px;
+    font-weight:1000;
+    color:var(--green);
+    margin:7px 0;
+}
+
+.progress-stat-label{
+    color:var(--muted);
+    font-size:13px;
+}
+
+.progress-section-card{
+    background:linear-gradient(145deg,var(--card2),var(--card));
+    border:1px solid var(--border);
+    border-radius:24px;
+    padding:25px;
+    margin-bottom:20px;
+}
+
+.progress-section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.progress-section-head h3{
+    margin:0;
+    font-size:22px;
+}
+
+.progress-section-head span{
+    color:var(--muted);
+    font-size:13px;
+}
+
+.exercise-progress-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+}
+
+.exercise-progress-card{
+    background:#0b100f;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:18px;
+    transition:.25s;
+}
+
+.exercise-progress-card:hover{
+    border-color:rgba(0,230,184,.3);
+    transform:translateY(-2px);
+}
+
+.exercise-progress-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+}
+
+.exercise-progress-name{
+    font-weight:900;
+}
+
+.exercise-muscle-tag{
+    font-size:11px;
+    color:var(--green);
+    background:rgba(0,230,184,.07);
+    padding:5px 8px;
+    border-radius:8px;
+}
+
+.exercise-input-row{
+    display:flex;
+    gap:8px;
+    margin-top:14px;
+}
+
+.exercise-input-row input{
+    flex:1;
+    min-width:0;
+    padding:11px;
+    border-radius:10px;
+    border:1px solid var(--border);
+    background:#080c0b;
+    color:white;
+    outline:none;
+}
+
+.exercise-input-row input:focus{
+    border-color:var(--green);
+}
+
+.save-mini{
+    border:0;
+    border-radius:10px;
+    padding:10px 14px;
+    background:var(--green);
+    color:#00130f;
+    font-weight:900;
+}
+
+.exercise-saved{
+    color:var(--green);
+    font-size:12px;
+    margin-top:8px;
+    min-height:17px;
+}
+
+.records-list{
+    display:grid;
+    gap:10px;
+}
+
+.record{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    padding:15px;
+    background:#0b100f;
+    border:1px solid var(--border);
+    border-radius:15px;
+}
+
+.record-name{
+    font-weight:900;
+}
+
+.record-date{
+    color:var(--muted);
+    font-size:12px;
+}
+
+.record-weight{
+    font-weight:1000;
+    color:var(--green);
+}
+
+.empty-records{
+    padding:25px;
+    text-align:center;
+    color:var(--muted);
+    border:1px dashed #384440;
+    border-radius:15px;
+}
+
+.body-progress{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.body-box{
+    background:#0b100f;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:20px;
+}
+
+.body-box h4{
+    margin:0 0 15px;
+}
+
+.body-input{
+    display:flex;
+    gap:8px;
+}
+
+.body-input input{
+    flex:1;
+    padding:12px;
+    border-radius:10px;
+    border:1px solid var(--border);
+    background:#080c0b;
+    color:white;
+    outline:none;
+}
+
+.body-history{
+    margin-top:15px;
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.8;
+}
+
+.clear-progress{
+    border:1px solid rgba(255,77,90,.25);
+    background:rgba(255,77,90,.07);
+    color:#ff7c85;
+    border-radius:10px;
+    padding:9px 13px;
+    font-weight:800;
+}
+
+
+/* =========================================================
+   PROGRESS TABLE
+========================================================= */
 
 .progress-table{
     width:100%;
@@ -695,7 +1078,9 @@ a{
 }
 
 
-/* ================= CONTACT ================= */
+/* =========================================================
+   CONTACT
+========================================================= */
 
 .social{
     display:grid;
@@ -726,13 +1111,17 @@ a{
 }
 
 
-/* ================= AD ================= */
+/* =========================================================
+   AD
+========================================================= */
 
 .ad-box{
-    min-height:150px;
-    border:1px dashed #47534f;
-    background:#0d1211;
-    border-radius:18px;
+    min-height:190px;
+    border:1px dashed rgba(0,230,184,.25);
+    background:
+        radial-gradient(circle at center,rgba(0,230,184,.05),transparent 60%),
+        #0d1211;
+    border-radius:22px;
     display:grid;
     place-items:center;
     color:#697773;
@@ -740,8 +1129,17 @@ a{
     text-align:center;
 }
 
+.ad-box strong{
+    display:block;
+    color:var(--green);
+    font-size:20px;
+    margin-bottom:8px;
+}
 
-/* ================= PRAYER ================= */
+
+/* =========================================================
+   PRAYER
+========================================================= */
 
 .prayer{
     text-align:center;
@@ -757,7 +1155,9 @@ a{
 }
 
 
-/* ================= FOOTER ================= */
+/* =========================================================
+   FOOTER
+========================================================= */
 
 footer{
     text-align:center;
@@ -770,125 +1170,9 @@ footer strong{
 }
 
 
-/* ================= NEW CHATBOT STYLES (MOD) ================= */
-#chatbot-toggler {
-    position: fixed;
-    bottom: 25px;
-    left: 25px;
-    z-index: 9999;
-    background: var(--green);
-    color: #00130f;
-    border: none;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    font-size: 26px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 10px 25px rgba(0,230,184,0.3);
-    transition: transform 0.3s;
-}
-#chatbot-toggler:hover {
-    transform: scale(1.1);
-}
-#chatbot-container {
-    position: fixed;
-    bottom: 95px;
-    left: 25px;
-    width: 360px;
-    max-width: calc(100vw - 50px);
-    height: 480px;
-    background: var(--card);
-    border: 1px solid rgba(0,230,184,0.3);
-    border-radius: 20px;
-    z-index: 9998;
-    display: none;
-    flex-direction: column;
-    overflow: hidden;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
-}
-.chatbot-header {
-    background: var(--card2);
-    padding: 15px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid var(--border);
-}
-.chatbot-title {
-    font-weight: 900;
-    color: var(--green);
-    font-size: 16px;
-}
-.chatbot-close {
-    background: transparent;
-    border: none;
-    color: var(--muted);
-    font-size: 18px;
-    cursor: pointer;
-}
-.chatbot-messages {
-    flex: 1;
-    padding: 15px;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-.chat-msg {
-    max-width: 80%;
-    padding: 10px 14px;
-    border-radius: 12px;
-    font-size: 14px;
-    line-height: 1.5;
-}
-.chat-msg.bot {
-    background: var(--card2);
-    color: var(--text);
-    align-self: flex-start;
-    border-bottom-right-radius: 2px;
-}
-.chat-msg.user {
-    background: var(--green);
-    color: #00130f;
-    align-self: flex-end;
-    border-bottom-left-radius: 2px;
-    font-weight: 700;
-}
-.chatbot-input-area {
-    padding: 12px;
-    background: var(--card2);
-    border-top: 1px solid var(--border);
-    display: flex;
-    gap: 8px;
-}
-.chatbot-input-area input {
-    flex: 1;
-    background: #080c0b;
-    border: 1px solid var(--border);
-    padding: 10px 12px;
-    border-radius: 10px;
-    color: white;
-    outline: none;
-    font-size: 14px;
-}
-.chatbot-input-area input:focus {
-    border-color: var(--green);
-}
-.chatbot-input-area button {
-    background: var(--green);
-    color: #00130f;
-    border: none;
-    padding: 0 16px;
-    border-radius: 10px;
-    font-weight: 900;
-    cursor: pointer;
-}
-
-
-/* ================= MOBILE ================= */
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media(max-width:850px){
 
@@ -927,6 +1211,22 @@ footer strong{
         white-space:normal;
     }
 
+    .progress-main-grid{
+        grid-template-columns:1fr;
+    }
+
+    .progress-stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .exercise-progress-grid{
+        grid-template-columns:1fr;
+    }
+
+    .body-progress{
+        grid-template-columns:1fr;
+    }
+
 }
 
 @media(max-width:500px){
@@ -952,6 +1252,50 @@ footer strong{
         padding:27px 20px;
     }
 
+    .progress-hero{
+        padding:20px;
+    }
+
+    .progress-hero-top{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+    .score-number{
+        font-size:48px;
+    }
+
+    .progress-stat-number{
+        font-size:25px;
+    }
+
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+.toast{
+    position:fixed;
+    bottom:25px;
+    left:50%;
+    transform:translateX(-50%) translateY(100px);
+    background:#121918;
+    border:1px solid rgba(0,230,184,.3);
+    color:white;
+    padding:14px 20px;
+    border-radius:14px;
+    z-index:100000;
+    opacity:0;
+    transition:.3s;
+    box-shadow:0 15px 40px rgba(0,0,0,.4);
+    font-weight:800;
+}
+
+.toast.show{
+    opacity:1;
+    transform:translateX(-50%) translateY(0);
 }
 
 </style>
@@ -966,86 +1310,86 @@ footer strong{
 
 <div id="loginScreen">
 
-    <div class="login-box">
+<div class="login-box">
 
-        <div class="login-logo">
-            🔐
-        </div>
+<div class="login-logo">
+🔐
+</div>
 
-        <h1>
-            ELHENDAWY
-            <span>EXERCISES</span>
-        </h1>
+<h1>
+ELHENDAWY
+<span>EXERCISES</span>
+</h1>
 
-        <div class="login-subtitle">
-            قم بتسجيل الدخول للوصول إلى الموقع
-        </div>
+<div class="login-subtitle">
+قم بتسجيل الدخول للوصول إلى الموقع
+</div>
 
-        <div class="login-field">
+<div class="login-field">
 
-            <label>
-                اسم المستخدم
-            </label>
+<label>
+اسم المستخدم
+</label>
 
-            <input
-                type="text"
-                id="loginUsername"
-                placeholder="Username"
-                autocomplete="username"
-            >
+<input
+type="text"
+id="loginUsername"
+placeholder="Username"
+autocomplete="username"
+>
 
-        </div>
+</div>
 
-        <div class="login-field">
+<div class="login-field">
 
-            <label>
-                كلمة المرور
-            </label>
+<label>
+كلمة المرور
+</label>
 
-            <input
-                type="password"
-                id="loginPassword"
-                placeholder="Password"
-                autocomplete="current-password"
-            >
+<input
+type="password"
+id="loginPassword"
+placeholder="Password"
+autocomplete="current-password"
+>
 
-        </div>
+</div>
 
-        <button
-            class="login-button"
-            id="loginButton"
-            onclick="login()"
-        >
-            تسجيل الدخول 🔓
-        </button>
+<button
+class="login-button"
+id="loginButton"
+onclick="login()"
+>
+تسجيل الدخول 🔓
+</button>
 
-        <div
-            class="login-message"
-            id="loginMessage"
-        ></div>
+<div
+class="login-message"
+id="loginMessage"
+></div>
 
-        <div
-            class="login-lock"
-            id="loginLock"
-        >
-            🔒 تم إيقاف تسجيل الدخول مؤقتًا.<br>
-            حاول مرة أخرى بعد
-            <strong id="lockTimer">60</strong>
-            ثانية.
-        </div>
+<div
+class="login-lock"
+id="loginLock"
+>
+🔒 تم إيقاف تسجيل الدخول مؤقتًا.<br>
+حاول مرة أخرى بعد
+<strong id="lockTimer">60</strong>
+ثانية.
+</div>
 
-        <div
-            class="login-attempts"
-            id="loginAttempts"
-        >
-            لديك 3 محاولات متاحة
-        </div>
+<div
+class="login-attempts"
+id="loginAttempts"
+>
+لديك 3 محاولات متاحة
+</div>
 
-        <div class="login-footer">
-            Train Smart • Build Strong
-        </div>
+<div class="login-footer">
+Train Smart • Build Strong
+</div>
 
-    </div>
+</div>
 
 </div>
 
@@ -1059,33 +1403,31 @@ footer strong{
 <div class="nav-inner">
 
 <div class="logo">
-    ELHENDAWY EXERCISES
+ELHENDAWY EXERCISES
 </div>
 
 <div class="nav-links">
 
 <button class="active" onclick="showPage('home',this)">
-    الرئيسية
+الرئيسية
 </button>
 
 <button onclick="showPage('calculator',this)">
-    الحاسبة
+الحاسبة
 </button>
 
 <button onclick="showPage('workouts',this)">
-    التمارين
+التمارين
 </button>
 
-<button onclick="showPage('nutrition',this)">
-    التغذية
-</button>
+<!-- تم حذف التغذية حسب طلبك -->
 
 <button onclick="showPage('progress',this)">
-    تطوري
+تطوري
 </button>
 
 <button onclick="showPage('contact',this)">
-    تواصل
+تواصل
 </button>
 
 </div>
@@ -1108,29 +1450,33 @@ footer strong{
 <div class="hero-content">
 
 <div class="badge">
-    🔥 FITNESS • TRAINING • NUTRITION
+🔥 FITNESS • TRAINING • PROGRESS
 </div>
 
 <h1>
-    ELHENDAWY<br>
-    <span>EXERCISES</span>
+ELHENDAWY<br>
+<span>EXERCISES</span>
 </h1>
 
 <p>
-منصة لياقتك الشخصية للتدريب والتغذية وتتبع تقدمك.
-اختار برنامجك، احسب احتياجك، وسجل تطورك خطوة بخطوة.
+منصة لياقتك الشخصية للتدريب وحساب احتياجاتك
+وتسجيل أوزانك ومتابعة تطورك خطوة بخطوة.
 </p>
 
 <div class="hero-buttons">
 
-<button class="btn btn-primary"
-onclick="showPage('workouts')">
-    🏋️ ابدأ التمرين
+<button
+class="btn btn-primary"
+onclick="showPage('workouts')"
+>
+🏋️ ابدأ التمرين
 </button>
 
-<button class="btn btn-secondary"
-onclick="showPage('calculator')">
-    🔥 احسب احتياجك
+<button
+class="btn btn-secondary"
+onclick="showPage('calculator')"
+>
+🔥 احسب احتياجك
 </button>
 
 </div>
@@ -1138,28 +1484,29 @@ onclick="showPage('calculator')">
 <div class="stats">
 
 <div class="stat">
-    <strong>5+</strong>
-    <span>أنظمة تدريب</span>
+<strong>5+</strong>
+<span>أنظمة تدريب</span>
 </div>
 
 <div class="stat">
-    <strong>40+</strong>
-    <span>تمرين</span>
+<strong>40+</strong>
+<span>تمرين</span>
 </div>
 
 <div class="stat">
-    <strong>24/7</strong>
-    <span>تتبع تقدمك</span>
+<strong>24/7</strong>
+<span>تتبع تقدمك</span>
 </div>
 
 <div class="stat">
-    <strong>100%</strong>
-    <span>مجاني</span>
+<strong>100%</strong>
+<span>مجاني</span>
 </div>
 
 </div>
 
 </div>
+
 </div>
 
 </section>
@@ -1172,15 +1519,15 @@ onclick="showPage('calculator')">
 <div class="section-title">
 
 <div class="small">
-    YOUR FITNESS JOURNEY
+YOUR FITNESS JOURNEY
 </div>
 
 <h2>
-    ماذا تريد أن تفعل اليوم؟
+ماذا تريد أن تفعل اليوم؟
 </h2>
 
 <p>
-    كل أدواتك في مكان واحد.
+كل أدواتك في مكان واحد.
 </p>
 
 </div>
@@ -1192,16 +1539,18 @@ onclick="showPage('calculator')">
 <div class="card-icon">🔥</div>
 
 <h3>
-    احسب احتياجك
+احسب احتياجك
 </h3>
 
 <p>
-اعرف السعرات والبروتين المناسبين حسب بياناتك ونشاطك.
+اعرف السعرات والبروتين بشكل تقريبي حسب بياناتك ونشاطك.
 </p>
 
-<button class="btn btn-primary"
-onclick="showPage('calculator')">
-    ابدأ الحاسبة
+<button
+class="btn btn-primary"
+onclick="showPage('calculator')"
+>
+ابدأ الحاسبة
 </button>
 
 </div>
@@ -1212,16 +1561,18 @@ onclick="showPage('calculator')">
 <div class="card-icon">🏋️</div>
 
 <h3>
-    اختر برنامجك
+اختر برنامجك
 </h3>
 
 <p>
 PPL و Upper/Lower و Full Body و Arnold وغيرها.
 </p>
 
-<button class="btn btn-primary"
-onclick="showPage('workouts')">
-    شاهد البرامج
+<button
+class="btn btn-primary"
+onclick="showPage('workouts')"
+>
+شاهد البرامج
 </button>
 
 </div>
@@ -1232,16 +1583,18 @@ onclick="showPage('workouts')">
 <div class="card-icon">📈</div>
 
 <h3>
-    تابع تطورك
+تابع تطورك
 </h3>
 
 <p>
-سجل أوزانك في التمارين وتابع تقدمك باستمرار.
+سجل أوزانك وتابع مستواك وأرقامك باستمرار.
 </p>
 
-<button class="btn btn-primary"
-onclick="showPage('progress')">
-    تطوري
+<button
+class="btn btn-primary"
+onclick="showPage('progress')"
+>
+تطوري
 </button>
 
 </div>
@@ -1260,11 +1613,11 @@ onclick="showPage('progress')">
 <div class="section-title">
 
 <div class="small">
-    FITNESS DASHBOARD
+FITNESS DASHBOARD
 </div>
 
 <h2>
-    ملخصك السريع
+ملخصك السريع
 </h2>
 
 </div>
@@ -1274,11 +1627,11 @@ onclick="showPage('progress')">
 <div class="dash">
 
 <div class="dash-title">
-    السعرات المحسوبة
+السعرات المحسوبة
 </div>
 
 <div class="dash-value" id="homeCalories">
-    -- kcal
+-- kcal
 </div>
 
 </div>
@@ -1286,11 +1639,11 @@ onclick="showPage('progress')">
 <div class="dash">
 
 <div class="dash-title">
-    البروتين
+البروتين
 </div>
 
 <div class="dash-value" id="homeProtein">
-    -- g
+-- g
 </div>
 
 </div>
@@ -1298,11 +1651,11 @@ onclick="showPage('progress')">
 <div class="dash">
 
 <div class="dash-title">
-    المياه اليوم
+التمارين المسجلة
 </div>
 
-<div class="dash-value" id="homeWater">
-    0 / 8
+<div class="dash-value" id="homeExercises">
+0
 </div>
 
 </div>
@@ -1327,11 +1680,11 @@ onclick="showPage('progress')">
 <div class="page-header">
 
 <h1>
-    🔥 حاسبة السعرات والبروتين
+🔥 حاسبة السعرات والبروتين
 </h1>
 
 <p>
-    احسب احتياجك اليومي بشكل تقريبي
+احسب احتياجك اليومي بشكل تقريبي
 </p>
 
 </div>
@@ -1342,13 +1695,13 @@ onclick="showPage('progress')">
 <div class="field">
 
 <label>
-    الوزن بالكيلو
+الوزن بالكيلو
 </label>
 
 <input
-    type="number"
-    id="weight"
-    placeholder="مثال: 75"
+type="number"
+id="weight"
+placeholder="مثال: 75"
 >
 
 </div>
@@ -1357,13 +1710,13 @@ onclick="showPage('progress')">
 <div class="field">
 
 <label>
-    الطول بالسنتيمتر
+الطول بالسنتيمتر
 </label>
 
 <input
-    type="number"
-    id="height"
-    placeholder="مثال: 175"
+type="number"
+id="height"
+placeholder="مثال: 175"
 >
 
 </div>
@@ -1372,13 +1725,13 @@ onclick="showPage('progress')">
 <div class="field">
 
 <label>
-    العمر
+العمر
 </label>
 
 <input
-    type="number"
-    id="age"
-    placeholder="مثال: 17"
+type="number"
+id="age"
+placeholder="مثال: 17"
 >
 
 </div>
@@ -1387,25 +1740,25 @@ onclick="showPage('progress')">
 <div class="field">
 
 <label>
-    النشاط
+النشاط
 </label>
 
 <select id="activity">
 
 <option value="1.2">
-    خامل
+خامل
 </option>
 
 <option value="1.375">
-    نشاط خفيف
+نشاط خفيف
 </option>
 
 <option value="1.55" selected>
-    نشاط متوسط
+نشاط متوسط
 </option>
 
 <option value="1.725">
-    نشاط مرتفع
+نشاط مرتفع
 </option>
 
 </select>
@@ -1414,11 +1767,11 @@ onclick="showPage('progress')">
 
 
 <button
-    class="btn btn-primary"
-    style="width:100%"
-    onclick="calculate()"
+class="btn btn-primary"
+style="width:100%"
+onclick="calculate()"
 >
-    احسب احتياجي 🎯
+احسب احتياجي 🎯
 </button>
 
 
@@ -1427,7 +1780,7 @@ onclick="showPage('progress')">
 السعرات:
 
 <strong id="caloriesResult">
-    0
+0
 </strong>
 
 <br><br>
@@ -1435,7 +1788,7 @@ onclick="showPage('progress')">
 البروتين:
 
 <strong id="proteinResult">
-    0
+0
 </strong>
 
 جرام
@@ -1450,38 +1803,44 @@ onclick="showPage('progress')">
 <div class="section-title">
 
 <h2>
-    🎯 اختر هدفك
+🎯 اختر هدفك
 </h2>
 
 <p>
-    بعد معرفة سعرات المحافظة، اختار هدفك.
+بعد معرفة سعرات المحافظة، اختار هدفك.
 </p>
 
 </div>
 
 <div class="goal-buttons">
 
-<button class="goal-btn"
-onclick="showGoal('cut')">
-    🔥 تنشيف
+<button
+class="goal-btn"
+onclick="showGoal('cut')"
+>
+🔥 تنشيف
 </button>
 
-<button class="goal-btn"
-onclick="showGoal('maintain')">
-    ⚖️ ثبات
+<button
+class="goal-btn"
+onclick="showGoal('maintain')"
+>
+⚖️ ثبات
 </button>
 
-<button class="goal-btn"
-onclick="showGoal('bulk')">
-    💪 زيادة تدريجية
+<button
+class="goal-btn"
+onclick="showGoal('bulk')"
+>
+💪 زيادة تدريجية
 </button>
 
 </div>
 
 <div
-    id="goalResult"
-    class="form-card"
-    style="display:none;text-align:center"
+id="goalResult"
+class="form-card"
+style="display:none;text-align:center"
 ></div>
 
 </div>
@@ -1502,11 +1861,11 @@ onclick="showGoal('bulk')">
 <div class="page-header">
 
 <h1>
-    🏋️ Training Programs
+🏋️ Training Programs
 </h1>
 
 <p>
-    اختار النظام المناسب لك
+اختار النظام المناسب لك
 </p>
 
 </div>
@@ -1516,23 +1875,23 @@ onclick="showGoal('bulk')">
 
 <button class="active"
 onclick="program('ppl',this)">
-    PPL
+PPL
 </button>
 
 <button onclick="program('ul',this)">
-    Upper / Lower
+Upper / Lower
 </button>
 
 <button onclick="program('fb',this)">
-    Full Body
+Full Body
 </button>
 
 <button onclick="program('arnold',this)">
-    Arnold Split
+Arnold Split
 </button>
 
 <button onclick="program('ap',this)">
-    Anterior / Posterior
+Anterior / Posterior
 </button>
 
 </div>
@@ -1545,109 +1904,48 @@ onclick="program('ppl',this)">
 <div class="day">
 
 <div class="day-header">
-
-<h3>
-    1️⃣ Push — صدر / كتف / تراي
-</h3>
-
-<span>
-    5 تمارين
-</span>
-
+<h3>1️⃣ Push — صدر / كتف / تراي</h3>
+<span>5 تمارين</span>
 </div>
 
 <div class="exercise">
-
 <div>
-<div class="exercise-name">
-    Bench Press
+<div class="exercise-name">Bench Press</div>
+<div class="exercise-muscle">الصدر</div>
 </div>
-
-<div class="exercise-muscle">
-    الصدر
+<div class="exercise-info">4 × 6–10</div>
 </div>
-</div>
-
-<div class="exercise-info">
-    4 × 6–10
-</div>
-
-</div>
-
 
 <div class="exercise">
-
 <div>
-<div class="exercise-name">
-    Incline Dumbbell Press
+<div class="exercise-name">Incline Dumbbell Press</div>
+<div class="exercise-muscle">أعلى الصدر</div>
 </div>
-
-<div class="exercise-muscle">
-    أعلى الصدر
+<div class="exercise-info">3 × 8–12</div>
 </div>
-</div>
-
-<div class="exercise-info">
-    3 × 8–12
-</div>
-
-</div>
-
 
 <div class="exercise">
-
 <div>
-<div class="exercise-name">
-    Shoulder Press
+<div class="exercise-name">Shoulder Press</div>
+<div class="exercise-muscle">الكتف</div>
 </div>
-
-<div class="exercise-muscle">
-    الكتف
+<div class="exercise-info">3 × 8–12</div>
 </div>
-</div>
-
-<div class="exercise-info">
-    3 × 8–12
-</div>
-
-</div>
-
 
 <div class="exercise">
-
 <div>
-<div class="exercise-name">
-    Lateral Raise
+<div class="exercise-name">Lateral Raise</div>
+<div class="exercise-muscle">الكتف الجانبي</div>
 </div>
-
-<div class="exercise-muscle">
-    الكتف الجانبي
+<div class="exercise-info">3 × 12–15</div>
 </div>
-</div>
-
-<div class="exercise-info">
-    3 × 12–15
-</div>
-
-</div>
-
 
 <div class="exercise">
-
 <div>
-<div class="exercise-name">
-    Triceps Pushdown
+<div class="exercise-name">Triceps Pushdown</div>
+<div class="exercise-muscle">الترايسبس</div>
 </div>
-
-<div class="exercise-muscle">
-    الترايسبس
-</div>
-</div>
-
-<div class="exercise-info">
-    3 × 10–15
-</div>
-
+<div class="exercise-info">3 × 10–15</div>
 </div>
 
 </div>
@@ -1656,109 +1954,48 @@ onclick="program('ppl',this)">
 <div class="day">
 
 <div class="day-header">
-
-<h3>
-    2️⃣ Pull — ظهر / باي
-</h3>
-
-<span>
-    5 تمارين
-</span>
-
+<h3>2️⃣ Pull — ظهر / باي</h3>
+<span>5 تمارين</span>
 </div>
 
 <div class="exercise">
-
 <div>
-<div class="exercise-name">
-    Lat Pulldown
+<div class="exercise-name">Lat Pulldown</div>
+<div class="exercise-muscle">الظهر العريض</div>
 </div>
-
-<div class="exercise-muscle">
-    الظهر العريض
+<div class="exercise-info">4 × 8–12</div>
 </div>
-</div>
-
-<div class="exercise-info">
-    4 × 8–12
-</div>
-
-</div>
-
 
 <div class="exercise">
-
 <div>
-<div class="exercise-name">
-    Barbell Row
+<div class="exercise-name">Barbell Row</div>
+<div class="exercise-muscle">سماكة الظهر</div>
 </div>
-
-<div class="exercise-muscle">
-    سماكة الظهر
+<div class="exercise-info">3 × 6–10</div>
 </div>
-</div>
-
-<div class="exercise-info">
-    3 × 6–10
-</div>
-
-</div>
-
 
 <div class="exercise">
-
 <div>
-<div class="exercise-name">
-    Seated Cable Row
+<div class="exercise-name">Seated Cable Row</div>
+<div class="exercise-muscle">منتصف الظهر</div>
 </div>
-
-<div class="exercise-muscle">
-    منتصف الظهر
+<div class="exercise-info">3 × 8–12</div>
 </div>
-</div>
-
-<div class="exercise-info">
-    3 × 8–12
-</div>
-
-</div>
-
 
 <div class="exercise">
-
 <div>
-<div class="exercise-name">
-    Preacher Curl
+<div class="exercise-name">Preacher Curl</div>
+<div class="exercise-muscle">البايسبس</div>
 </div>
-
-<div class="exercise-muscle">
-    البايسبس
+<div class="exercise-info">3 × 8–12</div>
 </div>
-</div>
-
-<div class="exercise-info">
-    3 × 8–12
-</div>
-
-</div>
-
 
 <div class="exercise">
-
 <div>
-<div class="exercise-name">
-    Hammer Curl
+<div class="exercise-name">Hammer Curl</div>
+<div class="exercise-muscle">البايسبس / الساعد</div>
 </div>
-
-<div class="exercise-muscle">
-    البايسبس / الساعد
-</div>
-</div>
-
-<div class="exercise-info">
-    3 × 10–12
-</div>
-
+<div class="exercise-info">3 × 10–12</div>
 </div>
 
 </div>
@@ -1767,109 +2004,48 @@ onclick="program('ppl',this)">
 <div class="day">
 
 <div class="day-header">
-
-<h3>
-    3️⃣ Legs — الرجل
-</h3>
-
-<span>
-    5 تمارين
-</span>
-
+<h3>3️⃣ Legs — الرجل</h3>
+<span>5 تمارين</span>
 </div>
 
 <div class="exercise">
-
 <div>
-<div class="exercise-name">
-    Squat
+<div class="exercise-name">Squat</div>
+<div class="exercise-muscle">الفخذ الأمامي</div>
 </div>
-
-<div class="exercise-muscle">
-    الفخذ الأمامي
+<div class="exercise-info">4 × 6–10</div>
 </div>
-</div>
-
-<div class="exercise-info">
-    4 × 6–10
-</div>
-
-</div>
-
 
 <div class="exercise">
-
 <div>
-<div class="exercise-name">
-    Leg Press
+<div class="exercise-name">Leg Press</div>
+<div class="exercise-muscle">الفخذ</div>
 </div>
-
-<div class="exercise-muscle">
-    الفخذ
+<div class="exercise-info">3 × 8–12</div>
 </div>
-</div>
-
-<div class="exercise-info">
-    3 × 8–12
-</div>
-
-</div>
-
 
 <div class="exercise">
-
 <div>
-<div class="exercise-name">
-    Leg Extension
+<div class="exercise-name">Leg Extension</div>
+<div class="exercise-muscle">الفخذ الأمامي</div>
 </div>
-
-<div class="exercise-muscle">
-    الفخذ الأمامي
+<div class="exercise-info">3 × 10–15</div>
 </div>
-</div>
-
-<div class="exercise-info">
-    3 × 10–15
-</div>
-
-</div>
-
 
 <div class="exercise">
-
 <div>
-<div class="exercise-name">
-    Leg Curl
+<div class="exercise-name">Leg Curl</div>
+<div class="exercise-muscle">الخلفية</div>
 </div>
-
-<div class="exercise-muscle">
-    الخلفية
+<div class="exercise-info">3 × 10–15</div>
 </div>
-</div>
-
-<div class="exercise-info">
-    3 × 10–15
-</div>
-
-</div>
-
 
 <div class="exercise">
-
 <div>
-<div class="exercise-name">
-    Calf Raise
+<div class="exercise-name">Calf Raise</div>
+<div class="exercise-muscle">السمانة</div>
 </div>
-
-<div class="exercise-muscle">
-    السمانة
-</div>
-</div>
-
-<div class="exercise-info">
-    4 × 12–15
-</div>
-
+<div class="exercise-info">4 × 12–15</div>
 </div>
 
 </div>
@@ -2260,140 +2436,7 @@ onclick="program('ppl',this)">
 
 
 <!-- =====================================================
-     NUTRITION
-===================================================== -->
-
-<section id="nutrition" class="page">
-
-<div class="container">
-
-<div class="page-header">
-
-<h1>
-    🥗 Nutrition Center
-</h1>
-
-<p>
-    أفكار غذائية منظمة حسب هدفك
-</p>
-
-</div>
-
-
-<div class="grid">
-
-<div class="card">
-
-<div class="card-icon">
-    🔥
-</div>
-
-<h3>
-    تنشيف
-</h3>
-
-<p>
-ركز على مصادر بروتين جيدة، خضار، فواكه، وكربوهيدرات مناسبة لاحتياجك.
-</p>
-
-<ul>
-<li>بيض</li>
-<li>دجاج</li>
-<li>أرز</li>
-<li>بطاطس</li>
-<li>خضار وفاكهة</li>
-</ul>
-
-</div>
-
-
-<div class="card">
-
-<div class="card-icon">
-    💪
-</div>
-
-<h3>
-    زيادة العضلات
-</h3>
-
-<p>
-زيادة السعرات بشكل تدريجي مع الحصول على بروتين كافٍ.
-</p>
-
-<ul>
-<li>بيض</li>
-<li>دجاج أو لحوم</li>
-<li>أرز</li>
-<li>شوفان</li>
-<li>لبن أو زبادي</li>
-</ul>
-
-</div>
-
-
-<div class="card">
-
-<div class="card-icon">
-    ⚖️
-</div>
-
-<h3>
-    ثبات الوزن
-</h3>
-
-<p>
-حافظ على سعرات قريبة من احتياجك مع نظام متوازن.
-</p>
-
-<ul>
-<li>بروتين</li>
-<li>كربوهيدرات</li>
-<li>دهون صحية</li>
-<li>خضار</li>
-<li>فواكه</li>
-</ul>
-
-</div>
-
-</div>
-
-
-<div class="section">
-
-<div class="section-title">
-
-<h2>
-    🍗 مثال لوجبة متوازنة
-</h2>
-
-<p>
-الأرقام تقريبية وتختلف حسب وزن الطعام وطريقة التحضير.
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>
-    🍗 ربع فرخة + 🍚 أرز + 🥗 سلطة
-</h3>
-
-<p>
-وجبة تجمع بين البروتين والكربوهيدرات والخضار.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     PROGRESS
+     PROFESSIONAL PROGRESS
 ===================================================== -->
 
 <section id="progress" class="page">
@@ -2403,50 +2446,1201 @@ onclick="program('ppl',this)">
 <div class="page-header">
 
 <h1>
-    📈 متابعة التطور
+📈 مركز تطوري
 </h1>
 
 <p>
-    سجل أوزانك وشاهد تقدمك
+لو أنت بتتمرن بجد، هنا أرقامك كلها في مكان واحد.
 </p>
 
 </div>
 
 
-<div class="form-card">
+<!-- HERO PROGRESS -->
 
-<div class="field">
+<div class="progress-hero">
 
-<label>
-    آخر وزن للجسم
-</label>
+<div class="progress-hero-top">
 
-<input
-    type="number"
-    id="bodyWeight"
-    placeholder="kg"
+<div class="progress-title">
+
+<h2>
+🚀 لوحة تقدمك الشخصية
+</h2>
+
+<p>
+سجل أوزانك، اكسر أرقامك، وراقب مستواك مع الوقت.
+</p>
+
+</div>
+
+<div class="progress-badge" id="progressLevel">
+مبتدئ 🟢
+</div>
+
+</div>
+
+
+<div class="progress-main-grid">
+
+<div class="progress-score">
+
+<div class="score-label">
+نسبة اكتمال سجل التمارين
+</div>
+
+<div class="score-number" id="progressPercent">
+0%
+</div>
+
+<div class="progress-bar">
+
+<div
+class="progress-fill"
+id="progressFill"
+></div>
+
+</div>
+
+<div class="progress-meta">
+
+<span id="progressCompleted">
+0 من 20 تمرين
+</span>
+
+<span>
+استمر 💪
+</span>
+
+</div>
+
+</div>
+
+
+<div class="level-card">
+
+<div class="level-icon" id="levelIcon">
+🌱
+</div>
+
+<h3 id="levelTitle">
+بداية الطريق
+</h3>
+
+<p id="levelDescription">
+ابدأ بتسجيل أوزانك حتى يبدأ النظام في حساب تقدمك.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- STATS -->
+
+<div class="progress-stats">
+
+<div class="progress-stat-card">
+
+<div class="progress-stat-icon">
+🏋️
+</div>
+
+<span
+class="progress-stat-number"
+id="statExercises"
 >
+0
+</span>
 
-</div>
-
-<button class="btn btn-primary"
-onclick="saveBodyWeight()">
-    حفظ الوزن
-</button>
-
-<p
-    id="savedWeight"
-    style="color:var(--green);font-weight:bold"
-></p>
+<span class="progress-stat-label">
+تمرين مسجل
+</span>
 
 </div>
 
 
-<div class="card">
+<div class="progress-stat-card">
+
+<div class="progress-stat-icon">
+⚡
+</div>
+
+<span
+class="progress-stat-number"
+id="statTotalWeight"
+>
+0
+</span>
+
+<span class="progress-stat-label">
+إجمالي الأوزان kg
+</span>
+
+</div>
+
+
+<div class="progress-stat-card">
+
+<div class="progress-stat-icon">
+🏆
+</div>
+
+<span
+class="progress-stat-number"
+id="statBest"
+>
+0
+</span>
+
+<span class="progress-stat-label">
+أعلى وزن مسجل
+</span>
+
+</div>
+
+
+<div class="progress-stat-card">
+
+<div class="progress-stat-icon">
+📅
+</div>
+
+<span
+class="progress-stat-number"
+id="statDays"
+>
+0
+</span>
+
+<span class="progress-stat-label">
+عدد أيام التسجيل
+</span>
+
+</div>
+
+</div>
+
+
+<!-- BODY WEIGHT -->
+
+<div class="progress-section-card">
+
+<div class="progress-section-head">
+
+<div>
 
 <h3>
-    🏋️ أوزان التمارين
+⚖️ وزن الجسم
 </h3>
+
+<span>
+سجل وزنك الحالي واحتفظ بآخر تحديث.
+</span>
+
+</div>
+
+</div>
+
+
+<div class="body-progress">
+
+<div class="body-box">
+
+<h4>
+آخر وزن للجسم
+</h4>
+
+<div class="body-input">
+
+<input
+type="number"
+step="0.1"
+id="bodyWeight"
+placeholder="مثال: 75"
+>
+
+<button
+class="save-mini"
+onclick="saveBodyWeight()"
+>
+حفظ
+</button>
+
+</div>
+
+<div
+class="body-history"
+id="savedWeight"
+>
+لم يتم تسجيل وزن حتى الآن.
+</div>
+
+</div>
+
+
+<div class="body-box">
+
+<h4>
+📌 آخر تحديث
+</h4>
+
+<div
+class="body-history"
+id="lastUpdate"
+>
+لا توجد بيانات بعد.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- EXERCISES -->
+
+<div class="progress-section-card">
+
+<div class="progress-section-head">
+
+<div>
+
+<h3>
+🏋️ سجل أوزان التمارين
+</h3>
+
+<span>
+اكتب أقصى وزن أو الوزن الذي تعمل به حاليًا لكل تمرين.
+</span>
+
+</div>
+
+<button
+class="clear-progress"
+onclick="clearProgress()"
+>
+مسح البيانات
+</button>
+
+</div>
+
+
+<div class="exercise-progress-grid">
+
+
+<!-- CHEST -->
+
+<div class="exercise-progress-card">
+
+<div class="exercise-progress-top">
+
+<div class="exercise-progress-name">
+Bench Press
+</div>
+
+<div class="exercise-muscle-tag">
+صدر
+</div>
+
+</div>
+
+<div class="exercise-input-row">
+
+<input
+type="number"
+step="0.5"
+id="bench"
+placeholder="kg"
+>
+
+<button
+class="save-mini"
+onclick="saveProfessionalExercise('bench','Bench Press')"
+>
+حفظ
+</button>
+
+</div>
+
+<div
+class="exercise-saved"
+id="benchSaved"
+></div>
+
+</div>
+
+
+<div class="exercise-progress-card">
+
+<div class="exercise-progress-top">
+
+<div class="exercise-progress-name">
+Incline Dumbbell Press
+</div>
+
+<div class="exercise-muscle-tag">
+صدر علوي
+</div>
+
+</div>
+
+<div class="exercise-input-row">
+
+<input
+type="number"
+step="0.5"
+id="incline"
+placeholder="kg"
+>
+
+<button
+class="save-mini"
+onclick="saveProfessionalExercise('incline','Incline Dumbbell Press')"
+>
+حفظ
+</button>
+
+</div>
+
+<div
+class="exercise-saved"
+id="inclineSaved"
+></div>
+
+</div>
+
+
+<div class="exercise-progress-card">
+
+<div class="exercise-progress-top">
+
+<div class="exercise-progress-name">
+Chest Fly
+</div>
+
+<div class="exercise-muscle-tag">
+صدر
+</div>
+
+</div>
+
+<div class="exercise-input-row">
+
+<input
+type="number"
+step="0.5"
+id="chestfly"
+placeholder="kg"
+>
+
+<button
+class="save-mini"
+onclick="saveProfessionalExercise('chestfly','Chest Fly')"
+>
+حفظ
+</button>
+
+</div>
+
+<div
+class="exercise-saved"
+id="chestflySaved"
+></div>
+
+</div>
+
+
+<!-- BACK -->
+
+<div class="exercise-progress-card">
+
+<div class="exercise-progress-top">
+
+<div class="exercise-progress-name">
+Lat Pulldown
+</div>
+
+<div class="exercise-muscle-tag">
+ظهر
+</div>
+
+</div>
+
+<div class="exercise-input-row">
+
+<input
+type="number"
+step="0.5"
+id="lat"
+placeholder="kg"
+>
+
+<button
+class="save-mini"
+onclick="saveProfessionalExercise('lat','Lat Pulldown')"
+>
+حفظ
+</button>
+
+</div>
+
+<div
+class="exercise-saved"
+id="latSaved"
+></div>
+
+</div>
+
+
+<div class="exercise-progress-card">
+
+<div class="exercise-progress-top">
+
+<div class="exercise-progress-name">
+Barbell Row
+</div>
+
+<div class="exercise-muscle-tag">
+ظهر
+</div>
+
+</div>
+
+<div class="exercise-input-row">
+
+<input
+type="number"
+step="0.5"
+id="row"
+placeholder="kg"
+>
+
+<button
+class="save-mini"
+onclick="saveProfessionalExercise('row','Barbell Row')"
+>
+حفظ
+</button>
+
+</div>
+
+<div
+class="exercise-saved"
+id="rowSaved"
+></div>
+
+</div>
+
+
+<div class="exercise-progress-card">
+
+<div class="exercise-progress-top">
+
+<div class="exercise-progress-name">
+Seated Cable Row
+</div>
+
+<div class="exercise-muscle-tag">
+ظهر
+</div>
+
+</div>
+
+<div class="exercise-input-row">
+
+<input
+type="number"
+step="0.5"
+id="cableRow"
+placeholder="kg"
+>
+
+<button
+class="save-mini"
+onclick="saveProfessionalExercise('cableRow','Seated Cable Row')"
+>
+حفظ
+</button>
+
+</div>
+
+<div
+class="exercise-saved"
+id="cableRowSaved"
+></div>
+
+</div>
+
+
+<!-- SHOULDERS -->
+
+<div class="exercise-progress-card">
+
+<div class="exercise-progress-top">
+
+<div class="exercise-progress-name">
+Shoulder Press
+</div>
+
+<div class="exercise-muscle-tag">
+كتف
+</div>
+
+</div>
+
+<div class="exercise-input-row">
+
+<input
+type="number"
+step="0.5"
+id="shoulder"
+placeholder="kg"
+>
+
+<button
+class="save-mini"
+onclick="saveProfessionalExercise('shoulder','Shoulder Press')"
+>
+حفظ
+</button>
+
+</div>
+
+<div
+class="exercise-saved"
+id="shoulderSaved"
+></div>
+
+</div>
+
+
+<div class="exercise-progress-card">
+
+<div class="exercise-progress-top">
+
+<div class="exercise-progress-name">
+Lateral Raise
+</div>
+
+<div class="exercise-muscle-tag">
+كتف جانبي
+</div>
+
+</div>
+
+<div class="exercise-input-row">
+
+<input
+type="number"
+step="0.5"
+id="lateral"
+placeholder="kg"
+>
+
+<button
+class="save-mini"
+onclick="saveProfessionalExercise('lateral','Lateral Raise')"
+>
+حفظ
+</button>
+
+</div>
+
+<div
+class="exercise-saved"
+id="lateralSaved"
+></div>
+
+</div>
+
+
+<div class="exercise-progress-card">
+
+<div class="exercise-progress-top">
+
+<div class="exercise-progress-name">
+Rear Delt Fly
+</div>
+
+<div class="exercise-muscle-tag">
+كتف خلفي
+</div>
+
+</div>
+
+<div class="exercise-input-row">
+
+<input
+type="number"
+step="0.5"
+id="rearDelt"
+placeholder="kg"
+>
+
+<button
+class="save-mini"
+onclick="saveProfessionalExercise('rearDelt','Rear Delt Fly')"
+>
+حفظ
+</button>
+
+</div>
+
+<div
+class="exercise-saved"
+id="rearDeltSaved"
+></div>
+
+</div>
+
+
+<!-- BICEPS -->
+
+<div class="exercise-progress-card">
+
+<div class="exercise-progress-top">
+
+<div class="exercise-progress-name">
+Preacher Curl
+</div>
+
+<div class="exercise-muscle-tag">
+بايسبس
+</div>
+
+</div>
+
+<div class="exercise-input-row">
+
+<input
+type="number"
+step="0.5"
+id="preacher"
+placeholder="kg"
+>
+
+<button
+class="save-mini"
+onclick="saveProfessionalExercise('preacher','Preacher Curl')"
+>
+حفظ
+</button>
+
+</div>
+
+<div
+class="exercise-saved"
+id="preacherSaved"
+></div>
+
+</div>
+
+
+<div class="exercise-progress-card">
+
+<div class="exercise-progress-top">
+
+<div class="exercise-progress-name">
+Hammer Curl
+</div>
+
+<div class="exercise-muscle-tag">
+بايسبس
+</div>
+
+</div>
+
+<div class="exercise-input-row">
+
+<input
+type="number"
+step="0.5"
+id="hammer"
+placeholder="kg"
+>
+
+<button
+class="save-mini"
+onclick="saveProfessionalExercise('hammer','Hammer Curl')"
+>
+حفظ
+</button>
+
+</div>
+
+<div
+class="exercise-saved"
+id="hammerSaved"
+></div>
+
+</div>
+
+
+<div class="exercise-progress-card">
+
+<div class="exercise-progress-top">
+
+<div class="exercise-progress-name">
+Barbell Curl
+</div>
+
+<div class="exercise-muscle-tag">
+بايسبس
+</div>
+
+</div>
+
+<div class="exercise-input-row">
+
+<input
+type="number"
+step="0.5"
+id="barbellCurl"
+placeholder="kg"
+>
+
+<button
+class="save-mini"
+onclick="saveProfessionalExercise('barbellCurl','Barbell Curl')"
+>
+حفظ
+</button>
+
+</div>
+
+<div
+class="exercise-saved"
+id="barbellCurlSaved"
+></div>
+
+</div>
+
+
+<!-- TRICEPS -->
+
+<div class="exercise-progress-card">
+
+<div class="exercise-progress-top">
+
+<div class="exercise-progress-name">
+Triceps Pushdown
+</div>
+
+<div class="exercise-muscle-tag">
+ترايسبس
+</div>
+
+</div>
+
+<div class="exercise-input-row">
+
+<input
+type="number"
+step="0.5"
+id="triceps"
+placeholder="kg"
+>
+
+<button
+class="save-mini"
+onclick="saveProfessionalExercise('triceps','Triceps Pushdown')"
+>
+حفظ
+</button>
+
+</div>
+
+<div
+class="exercise-saved"
+id="tricepsSaved"
+></div>
+
+</div>
+
+
+<div class="exercise-progress-card">
+
+<div class="exercise-progress-top">
+
+<div class="exercise-progress-name">
+Skull Crushers
+</div>
+
+<div class="exercise-muscle-tag">
+ترايسبس
+</div>
+
+</div>
+
+<div class="exercise-input-row">
+
+<input
+type="number"
+step="0.5"
+id="skull"
+placeholder="kg"
+>
+
+<button
+class="save-mini"
+onclick="saveProfessionalExercise('skull','Skull Crushers')"
+>
+حفظ
+</button>
+
+</div>
+
+<div
+class="exercise-saved"
+id="skullSaved"
+></div>
+
+</div>
+
+
+<!-- LEGS -->
+
+<div class="exercise-progress-card">
+
+<div class="exercise-progress-top">
+
+<div class="exercise-progress-name">
+Squat
+</div>
+
+<div class="exercise-muscle-tag">
+رجل
+</div>
+
+</div>
+
+<div class="exercise-input-row">
+
+<input
+type="number"
+step="0.5"
+id="squat"
+placeholder="kg"
+>
+
+<button
+class="save-mini"
+onclick="saveProfessionalExercise('squat','Squat')"
+>
+حفظ
+</button>
+
+</div>
+
+<div
+class="exercise-saved"
+id="squatSaved"
+></div>
+
+</div>
+
+
+<div class="exercise-progress-card">
+
+<div class="exercise-progress-top">
+
+<div class="exercise-progress-name">
+Leg Press
+</div>
+
+<div class="exercise-muscle-tag">
+رجل
+</div>
+
+</div>
+
+<div class="exercise-input-row">
+
+<input
+type="number"
+step="0.5"
+id="legpress"
+placeholder="kg"
+>
+
+<button
+class="save-mini"
+onclick="saveProfessionalExercise('legpress','Leg Press')"
+>
+حفظ
+</button>
+
+</div>
+
+<div
+class="exercise-saved"
+id="legpressSaved"
+></div>
+
+</div>
+
+
+<div class="exercise-progress-card">
+
+<div class="exercise-progress-top">
+
+<div class="exercise-progress-name">
+Leg Extension
+</div>
+
+<div class="exercise-muscle-tag">
+فخذ
+</div>
+
+</div>
+
+<div class="exercise-input-row">
+
+<input
+type="number"
+step="0.5"
+id="legextension"
+placeholder="kg"
+>
+
+<button
+class="save-mini"
+onclick="saveProfessionalExercise('legextension','Leg Extension')"
+>
+حفظ
+</button>
+
+</div>
+
+<div
+class="exercise-saved"
+id="legextensionSaved"
+></div>
+
+</div>
+
+
+<div class="exercise-progress-card">
+
+<div class="exercise-progress-top">
+
+<div class="exercise-progress-name">
+Leg Curl
+</div>
+
+<div class="exercise-muscle-tag">
+خلفية
+</div>
+
+</div>
+
+<div class="exercise-input-row">
+
+<input
+type="number"
+step="0.5"
+id="legcurl"
+placeholder="kg"
+>
+
+<button
+class="save-mini"
+onclick="saveProfessionalExercise('legcurl','Leg Curl')"
+>
+حفظ
+</button>
+
+</div>
+
+<div
+class="exercise-saved"
+id="legcurlSaved"
+></div>
+
+</div>
+
+
+<div class="exercise-progress-card">
+
+<div class="exercise-progress-top">
+
+<div class="exercise-progress-name">
+Romanian Deadlift
+</div>
+
+<div class="exercise-muscle-tag">
+خلفية
+</div>
+
+</div>
+
+<div class="exercise-input-row">
+
+<input
+type="number"
+step="0.5"
+id="rdl"
+placeholder="kg"
+>
+
+<button
+class="save-mini"
+onclick="saveProfessionalExercise('rdl','Romanian Deadlift')"
+>
+حفظ
+</button>
+
+</div>
+
+<div
+class="exercise-saved"
+id="rdlSaved"
+></div>
+
+</div>
+
+
+<!-- CALVES / ABS -->
+
+<div class="exercise-progress-card">
+
+<div class="exercise-progress-top">
+
+<div class="exercise-progress-name">
+Calf Raise
+</div>
+
+<div class="exercise-muscle-tag">
+سمانة
+</div>
+
+</div>
+
+<div class="exercise-input-row">
+
+<input
+type="number"
+step="0.5"
+id="calf"
+placeholder="kg"
+>
+
+<button
+class="save-mini"
+onclick="saveProfessionalExercise('calf','Calf Raise')"
+>
+حفظ
+</button>
+
+</div>
+
+<div
+class="exercise-saved"
+id="calfSaved"
+></div>
+
+</div>
+
+
+<div class="exercise-progress-card">
+
+<div class="exercise-progress-top">
+
+<div class="exercise-progress-name">
+Cable Crunch
+</div>
+
+<div class="exercise-muscle-tag">
+بطن
+</div>
+
+</div>
+
+<div class="exercise-input-row">
+
+<input
+type="number"
+step="0.5"
+id="abs"
+placeholder="kg"
+>
+
+<button
+class="save-mini"
+onclick="saveProfessionalExercise('abs','Cable Crunch')"
+>
+حفظ
+</button>
+
+</div>
+
+<div
+class="exercise-saved"
+id="absSaved"
+></div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- RECORDS -->
+
+<div class="progress-section-card">
+
+<div class="progress-section-head">
+
+<div>
+
+<h3>
+🏆 آخر الأرقام المسجلة
+</h3>
+
+<span>
+هنا ستظهر التمارين التي قمت بحفظها.
+</span>
+
+</div>
+
+</div>
+
+<div
+class="records-list"
+id="recordsList"
+>
+<div class="empty-records">
+لم تسجل أي أوزان حتى الآن 💪
+</div>
+</div>
+
+</div>
+
+
+<!-- OLD COMPATIBILITY -->
+
+<div class="progress-section-card">
+
+<div class="progress-section-head">
+
+<div>
+
+<h3>
+📋 سجل سريع
+</h3>
+
+<span>
+يمكنك استخدامه بالطريقة القديمة أيضًا.
+</span>
+
+</div>
+
+</div>
 
 <table class="progress-table">
 
@@ -2465,20 +3659,22 @@ onclick="saveBodyWeight()">
 <tr>
 
 <td>
-    Bench Press
+Bench Press
 </td>
 
 <td>
-<input id="bench">
+<input id="oldBench">
 </td>
 
 <td>
+
 <button
-    class="btn btn-primary"
-    onclick="saveExercise('bench','benchSaved')"
+class="btn btn-primary"
+onclick="saveExercise('oldBench','oldBenchSaved','bench')"
 >
-    حفظ
+حفظ
 </button>
+
 </td>
 
 </tr>
@@ -2487,20 +3683,22 @@ onclick="saveBodyWeight()">
 <tr>
 
 <td>
-    Incline Dumbbell Press
+Incline Dumbbell Press
 </td>
 
 <td>
-<input id="incline">
+<input id="oldIncline">
 </td>
 
 <td>
+
 <button
-    class="btn btn-primary"
-    onclick="saveExercise('incline','inclineSaved')"
+class="btn btn-primary"
+onclick="saveExercise('oldIncline','oldInclineSaved','incline')"
 >
-    حفظ
+حفظ
 </button>
+
 </td>
 
 </tr>
@@ -2509,20 +3707,22 @@ onclick="saveBodyWeight()">
 <tr>
 
 <td>
-    Squat
+Squat
 </td>
 
 <td>
-<input id="squat">
+<input id="oldSquat">
 </td>
 
 <td>
+
 <button
-    class="btn btn-primary"
-    onclick="saveExercise('squat','squatSaved')"
+class="btn btn-primary"
+onclick="saveExercise('oldSquat','oldSquatSaved','squat')"
 >
-    حفظ
+حفظ
 </button>
+
 </td>
 
 </tr>
@@ -2531,20 +3731,22 @@ onclick="saveBodyWeight()">
 <tr>
 
 <td>
-    Preacher Curl
+Preacher Curl
 </td>
 
 <td>
-<input id="preacher">
+<input id="oldPreacher">
 </td>
 
 <td>
+
 <button
-    class="btn btn-primary"
-    onclick="saveExercise('preacher','preacherSaved')"
+class="btn btn-primary"
+onclick="saveExercise('oldPreacher','oldPreacherSaved','preacher')"
 >
-    حفظ
+حفظ
 </button>
+
 </td>
 
 </tr>
@@ -2571,11 +3773,11 @@ onclick="saveBodyWeight()">
 <div class="page-header">
 
 <h1>
-    📱 تواصل معنا
+📱 تواصل معنا
 </h1>
 
 <p>
-    تابع Elhendawy Exercises
+تابع Elhendawy Exercises
 </p>
 
 </div>
@@ -2586,23 +3788,23 @@ onclick="saveBodyWeight()">
 <div class="social-card">
 
 <div class="icon">
-    📸
+📸
 </div>
 
 <h3>
-    Instagram
+Instagram
 </h3>
 
 <p>
-    @h_e_n_d_o_1
+@h_e_n_d_o_1
 </p>
 
 <a
-    class="btn btn-primary"
-    href="https://www.instagram.com/h_e_n_d_o_1/"
-    target="_blank"
+class="btn btn-primary"
+href="https://www.instagram.com/h_e_n_d_o_1/"
+target="_blank"
 >
-    فتح Instagram
+فتح Instagram
 </a>
 
 </div>
@@ -2611,22 +3813,22 @@ onclick="saveBodyWeight()">
 <div class="social-card">
 
 <div class="icon">
-    📞
+📞
 </div>
 
 <h3>
-    الهاتف
+الهاتف
 </h3>
 
 <p>
-    01015425809
+01015425809
 </p>
 
 <a
-    class="btn btn-primary"
-    href="tel:01015425809"
+class="btn btn-primary"
+href="tel:01015425809"
 >
-    اتصال
+اتصال
 </a>
 
 </div>
@@ -2639,15 +3841,15 @@ onclick="saveBodyWeight()">
 <div class="section-title">
 
 <div class="small">
-    ADVERTISEMENT
+ADVERTISEMENT
 </div>
 
 <h2>
-    📢 مساحة إعلانية
+📢 المنطقة الإعلانية
 </h2>
 
 <p>
-    مكان مخصص للإعلانات والشراكات.
+مساحة مخصصة للإعلانات والشراكات.
 </p>
 
 </div>
@@ -2657,12 +3859,16 @@ onclick="saveBodyWeight()">
 
 <div>
 
-<h3>
-    مساحة إعلانية
-</h3>
+<div style="font-size:42px;margin-bottom:10px;">
+🚫
+</div>
+
+<strong>
+المنطقة الإعلانية غير متاحة
+</strong>
 
 <p>
-    يمكن وضع إعلان أو شراكة هنا.
+للمطور محمود الهنداوي
 </p>
 
 </div>
@@ -2675,11 +3881,11 @@ onclick="saveBodyWeight()">
 <div class="prayer">
 
 <h2>
-    ❤️ اللهم صل وسلم وبارك على نبينا محمد ﷺ ❤️
+❤️ اللهم صل وسلم وبارك على نبينا محمد ﷺ ❤️
 </h2>
 
 <p>
-    اجعلها صدقة جارية لنا ولكم.
+اجعلها صدقة جارية لنا ولكم.
 </p>
 
 </div>
@@ -2690,52 +3896,39 @@ onclick="saveBodyWeight()">
 
 
 <!-- =====================================================
-     NEW CHATBOT UI (MOD)
-===================================================== -->
-<button id="chatbot-toggler" onclick="toggleChatbot()" style="display: none;">💬</button>
-
-<div id="chatbot-container">
-    <div class="chatbot-header">
-        <div class="chatbot-title">🤖 مساعد الكابتن</div>
-        <button class="chatbot-close" onclick="toggleChatbot()">✕</button>
-    </div>
-    <div class="chatbot-messages" id="chatbotMessages">
-        <div class="chat-msg bot">أهلاً بك يا كابتن! أنا مساعدك الذكي داخل موقع Elhendawy Exercises. كيف يمكنني مساعدتك في التمارين أو التغذية اليوم؟</div>
-    </div>
-    <div class="chatbot-input-area">
-        <input type="text" id="chatbotInput" placeholder="اكتب رسالتك هنا..." onkeydown="if(event.key==='Enter') sendChatMessage()">
-        <button onclick="sendChatMessage()">إرسال</button>
-    </div>
-</div>
-
-
-<!-- =====================================================
      FOOTER
 ===================================================== -->
 
 <footer>
 
 <div>
-    ELHENDAWY EXERCISES
+ELHENDAWY EXERCISES
 </div>
 
 <p>
-    Train Smart • Build Strong
+Train Smart • Build Strong
 </p>
 
 <p>
-    © 2026 جميع حقوق الطبع والنشر محفوظة
+© 2026 جميع حقوق الطبع والنشر محفوظة
 </p>
 
 <p>
-    Owned by <strong>Mahmoud Elhendawy</strong>
+Owned by <strong>Mahmoud Elhendawy</strong>
 </p>
 
 </footer>
 
 
-<script>
+<div
+class="toast"
+id="toast"
+>
+تم الحفظ بنجاح 💪
+</div>
 
+
+<script>
 
 /* =========================================================
    LOGIN SYSTEM
@@ -2751,338 +3944,275 @@ let loginAttempts = 0;
 let lockInterval = null;
 
 
-/* =========================================================
-   LOGIN FUNCTION
-========================================================= */
-
 function login(){
 
-    const username =
-        document.getElementById(
-            "loginUsername"
-        ).value.trim();
+const username =
+document.getElementById("loginUsername").value.trim();
 
-    const password =
-        document.getElementById(
-            "loginPassword"
-        ).value;
+const password =
+document.getElementById("loginPassword").value;
 
-    const message =
-        document.getElementById(
-            "loginMessage"
-        );
+const message =
+document.getElementById("loginMessage");
 
-    const attemptsText =
-        document.getElementById(
-            "loginAttempts"
-        );
+const attemptsText =
+document.getElementById("loginAttempts");
 
 
-    /* منع المحاولة أثناء القفل */
+if(isLocked()){
 
-    if(isLocked()){
+startLockTimer();
 
-        startLockTimer();
+return;
 
-        return;
-    }
-
-
-    /* البيانات صحيحة */
-
-    if(
-        username === LOGIN_USERNAME &&
-        password === LOGIN_PASSWORD
-    ){
-
-        localStorage.setItem(
-            "elhendawyLoggedIn",
-            "true"
-        );
-
-        loginAttempts = 0;
-
-        document.getElementById(
-            "loginScreen"
-        ).style.display = "none";
-
-        message.style.display = "none";
-
-        // إظهار زر البوت بعد تسجيل الدخول الناجح
-        document.getElementById("chatbot-toggler").style.display = "flex";
-
-        return;
-    }
-
-
-    /* البيانات خاطئة */
-
-    loginAttempts++;
-
-    const remaining =
-        MAX_ATTEMPTS - loginAttempts;
-
-
-    if(remaining > 0){
-
-        message.innerHTML =
-            "❌ اسم المستخدم أو كلمة المرور غير صحيحة.";
-
-        message.style.display = "block";
-
-        attemptsText.textContent =
-            "⚠️ متبقي لك " +
-            remaining +
-            " محاولة.";
-
-        return;
-    }
-
-
-    /* =====================================================
-       تم استنفاد 3 محاولات
-    ===================================================== */
-
-    localStorage.setItem(
-        "elhendawyLoginLock",
-        String(Date.now() + LOCK_TIME)
-    );
-
-    message.style.display = "none";
-
-    attemptsText.textContent =
-        "❌ تم استنفاد جميع المحاولات.";
-
-    startLockTimer();
 }
 
 
-/* =========================================================
-   CHECK LOCK
-========================================================= */
+if(
+username === LOGIN_USERNAME &&
+password === LOGIN_PASSWORD
+){
+
+localStorage.setItem(
+"elhendawyLoggedIn",
+"true"
+);
+
+loginAttempts = 0;
+
+document.getElementById(
+"loginScreen"
+).style.display = "none";
+
+message.style.display = "none";
+
+return;
+
+}
+
+
+loginAttempts++;
+
+const remaining =
+MAX_ATTEMPTS - loginAttempts;
+
+
+if(remaining > 0){
+
+message.innerHTML =
+"❌ اسم المستخدم أو كلمة المرور غير صحيحة.";
+
+message.style.display = "block";
+
+attemptsText.textContent =
+"⚠️ متبقي لك " +
+remaining +
+" محاولة.";
+
+return;
+
+}
+
+
+localStorage.setItem(
+"elhendawyLoginLock",
+String(Date.now() + LOCK_TIME)
+);
+
+message.style.display = "none";
+
+attemptsText.textContent =
+"❌ تم استنفاد جميع المحاولات.";
+
+startLockTimer();
+
+}
+
 
 function isLocked(){
 
-    const lockUntil =
-        parseInt(
-            localStorage.getItem(
-                "elhendawyLoginLock"
-            )
-        );
+const lockUntil =
+parseInt(
+localStorage.getItem(
+"elhendawyLoginLock"
+)
+);
 
-    if(!lockUntil){
-        return false;
-    }
+if(!lockUntil){
 
+return false;
 
-    if(Date.now() >= lockUntil){
-
-        localStorage.removeItem(
-            "elhendawyLoginLock"
-        );
-
-        loginAttempts = 0;
-
-        return false;
-    }
-
-
-    return true;
 }
 
 
-/* =========================================================
-   LOCK TIMER
-========================================================= */
+if(Date.now() >= lockUntil){
+
+localStorage.removeItem(
+"elhendawyLoginLock"
+);
+
+loginAttempts = 0;
+
+return false;
+
+}
+
+return true;
+
+}
+
 
 function startLockTimer(){
 
-    const lockBox =
-        document.getElementById(
-            "loginLock"
-        );
+const lockBox =
+document.getElementById("loginLock");
 
-    const timer =
-        document.getElementById(
-            "lockTimer"
-        );
+const timer =
+document.getElementById("lockTimer");
 
-    const button =
-        document.getElementById(
-            "loginButton"
-        );
+const button =
+document.getElementById("loginButton");
 
-    const username =
-        document.getElementById(
-            "loginUsername"
-        );
+const username =
+document.getElementById("loginUsername");
 
-    const password =
-        document.getElementById(
-            "loginPassword"
-        );
+const password =
+document.getElementById("loginPassword");
 
 
-    lockBox.style.display = "block";
+lockBox.style.display = "block";
 
-    button.disabled = true;
+button.disabled = true;
 
-    username.disabled = true;
+username.disabled = true;
 
-    password.disabled = true;
-
-
-    if(lockInterval){
-
-        clearInterval(
-            lockInterval
-        );
-    }
+password.disabled = true;
 
 
-    function updateTimer(){
+if(lockInterval){
 
-        const lockUntil =
-            parseInt(
-                localStorage.getItem(
-                    "elhendawyLoginLock"
-                )
-            );
+clearInterval(lockInterval);
 
-
-        if(!lockUntil){
-
-            unlockLogin();
-
-            return;
-        }
-
-
-        const remainingMs =
-            lockUntil - Date.now();
-
-
-        if(remainingMs <= 0){
-
-            localStorage.removeItem(
-                "elhendawyLoginLock"
-            );
-
-            unlockLogin();
-
-            return;
-        }
-
-
-        const seconds =
-            Math.ceil(
-                remainingMs / 1000
-            );
-
-        timer.textContent =
-            seconds;
-    }
-
-
-    updateTimer();
-
-
-    lockInterval =
-        setInterval(
-            updateTimer,
-            250
-        );
 }
 
 
-/* =========================================================
-   UNLOCK AFTER 60 SECONDS
-========================================================= */
+function updateTimer(){
+
+const lockUntil =
+parseInt(
+localStorage.getItem(
+"elhendawyLoginLock"
+)
+);
+
+
+if(!lockUntil){
+
+unlockLogin();
+
+return;
+
+}
+
+
+const remainingMs =
+lockUntil - Date.now();
+
+
+if(remainingMs <= 0){
+
+localStorage.removeItem(
+"elhendawyLoginLock"
+);
+
+unlockLogin();
+
+return;
+
+}
+
+
+timer.textContent =
+Math.ceil(
+remainingMs / 1000
+);
+
+}
+
+
+updateTimer();
+
+lockInterval =
+setInterval(
+updateTimer,
+250
+);
+
+}
+
 
 function unlockLogin(){
 
-    if(lockInterval){
+if(lockInterval){
 
-        clearInterval(
-            lockInterval
-        );
+clearInterval(lockInterval);
 
-        lockInterval = null;
-    }
+lockInterval = null;
 
+}
 
-    loginAttempts = 0;
+loginAttempts = 0;
 
+document.getElementById(
+"loginLock"
+).style.display = "none";
 
-    const lockBox =
-        document.getElementById(
-            "loginLock"
-        );
+document.getElementById(
+"loginButton"
+).disabled = false;
 
-    const button =
-        document.getElementById(
-            "loginButton"
-        );
+document.getElementById(
+"loginUsername"
+).disabled = false;
 
-    const username =
-        document.getElementById(
-            "loginUsername"
-        );
+document.getElementById(
+"loginPassword"
+).disabled = false;
 
-    const password =
-        document.getElementById(
-            "loginPassword"
-        );
+document.getElementById(
+"loginAttempts"
+).textContent =
+"لديك 3 محاولات متاحة";
 
-    const attemptsText =
-        document.getElementById(
-            "loginAttempts"
-        );
+document.getElementById(
+"loginUsername"
+).focus();
 
-
-    lockBox.style.display =
-        "none";
-
-    button.disabled =
-        false;
-
-    username.disabled =
-        false;
-
-    password.disabled =
-        false;
-
-    attemptsText.textContent =
-        "لديك 3 محاولات متاحة";
-
-    username.focus();
 }
 
 
 /* =========================================================
-   ENTER KEY LOGIN
+   ENTER LOGIN
 ========================================================= */
 
 document.addEventListener(
-    "keydown",
-    function(event){
+"keydown",
+function(event){
 
-        const loginScreen =
-            document.getElementById(
-                "loginScreen"
-            );
+const loginScreen =
+document.getElementById("loginScreen");
 
+if(
+event.key === "Enter" &&
+loginScreen &&
+loginScreen.style.display !== "none"
+){
 
-        if(
-            event.key === "Enter" &&
-            loginScreen &&
-            loginScreen.style.display !== "none"
-        ){
+login();
 
-            login();
-        }
+}
 
-    }
+}
 );
 
 
@@ -3092,42 +4222,68 @@ document.addEventListener(
 
 function showPage(id,button){
 
-    document.querySelectorAll(".page")
-    .forEach(page=>{
+document.querySelectorAll(".page")
+.forEach(page=>{
 
-        page.classList.remove("active");
+page.classList.remove("active");
 
-    });
-
-
-    document.getElementById(id)
-    .classList.add("active");
+});
 
 
-    document.querySelectorAll(
-        ".nav-links button"
-    )
-    .forEach(btn=>{
-
-        btn.classList.remove("active");
-
-    });
+document.getElementById(id)
+.classList.add("active");
 
 
-    if(button){
+document.querySelectorAll(
+".nav-links button"
+)
+.forEach(btn=>{
 
-        button.classList.add("active");
+btn.classList.remove("active");
 
-    }
+});
 
 
-    window.scrollTo({
+if(button){
 
-        top:0,
+button.classList.add("active");
 
-        behavior:"smooth"
+}else{
 
-    });
+document.querySelectorAll(
+".nav-links button"
+).forEach(btn=>{
+
+if(
+btn.getAttribute("onclick") &&
+btn.getAttribute("onclick").includes(
+"'" + id + "'"
+)
+){
+
+btn.classList.add("active");
+
+}
+
+});
+
+}
+
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+if(id === "progress"){
+
+updateProfessionalProgress();
+
+}
+
 }
 
 
@@ -3140,107 +4296,93 @@ let maintenanceCalories = 0;
 
 function calculate(){
 
-    const w =
-        parseFloat(
-            document.getElementById(
-                "weight"
-            ).value
-        );
+const w =
+parseFloat(
+document.getElementById("weight").value
+);
+
+const h =
+parseFloat(
+document.getElementById("height").value
+);
+
+const a =
+parseFloat(
+document.getElementById("age").value
+);
+
+const activity =
+parseFloat(
+document.getElementById("activity").value
+);
 
 
-    const h =
-        parseFloat(
-            document.getElementById(
-                "height"
-            ).value
-        );
+if(!w || !h || !a){
+
+alert(
+"من فضلك أدخل الوزن والطول والعمر."
+);
+
+return;
+
+}
 
 
-    const a =
-        parseFloat(
-            document.getElementById(
-                "age"
-            ).value
-        );
+const bmr =
+(10*w) +
+(6.25*h) -
+(5*a) +
+5;
 
 
-    const activity =
-        parseFloat(
-            document.getElementById(
-                "activity"
-            ).value
-        );
+maintenanceCalories =
+Math.round(
+bmr * activity
+);
 
 
-    if(!w || !h || !a){
-
-        alert(
-            "من فضلك أدخل الوزن والطول والعمر."
-        );
-
-        return;
-    }
+const protein =
+Math.round(
+w * 1.6
+);
 
 
-    /*
-       معادلة Mifflin-St Jeor التقريبية للذكور.
-    */
-
-    const bmr =
-        (10*w) +
-        (6.25*h) -
-        (5*a) +
-        5;
+document.getElementById(
+"caloriesResult"
+).textContent =
+maintenanceCalories;
 
 
-    maintenanceCalories =
-        Math.round(
-            bmr * activity
-        );
+document.getElementById(
+"proteinResult"
+).textContent =
+protein;
 
 
-    const protein =
-        Math.round(
-            w * 1.6
-        );
+document.getElementById(
+"calcResult"
+).style.display =
+"block";
 
 
-    document.getElementById(
-        "caloriesResult"
-    ).textContent =
-        maintenanceCalories;
+document.getElementById(
+"homeCalories"
+).textContent =
+maintenanceCalories +
+" kcal";
 
 
-    document.getElementById(
-        "proteinResult"
-    ).textContent =
-        protein;
+document.getElementById(
+"homeProtein"
+).textContent =
+protein +
+" g";
 
 
-    document.getElementById(
-        "calcResult"
-    ).style.display =
-        "block";
-
-
-    document.getElementById(
-        "homeCalories"
-    ).textContent =
-        maintenanceCalories +
-        " kcal";
-
-
-    document.getElementById(
-        "homeProtein"
-    ).textContent =
-        protein +
-        " g";
-
-
-    localStorage.setItem(
-        "maintenanceCalories",
-        maintenanceCalories
-    );
+localStorage.setItem(
+"maintenanceCalories",
+maintenanceCalories
+);
 
 }
 
@@ -3251,259 +4393,960 @@ function calculate(){
 
 function showGoal(goal){
 
-    if(!maintenanceCalories){
+if(!maintenanceCalories){
 
-        alert(
-            "احسب السعرات أولاً."
-        );
+alert(
+"احسب السعرات أولاً."
+);
 
-        return;
-    }
+return;
 
-
-    let calories =
-        maintenanceCalories;
-
-    let title = "";
+}
 
 
-    if(goal === "cut"){
+let calories =
+maintenanceCalories;
 
-        calories =
-            Math.max(
-                maintenanceCalories - 300,
-                0
-            );
-
-        title =
-            "🔥 سعرات التنشيف التقريبية";
-    }
+let title = "";
 
 
-    if(goal === "maintain"){
+if(goal === "cut"){
 
-        title =
-            "⚖️ سعرات المحافظة";
-    }
+calories =
+Math.max(
+maintenanceCalories - 300,
+0
+);
 
+title =
+"🔥 سعرات التنشيف التقريبية";
 
-    if(goal === "bulk"){
-
-        calories =
-            maintenanceCalories + 200;
-
-        title =
-            "💪 سعرات الزيادة التقريبية";
-    }
+}
 
 
-    const box =
-        document.getElementById(
-            "goalResult"
-        );
+if(goal === "maintain"){
+
+title =
+"⚖️ سعرات المحافظة";
+
+}
 
 
-    box.innerHTML = `
+if(goal === "bulk"){
 
-        <h2>
-            ${title}
-        </h2>
+calories =
+maintenanceCalories + 200;
 
-        <div style="
-            font-size:34px;
-            font-weight:900;
-            color:var(--green);
-            margin:15px 0;
-        ">
-            ${calories} kcal
-        </div>
+title =
+"💪 سعرات الزيادة التقريبية";
 
-        <p>
-        الرقم تقديري ويُفضّل تعديل السعرات تدريجيًا
-        حسب تغير الوزن والأداء والطاقة.
-        </p>
-
-    `;
+}
 
 
-    box.style.display =
-        "block";
+const box =
+document.getElementById(
+"goalResult"
+);
+
+
+box.innerHTML = `
+
+<h2>${title}</h2>
+
+<div style="
+font-size:34px;
+font-weight:900;
+color:var(--green);
+margin:15px 0;
+">
+${calories} kcal
+</div>
+
+<p>
+الرقم تقديري ويُفضّل تعديل السعرات تدريجيًا
+حسب تغير الوزن والأداء والطاقة.
+</p>
+
+`;
+
+
+box.style.display =
+"block";
+
 }
 
 
 /* =========================================================
-   WORKOUT PROGRAM TABS
+   WORKOUT TABS
 ========================================================= */
 
 function program(id,button){
 
-    document.querySelectorAll(
-        ".program"
-    )
-    .forEach(p=>{
+document.querySelectorAll(
+".program"
+)
+.forEach(p=>{
 
-        p.classList.remove(
-            "active"
-        );
+p.classList.remove(
+"active"
+);
 
-    });
-
-
-    document.getElementById(id)
-    .classList.add("active");
+});
 
 
-    document.querySelectorAll(
-        ".program-tabs button"
-    )
-    .forEach(btn=>{
-
-        btn.classList.remove(
-            "active"
-        );
-
-    });
+document.getElementById(id)
+.classList.add("active");
 
 
-    button.classList.add(
-        "active"
-    );
+document.querySelectorAll(
+".program-tabs button"
+)
+.forEach(btn=>{
+
+btn.classList.remove(
+"active"
+);
+
+});
 
 
-    window.scrollTo({
+button.classList.add(
+"active"
+);
 
-        top:0,
 
-        behavior:"smooth"
+window.scrollTo({
 
-    });
+top:0,
+
+behavior:"smooth"
+
+});
+
 }
 
 
 /* =========================================================
-   PROGRESS
+   TOAST
+========================================================= */
+
+let toastTimer;
+
+function showToast(message){
+
+const toast =
+document.getElementById("toast");
+
+toast.textContent =
+message;
+
+toast.classList.add("show");
+
+clearTimeout(toastTimer);
+
+toastTimer =
+setTimeout(
+()=>{
+toast.classList.remove("show");
+},
+2200
+);
+
+}
+
+
+/* =========================================================
+   PROFESSIONAL PROGRESS DATA
+========================================================= */
+
+const progressExercises = [
+
+{key:"bench",name:"Bench Press"},
+{key:"incline",name:"Incline Dumbbell Press"},
+{key:"chestfly",name:"Chest Fly"},
+
+{key:"lat",name:"Lat Pulldown"},
+{key:"row",name:"Barbell Row"},
+{key:"cableRow",name:"Seated Cable Row"},
+
+{key:"shoulder",name:"Shoulder Press"},
+{key:"lateral",name:"Lateral Raise"},
+{key:"rearDelt",name:"Rear Delt Fly"},
+
+{key:"preacher",name:"Preacher Curl"},
+{key:"hammer",name:"Hammer Curl"},
+{key:"barbellCurl",name:"Barbell Curl"},
+
+{key:"triceps",name:"Triceps Pushdown"},
+{key:"skull",name:"Skull Crushers"},
+
+{key:"squat",name:"Squat"},
+{key:"legpress",name:"Leg Press"},
+{key:"legextension",name:"Leg Extension"},
+{key:"legcurl",name:"Leg Curl"},
+{key:"rdl",name:"Romanian Deadlift"},
+
+{key:"calf",name:"Calf Raise"},
+{key:"abs",name:"Cable Crunch"}
+
+];
+
+
+/* =========================================================
+   SAVE PROFESSIONAL EXERCISE
+========================================================= */
+
+function saveProfessionalExercise(
+key,
+name
+){
+
+const input =
+document.getElementById(key);
+
+const value =
+parseFloat(input.value);
+
+
+if(!value || value <= 0){
+
+alert(
+"اكتب وزن صحيح أولاً."
+);
+
+return;
+
+}
+
+
+localStorage.setItem(
+"progress_" + key,
+value
+);
+
+
+localStorage.setItem(
+"progress_" + key + "_date",
+new Date().toLocaleDateString(
+"ar-EG",
+{
+day:"2-digit",
+month:"2-digit",
+year:"numeric"
+}
+)
+);
+
+
+const saved =
+document.getElementById(
+key + "Saved"
+);
+
+
+if(saved){
+
+saved.textContent =
+"✓ تم حفظ " +
+value +
+" kg";
+
+}
+
+
+showToast(
+"تم حفظ " + name + " 💪"
+);
+
+updateProfessionalProgress();
+
+}
+
+
+/* =========================================================
+   BODY WEIGHT
 ========================================================= */
 
 function saveBodyWeight(){
 
-    const value =
-        document.getElementById(
-            "bodyWeight"
-        ).value;
+const input =
+document.getElementById(
+"bodyWeight"
+);
+
+const value =
+parseFloat(input.value);
 
 
-    |    if(!value){
+if(!value || value <= 0){
 
-        alert(
-            "اكتب وزنك أولاً."
-        );
+alert(
+"اكتب وزنك أولاً."
+);
 
-        return;
-    }
+return;
 
-
-    localStorage.setItem(
-        "bodyWeight",
-        value
-    );
-
-
-    document.getElementById(
-        "savedWeight"
-    ).textContent =
-        "تم حفظ وزنك: " +
-        value +
-        " kg";
 }
 
 
-function saveExercise(
-    inputId,
-    resultId
-){
-
-    const value =
-        document.getElementById(
-            inputId
-        ).value;
-
-
-    if(!value){
-
-        alert(
-            "اكتب الوزن أولاً."
-        );
-
-        return;
-    }
+const date =
+new Date().toLocaleDateString(
+"ar-EG",
+{
+day:"2-digit",
+month:"2-digit",
+year:"numeric"
+}
+);
 
 
-    localStorage.setItem(
-        inputId,
-        value
-    );
+localStorage.setItem(
+"bodyWeight",
+value
+);
+
+localStorage.setItem(
+"bodyWeightDate",
+date
+);
 
 
-    const saved =
-        document.getElementById(
-            resultId
-        );
+document.getElementById(
+"savedWeight"
+).innerHTML =
+"آخر وزن محفوظ: <strong style='color:var(--green);font-size:18px'>" +
+value +
+" kg</strong>";
 
 
-    if(saved){
+document.getElementById(
+"lastUpdate"
+).innerHTML =
+"آخر تحديث لوزن الجسم:<br><strong style='color:var(--green)'>" +
+date +
+"</strong>";
 
-        saved.textContent =
-            "تم الحفظ";
-    }
 
+showToast(
+"تم حفظ وزن الجسم ⚖️"
+);
 
-    alert(
-        "تم حفظ الوزن بنجاح 💪"
-    );
 }
 
 
 /* =========================================================
-   NEW CHATBOT LOGIC (MOD)
+   UPDATE PROFESSIONAL PROGRESS
 ========================================================= */
-function toggleChatbot() {
-    const box = document.getElementById("chatbot-container");
-    box.style.display = box.style.display === "flex" ? "none" : "flex";
+
+function updateProfessionalProgress(){
+
+let completed = 0;
+let totalWeight = 0;
+let best = 0;
+let days = new Set();
+
+progressExercises.forEach(item=>{
+
+const value =
+parseFloat(
+localStorage.getItem(
+"progress_" + item.key
+)
+);
+
+if(value){
+
+completed++;
+
+totalWeight += value;
+
+if(value > best){
+
+best = value;
+
 }
 
-function sendChatMessage() {
-    const input = document.getElementById("chatbotInput");
-    const messages = document.getElementById("chatbotMessages");
-    const text = input.value.trim();
 
-    if (!text) return;
+const date =
+localStorage.getItem(
+"progress_" +
+item.key +
+"_date"
+);
 
-    // رسالة المستخدم
-    const userDiv = document.createElement("div");
-    userDiv.className = "chat-msg user";
-    userDiv.textContent = text;
-    messages.appendChild(userDiv);
+if(date){
 
-    input.value = "";
-    messages.scrollTop = messages.scrollHeight;
+days.add(date);
 
-    // رد البوت الذكي الوهمي
-    setTimeout(() => {
-        const botDiv = document.createElement("div");
-        botDiv.className = "chat-msg bot";
-        
-        const lowerText = text.toLowerCase();
-        if(lowerText.includes("تمرين") || lowerText.includes("جدول")) {
-            botDiv.textContent = "يمكنك التوجه إلى قسم 'التمارين' بالأعلى لاختيار الجدول الأنسب لك (مثل PPL أو Arnold)!";
-        } else if(lowerText.includes("سعرات") || lowerText.includes("بروتين")) {
-            botDiv.textContent = "استخدم 'حاسبة السعرات والبروتين' في الموقع لمعرفة احتياجك بدقة حسب وزنك وطولك!";
-        } else {
-            botDiv.textContent = "أهلاً بك يا كابتن! استمر في الالتزام بتمارينك وغذائك وستحقق أفضل نتائج بإذن الله! 💪";
-        }
+}
 
-        messages.appendChild(botDiv);
-        messages.scrollTop = messages.scrollHeight;
-    }, 600);
+}
+
+});
+
+
+const total =
+progressExercises.length;
+
+const percent =
+Math.round(
+(completed / total) * 100
+);
+
+
+document.getElementById(
+"progressPercent"
+).textContent =
+percent + "%";
+
+
+document.getElementById(
+"progressFill"
+).style.width =
+percent + "%";
+
+
+document.getElementById(
+"progressCompleted"
+).textContent =
+completed +
+" من " +
+total +
+" تمرين";
+
+
+document.getElementById(
+"statExercises"
+).textContent =
+completed;
+
+
+document.getElementById(
+"statTotalWeight"
+).textContent =
+Math.round(totalWeight);
+
+
+document.getElementById(
+"statBest"
+).textContent =
+best;
+
+
+document.getElementById(
+"statDays"
+).textContent =
+days.size;
+
+
+document.getElementById(
+"homeExercises"
+).textContent =
+completed;
+
+
+/* =====================================================
+   LEVEL SYSTEM
+===================================================== */
+
+let level =
+"مبتدئ 🟢";
+
+let icon =
+"🌱";
+
+let title =
+"بداية الطريق";
+
+let description =
+"ابدأ بتسجيل أوزانك حتى يبدأ النظام في حساب تقدمك.";
+
+
+if(completed >= 5){
+
+level =
+"متدرب 🟡";
+
+icon =
+"🔥";
+
+title =
+"بدأت تدخل الجد";
+
+description =
+"ممتاز! لديك مجموعة جيدة من الأرقام، استمر في التسجيل.";
+
+}
+
+
+if(completed >= 10){
+
+level =
+"متقدم 🟠";
+
+icon =
+"⚡";
+
+title =
+"مستوى قوي";
+
+description =
+"أنت أصبحت تملك سجلًا واضحًا لتطورك في الجيم.";
+
+}
+
+
+if(completed >= 16){
+
+level =
+"محترف 🔴";
+
+icon =
+"🏆";
+
+title =
+"مستوى احترافي";
+
+description =
+"معظم أرقامك مسجلة. حافظ على الاستمرارية وحاول تحط أرقام جديدة.";
+
+}
+
+
+if(completed === total){
+
+level =
+"LEGEND 👑";
+
+icon =
+"👑";
+
+title =
+"أكملت كل التمارين";
+
+description =
+"تم تسجيل جميع التمارين الموجودة في مركز التطور. إنجاز ممتاز!";
+
+}
+
+
+document.getElementById(
+"progressLevel"
+).textContent =
+level;
+
+
+document.getElementById(
+"levelIcon"
+).textContent =
+icon;
+
+
+document.getElementById(
+"levelTitle"
+).textContent =
+title;
+
+
+document.getElementById(
+"levelDescription"
+).textContent =
+description;
+
+
+/* =====================================================
+   RECORDS
+===================================================== */
+
+const records =
+document.getElementById(
+"recordsList"
+);
+
+
+if(completed === 0){
+
+records.innerHTML = `
+
+<div class="empty-records">
+لم تسجل أي أوزان حتى الآن 💪
+<br>
+ابدأ من البطاقات الموجودة بالأعلى.
+</div>
+
+`;
+
+}else{
+
+let html = "";
+
+progressExercises
+.forEach(item=>{
+
+const value =
+parseFloat(
+localStorage.getItem(
+"progress_" + item.key
+)
+);
+
+if(value){
+
+const date =
+localStorage.getItem(
+"progress_" +
+item.key +
+"_date"
+) || "بدون تاريخ";
+
+html += `
+
+<div class="record">
+
+<div>
+
+<div class="record-name">
+${item.name}
+</div>
+
+<div class="record-date">
+${date}
+</div>
+
+</div>
+
+<div class="record-weight">
+${value} kg
+</div>
+
+</div>
+
+`;
+
+}
+
+});
+
+
+records.innerHTML =
+html;
+
+}
+
+}
+
+
+/* =========================================================
+   OLD SAVE SYSTEM COMPATIBILITY
+========================================================= */
+
+function saveExercise(
+inputId,
+resultId,
+professionalKey
+){
+
+const value =
+document.getElementById(
+inputId
+).value;
+
+
+if(!value){
+
+alert(
+"اكتب الوزن أولاً."
+);
+
+return;
+
+}
+
+
+if(professionalKey){
+
+localStorage.setItem(
+"progress_" + professionalKey,
+value
+);
+
+localStorage.setItem(
+"progress_" +
+professionalKey +
+"_date",
+new Date().toLocaleDateString(
+"ar-EG",
+{
+day:"2-digit",
+month:"2-digit",
+year:"numeric"
+}
+)
+);
+
+}
+
+
+localStorage.setItem(
+inputId,
+value
+);
+
+
+const saved =
+document.getElementById(
+resultId
+);
+
+
+if(saved){
+
+saved.textContent =
+"تم الحفظ";
+
+}
+
+
+showToast(
+"تم حفظ الوزن بنجاح 💪"
+);
+
+updateProfessionalProgress();
+
+}
+
+
+/* =========================================================
+   LOAD PROGRESS
+========================================================= */
+
+function loadProgress(){
+
+progressExercises.forEach(item=>{
+
+const value =
+localStorage.getItem(
+"progress_" + item.key
+);
+
+
+const input =
+document.getElementById(
+item.key
+);
+
+
+const saved =
+document.getElementById(
+item.key + "Saved"
+);
+
+
+if(value){
+
+if(input){
+
+input.value =
+value;
+
+}
+
+
+if(saved){
+
+saved.textContent =
+"✓ محفوظ: " +
+value +
+" kg";
+
+}
+
+}
+
+});
+
+
+const bodyWeight =
+localStorage.getItem(
+"bodyWeight"
+);
+
+
+const bodyWeightDate =
+localStorage.getItem(
+"bodyWeightDate"
+);
+
+
+if(bodyWeight){
+
+document.getElementById(
+"bodyWeight"
+).value =
+bodyWeight;
+
+
+document.getElementById(
+"savedWeight"
+).innerHTML =
+"آخر وزن محفوظ: <strong style='color:var(--green);font-size:18px'>" +
+bodyWeight +
+" kg</strong>";
+
+}
+
+
+if(bodyWeightDate){
+
+document.getElementById(
+"lastUpdate"
+).innerHTML =
+"آخر تحديث لوزن الجسم:<br><strong style='color:var(--green)'>" +
+bodyWeightDate +
+"</strong>";
+
+}
+
+
+const oldMap = {
+
+oldBench:"bench",
+oldIncline:"incline",
+oldSquat:"squat",
+oldPreacher:"preacher"
+
+};
+
+
+Object.keys(oldMap).forEach(
+oldId=>{
+
+const key =
+oldMap[oldId];
+
+const value =
+localStorage.getItem(
+"progress_" + key
+);
+
+if(value){
+
+const oldInput =
+document.getElementById(
+oldId
+);
+
+if(oldInput){
+
+oldInput.value =
+value;
+
+}
+
+}
+
+});
+
+
+updateProfessionalProgress();
+
+}
+
+
+/* =========================================================
+   CLEAR PROGRESS
+========================================================= */
+
+function clearProgress(){
+
+const confirmed =
+confirm(
+"هل أنت متأكد؟ سيتم حذف جميع أوزان التمارين وبيانات التطور."
+);
+
+
+if(!confirmed){
+
+return;
+
+}
+
+
+progressExercises.forEach(item=>{
+
+localStorage.removeItem(
+"progress_" + item.key
+);
+
+localStorage.removeItem(
+"progress_" +
+item.key +
+"_date"
+);
+
+});
+
+
+localStorage.removeItem(
+"bodyWeight"
+);
+
+localStorage.removeItem(
+"bodyWeightDate"
+);
+
+
+progressExercises.forEach(item=>{
+
+const input =
+document.getElementById(
+item.key
+);
+
+const saved =
+document.getElementById(
+item.key + "Saved"
+);
+
+
+if(input){
+
+input.value = "";
+
+}
+
+if(saved){
+
+saved.textContent = "";
+
+}
+
+});
+
+
+document.getElementById(
+"bodyWeight"
+).value = "";
+
+
+document.getElementById(
+"savedWeight"
+).textContent =
+"لم يتم تسجيل وزن حتى الآن.";
+
+
+document.getElementById(
+"lastUpdate"
+).textContent =
+"لا توجد بيانات بعد.";
+
+
+updateProfessionalProgress();
+
+showToast(
+"تم مسح بيانات التطور"
+);
+
 }
 
 
@@ -3512,132 +5355,69 @@ function sendChatMessage() {
 ========================================================= */
 
 window.addEventListener(
-    "load",
-    function(){
+"load",
+function(){
 
-        /* ================================================
-           LOGIN CHECK
-        ================================================ */
+/* LOGIN */
 
-        const loggedIn =
-            localStorage.getItem(
-                "elhendawyLoggedIn"
-            );
+const loggedIn =
+localStorage.getItem(
+"elhendawyLoggedIn"
+);
 
 
-        if(loggedIn === "true"){
+if(loggedIn === "true"){
 
-            document.getElementById(
-                "loginScreen"
-            ).style.display =
-                "none";
+document.getElementById(
+"loginScreen"
+).style.display =
+"none";
 
-            // إظهار زر البوت إذا كان مسجلاً للدخول مسبقاً
-            document.getElementById("chatbot-toggler").style.display = "flex";
+}else{
 
-        }else{
-
-            document.getElementById(
-                "loginScreen"
-            ).style.display =
-                "flex";
-
-            // إخفاء زر البوت تماماً في شاشة تسجيل الدخول
-            document.getElementById("chatbot-toggler").style.display = "none";
-            document.getElementById("chatbot-container").style.display = "none";
+document.getElementById(
+"loginScreen"
+).style.display =
+"flex";
 
 
-            if(isLocked()){
+if(isLocked()){
 
-                startLockTimer();
+startLockTimer();
 
-            }
+}
 
-        }
-
-
-        /* ================================================
-           BODY WEIGHT
-        ================================================ */
-
-        const savedWeight =
-            localStorage.getItem(
-                "bodyWeight"
-            );
+}
 
 
-        if(savedWeight){
+/* CALORIES */
 
-            document.getElementById(
-                "bodyWeight"
-            ).value =
-                savedWeight;
-
-
-            document.getElementById(
-                "savedWeight"
-            ).textContent =
-                "آخر وزن محفوظ: " +
-                savedWeight +
-                " kg";
-        }
+const savedCalories =
+localStorage.getItem(
+"maintenanceCalories"
+);
 
 
-        /* ================================================
-           CALORIES
-        ================================================ */
+if(savedCalories){
 
-        const savedCalories =
-            localStorage.getItem(
-                "maintenanceCalories"
-            );
+maintenanceCalories =
+parseInt(savedCalories);
 
 
-        if(savedCalories){
+document.getElementById(
+"homeCalories"
+).textContent =
+maintenanceCalories +
+" kcal";
 
-            maintenanceCalories =
-                parseInt(
-                    savedCalories
-                );
-
-
-            document.getElementById(
-                "homeCalories"
-            ).textContent =
-                maintenanceCalories +
-                " kcal";
-        }
+}
 
 
-        /* ================================================
-           EXERCISE WEIGHTS
-        ================================================ */
+/* PROFESSIONAL PROGRESS */
 
-        [
-            "bench",
-            "incline",
-            "squat",
-            "preacher"
-        ]
-        .forEach(id=>{
+loadProgress();
 
-            const value =
-                localStorage.getItem(
-                    id
-                );
-
-
-            if(value){
-
-                document.getElementById(
-                    id
-                ).value =
-                    value;
-            }
-
-        });
-
-    }
+}
 );
 
 </script>
