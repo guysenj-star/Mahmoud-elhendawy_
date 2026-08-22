@@ -4,47 +4,78 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Elhendawy Exercises | Fitness</title>
+<title>أخبار قاع الهامور 🌊</title>
 
 <style>
+/* =========================================================
+   أخبار قاع الهامور
+   Single File Website
+========================================================= */
 
 :root{
-    --bg:#070909;
-    --bg2:#0d1211;
-    --card:#111817;
-    --card2:#151d1b;
-    --green:#00e6b8;
-    --green2:#00b894;
-    --gold:#ffc928;
-    --red:#ff4d5a;
-    --blue:#4da3ff;
-    --purple:#9b6cff;
-    --text:#ffffff;
-    --muted:#94a39f;
-    --border:rgba(255,255,255,.08);
+    --bg:#03131c;
+    --bg2:#062433;
+    --card:rgba(8,39,53,.78);
+    --card2:rgba(12,52,68,.72);
+    --cyan:#56e7ec;
+    --cyan2:#159eb2;
+    --gold:#ffd86a;
+    --red:#ff6262;
+    --white:#f5fdff;
+    --muted:#8eabb8;
+    --line:rgba(100,225,235,.15);
+    --shadow:0 25px 80px rgba(0,0,0,.35);
 }
 
 *{
     box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
     scroll-behavior:smooth;
 }
 
 body{
-    margin:0;
-    font-family:Segoe UI,Tahoma,Arial,sans-serif;
+    font-family:Tahoma,Arial,sans-serif;
+    color:var(--white);
     background:
-        radial-gradient(circle at 80% 0%,rgba(0,230,184,.12),transparent 30%),
-        radial-gradient(circle at 10% 20%,rgba(255,201,40,.06),transparent 25%),
-        var(--bg);
-    color:var(--text);
+        radial-gradient(circle at 15% 10%,rgba(50,220,230,.13),transparent 25%),
+        radial-gradient(circle at 85% 30%,rgba(255,216,106,.08),transparent 24%),
+        linear-gradient(160deg,var(--bg),var(--bg2));
+    min-height:100vh;
+    overflow-x:hidden;
 }
 
-button,input,select{
-    font-family:inherit;
+/* bubbles */
+
+.bubble{
+    position:fixed;
+    bottom:-100px;
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:50%;
+    pointer-events:none;
+    animation:bubbleUp linear infinite;
+    z-index:0;
 }
 
-button{
-    cursor:pointer;
+.b1{width:25px;height:25px;left:8%;animation-duration:13s}
+.b2{width:13px;height:13px;left:25%;animation-duration:9s;animation-delay:2s}
+.b3{width:42px;height:42px;left:48%;animation-duration:16s;animation-delay:1s}
+.b4{width:18px;height:18px;left:72%;animation-duration:11s;animation-delay:4s}
+.b5{width:30px;height:30px;left:90%;animation-duration:14s;animation-delay:3s}
+
+@keyframes bubbleUp{
+    from{
+        transform:translateY(0);
+        opacity:0;
+    }
+    15%{opacity:.7}
+    to{
+        transform:translateY(-120vh);
+        opacity:0;
+    }
 }
 
 a{
@@ -52,1456 +83,964 @@ a{
     color:inherit;
 }
 
-/* =========================================================
-   LOGIN
-========================================================= */
-
-#loginScreen{
-    position:fixed;
-    inset:0;
-    z-index:99999;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
-
-    background:
-        radial-gradient(circle at 80% 0%,rgba(0,230,184,.14),transparent 30%),
-        radial-gradient(circle at 10% 90%,rgba(255,201,40,.07),transparent 25%),
-        #070909;
-}
-
-.login-box{
-    width:min(430px,100%);
-    background:linear-gradient(145deg,#151d1b,#0d1211);
-    border:1px solid rgba(0,230,184,.18);
-    border-radius:25px;
-    padding:32px 25px;
-    box-shadow:
-        0 25px 80px rgba(0,0,0,.55),
-        0 0 40px rgba(0,230,184,.06);
-    text-align:center;
-}
-
-.login-logo{
-    width:75px;
-    height:75px;
-    margin:0 auto 18px;
-    border-radius:22px;
-    display:grid;
-    place-items:center;
-    background:rgba(0,230,184,.09);
-    border:1px solid rgba(0,230,184,.22);
-    font-size:34px;
-}
-
-.login-box h1{
-    margin:0;
-    font-size:27px;
-    font-weight:1000;
-}
-
-.login-box h1 span{
-    color:var(--green);
-}
-
-.login-subtitle{
-    color:var(--muted);
-    margin:10px 0 25px;
-    line-height:1.6;
-    font-size:14px;
-}
-
-.login-field{
-    text-align:right;
-    margin-bottom:15px;
-}
-
-.login-field label{
-    display:block;
-    margin-bottom:7px;
-    color:#cbd5d2;
-    font-weight:800;
-    font-size:14px;
-}
-
-.login-field input{
-    width:100%;
-    padding:15px;
-    border-radius:13px;
-    border:1px solid var(--border);
-    background:#080c0b;
-    color:white;
-    outline:none;
-    font-size:15px;
-    direction:ltr;
-    text-align:left;
-}
-
-.login-field input:focus{
-    border-color:var(--green);
-    box-shadow:0 0 0 3px rgba(0,230,184,.06);
-}
-
-.login-button{
-    width:100%;
-    border:0;
-    border-radius:13px;
-    padding:15px;
-    background:var(--green);
-    color:#00130f;
-    font-weight:1000;
-    font-size:16px;
-    margin-top:5px;
-    transition:.25s;
-}
-
-.login-button:hover{
-    transform:translateY(-2px);
-    filter:brightness(1.08);
-}
-
-.login-button:disabled{
-    opacity:.45;
-    cursor:not-allowed;
-    transform:none;
-}
-
-.login-message{
-    display:none;
-    margin-top:17px;
-    padding:13px;
-    border-radius:12px;
-    background:rgba(255,77,90,.08);
-    border:1px solid rgba(255,77,90,.2);
-    color:#ff7c85;
-    font-weight:800;
-    line-height:1.6;
-    font-size:14px;
-}
-
-.login-attempts{
-    margin-top:15px;
-    color:#7f8c88;
-    font-size:13px;
-}
-
-.login-lock{
-    display:none;
-    margin-top:17px;
-    padding:15px;
-    border-radius:13px;
-    background:rgba(255,201,40,.07);
-    border:1px solid rgba(255,201,40,.2);
-    color:var(--gold);
-    font-weight:900;
-    line-height:1.7;
-}
-
-.login-footer{
-    margin-top:23px;
-    color:#697773;
-    font-size:12px;
-}
-
-
-/* =========================================================
-   NAV
-========================================================= */
-
-.nav{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    background:rgba(7,9,9,.88);
-    backdrop-filter:blur(15px);
-    border-bottom:1px solid var(--border);
-}
-
-.nav-inner{
-    max-width:1200px;
-    margin:auto;
-    padding:14px 18px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:20px;
-}
-
-.logo{
-    font-weight:900;
-    font-size:19px;
-    color:var(--green);
-    letter-spacing:.5px;
-}
-
-.nav-links{
-    display:flex;
-    gap:7px;
-    flex-wrap:wrap;
-}
-
-.nav-links button{
-    border:0;
-    background:transparent;
-    color:#cbd5d2;
-    padding:9px 13px;
-    border-radius:10px;
-    font-weight:700;
-}
-
-.nav-links button:hover,
-.nav-links button.active{
-    color:var(--green);
-    background:rgba(0,230,184,.08);
-}
-
-
-/* =========================================================
-   PAGES
-========================================================= */
-
-.page{
-    display:none;
-    min-height:calc(100vh - 70px);
-}
-
-.page.active{
-    display:block;
+button,
+input,
+textarea{
+    font-family:inherit;
 }
 
 .container{
-    width:min(1120px,92%);
+    width:min(1180px,92%);
     margin:auto;
-}
-
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.hero{
-    min-height:720px;
-    display:flex;
-    align-items:center;
-    position:relative;
-    overflow:hidden;
-}
-
-.hero:before{
-    content:"";
-    position:absolute;
-    width:500px;
-    height:500px;
-    background:rgba(0,230,184,.12);
-    filter:blur(100px);
-    border-radius:50%;
-    left:-180px;
-    top:100px;
-}
-
-.hero-content{
     position:relative;
     z-index:2;
-    max-width:850px;
-    padding:70px 0;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(2,16,23,.82);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--line);
+}
+
+.nav{
+    min-height:72px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:1000;
+    font-size:17px;
+    white-space:nowrap;
+}
+
+.logo-icon{
+    width:43px;
+    height:43px;
+    display:grid;
+    place-items:center;
+    border-radius:14px;
+    background:linear-gradient(145deg,var(--cyan),var(--cyan2));
+    color:#03212a;
+    box-shadow:0 0 35px rgba(86,231,236,.18);
+}
+
+.search{
+    flex:1;
+    position:relative;
+}
+
+.search input{
+    width:100%;
+    padding:12px 42px 12px 14px;
+    border-radius:15px;
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.04);
+    color:white;
+    outline:none;
+}
+
+.search-icon{
+    position:absolute;
+    right:14px;
+    top:10px;
+}
+
+.nav-btn{
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.04);
+    color:white;
+    padding:11px 14px;
+    border-radius:14px;
+    cursor:pointer;
+    font-weight:900;
+}
+
+.nav-btn:hover{
+    border-color:rgba(86,231,236,.5);
+}
+
+/* ================= TICKER ================= */
+
+.ticker{
+    overflow:hidden;
+    border-bottom:1px solid var(--line);
+    background:rgba(255,90,90,.035);
+}
+
+.ticker-track{
+    white-space:nowrap;
+    padding:10px;
+    font-size:11px;
+    color:#d8edf1;
+    animation:ticker 28s linear infinite;
+}
+
+@keyframes ticker{
+    from{transform:translateX(0)}
+    to{transform:translateX(55%)}
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    padding:60px 0 30px;
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.25fr .75fr;
+    gap:20px;
+}
+
+.hero-main{
+    padding:42px;
+    border-radius:32px;
+    border:1px solid var(--line);
+    background:
+        radial-gradient(circle at 85% 15%,rgba(86,231,236,.12),transparent 30%),
+        linear-gradient(135deg,rgba(10,52,68,.88),rgba(4,25,35,.8));
+    box-shadow:var(--shadow);
+}
+
+.kicker{
+    color:var(--gold);
+    font-size:11px;
+    font-weight:1000;
+    letter-spacing:1px;
+}
+
+.hero h1{
+    font-size:clamp(40px,7vw,76px);
+    line-height:1;
+    margin:14px 0;
+}
+
+.hero h1 span{
+    color:var(--cyan);
+}
+
+.hero p{
+    color:var(--muted);
+    line-height:1.9;
+    max-width:700px;
+}
+
+.hero-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:25px;
+}
+
+.btn{
+    border:0;
+    border-radius:14px;
+    padding:13px 17px;
+    cursor:pointer;
+    font-weight:1000;
+}
+
+.btn-primary{
+    color:#09202a;
+    background:linear-gradient(135deg,var(--gold),#ffad40);
+}
+
+.btn-dark{
+    color:white;
+    background:rgba(255,255,255,.05);
+    border:1px solid var(--line);
+}
+
+.sea-art{
+    min-height:320px;
+    border-radius:32px;
+    border:1px solid var(--line);
+    overflow:hidden;
+    position:relative;
+    background:
+        radial-gradient(circle at 50% 30%,rgba(86,231,236,.23),transparent 25%),
+        linear-gradient(180deg,#0a4258,#03151d);
+    box-shadow:var(--shadow);
+}
+
+.moon{
+    position:absolute;
+    width:110px;
+    height:110px;
+    border-radius:50%;
+    background:rgba(255,255,255,.055);
+    top:50px;
+    left:50%;
+    transform:translateX(-50%);
+    box-shadow:0 0 70px rgba(86,231,236,.15);
+}
+
+.fish{
+    position:absolute;
+    font-size:55px;
+    animation:fishMove 8s ease-in-out infinite;
+}
+
+.fish1{
+    top:90px;
+    left:20%;
+}
+
+.fish2{
+    top:170px;
+    right:17%;
+    font-size:35px;
+    animation-delay:2s;
+}
+
+@keyframes fishMove{
+    0%,100%{transform:translateX(-15px)}
+    50%{transform:translateX(25px)}
+}
+
+.sea-floor{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:27%;
+    background:
+        linear-gradient(160deg,transparent 25%,rgba(27,122,113,.35));
+    clip-path:polygon(
+        0 65%,8% 42%,16% 70%,25% 34%,
+        35% 76%,48% 48%,60% 73%,
+        72% 32%,84% 68%,100% 43%,
+        100% 100%,0 100%
+    );
+}
+
+/* ================= SECTION ================= */
+
+section{
+    padding:28px 0 55px;
+}
+
+.section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    gap:15px;
+    margin-bottom:18px;
+}
+
+.section-head h2{
+    font-size:25px;
+}
+
+.section-head p{
+    color:var(--muted);
+    font-size:12px;
+    margin-top:6px;
 }
 
 .badge{
     display:inline-flex;
     align-items:center;
-    gap:8px;
-    background:rgba(0,230,184,.08);
-    border:1px solid rgba(0,230,184,.25);
-    color:var(--green);
-    padding:9px 15px;
-    border-radius:30px;
-    font-size:14px;
-    font-weight:800;
-}
-
-.hero h1{
-    font-size:clamp(42px,8vw,82px);
-    line-height:.95;
-    margin:22px 0;
+    padding:6px 10px;
+    border-radius:999px;
+    background:rgba(86,231,236,.08);
+    color:var(--cyan);
+    font-size:10px;
     font-weight:1000;
-    letter-spacing:-3px;
 }
 
-.hero h1 span{
-    color:var(--green);
+.badge.red{
+    background:rgba(255,98,98,.08);
+    color:#ff8989;
 }
 
-.hero p{
-    color:var(--muted);
-    font-size:19px;
-    line-height:1.8;
-    max-width:700px;
-}
+/* ================= NEWS ================= */
 
-.hero-buttons{
-    display:flex;
-    gap:12px;
-    flex-wrap:wrap;
-    margin-top:28px;
-}
-
-.btn{
-    border:0;
-    border-radius:13px;
-    padding:14px 22px;
-    font-weight:900;
-    font-size:15px;
-    transition:.25s;
-}
-
-.btn-primary{
-    background:var(--green);
-    color:#00130f;
-}
-
-.btn-secondary{
-    background:#151d1b;
-    border:1px solid var(--border);
-    color:white;
-}
-
-.btn:hover{
-    transform:translateY(-3px);
-    filter:brightness(1.08);
-}
-
-
-/* =========================================================
-   STATS
-========================================================= */
-
-.stats{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:12px;
-    margin-top:30px;
-}
-
-.stat{
-    background:rgba(17,24,23,.75);
-    border:1px solid var(--border);
-    border-radius:18px;
-    padding:20px;
-}
-
-.stat strong{
-    display:block;
-    font-size:30px;
-    color:var(--green);
-}
-
-.stat span{
-    color:var(--muted);
-    font-size:13px;
-}
-
-
-/* =========================================================
-   SECTION
-========================================================= */
-
-.section{
-    padding:70px 0;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:35px;
-}
-
-.section-title .small{
-    color:var(--green);
-    font-size:13px;
-    font-weight:900;
-    letter-spacing:1px;
-}
-
-.section-title h2{
-    font-size:34px;
-    margin:8px 0;
-}
-
-.section-title p{
-    color:var(--muted);
-}
-
-
-/* =========================================================
-   CARDS
-========================================================= */
-
-.grid{
+.news-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:18px;
+    gap:14px;
 }
 
 .card{
-    background:linear-gradient(145deg,var(--card2),var(--card));
-    border:1px solid var(--border);
-    border-radius:20px;
-    padding:24px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:23px;
+    padding:20px;
     transition:.25s;
 }
 
 .card:hover{
     transform:translateY(-5px);
-    border-color:rgba(0,230,184,.35);
-}
-
-.card-icon{
-    width:50px;
-    height:50px;
-    border-radius:15px;
-    display:grid;
-    place-items:center;
-    background:rgba(0,230,184,.09);
-    font-size:25px;
-    margin-bottom:17px;
+    border-color:rgba(86,231,236,.38);
+    box-shadow:0 20px 50px rgba(0,0,0,.22);
 }
 
 .card h3{
-    margin:8px 0;
+    margin:12px 0 8px;
+    font-size:18px;
 }
 
 .card p{
     color:var(--muted);
-    line-height:1.7;
-}
-
-
-/* =========================================================
-   DASHBOARD
-========================================================= */
-
-.dashboard{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
-}
-
-.dash{
-    background:#101615;
-    border:1px solid var(--border);
-    border-radius:18px;
-    padding:20px;
-}
-
-.dash-title{
-    color:var(--muted);
-    font-size:14px;
-}
-
-.dash-value{
-    font-size:28px;
-    font-weight:900;
-    margin-top:8px;
-    color:var(--green);
-}
-
-
-/* =========================================================
-   PAGE HEADER
-========================================================= */
-
-.page-header{
-    padding:55px 0 30px;
-    text-align:center;
-}
-
-.page-header h1{
-    font-size:42px;
-    margin:0 0 10px;
-}
-
-.page-header p{
-    color:var(--muted);
-}
-
-
-/* =========================================================
-   FORM
-========================================================= */
-
-.form-card{
-    max-width:650px;
-    margin:20px auto;
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:22px;
-    padding:25px;
-}
-
-.field{
-    margin-bottom:16px;
-    text-align:right;
-}
-
-.field label{
-    display:block;
-    margin-bottom:7px;
-    color:#cbd5d2;
-    font-weight:800;
-}
-
-.field input,
-.field select{
-    width:100%;
-    padding:14px;
-    border-radius:12px;
-    border:1px solid var(--border);
-    background:#080c0b;
-    color:white;
-    outline:none;
-}
-
-.field input:focus,
-.field select:focus{
-    border-color:var(--green);
-}
-
-.result{
-    margin-top:20px;
-    padding:20px;
-    border-radius:16px;
-    background:rgba(0,230,184,.06);
-    border:1px solid rgba(0,230,184,.18);
-    display:none;
-}
-
-.result strong{
-    color:var(--green);
-    font-size:26px;
-}
-
-
-/* =========================================================
-   GOALS
-========================================================= */
-
-.goal-buttons{
-    display:flex;
-    gap:10px;
-    justify-content:center;
-    flex-wrap:wrap;
-    margin:20px 0;
-}
-
-.goal-btn{
-    padding:12px 20px;
-    border-radius:12px;
-    border:1px solid var(--border);
-    background:#111817;
-    color:white;
-    font-weight:900;
-}
-
-.goal-btn:hover{
-    border-color:var(--green);
-}
-
-
-/* =========================================================
-   WORKOUT
-========================================================= */
-
-.program-tabs{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    justify-content:center;
-    margin-bottom:25px;
-}
-
-.program-tabs button{
-    padding:12px 18px;
-    border-radius:12px;
-    border:1px solid var(--border);
-    background:#111817;
-    color:#ddd;
-    font-weight:900;
-}
-
-.program-tabs button.active{
-    background:var(--green);
-    color:#00130f;
-}
-
-.program{
-    display:none;
-}
-
-.program.active{
-    display:block;
-}
-
-.day{
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:20px;
-    margin-bottom:18px;
-    overflow:hidden;
-}
-
-.day-header{
-    padding:18px 20px;
-    background:#151d1b;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:10px;
-}
-
-.day-header h3{
-    margin:0;
-}
-
-.exercise{
-    padding:16px 20px;
-    border-top:1px solid var(--border);
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:15px;
-}
-
-.exercise-name{
-    font-weight:900;
-}
-
-.exercise-muscle{
-    color:var(--muted);
     font-size:13px;
-    margin-top:4px;
+    line-height:1.85;
 }
 
-.exercise-info{
-    color:var(--green);
-    font-weight:800;
-    white-space:nowrap;
-}
-
-
-/* =========================================================
-   PROFESSIONAL PROGRESS
-========================================================= */
-
-.progress-hero{
-    position:relative;
-    overflow:hidden;
-    background:
-        radial-gradient(circle at 90% 10%,rgba(0,230,184,.12),transparent 30%),
-        linear-gradient(145deg,#111817,#090d0c);
-    border:1px solid var(--border);
-    border-radius:28px;
-    padding:30px;
-    margin-bottom:25px;
-}
-
-.progress-hero:after{
-    content:"";
-    position:absolute;
-    width:250px;
-    height:250px;
-    background:rgba(0,230,184,.08);
-    filter:blur(80px);
-    left:-80px;
-    bottom:-120px;
-    border-radius:50%;
-}
-
-.progress-hero-top{
+.meta{
     display:flex;
     justify-content:space-between;
-    align-items:center;
-    gap:20px;
-    position:relative;
-    z-index:2;
+    margin-top:15px;
+    color:#6f909e;
+    font-size:10px;
 }
 
-.progress-title h2{
-    margin:0 0 8px;
-    font-size:32px;
-}
+/* ================= MAP ================= */
 
-.progress-title p{
-    margin:0;
-    color:var(--muted);
-}
-
-.progress-badge{
-    background:rgba(0,230,184,.09);
-    border:1px solid rgba(0,230,184,.25);
-    color:var(--green);
-    padding:10px 15px;
-    border-radius:30px;
-    font-weight:900;
-}
-
-.progress-main-grid{
-    display:grid;
-    grid-template-columns:1.3fr .7fr;
-    gap:18px;
-    margin-top:25px;
-}
-
-.progress-score{
-    background:#0b100f;
-    border:1px solid var(--border);
-    border-radius:22px;
-    padding:25px;
-}
-
-.score-label{
-    color:var(--muted);
-    font-size:14px;
-}
-
-.score-number{
-    font-size:58px;
-    font-weight:1000;
-    color:var(--green);
-    line-height:1;
-    margin:12px 0;
-}
-
-.progress-bar{
-    height:12px;
-    border-radius:20px;
-    background:#202a27;
-    overflow:hidden;
-}
-
-.progress-fill{
-    width:0%;
-    height:100%;
-    background:linear-gradient(90deg,var(--green2),var(--green));
-    border-radius:20px;
-    transition:.5s;
-}
-
-.progress-meta{
-    display:flex;
-    justify-content:space-between;
-    color:var(--muted);
-    font-size:12px;
-    margin-top:9px;
-}
-
-.level-card{
-    background:linear-gradient(145deg,#171b27,#0c1016);
-    border:1px solid rgba(155,108,255,.2);
-    border-radius:22px;
-    padding:25px;
-}
-
-.level-icon{
-    font-size:42px;
-}
-
-.level-card h3{
-    margin:10px 0 5px;
-}
-
-.level-card p{
-    color:var(--muted);
-    line-height:1.6;
-}
-
-.progress-stats{
+.map-grid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:15px;
-    margin:20px 0;
+    gap:11px;
 }
 
-.progress-stat-card{
-    background:linear-gradient(145deg,var(--card2),var(--card));
-    border:1px solid var(--border);
-    border-radius:20px;
-    padding:20px;
-    position:relative;
-    overflow:hidden;
+.location-card{
+    padding:20px 12px;
+    text-align:center;
+    border-radius:18px;
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.035);
+    cursor:pointer;
+    transition:.2s;
 }
 
-.progress-stat-card:before{
-    content:"";
-    position:absolute;
-    width:80px;
-    height:80px;
-    border-radius:50%;
-    background:rgba(0,230,184,.06);
-    left:-30px;
-    bottom:-30px;
+.location-card:hover{
+    transform:translateY(-4px);
+    background:rgba(86,231,236,.06);
 }
 
-.progress-stat-icon{
-    font-size:27px;
-}
-
-.progress-stat-number{
-    display:block;
+.location-icon{
     font-size:30px;
-    font-weight:1000;
-    color:var(--green);
-    margin:7px 0;
 }
 
-.progress-stat-label{
+.location-card b{
+    display:block;
+    margin-top:8px;
+}
+
+.location-card small{
     color:var(--muted);
-    font-size:13px;
 }
 
-.progress-section-card{
-    background:linear-gradient(145deg,var(--card2),var(--card));
-    border:1px solid var(--border);
-    border-radius:24px;
-    padding:25px;
-    margin-bottom:20px;
-}
+/* ================= CHARACTERS ================= */
 
-.progress-section-head{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:15px;
-    margin-bottom:20px;
-}
-
-.progress-section-head h3{
-    margin:0;
-    font-size:22px;
-}
-
-.progress-section-head span{
-    color:var(--muted);
-    font-size:13px;
-}
-
-.exercise-progress-grid{
+.character-grid{
     display:grid;
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:repeat(3,1fr);
     gap:14px;
 }
 
-.exercise-progress-card{
-    background:#0b100f;
-    border:1px solid var(--border);
-    border-radius:18px;
-    padding:18px;
-    transition:.25s;
-}
-
-.exercise-progress-card:hover{
-    border-color:rgba(0,230,184,.3);
-    transform:translateY(-2px);
-}
-
-.exercise-progress-top{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:10px;
-}
-
-.exercise-progress-name{
-    font-weight:900;
-}
-
-.exercise-muscle-tag{
-    font-size:11px;
-    color:var(--green);
-    background:rgba(0,230,184,.07);
-    padding:5px 8px;
-    border-radius:8px;
-}
-
-.exercise-input-row{
-    display:flex;
-    gap:8px;
-    margin-top:14px;
-}
-
-.exercise-input-row input{
-    flex:1;
-    min-width:0;
-    padding:11px;
-    border-radius:10px;
-    border:1px solid var(--border);
-    background:#080c0b;
-    color:white;
-    outline:none;
-}
-
-.exercise-input-row input:focus{
-    border-color:var(--green);
-}
-
-.save-mini{
-    border:0;
-    border-radius:10px;
-    padding:10px 14px;
-    background:var(--green);
-    color:#00130f;
-    font-weight:900;
-}
-
-.exercise-saved{
-    color:var(--green);
-    font-size:12px;
-    margin-top:8px;
-    min-height:17px;
-}
-
-.records-list{
-    display:grid;
-    gap:10px;
-}
-
-.record{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:15px;
-    padding:15px;
-    background:#0b100f;
-    border:1px solid var(--border);
-    border-radius:15px;
-}
-
-.record-name{
-    font-weight:900;
-}
-
-.record-date{
-    color:var(--muted);
-    font-size:12px;
-}
-
-.record-weight{
-    font-weight:1000;
-    color:var(--green);
-}
-
-.empty-records{
-    padding:25px;
-    text-align:center;
-    color:var(--muted);
-    border:1px dashed #384440;
-    border-radius:15px;
-}
-
-.body-progress{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:18px;
-}
-
-.body-box{
-    background:#0b100f;
-    border:1px solid var(--border);
-    border-radius:18px;
-    padding:20px;
-}
-
-.body-box h4{
-    margin:0 0 15px;
-}
-
-.body-input{
-    display:flex;
-    gap:8px;
-}
-
-.body-input input{
-    flex:1;
-    padding:12px;
-    border-radius:10px;
-    border:1px solid var(--border);
-    background:#080c0b;
-    color:white;
-    outline:none;
-}
-
-.body-history{
-    margin-top:15px;
-    color:var(--muted);
-    font-size:13px;
-    line-height:1.8;
-}
-
-.clear-progress{
-    border:1px solid rgba(255,77,90,.25);
-    background:rgba(255,77,90,.07);
-    color:#ff7c85;
-    border-radius:10px;
-    padding:9px 13px;
-    font-weight:800;
-}
-
-
-/* =========================================================
-   PROGRESS TABLE
-========================================================= */
-
-.progress-table{
-    width:100%;
-    border-collapse:collapse;
+.character{
     overflow:hidden;
-    border-radius:15px;
+    position:relative;
+    min-height:240px;
 }
 
-.progress-table th,
-.progress-table td{
-    padding:13px;
-    border-bottom:1px solid var(--border);
-    text-align:right;
-}
-
-.progress-table th{
-    color:var(--green);
-}
-
-.progress-table input{
-    width:100px;
-    background:#080c0b;
-    border:1px solid var(--border);
-    color:white;
-    padding:8px;
-    border-radius:8px;
-}
-
-
-/* =========================================================
-   CONTACT
-========================================================= */
-
-.social{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:18px;
-    max-width:750px;
-    margin:auto;
-}
-
-.social-card{
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:20px;
-    padding:25px;
-    text-align:center;
-}
-
-.social-card .icon{
-    font-size:40px;
-}
-
-.social-card h3{
-    margin:10px 0;
-}
-
-.social-card p{
-    color:var(--muted);
-}
-
-
-/* =========================================================
-   AD
-========================================================= */
-
-.ad-box{
-    min-height:190px;
-    border:1px dashed rgba(0,230,184,.25);
-    background:
-        radial-gradient(circle at center,rgba(0,230,184,.05),transparent 60%),
-        #0d1211;
-    border-radius:22px;
+.character-avatar{
+    height:115px;
     display:grid;
     place-items:center;
-    color:#697773;
-    padding:20px;
-    text-align:center;
-}
-
-.ad-box strong{
-    display:block;
-    color:var(--green);
-    font-size:20px;
-    margin-bottom:8px;
-}
-
-
-/* =========================================================
-   PRAYER
-========================================================= */
-
-.prayer{
-    text-align:center;
-    padding:50px 20px;
+    font-size:70px;
     background:
-        linear-gradient(135deg,rgba(0,230,184,.07),rgba(255,201,40,.04));
-    border-top:1px solid var(--border);
-    border-bottom:1px solid var(--border);
+        radial-gradient(circle,rgba(86,231,236,.17),transparent 55%),
+        rgba(255,255,255,.025);
+    border-radius:18px;
 }
 
-.prayer h2{
-    color:var(--green);
+/* ================= COMPLAINTS ================= */
+
+.complaint-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
 }
 
+.form{
+    padding:25px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:25px;
+}
 
-/* =========================================================
-   FOOTER
-========================================================= */
+.form label{
+    display:block;
+    color:#b7d2db;
+    font-size:12px;
+    margin-top:10px;
+}
+
+.form input,
+.form textarea{
+    width:100%;
+    margin-top:7px;
+    padding:13px;
+    border-radius:13px;
+    border:1px solid var(--line);
+    background:#041b26;
+    color:white;
+    outline:none;
+}
+
+.form textarea{
+    min-height:130px;
+    resize:vertical;
+}
+
+/* ================= GENERATOR ================= */
+
+.generator{
+    min-height:100%;
+    text-align:center;
+}
+
+.story-box{
+    min-height:155px;
+    display:grid;
+    place-items:center;
+    padding:20px;
+    margin:15px 0;
+    border-radius:18px;
+    border:1px dashed rgba(86,231,236,.25);
+    background:rgba(0,0,0,.13);
+    color:#b9d4dc;
+    line-height:1.9;
+}
+
+/* ================= CONTACT ================= */
+
+.contact{
+    text-align:center;
+    padding:35px;
+}
+
+.contact-logo{
+    font-size:55px;
+    margin-bottom:10px;
+}
+
+.instagram{
+    display:inline-flex;
+    margin-top:20px;
+    padding:14px 20px;
+    border-radius:15px;
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.04);
+    color:#ffb5d5;
+    font-weight:1000;
+}
+
+/* ================= FOOTER ================= */
 
 footer{
+    margin-top:30px;
+    padding:45px 0;
     text-align:center;
-    padding:35px 20px;
-    color:#7f8c88;
+    border-top:1px solid var(--line);
+    color:var(--muted);
 }
 
 footer strong{
-    color:var(--green);
+    color:white;
 }
 
+/* ================= MODAL ================= */
 
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media(max-width:850px){
-
-    .nav-inner{
-        flex-direction:column;
-    }
-
-    .nav-links{
-        justify-content:center;
-    }
-
-    .hero{
-        min-height:620px;
-    }
-
-    .hero h1{
-        letter-spacing:-2px;
-    }
-
-    .stats{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .grid,
-    .dashboard,
-    .social{
-        grid-template-columns:1fr;
-    }
-
-    .exercise{
-        align-items:flex-start;
-        flex-direction:column;
-    }
-
-    .exercise-info{
-        white-space:normal;
-    }
-
-    .progress-main-grid{
-        grid-template-columns:1fr;
-    }
-
-    .progress-stats{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .exercise-progress-grid{
-        grid-template-columns:1fr;
-    }
-
-    .body-progress{
-        grid-template-columns:1fr;
-    }
-
+.modal{
+    position:fixed;
+    inset:0;
+    z-index:200;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:18px;
+    background:rgba(0,8,13,.72);
+    backdrop-filter:blur(12px);
 }
 
-@media(max-width:500px){
-
-    .nav-links button{
-        padding:8px 9px;
-        font-size:12px;
-    }
-
-    .hero h1{
-        font-size:43px;
-    }
-
-    .section-title h2{
-        font-size:28px;
-    }
-
-    .page-header h1{
-        font-size:34px;
-    }
-
-    .login-box{
-        padding:27px 20px;
-    }
-
-    .progress-hero{
-        padding:20px;
-    }
-
-    .progress-hero-top{
-        align-items:flex-start;
-        flex-direction:column;
-    }
-
-    .score-number{
-        font-size:48px;
-    }
-
-    .progress-stat-number{
-        font-size:25px;
-    }
-
+.modal.show{
+    display:flex;
 }
 
+.modal-box{
+    width:min(720px,95vw);
+    max-height:88vh;
+    overflow:auto;
+    padding:25px;
+    border-radius:26px;
+    background:#071f2b;
+    border:1px solid var(--line);
+}
 
-/* =========================================================
-   TOAST
-========================================================= */
+.modal-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:18px;
+}
+
+.close{
+    width:38px;
+    height:38px;
+    border-radius:12px;
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.04);
+    color:white;
+    cursor:pointer;
+}
+
+.menu-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+}
+
+.menu-item{
+    padding:20px;
+    border:1px solid var(--line);
+    border-radius:18px;
+    background:rgba(255,255,255,.03);
+    text-align:center;
+}
+
+.menu-item:hover{
+    background:rgba(86,231,236,.06);
+}
+
+.menu-item b{
+    display:block;
+    margin-top:7px;
+}
+
+/* ================= TOAST ================= */
 
 .toast{
     position:fixed;
-    bottom:25px;
-    left:50%;
-    transform:translateX(-50%) translateY(100px);
-    background:#121918;
-    border:1px solid rgba(0,230,184,.3);
-    color:white;
-    padding:14px 20px;
+    bottom:20px;
+    left:20px;
+    z-index:300;
+    padding:13px 17px;
     border-radius:14px;
-    z-index:100000;
-    opacity:0;
-    transition:.3s;
-    box-shadow:0 15px 40px rgba(0,0,0,.4);
-    font-weight:800;
+    background:#092b39;
+    border:1px solid var(--line);
+    display:none;
 }
 
 .toast.show{
-    opacity:1;
-    transform:translateX(-50%) translateY(0);
+    display:block;
 }
 
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:850px){
+
+    .hero-grid{
+        grid-template-columns:1fr;
+    }
+
+    .news-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .character-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .map-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .complaint-grid{
+        grid-template-columns:1fr;
+    }
+
+    .nav{
+        flex-wrap:wrap;
+        padding:9px 0;
+    }
+
+    .search{
+        order:3;
+        flex-basis:100%;
+    }
+}
+
+@media(max-width:550px){
+
+    .hero{
+        padding-top:35px;
+    }
+
+    .hero-main{
+        padding:27px;
+    }
+
+    .hero h1{
+        font-size:45px;
+    }
+
+    .news-grid,
+    .character-grid{
+        grid-template-columns:1fr;
+    }
+
+    .map-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .logo{
+        font-size:14px;
+    }
+
+    .nav-btn{
+        padding:10px;
+    }
+}
 </style>
 </head>
 
 <body>
 
+<!-- BUBBLES -->
+<div class="bubble b1"></div>
+<div class="bubble b2"></div>
+<div class="bubble b3"></div>
+<div class="bubble b4"></div>
+<div class="bubble b5"></div>
 
-<!-- =====================================================
-     LOGIN SCREEN
-===================================================== -->
+<!-- HEADER -->
+<header>
 
-<div id="loginScreen">
+<div class="container nav">
 
-<div class="login-box">
+<a href="#home" class="logo">
+    <span class="logo-icon">🌊</span>
+    أخبار قاع الهامور
+</a>
 
-<div class="login-logo">
-🔐
+<div class="search">
+    <span class="search-icon">🔎</span>
+    <input
+        id="searchInput"
+        type="text"
+        placeholder="ابحث في أخبار القاع..."
+        oninput="searchSite()"
+    >
 </div>
 
-<h1>
-ELHENDAWY
-<span>EXERCISES</span>
-</h1>
-
-<div class="login-subtitle">
-قم بتسجيل الدخول للوصول إلى الموقع
-</div>
-
-<div class="login-field">
-
-<label>
-اسم المستخدم
-</label>
-
-<input
-type="text"
-id="loginUsername"
-placeholder="Username"
-autocomplete="username"
->
-
-</div>
-
-<div class="login-field">
-
-<label>
-كلمة المرور
-</label>
-
-<input
-type="password"
-id="loginPassword"
-placeholder="Password"
-autocomplete="current-password"
->
-
-</div>
-
-<button
-class="login-button"
-id="loginButton"
-onclick="login()"
->
-تسجيل الدخول 🔓
+<button class="nav-btn" onclick="openMenu()">
+    ☰ الأقسام
 </button>
 
-<div
-class="login-message"
-id="loginMessage"
-></div>
-
-<div
-class="login-lock"
-id="loginLock"
->
-🔒 تم إيقاف تسجيل الدخول مؤقتًا.<br>
-حاول مرة أخرى بعد
-<strong id="lockTimer">60</strong>
-ثانية.
-</div>
-
-<div
-class="login-attempts"
-id="loginAttempts"
->
-لديك 3 محاولات متاحة
-</div>
-
-<div class="login-footer">
-Train Smart • Build Strong
-</div>
+<a href="#contact" class="nav-btn">
+    تواصل
+</a>
 
 </div>
 
+</header>
+
+<!-- TICKER -->
+
+<div class="ticker">
+<div class="ticker-track">
+🔴 عاجل من قاع الهامور — أسعار سلطع البرجر تحت المراقبة •
+🐟 سكان شارع المرجان يطالبون بتحسين الخدمات •
+🌊 حالة البحر مستقرة •
+📢 باب شكاوى الأهالي مفتوح •
+⚓ أخبار جديدة من الميناء
+</div>
 </div>
 
 
-<!-- =====================================================
-     NAVIGATION
-===================================================== -->
+<main id="home">
 
-<nav class="nav">
-
-<div class="nav-inner">
-
-<div class="logo">
-ELHENDAWY EXERCISES
-</div>
-
-<div class="nav-links">
-
-<button class="active" onclick="showPage('home',this)">
-الرئيسية
-</button>
-
-<button onclick="showPage('calculator',this)">
-الحاسبة
-</button>
-
-<button onclick="showPage('workouts',this)">
-التمارين
-</button>
-
-<!-- تم حذف التغذية حسب طلبك -->
-
-<button onclick="showPage('progress',this)">
-تطوري
-</button>
-
-<button onclick="showPage('contact',this)">
-تواصل
-</button>
-
-</div>
-
-</div>
-
-</nav>
-
-
-<!-- =====================================================
-     HOME
-===================================================== -->
-
-<main id="home" class="page active">
+<!-- HERO -->
 
 <section class="hero">
 
-<div class="container">
+<div class="container hero-grid">
 
-<div class="hero-content">
+<div class="hero-main">
 
-<div class="badge">
-🔥 FITNESS • TRAINING • PROGRESS
+<div class="kicker">
+الجريدة الساخرة لسكان القاع
 </div>
 
 <h1>
-ELHENDAWY<br>
-<span>EXERCISES</span>
+أخبار
+<span>قاع الهامور</span>
 </h1>
 
 <p>
-منصة لياقتك الشخصية للتدريب وحساب احتياجاتك
-وتسجيل أوزانك ومتابعة تطورك خطوة بخطوة.
+أهلًا بيك في عالم القاع 🌊
+هنا هتلاقي الأخبار والمواقف والشكاوى والحكايات
+اللي بتحصل تحت البحر، في عالم ترفيهي ساخر مستقل.
 </p>
 
-<div class="hero-buttons">
+<div class="hero-actions">
 
-<button
-class="btn btn-primary"
-onclick="showPage('workouts')"
->
-🏋️ ابدأ التمرين
-</button>
+<a href="#news" class="btn btn-primary">
+📰 آخر الأخبار
+</a>
 
-<button
-class="btn btn-secondary"
-onclick="showPage('calculator')"
->
-🔥 احسب احتياجك
-</button>
+<a href="#complaints" class="btn btn-dark">
+📢 شكاوى الأهالي
+</a>
+
+<a href="#map" class="btn btn-dark">
+🗺️ خريطة القاع
+</a>
 
 </div>
 
-<div class="stats">
-
-<div class="stat">
-<strong>5+</strong>
-<span>أنظمة تدريب</span>
 </div>
 
-<div class="stat">
-<strong>40+</strong>
-<span>تمرين</span>
+
+<div class="sea-art">
+
+<div class="moon"></div>
+
+<div class="fish fish1">🐟</div>
+
+<div class="fish fish2">🐠</div>
+
+<div class="sea-floor"></div>
+
 </div>
 
-<div class="stat">
-<strong>24/7</strong>
-<span>تتبع تقدمك</span>
 </div>
 
-<div class="stat">
-<strong>100%</strong>
-<span>مجاني</span>
+</section>
+
+
+<!-- NEWS -->
+
+<section id="news">
+
+<div class="container">
+
+<div class="section-head">
+
+<div>
+<h2>🔴 عاجل من القاع</h2>
+<p>آخر الأخبار والمواقف</p>
 </div>
+
+<span class="badge red">
+● LIVE
+</span>
+
+</div>
+
+
+<div class="news-grid">
+
+<article class="card">
+<span class="badge red">عاجل</span>
+
+<h3>
+سكان شارع المرجان يطالبون بإعادة فتح المخبز
+</h3>
+
+<p>
+الأهالي يؤكدون أن الطابور وصل إلى آخر الحي،
+والإدارة وعدت بدراسة الموضوع تحت الماء.
+</p>
+
+<div class="meta">
+<span>منذ 12 دقيقة</span>
+<span>👀 2.4K</span>
+</div>
+</article>
+
+
+<article class="card">
+<span class="badge">مجتمع</span>
+
+<h3>
+ارتفاع مفاجئ في أسعار سلطع البرجر
+</h3>
+
+<p>
+مصادر من السوق تؤكد أن السعر «بيتحرك مع التيار»
+والمواطنون يطالبون بحل عاجل.
+</p>
+
+<div class="meta">
+<span>منذ 28 دقيقة</span>
+<span>😂 1.8K</span>
+</div>
+</article>
+
+
+<article class="card">
+<span class="badge">خدمات</span>
+
+<h3>
+اختفاء موقف الحافلة رقم 7
+</h3>
+
+<p>
+شهود عيان قالوا إن الموقف كان موجودًا صباحًا
+ثم اختفى مع أول موجة.
+</p>
+
+<div class="meta">
+<span>منذ ساعة</span>
+<span>🤯 960</span>
+</div>
+</article>
+
+
+<article class="card">
+<span class="badge">اقتصاد القاع</span>
+
+<h3>
+بورصة الطحالب تسجل ارتفاعًا تاريخيًا
+</h3>
+
+<p>
+خبراء القاع ينصحون المواطنين بالهدوء
+وعدم اتخاذ قرارات بناءً على منشور عشوائي.
+</p>
+
+<div class="meta">
+<span>اليوم</span>
+<span>📈 740</span>
+</div>
+</article>
+
+
+<article class="card">
+<span class="badge">رياضة</span>
+
+<h3>
+فريق حي الصدف يعلن عن مباراة الليلة
+</h3>
+
+<p>
+الجمهور مطالب بالحضور مبكرًا بسبب توقعات
+بزيادة التيار عند بداية المباراة.
+</p>
+
+<div class="meta">
+<span>اليوم</span>
+<span>🔥 1.2K</span>
+</div>
+</article>
+
+
+<article class="card">
+<span class="badge">منوعات</span>
+
+<h3>
+عودة الواي فاي تشعل احتفالات القاع
+</h3>
+
+<p>
+الاحتفالات بدأت من الميناء ووصلت إلى آخر شارع
+الصدف خلال دقائق.
+</p>
+
+<div class="meta">
+<span>اليوم</span>
+<span>❤️ 2.1K</span>
+</div>
+</article>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- COMPLAINTS -->
+
+<section id="complaints">
+
+<div class="container">
+
+<div class="section-head">
+
+<div>
+<h2>📢 شكاوى أهالي القاع</h2>
+<p>أصوات السكان ومشاكلهم اليومية</p>
+</div>
+
+</div>
+
+
+<div class="news-grid">
+
+<div class="card">
+
+<span class="badge">
+شكوى مواطن
+</span>
+
+<h3>
+«الميه ضعيفة من امبارح»
+</h3>
+
+<p>
+أحد السكان يقول إن ضغط المياه أصبح أقل
+من المعتاد ويطالب المسؤولين بالتحرك.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<span class="badge">
+شكوى مواطن
+</span>
+
+<h3>
+«مين ركن مركبته قدام البيت؟»
+</h3>
+
+<p>
+شكوى جديدة بسبب مركبة كبيرة أغلقت مدخل
+شارع المرجان بالكامل.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<span class="badge">
+شكوى مواطن
+</span>
+
+<h3>
+«الأسعار بقت غرقانة»
+</h3>
+
+<p>
+مواطنون يطالبون بتوضيح سبب ارتفاع
+أسعار بعض المنتجات البحرية.
+</p>
 
 </div>
 
@@ -1512,89 +1051,240 @@ onclick="showPage('calculator')"
 </section>
 
 
-<section class="section">
+<!-- MAP -->
+
+<section id="map">
 
 <div class="container">
 
-<div class="section-title">
+<div class="section-head">
 
-<div class="small">
-YOUR FITNESS JOURNEY
+<div>
+<h2>🗺️ خريطة قاع الهامور</h2>
+<p>أشهر مناطق عالم القاع</p>
 </div>
-
-<h2>
-ماذا تريد أن تفعل اليوم؟
-</h2>
-
-<p>
-كل أدواتك في مكان واحد.
-</p>
 
 </div>
 
-<div class="grid">
 
-<div class="card">
+<div class="map-grid">
 
-<div class="card-icon">🔥</div>
+<div class="location-card"
+onclick="locationMessage('شارع المرجان')">
+<div class="location-icon">🏘️</div>
+<b>شارع المرجان</b>
+<small>منطقة سكنية</small>
+</div>
+
+<div class="location-card"
+onclick="locationMessage('ميدان البرجر')">
+<div class="location-icon">🍔</div>
+<b>ميدان البرجر</b>
+<small>مطاعم ومحلات</small>
+</div>
+
+<div class="location-card"
+onclick="locationMessage('ميناء القاع')">
+<div class="location-icon">⚓</div>
+<b>ميناء القاع</b>
+<small>حركة يومية</small>
+</div>
+
+<div class="location-card"
+onclick="locationMessage('حي الصدف')">
+<div class="location-icon">🐚</div>
+<b>حي الصدف</b>
+<small>المنطقة القديمة</small>
+</div>
+
+<div class="location-card"
+onclick="locationMessage('سوق الطحالب')">
+<div class="location-icon">🏪</div>
+<b>سوق الطحالب</b>
+<small>تجارة القاع</small>
+</div>
+
+<div class="location-card"
+onclick="locationMessage('جامعة الأعماق')">
+<div class="location-icon">🎓</div>
+<b>جامعة الأعماق</b>
+<small>التعليم</small>
+</div>
+
+<div class="location-card"
+onclick="locationMessage('ملعب الشعب')">
+<div class="location-icon">🏟️</div>
+<b>ملعب الشعب</b>
+<small>رياضة</small>
+</div>
+
+<div class="location-card"
+onclick="locationMessage('شاطئ الفقاعات')">
+<div class="location-icon">🌴</div>
+<b>شاطئ الفقاعات</b>
+<small>ترفيه</small>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CHARACTERS -->
+
+<section id="characters">
+
+<div class="container">
+
+<div class="section-head">
+
+<div>
+<h2>👥 سكان القاع</h2>
+<p>شخصيات أصلية من عالم أخبار قاع الهامور</p>
+</div>
+
+</div>
+
+
+<div class="character-grid">
+
+<div class="card character">
+
+<div class="character-avatar">
+🐚
+</div>
+
+<span class="badge">
+شخصية
+</span>
 
 <h3>
-احسب احتياجك
+عم صدف
 </h3>
 
 <p>
-اعرف السعرات والبروتين بشكل تقريبي حسب بياناتك ونشاطك.
+أقدم سكان الحي، عنده تعليق على كل حاجة
+وكل خبر عنده قصة.
 </p>
+
+</div>
+
+
+<div class="card character">
+
+<div class="character-avatar">
+⚓
+</div>
+
+<span class="badge">
+شخصية
+</span>
+
+<h3>
+القبطان فلفل
+</h3>
+
+<p>
+راجل الميناء اللي يعرف الأخبار قبل
+ما تنزل الجريدة.
+</p>
+
+</div>
+
+
+<div class="card character">
+
+<div class="character-avatar">
+📢
+</div>
+
+<span class="badge">
+مراسلة
+</span>
+
+<h3>
+مرجانة
+</h3>
+
+<p>
+أشهر مراسلة في القاع، دايمًا أول واحدة
+توصل لمكان الحدث.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SUBMIT + GENERATOR -->
+
+<section id="submit">
+
+<div class="container">
+
+<div class="complaint-grid">
+
+<div class="form">
+
+<div class="section-head">
+<div>
+<h2>📝 قدم شكوى</h2>
+<p>خلي صوتك يوصل للقاع</p>
+</div>
+</div>
+
+<label>
+عنوان الشكوى
+</label>
+
+<input
+id="complaintTitle"
+placeholder="مثال: أزمة في شارع المرجان"
+>
+
+<label>
+تفاصيل الشكوى
+</label>
+
+<textarea
+id="complaintText"
+placeholder="اكتب اللي حصل..."
+></textarea>
 
 <button
 class="btn btn-primary"
-onclick="showPage('calculator')"
->
-ابدأ الحاسبة
+onclick="submitComplaint()">
+إرسال الشكوى 🌊
 </button>
 
 </div>
 
 
-<div class="card">
+<div class="form generator">
 
-<div class="card-icon">🏋️</div>
-
-<h3>
-اختر برنامجك
-</h3>
-
-<p>
-PPL و Upper/Lower و Full Body و Arnold وغيرها.
-</p>
-
-<button
-class="btn btn-primary"
-onclick="showPage('workouts')"
->
-شاهد البرامج
-</button>
-
+<div class="section-head">
+<div>
+<h2>🎭 مولّد مواقف القاع</h2>
+<p>اضغط وشوف موقفًا عشوائيًا</p>
+</div>
 </div>
 
-
-<div class="card">
-
-<div class="card-icon">📈</div>
-
-<h3>
-تابع تطورك
-</h3>
-
-<p>
-سجل أوزانك وتابع مستواك وأرقامك باستمرار.
-</p>
+<div
+class="story-box"
+id="storyBox">
+اضغط الزر وشوف إيه اللي هيحصل تحت البحر 👀
+</div>
 
 <button
 class="btn btn-primary"
-onclick="showPage('progress')"
->
-تطوري
+onclick="generateStory()">
+🔥 ولّع القاع
 </button>
 
 </div>
@@ -1606,59 +1296,35 @@ onclick="showPage('progress')"
 </section>
 
 
-<section class="section">
+<!-- CONTACT -->
+
+<section id="contact">
 
 <div class="container">
 
-<div class="section-title">
+<div class="card contact">
 
-<div class="small">
-FITNESS DASHBOARD
+<div class="contact-logo">
+🌊🐟🫧
 </div>
 
 <h2>
-ملخصك السريع
+تواصل مع أخبار قاع الهامور
 </h2>
 
-</div>
+<p style="color:var(--muted);margin-top:10px">
+تابعنا على Instagram وشوف كل جديد من عالم القاع.
+</p>
 
-<div class="dashboard">
+<a
+class="instagram"
+href="https://www.instagram.com/h_e_n_d_o_1/"
+target="_blank"
+rel="noopener noreferrer">
 
-<div class="dash">
+📸 Instagram — @h_e_n_d_o_1
 
-<div class="dash-title">
-السعرات المحسوبة
-</div>
-
-<div class="dash-value" id="homeCalories">
--- kcal
-</div>
-
-</div>
-
-<div class="dash">
-
-<div class="dash-title">
-البروتين
-</div>
-
-<div class="dash-value" id="homeProtein">
--- g
-</div>
-
-</div>
-
-<div class="dash">
-
-<div class="dash-title">
-التمارين المسجلة
-</div>
-
-<div class="dash-value" id="homeExercises">
-0
-</div>
-
-</div>
+</a>
 
 </div>
 
@@ -1669,2859 +1335,187 @@ FITNESS DASHBOARD
 </main>
 
 
-<!-- =====================================================
-     CALCULATOR
-===================================================== -->
-
-<section id="calculator" class="page">
-
-<div class="container">
-
-<div class="page-header">
-
-<h1>
-🔥 حاسبة السعرات والبروتين
-</h1>
-
-<p>
-احسب احتياجك اليومي بشكل تقريبي
-</p>
-
-</div>
-
-
-<div class="form-card">
-
-<div class="field">
-
-<label>
-الوزن بالكيلو
-</label>
-
-<input
-type="number"
-id="weight"
-placeholder="مثال: 75"
->
-
-</div>
-
-
-<div class="field">
-
-<label>
-الطول بالسنتيمتر
-</label>
-
-<input
-type="number"
-id="height"
-placeholder="مثال: 175"
->
-
-</div>
-
-
-<div class="field">
-
-<label>
-العمر
-</label>
-
-<input
-type="number"
-id="age"
-placeholder="مثال: 17"
->
-
-</div>
-
-
-<div class="field">
-
-<label>
-النشاط
-</label>
-
-<select id="activity">
-
-<option value="1.2">
-خامل
-</option>
-
-<option value="1.375">
-نشاط خفيف
-</option>
-
-<option value="1.55" selected>
-نشاط متوسط
-</option>
-
-<option value="1.725">
-نشاط مرتفع
-</option>
-
-</select>
-
-</div>
-
-
-<button
-class="btn btn-primary"
-style="width:100%"
-onclick="calculate()"
->
-احسب احتياجي 🎯
-</button>
-
-
-<div id="calcResult" class="result">
-
-السعرات:
-
-<strong id="caloriesResult">
-0
-</strong>
-
-<br><br>
-
-البروتين:
-
-<strong id="proteinResult">
-0
-</strong>
-
-جرام
-
-</div>
-
-</div>
-
-
-<div class="section">
-
-<div class="section-title">
-
-<h2>
-🎯 اختر هدفك
-</h2>
-
-<p>
-بعد معرفة سعرات المحافظة، اختار هدفك.
-</p>
-
-</div>
-
-<div class="goal-buttons">
-
-<button
-class="goal-btn"
-onclick="showGoal('cut')"
->
-🔥 تنشيف
-</button>
-
-<button
-class="goal-btn"
-onclick="showGoal('maintain')"
->
-⚖️ ثبات
-</button>
-
-<button
-class="goal-btn"
-onclick="showGoal('bulk')"
->
-💪 زيادة تدريجية
-</button>
-
-</div>
-
-<div
-id="goalResult"
-class="form-card"
-style="display:none;text-align:center"
-></div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     WORKOUTS
-===================================================== -->
-
-<section id="workouts" class="page">
-
-<div class="container">
-
-<div class="page-header">
-
-<h1>
-🏋️ Training Programs
-</h1>
-
-<p>
-اختار النظام المناسب لك
-</p>
-
-</div>
-
-
-<div class="program-tabs">
-
-<button class="active"
-onclick="program('ppl',this)">
-PPL
-</button>
-
-<button onclick="program('ul',this)">
-Upper / Lower
-</button>
-
-<button onclick="program('fb',this)">
-Full Body
-</button>
-
-<button onclick="program('arnold',this)">
-Arnold Split
-</button>
-
-<button onclick="program('ap',this)">
-Anterior / Posterior
-</button>
-
-</div>
-
-
-<!-- PPL -->
-
-<div id="ppl" class="program active">
-
-<div class="day">
-
-<div class="day-header">
-<h3>1️⃣ Push — صدر / كتف / تراي</h3>
-<span>5 تمارين</span>
-</div>
-
-<div class="exercise">
-<div>
-<div class="exercise-name">Bench Press</div>
-<div class="exercise-muscle">الصدر</div>
-</div>
-<div class="exercise-info">4 × 6–10</div>
-</div>
-
-<div class="exercise">
-<div>
-<div class="exercise-name">Incline Dumbbell Press</div>
-<div class="exercise-muscle">أعلى الصدر</div>
-</div>
-<div class="exercise-info">3 × 8–12</div>
-</div>
-
-<div class="exercise">
-<div>
-<div class="exercise-name">Shoulder Press</div>
-<div class="exercise-muscle">الكتف</div>
-</div>
-<div class="exercise-info">3 × 8–12</div>
-</div>
-
-<div class="exercise">
-<div>
-<div class="exercise-name">Lateral Raise</div>
-<div class="exercise-muscle">الكتف الجانبي</div>
-</div>
-<div class="exercise-info">3 × 12–15</div>
-</div>
-
-<div class="exercise">
-<div>
-<div class="exercise-name">Triceps Pushdown</div>
-<div class="exercise-muscle">الترايسبس</div>
-</div>
-<div class="exercise-info">3 × 10–15</div>
-</div>
-
-</div>
-
-
-<div class="day">
-
-<div class="day-header">
-<h3>2️⃣ Pull — ظهر / باي</h3>
-<span>5 تمارين</span>
-</div>
-
-<div class="exercise">
-<div>
-<div class="exercise-name">Lat Pulldown</div>
-<div class="exercise-muscle">الظهر العريض</div>
-</div>
-<div class="exercise-info">4 × 8–12</div>
-</div>
-
-<div class="exercise">
-<div>
-<div class="exercise-name">Barbell Row</div>
-<div class="exercise-muscle">سماكة الظهر</div>
-</div>
-<div class="exercise-info">3 × 6–10</div>
-</div>
-
-<div class="exercise">
-<div>
-<div class="exercise-name">Seated Cable Row</div>
-<div class="exercise-muscle">منتصف الظهر</div>
-</div>
-<div class="exercise-info">3 × 8–12</div>
-</div>
-
-<div class="exercise">
-<div>
-<div class="exercise-name">Preacher Curl</div>
-<div class="exercise-muscle">البايسبس</div>
-</div>
-<div class="exercise-info">3 × 8–12</div>
-</div>
-
-<div class="exercise">
-<div>
-<div class="exercise-name">Hammer Curl</div>
-<div class="exercise-muscle">البايسبس / الساعد</div>
-</div>
-<div class="exercise-info">3 × 10–12</div>
-</div>
-
-</div>
-
-
-<div class="day">
-
-<div class="day-header">
-<h3>3️⃣ Legs — الرجل</h3>
-<span>5 تمارين</span>
-</div>
-
-<div class="exercise">
-<div>
-<div class="exercise-name">Squat</div>
-<div class="exercise-muscle">الفخذ الأمامي</div>
-</div>
-<div class="exercise-info">4 × 6–10</div>
-</div>
-
-<div class="exercise">
-<div>
-<div class="exercise-name">Leg Press</div>
-<div class="exercise-muscle">الفخذ</div>
-</div>
-<div class="exercise-info">3 × 8–12</div>
-</div>
-
-<div class="exercise">
-<div>
-<div class="exercise-name">Leg Extension</div>
-<div class="exercise-muscle">الفخذ الأمامي</div>
-</div>
-<div class="exercise-info">3 × 10–15</div>
-</div>
-
-<div class="exercise">
-<div>
-<div class="exercise-name">Leg Curl</div>
-<div class="exercise-muscle">الخلفية</div>
-</div>
-<div class="exercise-info">3 × 10–15</div>
-</div>
-
-<div class="exercise">
-<div>
-<div class="exercise-name">Calf Raise</div>
-<div class="exercise-muscle">السمانة</div>
-</div>
-<div class="exercise-info">4 × 12–15</div>
-</div>
-
-</div>
-
-</div>
-
-
-<!-- UPPER LOWER -->
-
-<div id="ul" class="program">
-
-<div class="day">
-
-<div class="day-header">
-<h3>1️⃣ Upper A</h3>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Bench Press</div>
-<div class="exercise-info">3 × 6–10</div>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Lat Pulldown</div>
-<div class="exercise-info">3 × 8–12</div>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Incline Dumbbell Press</div>
-<div class="exercise-info">3 × 8–12</div>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Cable Row</div>
-<div class="exercise-info">3 × 8–12</div>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Lateral Raise</div>
-<div class="exercise-info">3 × 12–15</div>
-</div>
-
-</div>
-
-
-<div class="day">
-
-<div class="day-header">
-<h3>2️⃣ Lower A</h3>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Squat</div>
-<div class="exercise-info">3 × 6–10</div>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Leg Press</div>
-<div class="exercise-info">3 × 8–12</div>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Leg Curl</div>
-<div class="exercise-info">3 × 10–15</div>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Calf Raise</div>
-<div class="exercise-info">4 × 12–15</div>
-</div>
-
-</div>
-
-
-<div class="day">
-
-<div class="day-header">
-<h3>3️⃣ Upper B</h3>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Incline Bench Press</div>
-<div class="exercise-info">3 × 6–10</div>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Barbell Row</div>
-<div class="exercise-info">3 × 6–10</div>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Shoulder Press</div>
-<div class="exercise-info">3 × 8–12</div>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Preacher Curl</div>
-<div class="exercise-info">3 × 10–12</div>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Triceps Pushdown</div>
-<div class="exercise-info">3 × 10–15</div>
-</div>
-
-</div>
-
-
-<div class="day">
-
-<div class="day-header">
-<h3>4️⃣ Lower B</h3>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Leg Press</div>
-<div class="exercise-info">3 × 8–12</div>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Romanian Deadlift</div>
-<div class="exercise-info">3 × 8–12</div>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Leg Extension</div>
-<div class="exercise-info">3 × 10–15</div>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Leg Curl</div>
-<div class="exercise-info">3 × 10–15</div>
-</div>
-
-</div>
-
-</div>
-
-
-<!-- FULL BODY -->
-
-<div id="fb" class="program">
-
-<div class="day">
-
-<div class="day-header">
-<h3>Full Body A</h3>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Squat</div>
-<div class="exercise-info">3 × 6–10</div>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Bench Press</div>
-<div class="exercise-info">3 × 6–10</div>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Lat Pulldown</div>
-<div class="exercise-info">3 × 8–12</div>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Lateral Raise</div>
-<div class="exercise-info">3 × 12–15</div>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Preacher Curl</div>
-<div class="exercise-info">2 × 10–12</div>
-</div>
-
-</div>
-
-
-<div class="day">
-
-<div class="day-header">
-<h3>Full Body B</h3>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Leg Press</div>
-<div class="exercise-info">3 × 8–12</div>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Incline Dumbbell Press</div>
-<div class="exercise-info">3 × 8–12</div>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Cable Row</div>
-<div class="exercise-info">3 × 8–12</div>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Shoulder Press</div>
-<div class="exercise-info">2 × 8–12</div>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Hammer Curl</div>
-<div class="exercise-info">2 × 10–12</div>
-</div>
-
-</div>
-
-</div>
-
-
-<!-- ARNOLD -->
-
-<div id="arnold" class="program">
-
-<div class="day">
-
-<div class="day-header">
-<h3>1️⃣ Chest + Back</h3>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Bench Press</div>
-<div class="exercise-info">4 × 6–10</div>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Incline Dumbbell Press</div>
-<div class="exercise-info">3 × 8–12</div>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Lat Pulldown</div>
-<div class="exercise-info">4 × 8–12</div>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Barbell Row</div>
-<div class="exercise-info">3 × 6–10</div>
-</div>
-
-</div>
-
-
-<div class="day">
-
-<div class="day-header">
-<h3>2️⃣ Shoulders + Arms</h3>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Shoulder Press</div>
-<div class="exercise-info">3 × 8–12</div>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Lateral Raise</div>
-<div class="exercise-info">4 × 12–15</div>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Preacher Curl</div>
-<div class="exercise-info">3 × 8–12</div>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Hammer Curl</div>
-<div class="exercise-info">3 × 10–12</div>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Triceps Pushdown</div>
-<div class="exercise-info">3 × 10–15</div>
-</div>
-
-</div>
-
-
-<div class="day">
-
-<div class="day-header">
-<h3>3️⃣ Legs</h3>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Squat</div>
-<div class="exercise-info">4 × 6–10</div>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Leg Press</div>
-<div class="exercise-info">3 × 8–12</div>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Leg Extension</div>
-<div class="exercise-info">3 × 10–15</div>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Leg Curl</div>
-<div class="exercise-info">3 × 10–15</div>
-</div>
-
-</div>
-
-</div>
-
-
-<!-- ANTERIOR POSTERIOR -->
-
-<div id="ap" class="program">
-
-<div class="day">
-
-<div class="day-header">
-<h3>1️⃣ Anterior</h3>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Bench Press</div>
-<div class="exercise-info">3 × 6–10</div>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Incline Dumbbell Press</div>
-<div class="exercise-info">3 × 8–12</div>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Shoulder Press</div>
-<div class="exercise-info">3 × 8–12</div>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Squat</div>
-<div class="exercise-info">3 × 6–10</div>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Leg Extension</div>
-<div class="exercise-info">3 × 10–15</div>
-</div>
-
-</div>
-
-
-<div class="day">
-
-<div class="day-header">
-<h3>2️⃣ Posterior</h3>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Lat Pulldown</div>
-<div class="exercise-info">3 × 8–12</div>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Barbell Row</div>
-<div class="exercise-info">3 × 6–10</div>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Romanian Deadlift</div>
-<div class="exercise-info">3 × 8–12</div>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Leg Curl</div>
-<div class="exercise-info">3 × 10–15</div>
-</div>
-
-<div class="exercise">
-<div class="exercise-name">Calf Raise</div>
-<div class="exercise-info">4 × 12–15</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     PROFESSIONAL PROGRESS
-===================================================== -->
-
-<section id="progress" class="page">
-
-<div class="container">
-
-<div class="page-header">
-
-<h1>
-📈 مركز تطوري
-</h1>
-
-<p>
-لو أنت بتتمرن بجد، هنا أرقامك كلها في مكان واحد.
-</p>
-
-</div>
-
-
-<!-- HERO PROGRESS -->
-
-<div class="progress-hero">
-
-<div class="progress-hero-top">
-
-<div class="progress-title">
-
-<h2>
-🚀 لوحة تقدمك الشخصية
-</h2>
-
-<p>
-سجل أوزانك، اكسر أرقامك، وراقب مستواك مع الوقت.
-</p>
-
-</div>
-
-<div class="progress-badge" id="progressLevel">
-مبتدئ 🟢
-</div>
-
-</div>
-
-
-<div class="progress-main-grid">
-
-<div class="progress-score">
-
-<div class="score-label">
-نسبة اكتمال سجل التمارين
-</div>
-
-<div class="score-number" id="progressPercent">
-0%
-</div>
-
-<div class="progress-bar">
-
-<div
-class="progress-fill"
-id="progressFill"
-></div>
-
-</div>
-
-<div class="progress-meta">
-
-<span id="progressCompleted">
-0 من 20 تمرين
-</span>
-
-<span>
-استمر 💪
-</span>
-
-</div>
-
-</div>
-
-
-<div class="level-card">
-
-<div class="level-icon" id="levelIcon">
-🌱
-</div>
-
-<h3 id="levelTitle">
-بداية الطريق
-</h3>
-
-<p id="levelDescription">
-ابدأ بتسجيل أوزانك حتى يبدأ النظام في حساب تقدمك.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- STATS -->
-
-<div class="progress-stats">
-
-<div class="progress-stat-card">
-
-<div class="progress-stat-icon">
-🏋️
-</div>
-
-<span
-class="progress-stat-number"
-id="statExercises"
->
-0
-</span>
-
-<span class="progress-stat-label">
-تمرين مسجل
-</span>
-
-</div>
-
-
-<div class="progress-stat-card">
-
-<div class="progress-stat-icon">
-⚡
-</div>
-
-<span
-class="progress-stat-number"
-id="statTotalWeight"
->
-0
-</span>
-
-<span class="progress-stat-label">
-إجمالي الأوزان kg
-</span>
-
-</div>
-
-
-<div class="progress-stat-card">
-
-<div class="progress-stat-icon">
-🏆
-</div>
-
-<span
-class="progress-stat-number"
-id="statBest"
->
-0
-</span>
-
-<span class="progress-stat-label">
-أعلى وزن مسجل
-</span>
-
-</div>
-
-
-<div class="progress-stat-card">
-
-<div class="progress-stat-icon">
-📅
-</div>
-
-<span
-class="progress-stat-number"
-id="statDays"
->
-0
-</span>
-
-<span class="progress-stat-label">
-عدد أيام التسجيل
-</span>
-
-</div>
-
-</div>
-
-
-<!-- BODY WEIGHT -->
-
-<div class="progress-section-card">
-
-<div class="progress-section-head">
-
-<div>
-
-<h3>
-⚖️ وزن الجسم
-</h3>
-
-<span>
-سجل وزنك الحالي واحتفظ بآخر تحديث.
-</span>
-
-</div>
-
-</div>
-
-
-<div class="body-progress">
-
-<div class="body-box">
-
-<h4>
-آخر وزن للجسم
-</h4>
-
-<div class="body-input">
-
-<input
-type="number"
-step="0.1"
-id="bodyWeight"
-placeholder="مثال: 75"
->
-
-<button
-class="save-mini"
-onclick="saveBodyWeight()"
->
-حفظ
-</button>
-
-</div>
-
-<div
-class="body-history"
-id="savedWeight"
->
-لم يتم تسجيل وزن حتى الآن.
-</div>
-
-</div>
-
-
-<div class="body-box">
-
-<h4>
-📌 آخر تحديث
-</h4>
-
-<div
-class="body-history"
-id="lastUpdate"
->
-لا توجد بيانات بعد.
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- EXERCISES -->
-
-<div class="progress-section-card">
-
-<div class="progress-section-head">
-
-<div>
-
-<h3>
-🏋️ سجل أوزان التمارين
-</h3>
-
-<span>
-اكتب أقصى وزن أو الوزن الذي تعمل به حاليًا لكل تمرين.
-</span>
-
-</div>
-
-<button
-class="clear-progress"
-onclick="clearProgress()"
->
-مسح البيانات
-</button>
-
-</div>
-
-
-<div class="exercise-progress-grid">
-
-
-<!-- CHEST -->
-
-<div class="exercise-progress-card">
-
-<div class="exercise-progress-top">
-
-<div class="exercise-progress-name">
-Bench Press
-</div>
-
-<div class="exercise-muscle-tag">
-صدر
-</div>
-
-</div>
-
-<div class="exercise-input-row">
-
-<input
-type="number"
-step="0.5"
-id="bench"
-placeholder="kg"
->
-
-<button
-class="save-mini"
-onclick="saveProfessionalExercise('bench','Bench Press')"
->
-حفظ
-</button>
-
-</div>
-
-<div
-class="exercise-saved"
-id="benchSaved"
-></div>
-
-</div>
-
-
-<div class="exercise-progress-card">
-
-<div class="exercise-progress-top">
-
-<div class="exercise-progress-name">
-Incline Dumbbell Press
-</div>
-
-<div class="exercise-muscle-tag">
-صدر علوي
-</div>
-
-</div>
-
-<div class="exercise-input-row">
-
-<input
-type="number"
-step="0.5"
-id="incline"
-placeholder="kg"
->
-
-<button
-class="save-mini"
-onclick="saveProfessionalExercise('incline','Incline Dumbbell Press')"
->
-حفظ
-</button>
-
-</div>
-
-<div
-class="exercise-saved"
-id="inclineSaved"
-></div>
-
-</div>
-
-
-<div class="exercise-progress-card">
-
-<div class="exercise-progress-top">
-
-<div class="exercise-progress-name">
-Chest Fly
-</div>
-
-<div class="exercise-muscle-tag">
-صدر
-</div>
-
-</div>
-
-<div class="exercise-input-row">
-
-<input
-type="number"
-step="0.5"
-id="chestfly"
-placeholder="kg"
->
-
-<button
-class="save-mini"
-onclick="saveProfessionalExercise('chestfly','Chest Fly')"
->
-حفظ
-</button>
-
-</div>
-
-<div
-class="exercise-saved"
-id="chestflySaved"
-></div>
-
-</div>
-
-
-<!-- BACK -->
-
-<div class="exercise-progress-card">
-
-<div class="exercise-progress-top">
-
-<div class="exercise-progress-name">
-Lat Pulldown
-</div>
-
-<div class="exercise-muscle-tag">
-ظهر
-</div>
-
-</div>
-
-<div class="exercise-input-row">
-
-<input
-type="number"
-step="0.5"
-id="lat"
-placeholder="kg"
->
-
-<button
-class="save-mini"
-onclick="saveProfessionalExercise('lat','Lat Pulldown')"
->
-حفظ
-</button>
-
-</div>
-
-<div
-class="exercise-saved"
-id="latSaved"
-></div>
-
-</div>
-
-
-<div class="exercise-progress-card">
-
-<div class="exercise-progress-top">
-
-<div class="exercise-progress-name">
-Barbell Row
-</div>
-
-<div class="exercise-muscle-tag">
-ظهر
-</div>
-
-</div>
-
-<div class="exercise-input-row">
-
-<input
-type="number"
-step="0.5"
-id="row"
-placeholder="kg"
->
-
-<button
-class="save-mini"
-onclick="saveProfessionalExercise('row','Barbell Row')"
->
-حفظ
-</button>
-
-</div>
-
-<div
-class="exercise-saved"
-id="rowSaved"
-></div>
-
-</div>
-
-
-<div class="exercise-progress-card">
-
-<div class="exercise-progress-top">
-
-<div class="exercise-progress-name">
-Seated Cable Row
-</div>
-
-<div class="exercise-muscle-tag">
-ظهر
-</div>
-
-</div>
-
-<div class="exercise-input-row">
-
-<input
-type="number"
-step="0.5"
-id="cableRow"
-placeholder="kg"
->
-
-<button
-class="save-mini"
-onclick="saveProfessionalExercise('cableRow','Seated Cable Row')"
->
-حفظ
-</button>
-
-</div>
-
-<div
-class="exercise-saved"
-id="cableRowSaved"
-></div>
-
-</div>
-
-
-<!-- SHOULDERS -->
-
-<div class="exercise-progress-card">
-
-<div class="exercise-progress-top">
-
-<div class="exercise-progress-name">
-Shoulder Press
-</div>
-
-<div class="exercise-muscle-tag">
-كتف
-</div>
-
-</div>
-
-<div class="exercise-input-row">
-
-<input
-type="number"
-step="0.5"
-id="shoulder"
-placeholder="kg"
->
-
-<button
-class="save-mini"
-onclick="saveProfessionalExercise('shoulder','Shoulder Press')"
->
-حفظ
-</button>
-
-</div>
-
-<div
-class="exercise-saved"
-id="shoulderSaved"
-></div>
-
-</div>
-
-
-<div class="exercise-progress-card">
-
-<div class="exercise-progress-top">
-
-<div class="exercise-progress-name">
-Lateral Raise
-</div>
-
-<div class="exercise-muscle-tag">
-كتف جانبي
-</div>
-
-</div>
-
-<div class="exercise-input-row">
-
-<input
-type="number"
-step="0.5"
-id="lateral"
-placeholder="kg"
->
-
-<button
-class="save-mini"
-onclick="saveProfessionalExercise('lateral','Lateral Raise')"
->
-حفظ
-</button>
-
-</div>
-
-<div
-class="exercise-saved"
-id="lateralSaved"
-></div>
-
-</div>
-
-
-<div class="exercise-progress-card">
-
-<div class="exercise-progress-top">
-
-<div class="exercise-progress-name">
-Rear Delt Fly
-</div>
-
-<div class="exercise-muscle-tag">
-كتف خلفي
-</div>
-
-</div>
-
-<div class="exercise-input-row">
-
-<input
-type="number"
-step="0.5"
-id="rearDelt"
-placeholder="kg"
->
-
-<button
-class="save-mini"
-onclick="saveProfessionalExercise('rearDelt','Rear Delt Fly')"
->
-حفظ
-</button>
-
-</div>
-
-<div
-class="exercise-saved"
-id="rearDeltSaved"
-></div>
-
-</div>
-
-
-<!-- BICEPS -->
-
-<div class="exercise-progress-card">
-
-<div class="exercise-progress-top">
-
-<div class="exercise-progress-name">
-Preacher Curl
-</div>
-
-<div class="exercise-muscle-tag">
-بايسبس
-</div>
-
-</div>
-
-<div class="exercise-input-row">
-
-<input
-type="number"
-step="0.5"
-id="preacher"
-placeholder="kg"
->
-
-<button
-class="save-mini"
-onclick="saveProfessionalExercise('preacher','Preacher Curl')"
->
-حفظ
-</button>
-
-</div>
-
-<div
-class="exercise-saved"
-id="preacherSaved"
-></div>
-
-</div>
-
-
-<div class="exercise-progress-card">
-
-<div class="exercise-progress-top">
-
-<div class="exercise-progress-name">
-Hammer Curl
-</div>
-
-<div class="exercise-muscle-tag">
-بايسبس
-</div>
-
-</div>
-
-<div class="exercise-input-row">
-
-<input
-type="number"
-step="0.5"
-id="hammer"
-placeholder="kg"
->
-
-<button
-class="save-mini"
-onclick="saveProfessionalExercise('hammer','Hammer Curl')"
->
-حفظ
-</button>
-
-</div>
-
-<div
-class="exercise-saved"
-id="hammerSaved"
-></div>
-
-</div>
-
-
-<div class="exercise-progress-card">
-
-<div class="exercise-progress-top">
-
-<div class="exercise-progress-name">
-Barbell Curl
-</div>
-
-<div class="exercise-muscle-tag">
-بايسبس
-</div>
-
-</div>
-
-<div class="exercise-input-row">
-
-<input
-type="number"
-step="0.5"
-id="barbellCurl"
-placeholder="kg"
->
-
-<button
-class="save-mini"
-onclick="saveProfessionalExercise('barbellCurl','Barbell Curl')"
->
-حفظ
-</button>
-
-</div>
-
-<div
-class="exercise-saved"
-id="barbellCurlSaved"
-></div>
-
-</div>
-
-
-<!-- TRICEPS -->
-
-<div class="exercise-progress-card">
-
-<div class="exercise-progress-top">
-
-<div class="exercise-progress-name">
-Triceps Pushdown
-</div>
-
-<div class="exercise-muscle-tag">
-ترايسبس
-</div>
-
-</div>
-
-<div class="exercise-input-row">
-
-<input
-type="number"
-step="0.5"
-id="triceps"
-placeholder="kg"
->
-
-<button
-class="save-mini"
-onclick="saveProfessionalExercise('triceps','Triceps Pushdown')"
->
-حفظ
-</button>
-
-</div>
-
-<div
-class="exercise-saved"
-id="tricepsSaved"
-></div>
-
-</div>
-
-
-<div class="exercise-progress-card">
-
-<div class="exercise-progress-top">
-
-<div class="exercise-progress-name">
-Skull Crushers
-</div>
-
-<div class="exercise-muscle-tag">
-ترايسبس
-</div>
-
-</div>
-
-<div class="exercise-input-row">
-
-<input
-type="number"
-step="0.5"
-id="skull"
-placeholder="kg"
->
-
-<button
-class="save-mini"
-onclick="saveProfessionalExercise('skull','Skull Crushers')"
->
-حفظ
-</button>
-
-</div>
-
-<div
-class="exercise-saved"
-id="skullSaved"
-></div>
-
-</div>
-
-
-<!-- LEGS -->
-
-<div class="exercise-progress-card">
-
-<div class="exercise-progress-top">
-
-<div class="exercise-progress-name">
-Squat
-</div>
-
-<div class="exercise-muscle-tag">
-رجل
-</div>
-
-</div>
-
-<div class="exercise-input-row">
-
-<input
-type="number"
-step="0.5"
-id="squat"
-placeholder="kg"
->
-
-<button
-class="save-mini"
-onclick="saveProfessionalExercise('squat','Squat')"
->
-حفظ
-</button>
-
-</div>
-
-<div
-class="exercise-saved"
-id="squatSaved"
-></div>
-
-</div>
-
-
-<div class="exercise-progress-card">
-
-<div class="exercise-progress-top">
-
-<div class="exercise-progress-name">
-Leg Press
-</div>
-
-<div class="exercise-muscle-tag">
-رجل
-</div>
-
-</div>
-
-<div class="exercise-input-row">
-
-<input
-type="number"
-step="0.5"
-id="legpress"
-placeholder="kg"
->
-
-<button
-class="save-mini"
-onclick="saveProfessionalExercise('legpress','Leg Press')"
->
-حفظ
-</button>
-
-</div>
-
-<div
-class="exercise-saved"
-id="legpressSaved"
-></div>
-
-</div>
-
-
-<div class="exercise-progress-card">
-
-<div class="exercise-progress-top">
-
-<div class="exercise-progress-name">
-Leg Extension
-</div>
-
-<div class="exercise-muscle-tag">
-فخذ
-</div>
-
-</div>
-
-<div class="exercise-input-row">
-
-<input
-type="number"
-step="0.5"
-id="legextension"
-placeholder="kg"
->
-
-<button
-class="save-mini"
-onclick="saveProfessionalExercise('legextension','Leg Extension')"
->
-حفظ
-</button>
-
-</div>
-
-<div
-class="exercise-saved"
-id="legextensionSaved"
-></div>
-
-</div>
-
-
-<div class="exercise-progress-card">
-
-<div class="exercise-progress-top">
-
-<div class="exercise-progress-name">
-Leg Curl
-</div>
-
-<div class="exercise-muscle-tag">
-خلفية
-</div>
-
-</div>
-
-<div class="exercise-input-row">
-
-<input
-type="number"
-step="0.5"
-id="legcurl"
-placeholder="kg"
->
-
-<button
-class="save-mini"
-onclick="saveProfessionalExercise('legcurl','Leg Curl')"
->
-حفظ
-</button>
-
-</div>
-
-<div
-class="exercise-saved"
-id="legcurlSaved"
-></div>
-
-</div>
-
-
-<div class="exercise-progress-card">
-
-<div class="exercise-progress-top">
-
-<div class="exercise-progress-name">
-Romanian Deadlift
-</div>
-
-<div class="exercise-muscle-tag">
-خلفية
-</div>
-
-</div>
-
-<div class="exercise-input-row">
-
-<input
-type="number"
-step="0.5"
-id="rdl"
-placeholder="kg"
->
-
-<button
-class="save-mini"
-onclick="saveProfessionalExercise('rdl','Romanian Deadlift')"
->
-حفظ
-</button>
-
-</div>
-
-<div
-class="exercise-saved"
-id="rdlSaved"
-></div>
-
-</div>
-
-
-<!-- CALVES / ABS -->
-
-<div class="exercise-progress-card">
-
-<div class="exercise-progress-top">
-
-<div class="exercise-progress-name">
-Calf Raise
-</div>
-
-<div class="exercise-muscle-tag">
-سمانة
-</div>
-
-</div>
-
-<div class="exercise-input-row">
-
-<input
-type="number"
-step="0.5"
-id="calf"
-placeholder="kg"
->
-
-<button
-class="save-mini"
-onclick="saveProfessionalExercise('calf','Calf Raise')"
->
-حفظ
-</button>
-
-</div>
-
-<div
-class="exercise-saved"
-id="calfSaved"
-></div>
-
-</div>
-
-
-<div class="exercise-progress-card">
-
-<div class="exercise-progress-top">
-
-<div class="exercise-progress-name">
-Cable Crunch
-</div>
-
-<div class="exercise-muscle-tag">
-بطن
-</div>
-
-</div>
-
-<div class="exercise-input-row">
-
-<input
-type="number"
-step="0.5"
-id="abs"
-placeholder="kg"
->
-
-<button
-class="save-mini"
-onclick="saveProfessionalExercise('abs','Cable Crunch')"
->
-حفظ
-</button>
-
-</div>
-
-<div
-class="exercise-saved"
-id="absSaved"
-></div>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- RECORDS -->
-
-<div class="progress-section-card">
-
-<div class="progress-section-head">
-
-<div>
-
-<h3>
-🏆 آخر الأرقام المسجلة
-</h3>
-
-<span>
-هنا ستظهر التمارين التي قمت بحفظها.
-</span>
-
-</div>
-
-</div>
-
-<div
-class="records-list"
-id="recordsList"
->
-<div class="empty-records">
-لم تسجل أي أوزان حتى الآن 💪
-</div>
-</div>
-
-</div>
-
-
-<!-- OLD COMPATIBILITY -->
-
-<div class="progress-section-card">
-
-<div class="progress-section-head">
-
-<div>
-
-<h3>
-📋 سجل سريع
-</h3>
-
-<span>
-يمكنك استخدامه بالطريقة القديمة أيضًا.
-</span>
-
-</div>
-
-</div>
-
-<table class="progress-table">
-
-<thead>
-
-<tr>
-<th>التمرين</th>
-<th>الوزن kg</th>
-<th>حفظ</th>
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-<td>
-Bench Press
-</td>
-
-<td>
-<input id="oldBench">
-</td>
-
-<td>
-
-<button
-class="btn btn-primary"
-onclick="saveExercise('oldBench','oldBenchSaved','bench')"
->
-حفظ
-</button>
-
-</td>
-
-</tr>
-
-
-<tr>
-
-<td>
-Incline Dumbbell Press
-</td>
-
-<td>
-<input id="oldIncline">
-</td>
-
-<td>
-
-<button
-class="btn btn-primary"
-onclick="saveExercise('oldIncline','oldInclineSaved','incline')"
->
-حفظ
-</button>
-
-</td>
-
-</tr>
-
-
-<tr>
-
-<td>
-Squat
-</td>
-
-<td>
-<input id="oldSquat">
-</td>
-
-<td>
-
-<button
-class="btn btn-primary"
-onclick="saveExercise('oldSquat','oldSquatSaved','squat')"
->
-حفظ
-</button>
-
-</td>
-
-</tr>
-
-
-<tr>
-
-<td>
-Preacher Curl
-</td>
-
-<td>
-<input id="oldPreacher">
-</td>
-
-<td>
-
-<button
-class="btn btn-primary"
-onclick="saveExercise('oldPreacher','oldPreacherSaved','preacher')"
->
-حفظ
-</button>
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     CONTACT
-===================================================== -->
-
-<section id="contact" class="page">
-
-<div class="container">
-
-<div class="page-header">
-
-<h1>
-📱 تواصل معنا
-</h1>
-
-<p>
-تابع Elhendawy Exercises
-</p>
-
-</div>
-
-
-<div class="social">
-
-<div class="social-card">
-
-<div class="icon">
-📸
-</div>
-
-<h3>
-Instagram
-</h3>
-
-<p>
-@h_e_n_d_o_1
-</p>
-
-<a
-class="btn btn-primary"
-href="https://www.instagram.com/h_e_n_d_o_1/"
-target="_blank"
->
-فتح Instagram
-</a>
-
-</div>
-
-
-<div class="social-card">
-
-<div class="icon">
-📞
-</div>
-
-<h3>
-الهاتف
-</h3>
-
-<p>
-01015425809
-</p>
-
-<a
-class="btn btn-primary"
-href="tel:01015425809"
->
-اتصال
-</a>
-
-</div>
-
-</div>
-
-
-<div class="section">
-
-<div class="section-title">
-
-<div class="small">
-ADVERTISEMENT
-</div>
-
-<h2>
-📢 المنطقة الإعلانية
-</h2>
-
-<p>
-مساحة مخصصة للإعلانات والشراكات.
-</p>
-
-</div>
-
-
-<div class="ad-box">
-
-<div>
-
-<div style="font-size:42px;margin-bottom:10px;">
-🚫
-</div>
-
-<strong>
-المنطقة الإعلانية غير متاحة
-</strong>
-
-<p>
-للمطور محمود الهنداوي
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-
-<div class="prayer">
-
-<h2>
-❤️ اللهم صل وسلم وبارك على نبينا محمد ﷺ ❤️
-</h2>
-
-<p>
-اجعلها صدقة جارية لنا ولكم.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
+<!-- FOOTER -->
 
 <footer>
 
-<div>
-ELHENDAWY EXERCISES
+<div class="container">
+
+<div style="font-size:20px">
+🌊 <strong>أخبار قاع الهامور</strong>
 </div>
 
-<p>
-Train Smart • Build Strong
-</p>
+<div style="margin-top:10px">
+موقع ترفيهي ساخر مستقل.
+</div>
 
-<p>
-© 2026 جميع حقوق الطبع والنشر محفوظة
-</p>
+<div style="margin-top:18px">
+© 2026 <strong>محمود الهنداوي</strong>
+— جميع الحقوق محفوظة.
+</div>
 
-<p>
-Owned by <strong>Mahmoud Elhendawy</strong>
-</p>
+</div>
 
 </footer>
 
 
+<!-- MENU MODAL -->
+
+<div
+class="modal"
+id="menuModal"
+onclick="closeOutside(event)">
+
+<div class="modal-box">
+
+<div class="modal-head">
+
+<h2>
+☰ أقسام القاع
+</h2>
+
+<button
+class="close"
+onclick="closeMenu()">
+✕
+</button>
+
+</div>
+
+
+<div class="menu-grid">
+
+<a
+class="menu-item"
+href="#news"
+onclick="closeMenu()">
+
+📰
+<b>الأخبار</b>
+
+<small>
+آخر المستجدات
+</small>
+
+</a>
+
+
+<a
+class="menu-item"
+href="#complaints"
+onclick="closeMenu()">
+
+📢
+<b>الشكاوى</b>
+
+<small>
+أهالي القاع
+</small>
+
+</a>
+
+
+<a
+class="menu-item"
+href="#map"
+onclick="closeMenu()">
+
+🗺️
+<b>الخريطة</b>
+
+<small>
+مناطق القاع
+</small>
+
+</a>
+
+
+<a
+class="menu-item"
+href="#characters"
+onclick="closeMenu()">
+
+👥
+<b>السكان</b>
+
+<small>
+شخصيات القاع
+</small>
+
+</a>
+
+
+<a
+class="menu-item"
+href="#submit"
+onclick="closeMenu()">
+
+🎭
+<b>المواقف</b>
+
+<small>
+مولّد ساخر
+</small>
+
+</a>
+
+
+<a
+class="menu-item"
+href="#contact"
+onclick="closeMenu()">
+
+📞
+<b>التواصل</b>
+
+<small>
+Instagram
+</small>
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- TOAST -->
+
 <div
 class="toast"
-id="toast"
->
-تم الحفظ بنجاح 💪
+id="toast">
 </div>
 
 
 <script>
 
 /* =========================================================
-   LOGIN SYSTEM
+   MENU
 ========================================================= */
 
-const LOGIN_USERNAME = "elhendawy developer";
-const LOGIN_PASSWORD = "12345678";
+function openMenu(){
 
-const MAX_ATTEMPTS = 3;
-const LOCK_TIME = 60 * 1000;
-
-let loginAttempts = 0;
-let lockInterval = null;
-
-
-function login(){
-
-const username =
-document.getElementById("loginUsername").value.trim();
-
-const password =
-document.getElementById("loginPassword").value;
-
-const message =
-document.getElementById("loginMessage");
-
-const attemptsText =
-document.getElementById("loginAttempts");
-
-
-if(isLocked()){
-
-startLockTimer();
-
-return;
+    document
+    .getElementById("menuModal")
+    .classList.add("show");
 
 }
 
+function closeMenu(){
 
-if(
-username === LOGIN_USERNAME &&
-password === LOGIN_PASSWORD
-){
-
-localStorage.setItem(
-"elhendawyLoggedIn",
-"true"
-);
-
-loginAttempts = 0;
-
-document.getElementById(
-"loginScreen"
-).style.display = "none";
-
-message.style.display = "none";
-
-return;
+    document
+    .getElementById("menuModal")
+    .classList.remove("show");
 
 }
 
-
-loginAttempts++;
-
-const remaining =
-MAX_ATTEMPTS - loginAttempts;
-
-
-if(remaining > 0){
-
-message.innerHTML =
-"❌ اسم المستخدم أو كلمة المرور غير صحيحة.";
-
-message.style.display = "block";
-
-attemptsText.textContent =
-"⚠️ متبقي لك " +
-remaining +
-" محاولة.";
-
-return;
-
-}
-
-
-localStorage.setItem(
-"elhendawyLoginLock",
-String(Date.now() + LOCK_TIME)
-);
-
-message.style.display = "none";
-
-attemptsText.textContent =
-"❌ تم استنفاد جميع المحاولات.";
-
-startLockTimer();
-
-}
-
-
-function isLocked(){
-
-const lockUntil =
-parseInt(
-localStorage.getItem(
-"elhendawyLoginLock"
-)
-);
-
-if(!lockUntil){
-
-return false;
-
-}
-
-
-if(Date.now() >= lockUntil){
-
-localStorage.removeItem(
-"elhendawyLoginLock"
-);
-
-loginAttempts = 0;
-
-return false;
-
-}
-
-return true;
-
-}
-
-
-function startLockTimer(){
-
-const lockBox =
-document.getElementById("loginLock");
-
-const timer =
-document.getElementById("lockTimer");
-
-const button =
-document.getElementById("loginButton");
-
-const username =
-document.getElementById("loginUsername");
-
-const password =
-document.getElementById("loginPassword");
-
-
-lockBox.style.display = "block";
-
-button.disabled = true;
-
-username.disabled = true;
-
-password.disabled = true;
-
-
-if(lockInterval){
-
-clearInterval(lockInterval);
-
-}
-
-
-function updateTimer(){
-
-const lockUntil =
-parseInt(
-localStorage.getItem(
-"elhendawyLoginLock"
-)
-);
-
-
-if(!lockUntil){
-
-unlockLogin();
-
-return;
-
-}
-
-
-const remainingMs =
-lockUntil - Date.now();
-
-
-if(remainingMs <= 0){
-
-localStorage.removeItem(
-"elhendawyLoginLock"
-);
-
-unlockLogin();
-
-return;
-
-}
-
-
-timer.textContent =
-Math.ceil(
-remainingMs / 1000
-);
-
-}
-
-
-updateTimer();
-
-lockInterval =
-setInterval(
-updateTimer,
-250
-);
-
-}
-
-
-function unlockLogin(){
-
-if(lockInterval){
-
-clearInterval(lockInterval);
-
-lockInterval = null;
-
-}
-
-loginAttempts = 0;
-
-document.getElementById(
-"loginLock"
-).style.display = "none";
-
-document.getElementById(
-"loginButton"
-).disabled = false;
-
-document.getElementById(
-"loginUsername"
-).disabled = false;
-
-document.getElementById(
-"loginPassword"
-).disabled = false;
-
-document.getElementById(
-"loginAttempts"
-).textContent =
-"لديك 3 محاولات متاحة";
-
-document.getElementById(
-"loginUsername"
-).focus();
-
-}
-
-
-/* =========================================================
-   ENTER LOGIN
-========================================================= */
-
-document.addEventListener(
-"keydown",
-function(event){
-
-const loginScreen =
-document.getElementById("loginScreen");
-
-if(
-event.key === "Enter" &&
-loginScreen &&
-loginScreen.style.display !== "none"
-){
-
-login();
-
-}
-
-}
-);
-
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
-
-function showPage(id,button){
-
-document.querySelectorAll(".page")
-.forEach(page=>{
-
-page.classList.remove("active");
-
-});
-
-
-document.getElementById(id)
-.classList.add("active");
-
-
-document.querySelectorAll(
-".nav-links button"
-)
-.forEach(btn=>{
-
-btn.classList.remove("active");
-
-});
-
-
-if(button){
-
-button.classList.add("active");
-
-}else{
-
-document.querySelectorAll(
-".nav-links button"
-).forEach(btn=>{
-
-if(
-btn.getAttribute("onclick") &&
-btn.getAttribute("onclick").includes(
-"'" + id + "'"
-)
-){
-
-btn.classList.add("active");
-
-}
-
-});
-
-}
-
-
-window.scrollTo({
-
-top:0,
-
-behavior:"smooth"
-
-});
-
-if(id === "progress"){
-
-updateProfessionalProgress();
-
-}
-
-}
-
-
-/* =========================================================
-   CALCULATOR
-========================================================= */
-
-let maintenanceCalories = 0;
-
-
-function calculate(){
-
-const w =
-parseFloat(
-document.getElementById("weight").value
-);
-
-const h =
-parseFloat(
-document.getElementById("height").value
-);
-
-const a =
-parseFloat(
-document.getElementById("age").value
-);
-
-const activity =
-parseFloat(
-document.getElementById("activity").value
-);
-
-
-if(!w || !h || !a){
-
-alert(
-"من فضلك أدخل الوزن والطول والعمر."
-);
-
-return;
-
-}
-
-
-const bmr =
-(10*w) +
-(6.25*h) -
-(5*a) +
-5;
-
-
-maintenanceCalories =
-Math.round(
-bmr * activity
-);
-
-
-const protein =
-Math.round(
-w * 1.6
-);
-
-
-document.getElementById(
-"caloriesResult"
-).textContent =
-maintenanceCalories;
-
-
-document.getElementById(
-"proteinResult"
-).textContent =
-protein;
-
-
-document.getElementById(
-"calcResult"
-).style.display =
-"block";
-
-
-document.getElementById(
-"homeCalories"
-).textContent =
-maintenanceCalories +
-" kcal";
-
-
-document.getElementById(
-"homeProtein"
-).textContent =
-protein +
-" g";
-
-
-localStorage.setItem(
-"maintenanceCalories",
-maintenanceCalories
-);
-
-}
-
-
-/* =========================================================
-   GOALS
-========================================================= */
-
-function showGoal(goal){
-
-if(!maintenanceCalories){
-
-alert(
-"احسب السعرات أولاً."
-);
-
-return;
-
-}
-
-
-let calories =
-maintenanceCalories;
-
-let title = "";
-
-
-if(goal === "cut"){
-
-calories =
-Math.max(
-maintenanceCalories - 300,
-0
-);
-
-title =
-"🔥 سعرات التنشيف التقريبية";
-
-}
-
-
-if(goal === "maintain"){
-
-title =
-"⚖️ سعرات المحافظة";
-
-}
-
-
-if(goal === "bulk"){
-
-calories =
-maintenanceCalories + 200;
-
-title =
-"💪 سعرات الزيادة التقريبية";
-
-}
-
-
-const box =
-document.getElementById(
-"goalResult"
-);
-
-
-box.innerHTML = `
-
-<h2>${title}</h2>
-
-<div style="
-font-size:34px;
-font-weight:900;
-color:var(--green);
-margin:15px 0;
-">
-${calories} kcal
-</div>
-
-<p>
-الرقم تقديري ويُفضّل تعديل السعرات تدريجيًا
-حسب تغير الوزن والأداء والطاقة.
-</p>
-
-`;
-
-
-box.style.display =
-"block";
-
-}
-
-
-/* =========================================================
-   WORKOUT TABS
-========================================================= */
-
-function program(id,button){
-
-document.querySelectorAll(
-".program"
-)
-.forEach(p=>{
-
-p.classList.remove(
-"active"
-);
-
-});
-
-
-document.getElementById(id)
-.classList.add("active");
-
-
-document.querySelectorAll(
-".program-tabs button"
-)
-.forEach(btn=>{
-
-btn.classList.remove(
-"active"
-);
-
-});
-
-
-button.classList.add(
-"active"
-);
-
-
-window.scrollTo({
-
-top:0,
-
-behavior:"smooth"
-
-});
+function closeOutside(event){
+
+    if(event.target.id === "menuModal"){
+        closeMenu();
+    }
 
 }
 
@@ -4530,894 +1524,268 @@ behavior:"smooth"
    TOAST
 ========================================================= */
 
-let toastTimer;
-
 function showToast(message){
 
-const toast =
-document.getElementById("toast");
+    const toast =
+    document.getElementById("toast");
 
-toast.textContent =
-message;
+    toast.textContent = message;
 
-toast.classList.add("show");
+    toast.classList.add("show");
 
-clearTimeout(toastTimer);
-
-toastTimer =
-setTimeout(
-()=>{
-toast.classList.remove("show");
-},
-2200
-);
+    setTimeout(()=>{
+        toast.classList.remove("show");
+    },3000);
 
 }
 
 
 /* =========================================================
-   PROFESSIONAL PROGRESS DATA
+   MAP
 ========================================================= */
 
-const progressExercises = [
+function locationMessage(place){
 
-{key:"bench",name:"Bench Press"},
-{key:"incline",name:"Incline Dumbbell Press"},
-{key:"chestfly",name:"Chest Fly"},
+    showToast(
+        "🌊 أنت الآن في " +
+        place +
+        " — أخبار جديدة قريبًا!"
+    );
 
-{key:"lat",name:"Lat Pulldown"},
-{key:"row",name:"Barbell Row"},
-{key:"cableRow",name:"Seated Cable Row"},
+}
 
-{key:"shoulder",name:"Shoulder Press"},
-{key:"lateral",name:"Lateral Raise"},
-{key:"rearDelt",name:"Rear Delt Fly"},
 
-{key:"preacher",name:"Preacher Curl"},
-{key:"hammer",name:"Hammer Curl"},
-{key:"barbellCurl",name:"Barbell Curl"},
+/* =========================================================
+   COMPLAINT
+========================================================= */
 
-{key:"triceps",name:"Triceps Pushdown"},
-{key:"skull",name:"Skull Crushers"},
+function submitComplaint(){
 
-{key:"squat",name:"Squat"},
-{key:"legpress",name:"Leg Press"},
-{key:"legextension",name:"Leg Extension"},
-{key:"legcurl",name:"Leg Curl"},
-{key:"rdl",name:"Romanian Deadlift"},
+    const title =
+    document.getElementById("complaintTitle").value.trim();
 
-{key:"calf",name:"Calf Raise"},
-{key:"abs",name:"Cable Crunch"}
+    const text =
+    document.getElementById("complaintText").value.trim();
+
+    if(!title || !text){
+
+        showToast(
+            "📢 اكتب عنوان الشكوى والتفاصيل الأول!"
+        );
+
+        return;
+    }
+
+    const complaint = {
+
+        title:title,
+        text:text,
+        date:new Date().toLocaleString("ar-EG")
+
+    };
+
+    localStorage.setItem(
+        "qaa_last_complaint",
+        JSON.stringify(complaint)
+    );
+
+    document.getElementById("complaintTitle").value="";
+    document.getElementById("complaintText").value="";
+
+    showToast(
+        "🌊 وصلت الشكوى للقاع بنجاح 😂"
+    );
+
+}
+
+
+/* =========================================================
+   STORY GENERATOR
+========================================================= */
+
+const stories = [
+
+"🔴 عاجل: مواطن اشترى سلطع برجر واكتشف أن البطاطس بتسبح لوحدها.",
+
+"📢 سكان حي الصدف يطالبون بعمل مطب صناعي للأسماك السريعة.",
+
+"⚓ مصدر خاص: طابور المخبز وصل إلى ميناء القاع لأول مرة في التاريخ.",
+
+"🐟 إدارة الميناء تحذر من ترك المركبات أمام مداخل الجيران.",
+
+"😂 مواطن يقول: نزلت أجيب حاجة ورجعت لقيت نفسي في حي تاني.",
+
+"📡 أزمة جديدة: الواي فاي اختفى خمس دقائق وسكان القاع أعلنوا حالة طوارئ.",
+
+"🍔 مطعم في ميدان البرجر يعلن أن العرض مستمر حتى نفاد السمك.",
+
+"🌊 موجة قوية تسببت في تحريك كرسي من مكانه داخل أحد المقاهي.",
+
+"🏆 فريق حي الصدف يتعادل بعد مباراة استمرت أطول من المتوقع.",
+
+"🐚 عم صدف يؤكد: أنا قلت الكلام ده من 7 سنين ومحدش صدقني."
 
 ];
 
 
-/* =========================================================
-   SAVE PROFESSIONAL EXERCISE
-========================================================= */
+function generateStory(){
 
-function saveProfessionalExercise(
-key,
-name
-){
+    const random =
+    Math.floor(
+        Math.random() * stories.length
+    );
 
-const input =
-document.getElementById(key);
-
-const value =
-parseFloat(input.value);
-
-
-if(!value || value <= 0){
-
-alert(
-"اكتب وزن صحيح أولاً."
-);
-
-return;
-
-}
-
-
-localStorage.setItem(
-"progress_" + key,
-value
-);
-
-
-localStorage.setItem(
-"progress_" + key + "_date",
-new Date().toLocaleDateString(
-"ar-EG",
-{
-day:"2-digit",
-month:"2-digit",
-year:"numeric"
-}
-)
-);
-
-
-const saved =
-document.getElementById(
-key + "Saved"
-);
-
-
-if(saved){
-
-saved.textContent =
-"✓ تم حفظ " +
-value +
-" kg";
-
-}
-
-
-showToast(
-"تم حفظ " + name + " 💪"
-);
-
-updateProfessionalProgress();
+    document
+    .getElementById("storyBox")
+    .textContent =
+    stories[random];
 
 }
 
 
 /* =========================================================
-   BODY WEIGHT
+   SEARCH
 ========================================================= */
 
-function saveBodyWeight(){
+const searchableSections = [
 
-const input =
-document.getElementById(
-"bodyWeight"
-);
+    {
+        words:[
+            "اخبار",
+            "أخبار",
+            "عاجل",
+            "news"
+        ],
+        id:"news"
+    },
 
-const value =
-parseFloat(input.value);
+    {
+        words:[
+            "شكوى",
+            "شكاوى",
+            "complaints"
+        ],
+        id:"complaints"
+    },
+
+    {
+        words:[
+            "خريطة",
+            "مناطق",
+            "شارع المرجان",
+            "ميناء",
+            "صدف"
+        ],
+        id:"map"
+    },
+
+    {
+        words:[
+            "سكان",
+            "شخصيات",
+            "عم صدف",
+            "مرجانة",
+            "فلفل"
+        ],
+        id:"characters"
+    },
+
+    {
+        words:[
+            "موقف",
+            "مولد",
+            "مولّد",
+            "ترفيه"
+        ],
+        id:"submit"
+    },
+
+    {
+        words:[
+            "تواصل",
+            "انستجرام",
+            "instagram"
+        ],
+        id:"contact"
+    }
+
+];
 
 
-if(!value || value <= 0){
+function searchSite(){
 
-alert(
-"اكتب وزنك أولاً."
-);
+    const input =
+    document
+    .getElementById("searchInput");
 
-return;
+    const query =
+    input.value
+    .trim()
+    .toLowerCase();
 
-}
+    if(query.length < 2){
+        return;
+    }
 
+    let found = false;
 
-const date =
-new Date().toLocaleDateString(
-"ar-EG",
-{
-day:"2-digit",
-month:"2-digit",
-year:"numeric"
-}
-);
+    for(
+        const section of searchableSections
+    ){
 
+        for(
+            const word of section.words
+        ){
 
-localStorage.setItem(
-"bodyWeight",
-value
-);
+            if(
+                word
+                .toLowerCase()
+                .includes(query) ||
+                query.includes(
+                    word.toLowerCase()
+                )
+            ){
 
-localStorage.setItem(
-"bodyWeightDate",
-date
-);
+                const target =
+                document.getElementById(
+                    section.id
+                );
 
+                if(target){
 
-document.getElementById(
-"savedWeight"
-).innerHTML =
-"آخر وزن محفوظ: <strong style='color:var(--green);font-size:18px'>" +
-value +
-" kg</strong>";
+                    target.scrollIntoView({
+                        behavior:"smooth",
+                        block:"start"
+                    });
 
+                    found = true;
+                    break;
+                }
 
-document.getElementById(
-"lastUpdate"
-).innerHTML =
-"آخر تحديث لوزن الجسم:<br><strong style='color:var(--green)'>" +
-date +
-"</strong>";
+            }
 
+        }
 
-showToast(
-"تم حفظ وزن الجسم ⚖️"
-);
+        if(found) break;
+
+    }
 
 }
 
 
 /* =========================================================
-   UPDATE PROFESSIONAL PROGRESS
+   KEYBOARD
 ========================================================= */
 
-function updateProfessionalProgress(){
-
-let completed = 0;
-let totalWeight = 0;
-let best = 0;
-let days = new Set();
-
-progressExercises.forEach(item=>{
-
-const value =
-parseFloat(
-localStorage.getItem(
-"progress_" + item.key
-)
-);
-
-if(value){
-
-completed++;
-
-totalWeight += value;
-
-if(value > best){
-
-best = value;
-
-}
-
-
-const date =
-localStorage.getItem(
-"progress_" +
-item.key +
-"_date"
-);
-
-if(date){
-
-days.add(date);
-
-}
-
-}
-
-});
-
-
-const total =
-progressExercises.length;
-
-const percent =
-Math.round(
-(completed / total) * 100
-);
-
-
-document.getElementById(
-"progressPercent"
-).textContent =
-percent + "%";
-
-
-document.getElementById(
-"progressFill"
-).style.width =
-percent + "%";
-
-
-document.getElementById(
-"progressCompleted"
-).textContent =
-completed +
-" من " +
-total +
-" تمرين";
-
-
-document.getElementById(
-"statExercises"
-).textContent =
-completed;
-
-
-document.getElementById(
-"statTotalWeight"
-).textContent =
-Math.round(totalWeight);
-
-
-document.getElementById(
-"statBest"
-).textContent =
-best;
-
-
-document.getElementById(
-"statDays"
-).textContent =
-days.size;
-
-
-document.getElementById(
-"homeExercises"
-).textContent =
-completed;
-
-
-/* =====================================================
-   LEVEL SYSTEM
-===================================================== */
-
-let level =
-"مبتدئ 🟢";
-
-let icon =
-"🌱";
-
-let title =
-"بداية الطريق";
-
-let description =
-"ابدأ بتسجيل أوزانك حتى يبدأ النظام في حساب تقدمك.";
-
-
-if(completed >= 5){
-
-level =
-"متدرب 🟡";
-
-icon =
-"🔥";
-
-title =
-"بدأت تدخل الجد";
-
-description =
-"ممتاز! لديك مجموعة جيدة من الأرقام، استمر في التسجيل.";
-
-}
-
-
-if(completed >= 10){
-
-level =
-"متقدم 🟠";
-
-icon =
-"⚡";
-
-title =
-"مستوى قوي";
-
-description =
-"أنت أصبحت تملك سجلًا واضحًا لتطورك في الجيم.";
-
-}
-
-
-if(completed >= 16){
-
-level =
-"محترف 🔴";
-
-icon =
-"🏆";
-
-title =
-"مستوى احترافي";
-
-description =
-"معظم أرقامك مسجلة. حافظ على الاستمرارية وحاول تحط أرقام جديدة.";
-
-}
-
-
-if(completed === total){
-
-level =
-"LEGEND 👑";
-
-icon =
-"👑";
-
-title =
-"أكملت كل التمارين";
-
-description =
-"تم تسجيل جميع التمارين الموجودة في مركز التطور. إنجاز ممتاز!";
-
-}
-
-
-document.getElementById(
-"progressLevel"
-).textContent =
-level;
-
-
-document.getElementById(
-"levelIcon"
-).textContent =
-icon;
-
-
-document.getElementById(
-"levelTitle"
-).textContent =
-title;
-
-
-document.getElementById(
-"levelDescription"
-).textContent =
-description;
-
-
-/* =====================================================
-   RECORDS
-===================================================== */
-
-const records =
-document.getElementById(
-"recordsList"
-);
-
-
-if(completed === 0){
-
-records.innerHTML = `
-
-<div class="empty-records">
-لم تسجل أي أوزان حتى الآن 💪
-<br>
-ابدأ من البطاقات الموجودة بالأعلى.
-</div>
-
-`;
-
-}else{
-
-let html = "";
-
-progressExercises
-.forEach(item=>{
-
-const value =
-parseFloat(
-localStorage.getItem(
-"progress_" + item.key
-)
-);
-
-if(value){
-
-const date =
-localStorage.getItem(
-"progress_" +
-item.key +
-"_date"
-) || "بدون تاريخ";
-
-html += `
-
-<div class="record">
-
-<div>
-
-<div class="record-name">
-${item.name}
-</div>
-
-<div class="record-date">
-${date}
-</div>
-
-</div>
-
-<div class="record-weight">
-${value} kg
-</div>
-
-</div>
-
-`;
-
-}
-
-});
-
-
-records.innerHTML =
-html;
-
-}
-
-}
-
-
-/* =========================================================
-   OLD SAVE SYSTEM COMPATIBILITY
-========================================================= */
-
-function saveExercise(
-inputId,
-resultId,
-professionalKey
-){
-
-const value =
-document.getElementById(
-inputId
-).value;
-
-
-if(!value){
-
-alert(
-"اكتب الوزن أولاً."
-);
-
-return;
-
-}
-
-
-if(professionalKey){
-
-localStorage.setItem(
-"progress_" + professionalKey,
-value
-);
-
-localStorage.setItem(
-"progress_" +
-professionalKey +
-"_date",
-new Date().toLocaleDateString(
-"ar-EG",
-{
-day:"2-digit",
-month:"2-digit",
-year:"numeric"
-}
-)
-);
-
-}
-
-
-localStorage.setItem(
-inputId,
-value
-);
-
-
-const saved =
-document.getElementById(
-resultId
-);
-
-
-if(saved){
-
-saved.textContent =
-"تم الحفظ";
-
-}
-
-
-showToast(
-"تم حفظ الوزن بنجاح 💪"
-);
-
-updateProfessionalProgress();
-
-}
-
-
-/* =========================================================
-   LOAD PROGRESS
-========================================================= */
-
-function loadProgress(){
-
-progressExercises.forEach(item=>{
-
-const value =
-localStorage.getItem(
-"progress_" + item.key
-);
-
-
-const input =
-document.getElementById(
-item.key
-);
-
-
-const saved =
-document.getElementById(
-item.key + "Saved"
-);
-
-
-if(value){
-
-if(input){
-
-input.value =
-value;
-
-}
-
-
-if(saved){
-
-saved.textContent =
-"✓ محفوظ: " +
-value +
-" kg";
-
-}
-
-}
-
-});
-
-
-const bodyWeight =
-localStorage.getItem(
-"bodyWeight"
-);
-
-
-const bodyWeightDate =
-localStorage.getItem(
-"bodyWeightDate"
-);
-
-
-if(bodyWeight){
-
-document.getElementById(
-"bodyWeight"
-).value =
-bodyWeight;
-
-
-document.getElementById(
-"savedWeight"
-).innerHTML =
-"آخر وزن محفوظ: <strong style='color:var(--green);font-size:18px'>" +
-bodyWeight +
-" kg</strong>";
-
-}
-
-
-if(bodyWeightDate){
-
-document.getElementById(
-"lastUpdate"
-).innerHTML =
-"آخر تحديث لوزن الجسم:<br><strong style='color:var(--green)'>" +
-bodyWeightDate +
-"</strong>";
-
-}
-
-
-const oldMap = {
-
-oldBench:"bench",
-oldIncline:"incline",
-oldSquat:"squat",
-oldPreacher:"preacher"
-
-};
-
-
-Object.keys(oldMap).forEach(
-oldId=>{
-
-const key =
-oldMap[oldId];
-
-const value =
-localStorage.getItem(
-"progress_" + key
-);
-
-if(value){
-
-const oldInput =
-document.getElementById(
-oldId
-);
-
-if(oldInput){
-
-oldInput.value =
-value;
-
-}
-
-}
-
-});
-
-
-updateProfessionalProgress();
-
-}
-
-
-/* =========================================================
-   CLEAR PROGRESS
-========================================================= */
-
-function clearProgress(){
-
-const confirmed =
-confirm(
-"هل أنت متأكد؟ سيتم حذف جميع أوزان التمارين وبيانات التطور."
-);
-
-
-if(!confirmed){
-
-return;
-
-}
-
-
-progressExercises.forEach(item=>{
-
-localStorage.removeItem(
-"progress_" + item.key
-);
-
-localStorage.removeItem(
-"progress_" +
-item.key +
-"_date"
-);
-
-});
-
-
-localStorage.removeItem(
-"bodyWeight"
-);
-
-localStorage.removeItem(
-"bodyWeightDate"
-);
-
-
-progressExercises.forEach(item=>{
-
-const input =
-document.getElementById(
-item.key
-);
-
-const saved =
-document.getElementById(
-item.key + "Saved"
-);
-
-
-if(input){
-
-input.value = "";
-
-}
-
-if(saved){
-
-saved.textContent = "";
-
-}
-
-});
-
-
-document.getElementById(
-"bodyWeight"
-).value = "";
-
-
-document.getElementById(
-"savedWeight"
-).textContent =
-"لم يتم تسجيل وزن حتى الآن.";
-
-
-document.getElementById(
-"lastUpdate"
-).textContent =
-"لا توجد بيانات بعد.";
-
-
-updateProfessionalProgress();
-
-showToast(
-"تم مسح بيانات التطور"
-);
-
-}
-
-
-/* =========================================================
-   LOAD SAVED DATA
-========================================================= */
-
-window.addEventListener(
-"load",
-function(){
-
-/* LOGIN */
-
-const loggedIn =
-localStorage.getItem(
-"elhendawyLoggedIn"
-);
-
-
-if(loggedIn === "true"){
-
-document.getElementById(
-"loginScreen"
-).style.display =
-"none";
-
-}else{
-
-document.getElementById(
-"loginScreen"
-).style.display =
-"flex";
-
-
-if(isLocked()){
-
-startLockTimer();
-
-}
-
-}
-
-
-/* CALORIES */
-
-const savedCalories =
-localStorage.getItem(
-"maintenanceCalories"
-);
-
-
-if(savedCalories){
-
-maintenanceCalories =
-parseInt(savedCalories);
-
-
-document.getElementById(
-"homeCalories"
-).textContent =
-maintenanceCalories +
-" kcal";
-
-}
-
-
-/* PROFESSIONAL PROGRESS */
-
-loadProgress();
-
-}
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Escape"){
+            closeMenu();
+        }
+
+    }
 );
 
 </script>
