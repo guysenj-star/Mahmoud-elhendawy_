@@ -3,17 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-<title>أخبار قاع الهامور 🌊 | الجريدة الرسمية للقاع</title>
+<title>أخبار قاع الهامور 🌊</title>
 
 <style>
 :root{
 --bg:#020b11;
 --bg2:#061923;
---card:rgba(8,29,40,.88);
---card2:rgba(10,39,52,.95);
+--card:rgba(8,29,40,.90);
 --cyan:#57e8ed;
---cyan2:#0c9daf;
+--cyan2:#0b9caf;
 --gold:#ffd45c;
 --red:#ff4f5e;
 --green:#42e6a4;
@@ -38,17 +36,6 @@ min-height:100vh;
 overflow-x:hidden;
 }
 
-body:before{
-content:"";
-position:fixed;
-inset:0;
-pointer-events:none;
-opacity:.035;
-background-image:radial-gradient(#fff 1px,transparent 1px);
-background-size:28px 28px;
-z-index:0;
-}
-
 a{text-decoration:none;color:inherit}
 button,input,textarea{font-family:inherit}
 
@@ -59,7 +46,7 @@ position:relative;
 z-index:2;
 }
 
-/* FLOATING BUBBLES */
+/* ================= BUBBLES ================= */
 
 .bubble{
 position:fixed;
@@ -76,7 +63,6 @@ z-index:1;
 .b3{width:42px;height:42px;left:48%;animation-duration:16s;animation-delay:1s}
 .b4{width:18px;height:18px;left:72%;animation-duration:11s;animation-delay:4s}
 .b5{width:30px;height:30px;left:90%;animation-duration:14s;animation-delay:3s}
-.b6{width:11px;height:11px;left:60%;animation-duration:8s;animation-delay:5s}
 
 @keyframes bubbleUp{
 from{transform:translateY(0);opacity:0}
@@ -84,13 +70,13 @@ from{transform:translateY(0);opacity:0}
 to{transform:translateY(-120vh);opacity:0}
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
 
 header{
 position:sticky;
 top:0;
 z-index:100;
-background:rgba(1,12,18,.88);
+background:rgba(1,12,18,.90);
 backdrop-filter:blur(20px);
 border-bottom:1px solid var(--line);
 }
@@ -136,12 +122,6 @@ border:1px solid var(--line);
 background:rgba(255,255,255,.045);
 color:white;
 outline:none;
-transition:.2s;
-}
-
-.search input:focus{
-border-color:rgba(87,232,237,.6);
-box-shadow:0 0 25px rgba(87,232,237,.08);
 }
 
 .search-icon{
@@ -166,7 +146,7 @@ border-color:rgba(87,232,237,.55);
 transform:translateY(-2px);
 }
 
-/* TICKER */
+/* ================= TICKER ================= */
 
 .ticker{
 overflow:hidden;
@@ -189,7 +169,7 @@ from{transform:translateX(0)}
 to{transform:translateX(55%)}
 }
 
-/* HERO */
+/* ================= HERO ================= */
 
 .hero{
 padding:55px 0 28px;
@@ -211,19 +191,6 @@ linear-gradient(135deg,rgba(10,52,68,.92),rgba(4,22,31,.86));
 box-shadow:var(--shadow);
 position:relative;
 overflow:hidden;
-}
-
-.hero-main:after{
-content:"BREAKING";
-position:absolute;
-left:-45px;
-top:25px;
-background:var(--red);
-padding:6px 55px;
-font-size:9px;
-font-weight:1000;
-transform:rotate(-45deg);
-opacity:.9;
 }
 
 .kicker{
@@ -271,7 +238,6 @@ filter:brightness(1.07);
 .btn-primary{
 color:#09202a;
 background:linear-gradient(135deg,var(--gold),#ffad40);
-box-shadow:0 8px 25px rgba(255,212,92,.12);
 }
 
 .btn-dark{
@@ -280,7 +246,7 @@ background:rgba(255,255,255,.05);
 border:1px solid var(--line);
 }
 
-/* SEA ART */
+/* ================= UNDERWATER HERO ================= */
 
 .sea-art{
 min-height:320px;
@@ -289,66 +255,87 @@ border:1px solid var(--line);
 overflow:hidden;
 position:relative;
 background:
-radial-gradient(circle at 50% 30%,rgba(86,231,236,.23),transparent 25%),
-linear-gradient(180deg,#0a4258,#03151d);
+radial-gradient(circle at 50% 20%,rgba(86,231,236,.24),transparent 25%),
+linear-gradient(180deg,#0b5067 0%,#07354a 45%,#03151d 100%);
 box-shadow:var(--shadow);
 }
 
-.moon{
+.sea-light{
 position:absolute;
-width:110px;
-height:110px;
-border-radius:50%;
-background:rgba(255,255,255,.055);
-top:50px;
-left:50%;
-transform:translateX(-50%);
-box-shadow:0 0 70px rgba(86,231,236,.15);
+top:-100px;
+left:15%;
+width:70%;
+height:300px;
+background:linear-gradient(
+120deg,
+transparent,
+rgba(117,242,255,.13),
+transparent
+);
+transform:rotate(12deg);
 }
 
-.fish{
+.under-fish{
 position:absolute;
-font-size:55px;
-animation:fishMove 8s ease-in-out infinite;
-}
-
-.fish1{top:90px;left:20%}
-.fish2{top:170px;right:17%;font-size:35px;animation-delay:2s}
-
-.shark{
-position:absolute;
-font-size:42px;
-top:125px;
-right:43%;
+font-size:0;
+width:75px;
+height:32px;
+background:linear-gradient(90deg,#73e8ec,#178ca0);
+border-radius:55% 45% 45% 55%;
 opacity:.8;
-animation:sharkMove 12s linear infinite;
 }
 
-@keyframes fishMove{
-0%,100%{transform:translateX(-15px)}
-50%{transform:translateX(25px)}
+.under-fish:after{
+content:"";
+position:absolute;
+right:-22px;
+top:7px;
+border-top:9px solid transparent;
+border-bottom:9px solid transparent;
+border-right:25px solid #178ca0;
 }
 
-@keyframes sharkMove{
-0%{transform:translateX(120px)}
-50%{transform:translateX(-120px)}
-100%{transform:translateX(120px)}
+.uf1{
+top:105px;
+left:17%;
+animation:swim 8s ease-in-out infinite;
+}
+
+.uf2{
+top:190px;
+right:15%;
+transform:scale(.65);
+animation:swim 10s ease-in-out infinite reverse;
+}
+
+@keyframes swim{
+0%,100%{translate:0}
+50%{translate:45px -12px}
 }
 
 .sea-floor{
 position:absolute;
 bottom:0;
 width:100%;
-height:27%;
-background:linear-gradient(160deg,transparent 25%,rgba(27,122,113,.35));
-clip-path:polygon(
-0 65%,8% 42%,16% 70%,25% 34%,
-35% 76%,48% 48%,60% 73%,
-72% 32%,84% 68%,100% 43%,
-100% 100%,0 100%);
+height:34%;
+background:
+radial-gradient(ellipse at 15% 70%,#166a62 0 5%,transparent 6%),
+radial-gradient(ellipse at 50% 80%,#145c58 0 7%,transparent 8%),
+radial-gradient(ellipse at 85% 70%,#185f5b 0 6%,transparent 7%),
+linear-gradient(180deg,transparent,#062b30);
 }
 
-/* LIVE STATS */
+.coral{
+position:absolute;
+bottom:30px;
+font-size:50px;
+filter:saturate(.7);
+}
+
+.c1{left:8%}
+.c2{right:8%}
+
+/* ================= STATS ================= */
 
 .stats{
 display:grid;
@@ -376,7 +363,7 @@ font-size:10px;
 color:var(--muted);
 }
 
-/* SECTIONS */
+/* ================= SECTIONS ================= */
 
 section{padding:28px 0 55px}
 
@@ -417,7 +404,7 @@ background:rgba(66,230,164,.09);
 color:var(--green);
 }
 
-/* NEWS */
+/* ================= NEWS ================= */
 
 .news-grid{
 display:grid;
@@ -441,22 +428,65 @@ box-shadow:0 20px 50px rgba(0,0,0,.22);
 
 .news-card{
 cursor:pointer;
-position:relative;
 overflow:hidden;
 }
 
-.news-card:before{
-content:"";
-position:absolute;
-top:0;
-right:0;
-width:4px;
-height:100%;
-background:var(--cyan);
-opacity:.5;
+.news-photo{
+height:160px;
+margin:-20px -20px 17px;
+position:relative;
+overflow:hidden;
+background:
+linear-gradient(180deg,rgba(14,101,128,.35),transparent),
+linear-gradient(135deg,#0b4d61,#03131b);
 }
 
-.news-card.breaking:before{background:var(--red)}
+/* صور أصلية من عالم قاع الهامور مصنوعة داخل الموقع */
+
+.news-photo:before{
+content:"";
+position:absolute;
+inset:0;
+background:
+radial-gradient(circle at 18% 30%,rgba(255,255,255,.16) 0 3px,transparent 4px),
+radial-gradient(circle at 70% 22%,rgba(255,255,255,.12) 0 4px,transparent 5px),
+radial-gradient(circle at 80% 70%,rgba(255,255,255,.08) 0 5px,transparent 6px),
+linear-gradient(105deg,transparent 30%,rgba(91,236,241,.12) 31%,transparent 48%),
+linear-gradient(75deg,transparent 50%,rgba(91,236,241,.08) 51%,transparent 70%);
+}
+
+.photo-floor{
+position:absolute;
+bottom:-5px;
+left:0;
+width:100%;
+height:45%;
+background:
+radial-gradient(ellipse at 10% 80%,#1c7567 0 7%,transparent 8%),
+radial-gradient(ellipse at 35% 90%,#185c59 0 9%,transparent 10%),
+radial-gradient(ellipse at 70% 85%,#1c7164 0 8%,transparent 9%),
+linear-gradient(0deg,#062a2c,transparent);
+}
+
+.photo-label{
+position:absolute;
+top:12px;
+right:12px;
+padding:6px 9px;
+border-radius:9px;
+background:rgba(0,10,16,.65);
+border:1px solid rgba(255,255,255,.12);
+font-size:9px;
+font-weight:bold;
+}
+
+.photo-fish{
+position:absolute;
+font-size:45px;
+right:25%;
+top:50px;
+filter:drop-shadow(0 5px 10px rgba(0,0,0,.3));
+}
 
 .card h3{
 margin:12px 0 8px;
@@ -478,21 +508,52 @@ color:#6f909e;
 font-size:10px;
 }
 
-/* NEWS IMAGE */
+/* ================= TODAY NEWS ================= */
 
-.fake-image{
-height:145px;
-margin:-20px -20px 16px;
-display:grid;
-place-items:center;
-font-size:60px;
+.today-news{
 background:
-radial-gradient(circle,rgba(87,232,237,.18),transparent 55%),
-linear-gradient(135deg,#082e3d,#04151d);
-border-bottom:1px solid var(--line);
+linear-gradient(135deg,rgba(10,48,61,.9),rgba(4,22,30,.92));
+border:1px solid var(--line);
+border-radius:27px;
+padding:25px;
 }
 
-/* MAP */
+.today-list{
+display:grid;
+gap:10px;
+}
+
+.today-item{
+display:flex;
+gap:15px;
+align-items:center;
+padding:15px;
+border-radius:16px;
+border:1px solid var(--line);
+background:rgba(255,255,255,.025);
+}
+
+.today-number{
+min-width:42px;
+height:42px;
+border-radius:13px;
+display:grid;
+place-items:center;
+background:rgba(87,232,237,.08);
+color:var(--cyan);
+font-weight:1000;
+}
+
+.today-item b{
+display:block;
+margin-bottom:5px;
+}
+
+.today-item small{
+color:var(--muted);
+}
+
+/* ================= MAP ================= */
 
 .map-grid{
 display:grid;
@@ -516,7 +577,9 @@ background:rgba(86,231,236,.06);
 border-color:rgba(86,231,236,.35);
 }
 
-.location-icon{font-size:30px}
+.location-icon{
+font-size:30px;
+}
 
 .location-card b{
 display:block;
@@ -525,7 +588,7 @@ margin-top:8px;
 
 .location-card small{color:var(--muted)}
 
-/* CHARACTERS */
+/* ================= CHARACTERS ================= */
 
 .character-grid{
 display:grid;
@@ -535,7 +598,6 @@ gap:14px;
 
 .character{
 overflow:hidden;
-position:relative;
 min-height:240px;
 }
 
@@ -550,7 +612,7 @@ rgba(255,255,255,.025);
 border-radius:18px;
 }
 
-/* COMPLAINTS */
+/* ================= COMPLAINT ================= */
 
 .complaint-grid{
 display:grid;
@@ -584,68 +646,70 @@ color:white;
 outline:none;
 }
 
-.form input:focus,
-.form textarea:focus{
-border-color:rgba(87,232,237,.5);
-}
-
 .form textarea{
 min-height:130px;
 resize:vertical;
 }
 
-/* GENERATOR */
-
-.generator{
-min-height:100%;
-text-align:center;
+.form button{
+margin-top:15px;
 }
 
-.story-box{
-min-height:155px;
-display:grid;
-place-items:center;
-padding:20px;
-margin:15px 0;
-border-radius:18px;
-border:1px dashed rgba(86,231,236,.25);
-background:rgba(0,0,0,.13);
-color:#b9d4dc;
-line-height:1.9;
-}
+/* ================= PUBLISHED COMPLAINTS ================= */
 
-/* POLL */
-
-.poll{
-padding:25px;
-background:linear-gradient(135deg,rgba(10,49,63,.9),rgba(4,23,31,.9));
-border:1px solid var(--line);
-border-radius:25px;
-}
-
-.poll-options{
-display:grid;
-gap:9px;
+.complaints-board{
 margin-top:18px;
+display:grid;
+gap:12px;
 }
 
-.poll-option{
-padding:13px;
-border:1px solid var(--line);
-border-radius:13px;
+.public-complaint{
+padding:18px;
+border-radius:18px;
 background:rgba(255,255,255,.035);
-color:white;
-cursor:pointer;
-text-align:right;
-transition:.2s;
+border:1px solid var(--line);
+position:relative;
 }
 
-.poll-option:hover{
-background:rgba(86,231,236,.08);
-border-color:rgba(86,231,236,.4);
+.public-complaint:before{
+content:"";
+position:absolute;
+right:0;
+top:0;
+bottom:0;
+width:4px;
+background:var(--cyan);
+border-radius:0 18px 18px 0;
 }
 
-/* CONTACT */
+.public-complaint h3{
+margin:0 0 8px;
+font-size:16px;
+}
+
+.public-complaint p{
+color:#a9c1c9;
+line-height:1.8;
+font-size:13px;
+}
+
+.complaint-meta{
+margin-top:10px;
+display:flex;
+justify-content:space-between;
+font-size:10px;
+color:#6e8b96;
+}
+
+.empty-board{
+padding:25px;
+text-align:center;
+border:1px dashed var(--line);
+border-radius:18px;
+color:var(--muted);
+}
+
+/* ================= CONTACT ================= */
 
 .contact{
 text-align:center;
@@ -666,15 +730,9 @@ border:1px solid var(--line);
 background:rgba(255,255,255,.04);
 color:#ffb5d5;
 font-weight:1000;
-transition:.2s;
 }
 
-.instagram:hover{
-transform:translateY(-3px);
-background:rgba(255,255,255,.07);
-}
-
-/* FOOTER */
+/* ================= FOOTER ================= */
 
 footer{
 margin-top:30px;
@@ -686,7 +744,7 @@ color:var(--muted);
 
 footer strong{color:white}
 
-/* MODAL */
+/* ================= MODAL ================= */
 
 .modal{
 position:fixed;
@@ -755,14 +813,12 @@ display:block;
 margin-top:7px;
 }
 
-/* ARTICLE MODAL */
-
 .article-cover{
 height:190px;
 border-radius:20px;
 display:grid;
 place-items:center;
-font-size:90px;
+font-size:80px;
 background:
 radial-gradient(circle,rgba(87,232,237,.2),transparent 50%),
 linear-gradient(135deg,#082e3d,#03131b);
@@ -789,7 +845,7 @@ flex-wrap:wrap;
 margin-bottom:15px;
 }
 
-/* TOAST */
+/* ================= TOAST ================= */
 
 .toast{
 position:fixed;
@@ -814,7 +870,7 @@ from{transform:translateY(15px);opacity:0}
 to{transform:translateY(0);opacity:1}
 }
 
-/* RESPONSIVE */
+/* ================= RESPONSIVE ================= */
 
 @media(max-width:850px){
 
@@ -854,13 +910,14 @@ flex-basis:100%;
 
 .map-grid{grid-template-columns:1fr 1fr}
 
-.logo{font-size:14px}
-
-.nav-btn{padding:10px}
-
 .stats{grid-template-columns:1fr 1fr}
 
 .menu-grid{grid-template-columns:1fr}
+
+.today-item{
+align-items:flex-start;
+}
+
 }
 </style>
 </head>
@@ -872,7 +929,8 @@ flex-basis:100%;
 <div class="bubble b3"></div>
 <div class="bubble b4"></div>
 <div class="bubble b5"></div>
-<div class="bubble b6"></div>
+
+<!-- HEADER -->
 
 <header>
 <div class="container nav">
@@ -892,10 +950,12 @@ oninput="searchSite()">
 
 <button class="nav-btn" onclick="openMenu()">☰ الأقسام</button>
 
-<a href="#complaints" class="nav-btn">📢 قدم شكوى</a>
+<a href="#submit" class="nav-btn">📢 قدم شكوى</a>
 
 </div>
 </header>
+
+<!-- TICKER -->
 
 <div class="ticker">
 <div class="ticker-track">
@@ -910,12 +970,14 @@ oninput="searchSite()">
 
 <main id="home">
 
+<!-- HERO -->
+
 <section class="hero">
 <div class="container hero-grid">
 
 <div class="hero-main">
 
-<div class="kicker">الجريدة الساخرة الرسمية لعالم القاع</div>
+<div class="kicker">الجريدة الساخرة لعالم القاع</div>
 
 <h1>
 أخبار<br>
@@ -923,25 +985,41 @@ oninput="searchSite()">
 </h1>
 
 <p>
-أول جريدة من قلب القاع 🌊
-أخبار عاجلة، حكايات السكان، شكاوى، اقتصاد، رياضة،
-مواقف ساخرة وكل التفاصيل اللي بتحصل تحت البحر.
+أخبار عاجلة، تفاصيل المناطق، حكايات السكان،
+شكاوى المواطنين، أخبار اليوم، اقتصاد، رياضة
+وكل ما يحدث تحت البحر.
 </p>
 
 <div class="hero-actions">
-<a href="#news" class="btn btn-primary">📰 آخر الأخبار</a>
-<a href="#complaints" class="btn btn-dark">📢 قدم شكوى</a>
-<a href="#map" class="btn btn-dark">🗺️ استكشف القاع</a>
+
+<a href="#news" class="btn btn-primary">
+📰 آخر الأخبار
+</a>
+
+<a href="#submit" class="btn btn-dark">
+📢 قدم شكوى
+</a>
+
+<a href="#map" class="btn btn-dark">
+🗺️ استكشف القاع
+</a>
+
 </div>
 
 </div>
 
 <div class="sea-art">
-<div class="moon"></div>
-<div class="fish fish1">🐟</div>
-<div class="fish fish2">🐠</div>
-<div class="shark">🦈</div>
+
+<div class="sea-light"></div>
+
+<div class="under-fish uf1"></div>
+<div class="under-fish uf2"></div>
+
 <div class="sea-floor"></div>
+
+<div class="coral c1">🪸</div>
+<div class="coral c2">🪸</div>
+
 </div>
 
 </div>
@@ -950,6 +1028,7 @@ oninput="searchSite()">
 <!-- STATS -->
 
 <section style="padding-top:0">
+
 <div class="container stats">
 
 <div class="stat">
@@ -969,71 +1048,129 @@ oninput="searchSite()">
 
 <div class="stat">
 <strong id="online">1,284</strong>
-<span>متصل الآن 🟢</span>
+<span>متصل الآن</span>
 </div>
 
 </div>
+
 </section>
 
 <!-- NEWS -->
 
 <section id="news">
+
 <div class="container">
 
 <div class="section-head">
+
 <div>
 <h2>🔴 آخر الأخبار</h2>
-<p>تغطية لحظية لأهم أحداث القاع</p>
+<p>تغطية مستمرة لأهم أحداث القاع</p>
 </div>
+
 <span class="badge red">● LIVE NEWS</span>
+
 </div>
 
 <div class="news-grid">
 
-<article class="card news-card breaking"
+<!-- NEWS 1 -->
+
+<article class="card news-card"
 onclick="openArticle(
 'سكان شارع المرجان يطالبون بإعادة فتح المخبز',
-'🐚',
+'🥖',
 'عاجل',
-'أفاد سكان شارع المرجان أن طابور المخبز تجاوز الحدود المتوقعة صباح اليوم، وسط مطالبات بتوفير مخبز إضافي في المنطقة. وقال شهود عيان إن الإدارة وعدت بدراسة الموضوع تحت البحر في أقرب اجتماع رسمي.',
+'أفاد سكان شارع المرجان أن طابور المخبز تجاوز الحدود المتوقعة صباح اليوم، وسط مطالبات بتوفير مخبز إضافي في المنطقة. وقال شهود عيان إن الإدارة وعدت بدراسة الموضوع تحت البحر.',
 'منذ 12 دقيقة'
 )">
-<div class="fake-image">🥖🐟</div>
+
+<div class="news-photo">
+<div class="photo-label">شارع المرجان</div>
+<div class="photo-fish">🐟</div>
+<div class="photo-floor"></div>
+</div>
+
 <span class="badge red">عاجل</span>
+
 <h3>سكان شارع المرجان يطالبون بإعادة فتح المخبز</h3>
-<p>الأهالي يؤكدون أن الطابور وصل إلى آخر الحي...</p>
-<div class="meta"><span>منذ 12 دقيقة</span><span>👀 2.4K</span></div>
+
+<p>
+الأهالي يؤكدون أن الطابور وصل إلى آخر الحي...
+</p>
+
+<div class="meta">
+<span>منذ 12 دقيقة</span>
+<span>👀 2.4K</span>
+</div>
+
 </article>
+
+<!-- NEWS 2 -->
 
 <article class="card news-card"
 onclick="openArticle(
 'ارتفاع مفاجئ في أسعار سلطع البرجر',
 '🍔',
 'اقتصاد القاع',
-'شهد سوق القاع اليوم تحركًا ملحوظًا في أسعار سلطع البرجر. مصادر السوق تؤكد أن الأسعار تتحرك مع التيار، بينما طالب عدد من المواطنين بتدخل عاجل لحماية وجبة الغداء.',
+'شهد سوق القاع اليوم تحركًا ملحوظًا في أسعار سلطع البرجر. مصادر السوق تؤكد أن الأسعار تتحرك مع التيار، بينما طالب المواطنون بحل عاجل.',
 'منذ 28 دقيقة'
 )">
-<div class="fake-image">🍔🦀</div>
+
+<div class="news-photo">
+<div class="photo-label">ميدان البرجر</div>
+<div class="photo-fish">🐠</div>
+<div class="photo-floor"></div>
+</div>
+
 <span class="badge">اقتصاد القاع</span>
+
 <h3>ارتفاع مفاجئ في أسعار سلطع البرجر</h3>
-<p>مصادر من السوق تؤكد أن السعر «بيتحرك مع التيار»...</p>
-<div class="meta"><span>منذ 28 دقيقة</span><span>😂 1.8K</span></div>
+
+<p>
+مصادر السوق تؤكد أن السعر «بيتحرك مع التيار».
+</p>
+
+<div class="meta">
+<span>منذ 28 دقيقة</span>
+<span>😂 1.8K</span>
+</div>
+
 </article>
+
+<!-- NEWS 3 -->
 
 <article class="card news-card"
 onclick="openArticle(
 'اختفاء موقف الحافلة رقم 7',
 '🚌',
 'خدمات',
-'أثار اختفاء موقف الحافلة رقم 7 حالة من الحيرة بين سكان المنطقة. شهود عيان أكدوا أن الموقف كان موجودًا صباحًا، ثم اختفى مع أول موجة.',
+'أثار اختفاء موقف الحافلة رقم 7 حالة من الحيرة بين سكان المنطقة. شهود عيان أكدوا أن الموقف كان موجودًا صباحًا ثم اختفى مع أول موجة.',
 'منذ ساعة'
 )">
-<div class="fake-image">🚌🌊</div>
+
+<div class="news-photo">
+<div class="photo-label">حي الصدف</div>
+<div class="photo-fish">🐟</div>
+<div class="photo-floor"></div>
+</div>
+
 <span class="badge">خدمات</span>
+
 <h3>اختفاء موقف الحافلة رقم 7</h3>
-<p>شهود عيان قالوا إن الموقف كان موجودًا صباحًا...</p>
-<div class="meta"><span>منذ ساعة</span><span>🤯 960</span></div>
+
+<p>
+شهود عيان قالوا إن الموقف كان موجودًا صباحًا...
+</p>
+
+<div class="meta">
+<span>منذ ساعة</span>
+<span>🤯 960</span>
+</div>
+
 </article>
+
+<!-- NEWS 4 -->
 
 <article class="card news-card"
 onclick="openArticle(
@@ -1043,165 +1180,244 @@ onclick="openArticle(
 'سجلت بورصة الطحالب ارتفاعًا جديدًا وسط اهتمام المستثمرين. خبراء القاع ينصحون بالهدوء وعدم اتخاذ أي قرارات مالية بناءً على منشور عشوائي.',
 'اليوم'
 )">
-<div class="fake-image">🌿📈</div>
+
+<div class="news-photo">
+<div class="photo-label">سوق الطحالب</div>
+<div class="photo-fish">🐡</div>
+<div class="photo-floor"></div>
+</div>
+
 <span class="badge">اقتصاد</span>
+
 <h3>بورصة الطحالب تسجل ارتفاعًا تاريخيًا</h3>
-<p>خبراء القاع ينصحون المواطنين بالهدوء...</p>
-<div class="meta"><span>اليوم</span><span>📈 740</span></div>
+
+<p>
+خبراء القاع ينصحون المواطنين بالهدوء.
+</p>
+
+<div class="meta">
+<span>اليوم</span>
+<span>📈 740</span>
+</div>
+
 </article>
+
+<!-- NEWS 5 -->
 
 <article class="card news-card"
 onclick="openArticle(
 'فريق حي الصدف يعلن عن مباراة الليلة',
 '⚽',
 'رياضة',
-'أعلن فريق حي الصدف عن إقامة مباراة جماهيرية الليلة. الجماهير مطالبة بالحضور مبكرًا بسبب توقعات بزيادة التيار عند بداية المباراة.',
+'أعلن فريق حي الصدف عن إقامة مباراة جماهيرية الليلة. الجماهير مطالبة بالحضور مبكرًا بسبب توقعات بزيادة التيار.',
 'اليوم'
 )">
-<div class="fake-image">⚽🐚</div>
+
+<div class="news-photo">
+<div class="photo-label">ملعب الشعب</div>
+<div class="photo-fish">🐟</div>
+<div class="photo-floor"></div>
+</div>
+
 <span class="badge">رياضة</span>
+
 <h3>فريق حي الصدف يعلن عن مباراة الليلة</h3>
-<p>الجمهور مطالب بالحضور مبكرًا بسبب توقعات زيادة التيار.</p>
-<div class="meta"><span>اليوم</span><span>🔥 1.2K</span></div>
+
+<p>
+الجمهور مطالب بالحضور مبكرًا بسبب توقعات زيادة التيار.
+</p>
+
+<div class="meta">
+<span>اليوم</span>
+<span>🔥 1.2K</span>
+</div>
+
 </article>
+
+<!-- NEWS 6 -->
 
 <article class="card news-card"
 onclick="openArticle(
 'عودة الواي فاي تشعل احتفالات القاع',
 '📡',
 'منوعات',
-'بعد انقطاع استمر عدة دقائق، عادت خدمة الإنترنت إلى مناطق واسعة من القاع، وسط احتفالات عفوية امتدت من الميناء إلى حي الصدف.',
+'بعد انقطاع استمر عدة دقائق، عادت خدمة الإنترنت إلى مناطق واسعة من القاع، وسط احتفالات امتدت من الميناء إلى حي الصدف.',
 'اليوم'
 )">
-<div class="fake-image">📡🎉</div>
+
+<div class="news-photo">
+<div class="photo-label">ميناء القاع</div>
+<div class="photo-fish">🐠</div>
+<div class="photo-floor"></div>
+</div>
+
 <span class="badge">منوعات</span>
+
 <h3>عودة الواي فاي تشعل احتفالات القاع</h3>
-<p>الاحتفالات بدأت من الميناء ووصلت إلى آخر شارع الصدف.</p>
-<div class="meta"><span>اليوم</span><span>❤️ 2.1K</span></div>
+
+<p>
+الاحتفالات بدأت من الميناء ووصلت إلى حي الصدف.
+</p>
+
+<div class="meta">
+<span>اليوم</span>
+<span>❤️ 2.1K</span>
+</div>
+
 </article>
 
 </div>
+
 </div>
+</section>
+
+<!-- NEWS OF TODAY -->
+
+<section id="today">
+
+<div class="container">
+
+<div class="section-head">
+
+<div>
+<h2>📰 أخبار اليوم</h2>
+<p>ملخص سريع لكل ما يدور في القاع اليوم</p>
+</div>
+
+<button class="btn btn-primary" onclick="refreshTodayNews()">
+🔄 تحديث الأخبار
+</button>
+
+</div>
+
+<div class="today-news">
+
+<div class="today-list" id="todayNewsList"></div>
+
+</div>
+
+</div>
+
 </section>
 
 <!-- COMPLAINTS -->
 
 <section id="complaints">
+
 <div class="container">
 
 <div class="section-head">
+
 <div>
 <h2>📢 شكاوى أهالي القاع</h2>
-<p>هنا صوت المواطن يوصل مباشرة</p>
-</div>
-<button class="btn btn-primary" onclick="focusComplaint()">✍️ قدم شكوى الآن</button>
+<p>الشكاوى التي تم إرسالها من هذا الجهاز</p>
 </div>
 
-<div class="news-grid">
-
-<div class="card">
-<span class="badge">شكوى مواطن</span>
-<h3>«الميه ضعيفة من امبارح»</h3>
-<p>أحد السكان يقول إن ضغط المياه أصبح أقل من المعتاد ويطالب المسؤولين بالتحرك.</p>
-<div class="meta"><span>شارع المرجان</span><span>📢 342</span></div>
-</div>
-
-<div class="card">
-<span class="badge">شكوى مواطن</span>
-<h3>«مين ركن مركبته قدام البيت؟»</h3>
-<p>شكوى جديدة بسبب مركبة كبيرة أغلقت مدخل شارع المرجان بالكامل.</p>
-<div class="meta"><span>حي الصدف</span><span>📢 219</span></div>
-</div>
-
-<div class="card">
-<span class="badge">شكوى مواطن</span>
-<h3>«الأسعار بقت غرقانة»</h3>
-<p>مواطنون يطالبون بتوضيح سبب ارتفاع أسعار بعض المنتجات البحرية.</p>
-<div class="meta"><span>سوق الطحالب</span><span>📢 510</span></div>
-</div>
+<a href="#submit" class="btn btn-primary">
+✍️ قدم شكوى
+</a>
 
 </div>
 
+<div class="complaints-board" id="complaintsBoard"></div>
+
 </div>
+
 </section>
 
 <!-- MAP -->
 
 <section id="map">
+
 <div class="container">
 
 <div class="section-head">
+
 <div>
-<h2>🗺️ استكشف خريطة القاع</h2>
-<p>اضغط على أي منطقة لمعرفة تفاصيلها</p>
+<h2>🗺️ خريطة قاع الهامور</h2>
+<p>اضغط على المنطقة لمعرفة تفاصيلها</p>
 </div>
-<span class="badge">8 مناطق نشطة</span>
+
+<span class="badge">8 مناطق</span>
+
 </div>
 
 <div class="map-grid">
 
-<div class="location-card" onclick="showLocation('شارع المرجان','🏘️','أكبر منطقة سكنية في القاع، وتشتهر بالمخابز والمقاهي وأخبار السكان اليومية.')">
+<div class="location-card"
+onclick="showLocation('شارع المرجان','🏘️','أكبر منطقة سكنية في القاع، وتشتهر بالمخابز والمقاهي وأخبار السكان اليومية.')">
 <div class="location-icon">🏘️</div>
 <b>شارع المرجان</b>
 <small>منطقة سكنية</small>
 </div>
 
-<div class="location-card" onclick="showLocation('ميدان البرجر','🍔','قلب المطاعم والأكل السريع في القاع، وتصدر منه أغلب أخبار الأسعار.')">
+<div class="location-card"
+onclick="showLocation('ميدان البرجر','🍔','قلب المطاعم والأكل السريع في القاع، وتصدر منه أغلب أخبار الأسعار.')">
 <div class="location-icon">🍔</div>
 <b>ميدان البرجر</b>
 <small>مطاعم ومحلات</small>
 </div>
 
-<div class="location-card" onclick="showLocation('ميناء القاع','⚓','الميناء الرئيسي، وتتحرك منه المراكب والأخبار قبل وصولها لباقي المناطق.')">
+<div class="location-card"
+onclick="showLocation('ميناء القاع','⚓','الميناء الرئيسي، وتتحرك منه المراكب والأخبار قبل وصولها لباقي المناطق.')">
 <div class="location-icon">⚓</div>
 <b>ميناء القاع</b>
 <small>حركة يومية</small>
 </div>
 
-<div class="location-card" onclick="showLocation('حي الصدف','🐚','الحي القديم الذي يعيش فيه أشهر الشخصيات، وتوجد فيه أشهر الحكايات.')">
+<div class="location-card"
+onclick="showLocation('حي الصدف','🐚','الحي القديم الذي يعيش فيه أشهر الشخصيات، وتوجد فيه أشهر الحكايات.')">
 <div class="location-icon">🐚</div>
 <b>حي الصدف</b>
 <small>المنطقة القديمة</small>
 </div>
 
-<div class="location-card" onclick="showLocation('سوق الطحالب','🏪','أكبر سوق تجاري في القاع، وتتحرك فيه الأسعار أسرع من التيار.')">
+<div class="location-card"
+onclick="showLocation('سوق الطحالب','🏪','أكبر سوق تجاري في القاع، وتتحرك فيه الأسعار أسرع من التيار.')">
 <div class="location-icon">🏪</div>
 <b>سوق الطحالب</b>
 <small>تجارة القاع</small>
 </div>
 
-<div class="location-card" onclick="showLocation('جامعة الأعماق','🎓','أشهر مؤسسة تعليمية تحت البحر، ومقر أبحاث التيارات والموجات.')">
+<div class="location-card"
+onclick="showLocation('جامعة الأعماق','🎓','أشهر مؤسسة تعليمية تحت البحر، ومقر أبحاث التيارات والموجات.')">
 <div class="location-icon">🎓</div>
 <b>جامعة الأعماق</b>
 <small>التعليم</small>
 </div>
 
-<div class="location-card" onclick="showLocation('ملعب الشعب','🏟️','المكان المفضل لعشاق الرياضة، وتقام فيه أهم مباريات القاع.')">
+<div class="location-card"
+onclick="showLocation('ملعب الشعب','🏟️','المكان المفضل لعشاق الرياضة، وتقام فيه أهم مباريات القاع.')">
 <div class="location-icon">🏟️</div>
 <b>ملعب الشعب</b>
 <small>رياضة</small>
 </div>
 
-<div class="location-card" onclick="showLocation('شاطئ الفقاعات','🌴','منطقة ترفيهية هادئة، يقصدها سكان القاع في العطلات.')">
+<div class="location-card"
+onclick="showLocation('شاطئ الفقاعات','🌴','منطقة ترفيهية هادئة، يقصدها سكان القاع في العطلات.')">
 <div class="location-icon">🌴</div>
 <b>شاطئ الفقاعات</b>
 <small>ترفيه</small>
 </div>
 
 </div>
+
 </div>
 </section>
 
 <!-- CHARACTERS -->
 
 <section id="characters">
+
 <div class="container">
 
 <div class="section-head">
+
 <div>
-<h2>👥 شخصيات القاع</h2>
-<p>الوجوه الأشهر في عالم أخبار قاع الهامور</p>
+<h2>👥 سكان القاع</h2>
+<p>أشهر شخصيات عالم أخبار قاع الهامور</p>
 </div>
+
 </div>
 
 <div class="character-grid">
@@ -1210,115 +1426,143 @@ onclick="openArticle(
 <div class="character-avatar">🐚</div>
 <span class="badge">شخصية</span>
 <h3>عم صدف</h3>
-<p>أقدم سكان الحي. عنده تعليق على كل حاجة، وكل خبر عنده قصة قديمة.</p>
+<p>أقدم سكان الحي، وكل خبر عنده قصة وحكاية قديمة.</p>
 </div>
 
 <div class="card character">
 <div class="character-avatar">⚓</div>
 <span class="badge">شخصية</span>
 <h3>القبطان فلفل</h3>
-<p>راجل الميناء الذي يعرف الأخبار قبل ما تنزل الجريدة.</p>
+<p>رجل الميناء الذي يعرف الأخبار قبل وصولها للجريدة.</p>
 </div>
 
 <div class="card character">
 <div class="character-avatar">📢</div>
 <span class="badge">مراسلة</span>
 <h3>مرجانة</h3>
-<p>أشهر مراسلة في القاع، ودائمًا أول واحدة توصل لمكان الحدث.</p>
+<p>أشهر مراسلة في القاع ودائمًا أول واحدة تصل لمكان الحدث.</p>
 </div>
 
 </div>
+
 </div>
 </section>
 
-<!-- COMPLAINT FORM + GENERATOR -->
+<!-- SUBMIT -->
 
 <section id="submit">
+
 <div class="container">
 
 <div class="complaint-grid">
 
-<div class="form" id="complaintForm">
+<div class="form">
 
 <div class="section-head">
+
 <div>
-<h2>📝 قدم شكوى</h2>
-<p>صوتك مهم... ابعت مشكلتك لأهل القاع</p>
+<h2>📢 قدم شكوى</h2>
+<p>شكواك هتظهر على الموقع فور إرسالها</p>
 </div>
+
 </div>
 
 <label>عنوان الشكوى</label>
 
-<input id="complaintTitle"
+<input
+id="complaintTitle"
 placeholder="مثال: أزمة في شارع المرجان">
 
 <label>تفاصيل الشكوى</label>
 
-<textarea id="complaintText"
+<textarea
+id="complaintText"
 placeholder="اكتب اللي حصل بالتفصيل..."></textarea>
 
-<button class="btn btn-primary" onclick="submitComplaint()">
-📢 إرسال الشكوى
+<button
+class="btn btn-primary"
+onclick="submitComplaint()">
+📢 نشر الشكوى على الموقع
 </button>
 
 </div>
 
-<div class="form generator">
+<!-- أخبار اليوم بدل مولد المواقف -->
+
+<div class="today-news">
 
 <div class="section-head">
+
 <div>
-<h2>🎭 مولّد مواقف القاع</h2>
-<p>كل ضغطة = مصيبة جديدة 😂</p>
-</div>
-</div>
-
-<div class="story-box" id="storyBox">
-اضغط الزر وشوف إيه اللي هيحصل تحت البحر 👀
+<h2>📰 أخبار اليوم</h2>
+<p>أهم الأخبار السريعة من جميع أنحاء القاع</p>
 </div>
 
-<button class="btn btn-primary" onclick="generateStory()">
-🔥 ولّع القاع
-</button>
+<span class="badge red">TODAY</span>
+
+</div>
+
+<div class="today-list" id="todayNewsList2"></div>
 
 </div>
 
 </div>
+
 </div>
+
 </section>
 
 <!-- POLL -->
 
 <section>
+
 <div class="container">
 
-<div class="poll">
+<div class="card">
 
 <div class="section-head">
+
 <div>
 <h2>🗳️ استفتاء سكان القاع</h2>
-<p>شارك برأيك وشوف النتيجة</p>
+<p>شارك برأيك</p>
 </div>
+
 <span class="badge green">استفتاء مباشر</span>
+
 </div>
 
 <h3>مين أكتر منطقة محتاجة خدمات؟</h3>
 
-<div class="poll-options">
+<div style="display:grid;gap:9px;margin-top:18px">
 
-<button class="poll-option" onclick="vote('شارع المرجان')">🏘️ شارع المرجان</button>
-<button class="poll-option" onclick="vote('حي الصدف')">🐚 حي الصدف</button>
-<button class="poll-option" onclick="vote('ميناء القاع')">⚓ ميناء القاع</button>
-<button class="poll-option" onclick="vote('سوق الطحالب')">🏪 سوق الطحالب</button>
+<button class="nav-btn" onclick="vote('شارع المرجان')">
+🏘️ شارع المرجان
+</button>
+
+<button class="nav-btn" onclick="vote('حي الصدف')">
+🐚 حي الصدف
+</button>
+
+<button class="nav-btn" onclick="vote('ميناء القاع')">
+⚓ ميناء القاع
+</button>
+
+<button class="nav-btn" onclick="vote('سوق الطحالب')">
+🏪 سوق الطحالب
+</button>
 
 </div>
 
 </div>
+
 </div>
+
 </section>
 
 <!-- CONTACT -->
 
 <section id="contact">
+
 <div class="container">
 
 <div class="card contact">
@@ -1328,10 +1572,11 @@ placeholder="اكتب اللي حصل بالتفصيل..."></textarea>
 <h2>تواصل مع أخبار قاع الهامور</h2>
 
 <p style="color:var(--muted);margin-top:10px">
-تابع أخبار القاع، شارك المواقف، وكن أول من يعرف الجديد.
+تابع الأخبار الجديدة وشارك عالم القاع مع أصحابك.
 </p>
 
-<a class="instagram"
+<a
+class="instagram"
 href="https://www.instagram.com/h_e_n_d_o_1/"
 target="_blank"
 rel="noopener noreferrer">
@@ -1341,11 +1586,13 @@ rel="noopener noreferrer">
 </div>
 
 </div>
+
 </section>
 
 </main>
 
 <footer>
+
 <div class="container">
 
 <div style="font-size:20px">
@@ -1353,7 +1600,7 @@ rel="noopener noreferrer">
 </div>
 
 <div style="margin-top:10px">
-جريدة ترفيهية ساخرة من عالم القاع 🌊
+جريدة ترفيهية ساخرة من عالم القاع.
 </div>
 
 <div style="margin-top:18px">
@@ -1361,6 +1608,7 @@ rel="noopener noreferrer">
 </div>
 
 </div>
+
 </footer>
 
 <!-- MENU -->
@@ -1382,10 +1630,16 @@ rel="noopener noreferrer">
 <small>آخر المستجدات</small>
 </a>
 
+<a class="menu-item" href="#today" onclick="closeMenu()">
+📰
+<b>أخبار اليوم</b>
+<small>ملخص اليوم</small>
+</a>
+
 <a class="menu-item" href="#complaints" onclick="closeMenu()">
 📢
 <b>الشكاوى</b>
-<small>صوت الأهالي</small>
+<small>شكاوى السكان</small>
 </a>
 
 <a class="menu-item" href="#map" onclick="closeMenu()">
@@ -1401,9 +1655,9 @@ rel="noopener noreferrer">
 </a>
 
 <a class="menu-item" href="#submit" onclick="closeMenu()">
-🎭
-<b>المواقف</b>
-<small>مولد ساخر</small>
+✍️
+<b>قدم شكوى</b>
+<small>شارك مشكلتك</small>
 </a>
 
 <a class="menu-item" href="#contact" onclick="closeMenu()">
@@ -1413,6 +1667,7 @@ rel="noopener noreferrer">
 </a>
 
 </div>
+
 </div>
 </div>
 
@@ -1469,9 +1724,17 @@ rel="noopener noreferrer">
 <p id="locationText"></p>
 
 <div class="card">
+
 <span class="badge green">حالة المنطقة</span>
-<h3 style="margin-top:10px">🟢 مستقرة حاليًا</h3>
-<p>تابع أخبار المنطقة لمعرفة آخر التطورات.</p>
+
+<h3 style="margin-top:10px">
+🟢 مستقرة حاليًا
+</h3>
+
+<p>
+تابع أخبار المنطقة لمعرفة آخر التطورات.
+</p>
+
 </div>
 
 </div>
@@ -1485,7 +1748,7 @@ rel="noopener noreferrer">
 
 <script>
 
-/* MENU */
+/* ================= MENU ================= */
 
 function openMenu(){
 document.getElementById("menuModal").classList.add("show");
@@ -1499,7 +1762,7 @@ function closeOutside(e){
 if(e.target.id==="menuModal") closeMenu();
 }
 
-/* TOAST */
+/* ================= TOAST ================= */
 
 let toastTimer;
 
@@ -1518,7 +1781,7 @@ toast.classList.remove("show");
 
 }
 
-/* ARTICLE */
+/* ================= ARTICLES ================= */
 
 function openArticle(title,icon,category,text,time){
 
@@ -1536,6 +1799,7 @@ document.body.style.overflow="hidden";
 function closeArticle(){
 
 document.getElementById("articleModal").classList.remove("show");
+
 document.body.style.overflow="";
 
 }
@@ -1548,7 +1812,7 @@ closeArticle();
 
 }
 
-/* LOCATION */
+/* ================= LOCATION ================= */
 
 function showLocation(title,icon,text){
 
@@ -1559,11 +1823,13 @@ document.getElementById("locationText").textContent=text;
 document.getElementById("locationModal").classList.add("show");
 
 document.body.style.overflow="hidden";
+
 }
 
 function closeLocation(){
 
 document.getElementById("locationModal").classList.remove("show");
+
 document.body.style.overflow="";
 
 }
@@ -1576,113 +1842,286 @@ closeLocation();
 
 }
 
-/* COMPLAINT */
+/* ================= COMPLAINT SYSTEM ================= */
 
-function focusComplaint(){
+function getComplaints(){
 
-document.getElementById("submit").scrollIntoView({
-behavior:"smooth"
-});
+try{
 
-setTimeout(()=>{
-document.getElementById("complaintTitle").focus();
-},700);
+return JSON.parse(
+localStorage.getItem("qaa_complaints")
+)||[];
+
+}catch(e){
+
+return[];
 
 }
 
+}
+
+function saveComplaints(data){
+
+localStorage.setItem(
+"qaa_complaints",
+JSON.stringify(data)
+);
+
+}
+
+/* نشر الشكوى فعليًا على الموقع */
+
 function submitComplaint(){
 
-const title=document.getElementById("complaintTitle").value.trim();
-const text=document.getElementById("complaintText").value.trim();
+const title=document
+.getElementById("complaintTitle")
+.value
+.trim();
+
+const text=document
+.getElementById("complaintText")
+.value
+.trim();
 
 if(!title || !text){
 
-showToast("📢 اكتب عنوان الشكوى والتفاصيل الأول!");
+showToast("📢 لازم تكتب عنوان الشكوى والتفاصيل الأول!");
+
 return;
 
 }
 
+const complaints=getComplaints();
+
 const complaint={
+
+id:Date.now(),
+
 title:title,
+
 text:text,
-date:new Date().toLocaleString("ar-EG")
+
+date:new Date().toLocaleString("ar-EG",{
+dateStyle:"medium",
+timeStyle:"short"
+})
+
 };
 
-localStorage.setItem(
-"qaa_last_complaint",
-JSON.stringify(complaint)
-);
+complaints.unshift(complaint);
+
+saveComplaints(complaints);
 
 document.getElementById("complaintTitle").value="";
 document.getElementById("complaintText").value="";
 
-showToast("🌊 وصلت الشكوى للقاع بنجاح 😂");
+renderComplaints();
 
-}
-
-/* STORY GENERATOR */
-
-const stories=[
-
-"🔴 عاجل: مواطن اشترى سلطع برجر واكتشف أن البطاطس بتسبح لوحدها.",
-
-"📢 سكان حي الصدف يطالبون بعمل مطب صناعي للأسماك السريعة.",
-
-"⚓ مصدر خاص: طابور المخبز وصل إلى ميناء القاع لأول مرة في التاريخ.",
-
-"🐟 إدارة الميناء تحذر من ترك المركبات أمام مداخل الجيران.",
-
-"😂 مواطن يقول: نزلت أجيب حاجة ورجعت لقيت نفسي في حي تاني.",
-
-"📡 أزمة جديدة: الواي فاي اختفى خمس دقائق وسكان القاع أعلنوا حالة طوارئ.",
-
-"🍔 مطعم في ميدان البرجر يعلن أن العرض مستمر حتى نفاد السمك.",
-
-"🌊 موجة قوية تسببت في تحريك كرسي من مكانه داخل أحد المقاهي.",
-
-"🏆 فريق حي الصدف يتعادل بعد مباراة استمرت أطول من المتوقع.",
-
-"🐚 عم صدف يؤكد: أنا قلت الكلام ده من 7 سنين ومحدش صدقني.",
-
-"🦈 سمكة قرش تنفي رسميًا امتلاكها لأي علاقة بمشكلة الميناء.",
-
-"😂 أحد السكان يطلب تركيب إشارة مرور للأسماك في ميدان البرجر.",
-
-"🚨 حالة استنفار بعد اكتشاف أن أحدهم أخذ آخر قطعة بيتزا في القاع.",
-
-"☕ مقهى حي الصدف يعلن اختراع قهوة جديدة تزيد سرعة السباحة.",
-
-"📢 مواطن يطالب بتوفير موقف رسمي للسلاحف بدلًا من ركنها عشوائيًا."
-
-];
-
-function generateStory(){
-
-const random=Math.floor(Math.random()*stories.length);
-
-const box=document.getElementById("storyBox");
-
-box.style.opacity="0";
+showToast("✅ تم نشر الشكوى على الموقع!");
 
 setTimeout(()=>{
 
-box.textContent=stories[random];
-box.style.opacity="1";
+document.getElementById("complaints")
+.scrollIntoView({
+behavior:"smooth"
+});
 
-},150);
+},500);
 
 }
 
-/* SEARCH */
+/* عرض الشكاوى */
+
+function renderComplaints(){
+
+const board=document.getElementById("complaintsBoard");
+
+const complaints=getComplaints();
+
+if(!complaints.length){
+
+board.innerHTML=`
+<div class="empty-board">
+📢 مفيش شكاوى منشورة على الجهاز لحد الآن.<br>
+أول شكوى ممكن تكون شكواك!
+</div>
+`;
+
+return;
+
+}
+
+board.innerHTML=complaints.map((item,index)=>`
+
+<div class="public-complaint">
+
+<span class="badge ${index===0?"red":""}">
+${index===0?"أحدث شكوى":"شكوى مواطن"}
+</span>
+
+<h3>${escapeHTML(item.title)}</h3>
+
+<p>${escapeHTML(item.text)}</p>
+
+<div class="complaint-meta">
+
+<span>📍 من سكان القاع</span>
+
+<span>${escapeHTML(item.date)}</span>
+
+</div>
+
+</div>
+
+`).join("");
+
+}
+
+/* حماية النصوص المدخلة */
+
+function escapeHTML(text){
+
+const div=document.createElement("div");
+
+div.textContent=text;
+
+return div.innerHTML;
+
+}
+
+/* ================= TODAY NEWS ================= */
+
+const todayNews=[
+
+{
+title:"حركة غير طبيعية في ميناء القاع",
+text:"مصادرنا تؤكد زيادة حركة المراكب منذ الصباح.",
+cat:"عاجل"
+},
+
+{
+title:"سوق الطحالب يستعد ليوم مزدحم",
+text:"التجار يتوقعون إقبالًا كبيرًا خلال الساعات القادمة.",
+cat:"اقتصاد"
+},
+
+{
+title:"استعدادات كبيرة في ملعب الشعب",
+text:"الجماهير بدأت التوافد قبل المباراة المرتقبة.",
+cat:"رياضة"
+},
+
+{
+title:"حركة مرورية بطيئة في شارع المرجان",
+text:"السكان يطالبون بتنظيم حركة المركبات.",
+cat:"خدمات"
+},
+
+{
+title:"أجواء هادئة في شاطئ الفقاعات",
+text:"المنطقة تشهد إقبالًا كبيرًا من سكان القاع.",
+cat:"منوعات"
+},
+
+{
+title:"جامعة الأعماق تعلن عن فعالية جديدة",
+text:"الفعالية ستجمع طلاب القاع في حدث تعليمي وترفيهي.",
+cat:"تعليم"
+}
+
+];
+
+function renderTodayNews(){
+
+const html=todayNews.map((item,index)=>`
+
+<div class="today-item">
+
+<div class="today-number">
+${String(index+1).padStart(2,"0")}
+</div>
+
+<div>
+
+<b>${item.title}</b>
+
+<small>
+${item.text}
+</small>
+
+<div style="margin-top:6px">
+<span class="badge">${item.cat}</span>
+</div>
+
+</div>
+
+</div>
+
+`).join("");
+
+document.getElementById("todayNewsList").innerHTML=html;
+document.getElementById("todayNewsList2").innerHTML=html;
+
+}
+
+function refreshTodayNews(){
+
+const list=document.getElementById("todayNewsList");
+
+list.style.opacity=".3";
+
+setTimeout(()=>{
+
+todayNews.sort(()=>Math.random()-.5);
+
+renderTodayNews();
+
+list.style.opacity="1";
+
+showToast("📰 تم تحديث أخبار اليوم!");
+
+},300);
+
+}
+
+/* ================= SEARCH ================= */
 
 const searchableSections=[
 
-{words:["اخبار","أخبار","عاجل","news"],id:"news"},
-{words:["شكوى","شكاوى","complaints"],id:"complaints"},
-{words:["خريطة","مناطق","شارع المرجان","ميناء","صدف"],id:"map"},
-{words:["سكان","شخصيات","عم صدف","مرجانة","فلفل"],id:"characters"},
-{words:["موقف","مولد","مولّد","ترفيه"],id:"submit"},
-{words:["تواصل","انستجرام","instagram"],id:"contact"}
+{
+words:["اخبار","أخبار","عاجل","news"],
+id:"news"
+},
+
+{
+words:["اليوم","اخبار اليوم","today"],
+id:"today"
+},
+
+{
+words:["شكوى","شكاوى","complaints"],
+id:"complaints"
+},
+
+{
+words:["خريطة","مناطق","شارع المرجان","ميناء","صدف"],
+id:"map"
+},
+
+{
+words:["سكان","شخصيات","عم صدف","مرجانة","فلفل"],
+id:"characters"
+},
+
+{
+words:["قدم شكوى","ارسال شكوى","submit"],
+id:"submit"
+},
+
+{
+words:["تواصل","انستجرام","instagram"],
+id:"contact"
+}
 
 ];
 
@@ -1696,10 +2135,11 @@ searchTimeout=setTimeout(()=>{
 
 const query=document
 .getElementById("searchInput")
-.value.trim()
+.value
+.trim()
 .toLowerCase();
 
-if(query.length<2) return;
+if(query.length<2)return;
 
 for(const section of searchableSections){
 
@@ -1737,15 +2177,14 @@ showToast("🔎 مفيش نتيجة بنفس الاسم في القاع 😂");
 
 }
 
-/* POLL */
+/* ================= POLL ================= */
 
 function vote(area){
-
-const key="qaa_vote_"+area;
 
 if(localStorage.getItem("qaa_voted")){
 
 showToast("🗳️ أنت صوتت قبل كده يا مواطن القاع 😂");
+
 return;
 
 }
@@ -1756,7 +2195,7 @@ showToast("🗳️ صوتك وصل! اخترت: "+area);
 
 }
 
-/* LIVE NUMBERS */
+/* ================= LIVE COUNTERS ================= */
 
 setInterval(()=>{
 
@@ -1774,8 +2213,6 @@ online.textContent=n.toLocaleString("en-US");
 
 },5000);
 
-/* READER COUNTER */
-
 setInterval(()=>{
 
 const readers=document.getElementById("readers");
@@ -1790,7 +2227,7 @@ readers.textContent=n.toLocaleString("en-US");
 
 },7000);
 
-/* KEYBOARD */
+/* ================= KEYBOARD ================= */
 
 document.addEventListener("keydown",(event)=>{
 
@@ -1804,18 +2241,10 @@ closeLocation();
 
 });
 
-/* CLICKABLE LOGO */
+/* ================= START ================= */
 
-document.querySelector(".logo").addEventListener("click",()=>{
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
-});
-
-/* WELCOME */
+renderComplaints();
+renderTodayNews();
 
 setTimeout(()=>{
 
