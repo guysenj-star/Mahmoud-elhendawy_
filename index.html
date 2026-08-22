@@ -2,24 +2,21 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>أخبار قاع الهامور 🌊</title>
 
 <style>
 :root{
---bg:#020d14;
---bg2:#062533;
---card:rgba(7,34,47,.88);
---cyan:#55e9f0;
---cyan2:#159db5;
---gold:#ffd45c;
---red:#ff5353;
---green:#55e39b;
+--bg:#03131c;
+--bg2:#062b3a;
+--card:rgba(7,38,52,.88);
+--cyan:#56e7ec;
+--gold:#ffd86a;
+--red:#ff6262;
 --white:#f5fdff;
---muted:#8caab7;
---line:rgba(95,225,235,.16);
---shadow:0 25px 80px rgba(0,0,0,.42);
+--muted:#8eabb8;
+--line:rgba(100,225,235,.16);
+--shadow:0 25px 80px rgba(0,0,0,.4)
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
@@ -28,11 +25,11 @@ html{scroll-behavior:smooth}
 
 body{
 font-family:Tahoma,Arial,sans-serif;
-background:
-radial-gradient(circle at 10% 5%,rgba(50,220,240,.12),transparent 25%),
-radial-gradient(circle at 90% 20%,rgba(255,210,80,.08),transparent 25%),
-linear-gradient(160deg,var(--bg),var(--bg2));
 color:var(--white);
+background:
+radial-gradient(circle at 10% 5%,rgba(50,220,230,.16),transparent 25%),
+radial-gradient(circle at 90% 20%,rgba(255,216,106,.09),transparent 25%),
+linear-gradient(160deg,var(--bg),var(--bg2));
 min-height:100vh;
 overflow-x:hidden
 }
@@ -48,37 +45,13 @@ position:relative;
 z-index:2
 }
 
-/* ===== BUBBLES ===== */
-
-.bubble{
-position:fixed;
-bottom:-100px;
-border:1px solid rgba(255,255,255,.16);
-border-radius:50%;
-pointer-events:none;
-animation:up linear infinite;
-z-index:0
-}
-
-.b1{width:25px;height:25px;left:8%;animation-duration:13s}
-.b2{width:13px;height:13px;left:25%;animation-duration:9s;animation-delay:2s}
-.b3{width:42px;height:42px;left:48%;animation-duration:16s}
-.b4{width:18px;height:18px;left:72%;animation-duration:11s}
-.b5{width:30px;height:30px;left:90%;animation-duration:14s}
-
-@keyframes up{
-from{transform:translateY(0);opacity:0}
-15%{opacity:.7}
-to{transform:translateY(-120vh);opacity:0}
-}
-
-/* ===== HEADER ===== */
+/* ================= HEADER ================= */
 
 header{
 position:sticky;
 top:0;
 z-index:100;
-background:rgba(1,13,19,.86);
+background:rgba(2,16,23,.86);
 backdrop-filter:blur(18px);
 border-bottom:1px solid var(--line)
 }
@@ -91,23 +64,21 @@ gap:12px
 }
 
 .logo{
-font-weight:1000;
 font-size:18px;
-display:flex;
-align-items:center;
-gap:10px;
+font-weight:1000;
 white-space:nowrap
 }
 
 .logo-icon{
+display:inline-grid;
+place-items:center;
 width:44px;
 height:44px;
 border-radius:14px;
-display:grid;
-place-items:center;
-background:linear-gradient(145deg,var(--cyan),var(--cyan2));
-color:#03202a;
-box-shadow:0 0 35px rgba(85,233,240,.2)
+background:linear-gradient(145deg,var(--cyan),#159eb2);
+color:#03212a;
+margin-left:7px;
+box-shadow:0 0 30px rgba(86,231,236,.2)
 }
 
 .search{
@@ -117,53 +88,50 @@ position:relative
 
 .search input{
 width:100%;
-padding:13px 43px 13px 14px;
-border:1px solid var(--line);
+padding:13px 17px;
 border-radius:15px;
+border:1px solid var(--line);
 background:rgba(255,255,255,.04);
 color:white;
 outline:none
 }
 
 .search input:focus{
-border-color:rgba(85,233,240,.55);
-box-shadow:0 0 25px rgba(85,233,240,.08)
+border-color:rgba(86,231,236,.5)
 }
 
-.search-icon{
-position:absolute;
-right:14px;
-top:11px
-}
-
-.nav-btn{
+.nav-btn,.btn{
 border:1px solid var(--line);
 background:rgba(255,255,255,.04);
 color:white;
-padding:11px 14px;
+padding:12px 16px;
 border-radius:14px;
 cursor:pointer;
-font-weight:900
+font-weight:1000
 }
 
 .nav-btn:hover{
-border-color:rgba(85,233,240,.55);
-background:rgba(85,233,240,.06)
+border-color:rgba(86,231,236,.5)
 }
 
-/* ===== TICKER ===== */
+.btn-primary{
+background:linear-gradient(135deg,var(--gold),#ffad40);
+color:#09202a;
+border:0
+}
+
+/* ================= TICKER ================= */
 
 .ticker{
 overflow:hidden;
 border-bottom:1px solid var(--line);
-background:rgba(255,75,75,.04)
+background:rgba(255,80,80,.035)
 }
 
 .ticker-track{
 white-space:nowrap;
-padding:11px;
+padding:10px;
 font-size:11px;
-color:#dceef2;
 animation:ticker 30s linear infinite
 }
 
@@ -172,24 +140,30 @@ from{transform:translateX(0)}
 to{transform:translateX(55%)}
 }
 
-/* ===== HERO ===== */
+/* ================= HERO ================= */
 
-.hero{padding:60px 0 30px}
+.hero{
+padding:55px 0 30px
+}
 
 .hero-grid{
 display:grid;
-grid-template-columns:1.25fr .75fr;
+grid-template-columns:1.2fr .8fr;
 gap:20px
 }
 
-.hero-main{
-padding:45px;
-border-radius:32px;
+.hero-main,
+.hero-art,
+.card,
+.form{
 border:1px solid var(--line);
-background:
-radial-gradient(circle at 85% 15%,rgba(85,233,240,.14),transparent 30%),
-linear-gradient(135deg,rgba(9,54,70,.9),rgba(3,24,34,.9));
+border-radius:30px;
+background:var(--card);
 box-shadow:var(--shadow)
+}
+
+.hero-main{
+padding:42px
 }
 
 .kicker{
@@ -200,12 +174,14 @@ letter-spacing:1px
 }
 
 .hero h1{
-font-size:clamp(42px,7vw,78px);
+font-size:clamp(45px,7vw,78px);
 line-height:1;
 margin:15px 0
 }
 
-.hero h1 span{color:var(--cyan)}
+.hero h1 span{
+color:var(--cyan)
+}
 
 .hero p{
 color:var(--muted);
@@ -220,86 +196,32 @@ gap:10px;
 margin-top:25px
 }
 
-.btn{
-border:0;
-border-radius:14px;
-padding:13px 18px;
-cursor:pointer;
-font-weight:1000;
-transition:.2s
-}
+/* الصورة الكبيرة */
 
-.btn:hover{transform:translateY(-2px)}
-
-.btn-primary{
-background:linear-gradient(135deg,var(--gold),#ffab38);
-color:#071a20
-}
-
-.btn-dark{
-color:white;
-background:rgba(255,255,255,.05);
-border:1px solid var(--line)
-}
-
-/* ===== ORIGINAL UNDERWATER ART ===== */
-
-.sea-art{
-min-height:320px;
-border-radius:32px;
+.hero-art{
+min-height:330px;
 overflow:hidden;
 position:relative;
-border:1px solid var(--line);
 background:
-radial-gradient(circle at 50% 25%,rgba(82,229,239,.28),transparent 22%),
-linear-gradient(180deg,#0b4d66,#03151d 80%);
-box-shadow:var(--shadow)
+linear-gradient(180deg,rgba(3,35,48,.2),rgba(3,20,28,.9)),
+url("https://commons.wikimedia.org/wiki/Special:Redirect/file/SpongeBob%20SquarePants%20character%20montage.png")
+center/cover
 }
 
-.moon{
+.hero-art:after{
+content:"";
 position:absolute;
-width:110px;
-height:110px;
-border-radius:50%;
-background:rgba(255,255,255,.06);
-top:45px;
-left:50%;
-transform:translateX(-50%);
-box-shadow:0 0 80px rgba(85,233,240,.18)
-}
-
-.cartoon-fish{
-position:absolute;
-font-size:65px;
-filter:drop-shadow(0 12px 15px rgba(0,0,0,.35));
-animation:swim 7s ease-in-out infinite
-}
-
-.fish1{top:105px;left:15%}
-.fish2{top:175px;right:15%;font-size:45px;animation-delay:2s}
-
-@keyframes swim{
-0%,100%{transform:translateX(-15px) rotate(-2deg)}
-50%{transform:translateX(25px) rotate(2deg)}
-}
-
-.sea-floor{
-position:absolute;
-bottom:0;
-width:100%;
-height:30%;
+inset:0;
 background:
-linear-gradient(160deg,transparent 25%,rgba(30,139,128,.38));
-clip-path:polygon(
-0 65%,8% 42%,16% 70%,25% 34%,
-35% 76%,48% 48%,60% 73%,72% 32%,
-84% 68%,100% 43%,100% 100%,0 100%
-)
+radial-gradient(circle at 50% 30%,rgba(86,231,236,.18),transparent 35%),
+linear-gradient(transparent 45%,rgba(3,19,28,.75))
 }
 
-/* ===== SECTIONS ===== */
+/* ================= SECTIONS ================= */
 
-section{padding:30px 0 55px}
+section{
+padding:30px 0 55px
+}
 
 .section-head{
 display:flex;
@@ -309,7 +231,9 @@ gap:15px;
 margin-bottom:18px
 }
 
-.section-head h2{font-size:26px}
+.section-head h2{
+font-size:25px
+}
 
 .section-head p{
 color:var(--muted);
@@ -319,188 +243,138 @@ margin-top:6px
 
 .badge{
 display:inline-flex;
+align-items:center;
 padding:6px 10px;
 border-radius:999px;
-background:rgba(85,233,240,.08);
+background:rgba(86,231,236,.08);
 color:var(--cyan);
 font-size:10px;
 font-weight:1000
 }
 
 .badge.red{
-background:rgba(255,83,83,.09);
+background:rgba(255,98,98,.08);
 color:#ff8989
 }
 
-/* ===== NEWS ===== */
+/* ================= NEWS ================= */
 
 .news-grid{
 display:grid;
 grid-template-columns:repeat(3,1fr);
-gap:15px
+gap:16px
 }
 
-.card{
-background:var(--card);
-border:1px solid var(--line);
-border-radius:23px;
-padding:20px;
+.news-card{
+overflow:hidden;
+padding:0;
 transition:.25s
 }
 
-.card:hover{
-transform:translateY(-5px);
-border-color:rgba(85,233,240,.4);
-box-shadow:0 20px 50px rgba(0,0,0,.25)
+.news-card:hover{
+transform:translateY(-6px);
+border-color:rgba(86,231,236,.4)
 }
-
-/* صور أصلية مرسومة داخل الموقع */
 
 .news-image{
-height:190px;
-border-radius:17px;
-margin-bottom:16px;
-position:relative;
-overflow:hidden;
-background:
-radial-gradient(circle at 30% 30%,#51e5ec 0 5%,transparent 6%),
-radial-gradient(circle at 70% 50%,#ffd45c 0 4%,transparent 5%),
-linear-gradient(160deg,#0b6079,#04232f 60%,#01151d)
+width:100%;
+height:205px;
+object-fit:cover;
+display:block;
+background:#061c27
 }
 
-.news-image:before{
-content:"";
-position:absolute;
-width:90px;
-height:35px;
-border-radius:50%;
-background:#f2b94b;
-left:20%;
-top:55%;
-transform:rotate(-8deg);
-box-shadow:
-85px -30px 0 5px #55dbe4,
-150px 25px 0 0 #ff7777;
+.news-body{
+padding:20px
 }
 
-.news-image:after{
-content:"";
-position:absolute;
-width:180px;
-height:55px;
-background:rgba(255,255,255,.08);
-border-radius:50%;
-left:35%;
-bottom:-20px;
-box-shadow:0 -10px 0 rgba(255,255,255,.05)
-}
-
-.card h3{
-margin:12px 0 8px;
+.news-card h3{
 font-size:18px;
+margin:12px 0 8px;
 line-height:1.5
 }
 
-.card p{
+.news-card p{
 color:var(--muted);
 font-size:13px;
-line-height:1.9
+line-height:1.85
 }
 
 .meta{
 display:flex;
 justify-content:space-between;
-margin-top:15px;
-color:#6f909e;
-font-size:10px
+align-items:center;
+margin-top:16px;
+font-size:10px;
+color:#6f909e
 }
 
-/* ===== DETAILS ===== */
-
-.details-btn{
-margin-top:15px;
-width:100%;
-padding:11px;
-border-radius:12px;
-border:1px solid var(--line);
-background:rgba(85,233,240,.05);
-color:var(--cyan);
+.like-btn{
+border:0;
+background:transparent;
+color:#ff8d9b;
 cursor:pointer;
-font-weight:900
+font-weight:1000;
+font-size:12px
 }
 
-/* ===== MAP ===== */
+.like-btn:hover{
+transform:scale(1.05)
+}
 
-.map-grid{
+/* ================= TODAY ================= */
+
+.today-grid{
 display:grid;
 grid-template-columns:repeat(4,1fr);
-gap:11px
+gap:14px
 }
 
-.location-card{
-padding:20px 12px;
-text-align:center;
-border-radius:18px;
+.today-card{
+padding:22px;
+min-height:180px;
+border-radius:22px;
 border:1px solid var(--line);
-background:rgba(255,255,255,.035);
-cursor:pointer;
-transition:.2s
-}
-
-.location-card:hover{
-transform:translateY(-4px);
-background:rgba(85,233,240,.07)
-}
-
-.location-icon{font-size:30px}
-
-.location-card b{
-display:block;
-margin-top:8px
-}
-
-.location-card small{color:var(--muted)}
-
-/* ===== CHARACTERS ===== */
-
-.character-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:15px
-}
-
-.character-avatar{
-height:130px;
-display:grid;
-place-items:center;
-font-size:70px;
 background:
-radial-gradient(circle,rgba(85,233,240,.16),transparent 55%),
-rgba(255,255,255,.025);
-border-radius:18px;
-margin-bottom:15px
+linear-gradient(145deg,rgba(15,70,88,.6),rgba(3,25,35,.75))
 }
 
-/* ===== COMPLAINTS ===== */
+.today-icon{
+font-size:34px;
+margin-bottom:12px
+}
+
+.today-card h3{
+margin-bottom:8px
+}
+
+.today-card p{
+color:var(--muted);
+font-size:12px;
+line-height:1.9
+}
+
+/* ================= COMPLAINTS ================= */
 
 .complaint-grid{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:15px
+gap:16px
 }
 
 .form{
-padding:25px;
-background:var(--card);
-border:1px solid var(--line);
-border-radius:25px
+padding:25px
+}
+
+.form h2{
+margin-bottom:5px
 }
 
 .form label{
 display:block;
 color:#b7d2db;
 font-size:12px;
-margin-top:12px
+margin-top:13px
 }
 
 .form input,
@@ -515,118 +389,142 @@ color:white;
 outline:none
 }
 
+.form input:focus,
+.form textarea:focus{
+border-color:rgba(86,231,236,.5)
+}
+
 .form textarea{
-min-height:130px;
+min-height:125px;
 resize:vertical
 }
 
-/* ===== TODAY ===== */
-
-.today{
-min-height:100%;
-text-align:center
+.submit-btn{
+margin-top:13px
 }
 
-.today-box{
-min-height:155px;
+/* الشكاوى المنشورة */
+
+.public-list{
+margin-top:17px;
 display:grid;
-place-items:center;
-padding:20px;
-margin:15px 0;
-border-radius:18px;
-border:1px dashed rgba(85,233,240,.28);
-background:rgba(0,0,0,.13);
-color:#c1dce3;
-line-height:2;
-font-size:15px
+gap:11px;
+max-height:500px;
+overflow:auto
 }
 
-/* ===== COMPLAINT LIST ===== */
-
-.complaint-list{
-margin-top:20px;
-display:grid;
-gap:12px
-}
-
-.user-complaint{
-padding:18px;
+.public-complaint{
+padding:17px;
 border-radius:18px;
 border:1px solid var(--line);
-background:rgba(255,255,255,.035);
-animation:appear .35s ease
+background:rgba(255,255,255,.035)
 }
 
-@keyframes appear{
-from{opacity:0;transform:translateY(15px)}
-to{opacity:1;transform:translateY(0)}
-}
-
-.user-complaint h3{
+.public-complaint h3{
+font-size:15px;
 margin-bottom:8px
 }
 
-.user-complaint p{
-color:#a9c3cc;
-line-height:1.8;
-font-size:13px
+.public-complaint p{
+font-size:12px;
+color:#b3ccd4;
+line-height:1.85
 }
 
-.complaint-bottom{
+.complaint-meta{
 display:flex;
 justify-content:space-between;
 align-items:center;
-margin-top:14px;
-font-size:11px;
+margin-top:12px;
+font-size:10px;
 color:#6f909e
 }
 
-.like-btn{
-border:1px solid rgba(255,83,83,.2);
-background:rgba(255,83,83,.06);
-color:#ff8d8d;
-border-radius:10px;
-padding:7px 10px;
+.complaint-like{
+border:0;
+background:transparent;
+color:#ff8998;
 cursor:pointer;
-font-weight:900
-}
-
-/* ===== CONTACT ===== */
-
-.contact{
-text-align:center;
-padding:38px
-}
-
-.contact-logo{
-font-size:50px;
-margin-bottom:10px
-}
-
-.instagram{
-display:inline-flex;
-margin-top:20px;
-padding:14px 20px;
-border-radius:15px;
-border:1px solid var(--line);
-background:rgba(255,255,255,.04);
-color:#ffb5d5;
 font-weight:1000
 }
 
-/* ===== FOOTER ===== */
+/* ================= MAP ================= */
 
-footer{
-margin-top:30px;
-padding:45px 0;
+.map-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:12px
+}
+
+.location-card{
+padding:21px 12px;
 text-align:center;
-border-top:1px solid var(--line);
+border-radius:19px;
+border:1px solid var(--line);
+background:rgba(255,255,255,.035);
+cursor:pointer;
+transition:.2s
+}
+
+.location-card:hover{
+transform:translateY(-5px);
+background:rgba(86,231,236,.07)
+}
+
+.location-icon{
+font-size:31px
+}
+
+.location-card b{
+display:block;
+margin-top:8px
+}
+
+.location-card small{
 color:var(--muted)
 }
 
-footer strong{color:white}
+/* ================= CHARACTERS ================= */
 
-/* ===== MODAL ===== */
+.character-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:14px
+}
+
+.character{
+overflow:hidden;
+padding:0;
+transition:.25s
+}
+
+.character:hover{
+transform:translateY(-5px)
+}
+
+.character img{
+width:100%;
+height:190px;
+object-fit:cover;
+display:block;
+background:#061c27
+}
+
+.character-info{
+padding:18px
+}
+
+.character-info h3{
+margin-bottom:7px
+}
+
+.character-info p{
+font-size:12px;
+color:var(--muted);
+line-height:1.8
+}
+
+/* ================= MODAL ================= */
 
 .modal{
 position:fixed;
@@ -636,14 +534,16 @@ display:none;
 align-items:center;
 justify-content:center;
 padding:18px;
-background:rgba(0,8,13,.75);
+background:rgba(0,8,13,.76);
 backdrop-filter:blur(12px)
 }
 
-.modal.show{display:flex}
+.modal.show{
+display:flex
+}
 
 .modal-box{
-width:min(720px,95vw);
+width:min(700px,95vw);
 max-height:88vh;
 overflow:auto;
 padding:25px;
@@ -657,16 +557,6 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 margin-bottom:18px
-}
-
-.close{
-width:38px;
-height:38px;
-border-radius:12px;
-border:1px solid var(--line);
-background:rgba(255,255,255,.04);
-color:white;
-cursor:pointer
 }
 
 .menu-grid{
@@ -684,7 +574,7 @@ text-align:center
 }
 
 .menu-item:hover{
-background:rgba(85,233,240,.06)
+background:rgba(86,231,236,.06)
 }
 
 .menu-item b{
@@ -692,36 +582,66 @@ display:block;
 margin-top:7px
 }
 
-/* ===== TOAST ===== */
+/* ================= TOAST ================= */
 
 .toast{
 position:fixed;
 bottom:20px;
 left:20px;
 z-index:300;
-padding:13px 17px;
-border-radius:14px;
+padding:14px 18px;
+border-radius:15px;
 background:#092b39;
 border:1px solid var(--line);
 display:none;
-box-shadow:0 15px 40px rgba(0,0,0,.35)
+max-width:330px
 }
 
-.toast.show{display:block}
+.toast.show{
+display:block
+}
 
-/* ===== RESPONSIVE ===== */
+/* ================= FOOTER ================= */
 
-@media(max-width:850px){
+footer{
+margin-top:25px;
+padding:45px 0;
+text-align:center;
+border-top:1px solid var(--line);
+color:var(--muted)
+}
 
-.hero-grid{grid-template-columns:1fr}
+footer strong{
+color:white
+}
 
-.news-grid{grid-template-columns:1fr 1fr}
+/* ================= RESPONSIVE ================= */
 
-.character-grid{grid-template-columns:1fr 1fr}
+@media(max-width:900px){
 
-.map-grid{grid-template-columns:1fr 1fr}
+.hero-grid{
+grid-template-columns:1fr
+}
 
-.complaint-grid{grid-template-columns:1fr}
+.news-grid{
+grid-template-columns:1fr 1fr
+}
+
+.today-grid{
+grid-template-columns:1fr 1fr
+}
+
+.character-grid{
+grid-template-columns:1fr 1fr
+}
+
+.map-grid{
+grid-template-columns:1fr 1fr
+}
+
+.complaint-grid{
+grid-template-columns:1fr
+}
 
 .nav{
 flex-wrap:wrap;
@@ -736,33 +656,42 @@ flex-basis:100%
 
 @media(max-width:550px){
 
-.hero{padding-top:35px}
+.hero{
+padding-top:35px
+}
 
-.hero-main{padding:27px}
+.hero-main{
+padding:27px
+}
 
-.hero h1{font-size:45px}
+.hero h1{
+font-size:45px
+}
 
 .news-grid,
+.today-grid,
 .character-grid{
 grid-template-columns:1fr
 }
 
-.logo{font-size:14px}
+.map-grid{
+grid-template-columns:1fr 1fr
+}
 
-.nav-btn{padding:10px}
+.logo{
+font-size:14px
+}
 
-.news-image{height:170px}
+.nav-btn{
+padding:10px
+}
 }
 </style>
 </head>
 
 <body>
 
-<div class="bubble b1"></div>
-<div class="bubble b2"></div>
-<div class="bubble b3"></div>
-<div class="bubble b4"></div>
-<div class="bubble b5"></div>
+<!-- HEADER -->
 
 <header>
 <div class="container nav">
@@ -773,38 +702,48 @@ grid-template-columns:1fr
 </a>
 
 <div class="search">
-<span class="search-icon">🔎</span>
-<input id="searchInput"
+<input
+id="searchInput"
 type="text"
-placeholder="ابحث في أخبار القاع..."
+placeholder="🔎 ابحث في أخبار القاع..."
 oninput="searchSite()">
 </div>
 
 <button class="nav-btn" onclick="openMenu()">☰ الأقسام</button>
 
-<a href="#complaints" class="nav-btn">📢 قدم شكوى</a>
+<a href="#contact" class="nav-btn">تواصل</a>
 
 </div>
 </header>
 
+
+<!-- TICKER -->
+
 <div class="ticker">
 <div class="ticker-track">
-🔴 عاجل من قاع الهامور — خبر جديد كل يوم •
+🔴 عاجل من قاع الهامور — أسعار سلطع البرجر تحت المراقبة •
+🐟 سكان شارع المرجان يطالبون بتحسين الخدمات •
 🌊 حالة البحر مستقرة •
 📢 باب الشكاوى مفتوح •
-🐟 أخبار الميناء •
-🔥 أخبار ساخنة من تحت البحر
+⚓ أخبار جديدة من الميناء •
+📰 أخبار اليوم أولًا بأول
 </div>
 </div>
+
 
 <main id="home">
 
+<!-- HERO -->
+
 <section class="hero">
+
 <div class="container hero-grid">
 
 <div class="hero-main">
 
-<div class="kicker">الجريدة الساخرة الرسمية لعالم القاع</div>
+<div class="kicker">
+الجريدة الساخرة لسكان القاع
+</div>
 
 <h1>
 أخبار
@@ -812,38 +751,39 @@ oninput="searchSite()">
 </h1>
 
 <p>
-أهلًا بيك في أكبر جريدة ساخرة تحت البحر.
-هنا هتلاقي الأخبار العاجلة، أخبار السكان،
-الشكاوى، الحكايات، المناطق، والمواقف اليومية
-بطريقة شبه مواقع الأخبار الحقيقية ولكن بروح القاع 😂
+أهلًا بيك في عالم القاع 🌊
+هنا هتلاقي الأخبار والمواقف والشكاوى والحكايات
+بطريقة ساخرة وترفيهية.
 </p>
 
 <div class="hero-actions">
 
-<a href="#news" class="btn btn-primary">📰 آخر الأخبار</a>
+<a href="#news" class="btn btn-primary">
+📰 آخر الأخبار
+</a>
 
-<a href="#complaints" class="btn btn-dark">📢 قدم شكوى</a>
+<a href="#complaints" class="btn">
+📢 قدم شكوى
+</a>
 
-<a href="#map" class="btn btn-dark">🗺️ خريطة القاع</a>
+<a href="#today" class="btn">
+🔥 أخبار اليوم
+</a>
 
-</div>
-
-</div>
-
-<div class="sea-art">
-
-<div class="moon"></div>
-
-<div class="cartoon-fish fish1">🐠</div>
-
-<div class="cartoon-fish fish2">🐟</div>
-
-<div class="sea-floor"></div>
+<a href="#map" class="btn">
+🗺️ خريطة القاع
+</a>
 
 </div>
 
 </div>
+
+<div class="hero-art"></div>
+
+</div>
+
 </section>
+
 
 <!-- NEWS -->
 
@@ -855,237 +795,227 @@ oninput="searchSite()">
 
 <div>
 <h2>🔴 عاجل من القاع</h2>
-<p>آخر الأخبار المنشورة</p>
+<p>أحدث الأخبار والمواقف</p>
 </div>
 
 <span class="badge red">● LIVE</span>
 
 </div>
 
+
 <div class="news-grid">
 
-<article class="card">
+<!-- خبر 1 -->
 
-<div class="news-image"></div>
+<article class="card news-card">
+
+<img
+class="news-image"
+src="https://commons.wikimedia.org/wiki/Special:Redirect/file/SpongeBob%20SquarePants%20character.png"
+alt="SpongeBob SquarePants">
+
+<div class="news-body">
 
 <span class="badge red">عاجل</span>
 
-<h3>سكان شارع المرجان يطالبون بإعادة فتح المخبز</h3>
+<h3>
+سبونج بوب يدخل في أزمة جديدة داخل قاع الهامور
+</h3>
 
 <p>
-الأهالي أكدوا إن الطابور وصل لآخر الحي،
-والإدارة قالت إنها هتراجع الموضوع بعد أول موجة.
+مصادر القاع تؤكد إن الموضوع بدأ بسيط،
+لكن خلال دقائق اتحول لقضية رأي عام.
 </p>
 
 <div class="meta">
 <span>منذ 12 دقيقة</span>
-<span>👀 2.4K</span>
+
+<button class="like-btn" onclick="likeNews(this)">
+❤️ <b>120</b>
+</button>
 </div>
 
-<button class="details-btn"
-onclick="showNews('أزمة مخبز شارع المرجان','الأهالي بيقولوا إن الطابور كبر جدًا، والمخبز أعلن إن العيش هيطلع أول ما التيار يهدى. شهود عيان أكدوا إن أول واحد في الطابور بقاله ساعتين.')">
-اقرأ التفاصيل كاملة ←
-</button>
-
+</div>
 </article>
 
 
-<article class="card">
+<!-- خبر 2 -->
 
-<div class="news-image"></div>
+<article class="card news-card">
 
-<span class="badge">اقتصاد</span>
+<img
+class="news-image"
+src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Patrick%20Star%20character.png"
+alt="Patrick Star">
 
-<h3>ارتفاع مفاجئ في أسعار سلطع البرجر</h3>
+<div class="news-body">
+
+<span class="badge">مجتمع</span>
+
+<h3>
+باتريك يثير الجدل بعد تصريح غامض
+</h3>
 
 <p>
-السوق شهد ارتفاعًا غريبًا والأسعار أصبحت تتحرك مع التيار.
+سكان القاع لسه بيحاولوا يفهموا التصريح،
+والخبراء أكدوا إنهم هم كمان مش فاهمين.
 </p>
 
 <div class="meta">
 <span>منذ 28 دقيقة</span>
-<span>😂 1.8K</span>
+
+<button class="like-btn" onclick="likeNews(this)">
+❤️ <b>87</b>
+</button>
 </div>
 
-<button class="details-btn"
-onclick="showNews('أسعار سلطع البرجر','أصحاب المحلات أكدوا إن السبب الرئيسي هو قلة السلطع الطازج، بينما المواطنين قالوا إنهم هيرجعوا ياكلوا طحالب لحد الأسعار ما تهدى.')">
-اقرأ التفاصيل كاملة ←
-</button>
-
+</div>
 </article>
 
 
-<article class="card">
+<!-- خبر 3 -->
 
-<div class="news-image"></div>
+<article class="card news-card">
 
-<span class="badge">خدمات</span>
+<img
+class="news-image"
+src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Mr%20Krabs%20character.png"
+alt="Mr Krabs">
 
-<h3>اختفاء موقف الحافلة رقم 7</h3>
+<div class="news-body">
+
+<span class="badge">اقتصاد القاع</span>
+
+<h3>
+مستر سلطع يعلن تغييرات جديدة في السوق
+</h3>
 
 <p>
-شهود عيان أكدوا أن الموقف كان موجودًا ثم اختفى مع أول موجة.
+السوق شهد حركة غير طبيعية والمواطنون
+يطالبون بتفسير رسمي للأحداث.
 </p>
 
 <div class="meta">
 <span>منذ ساعة</span>
-<span>🤯 960</span>
+
+<button class="like-btn" onclick="likeNews(this)">
+❤️ <b>156</b>
+</button>
 </div>
 
-<button class="details-btn"
-onclick="showNews('اختفاء موقف الحافلة رقم 7','المسؤولون أكدوا إن الموقف لم يختفِ وإنما تم نقله مؤقتًا بسبب أعمال صيانة، لكن الأهالي بيقولوا إنهم مش عارفين مكانه الجديد.')">
-اقرأ التفاصيل كاملة ←
-</button>
-
+</div>
 </article>
 
 
-<article class="card">
+<!-- خبر 4 -->
 
-<div class="news-image"></div>
+<article class="card news-card">
 
-<span class="badge">اقتصاد القاع</span>
+<img
+class="news-image"
+src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Squidward%20Tentacles%20character.png"
+alt="Squidward">
 
-<h3>بورصة الطحالب تسجل ارتفاعًا تاريخيًا</h3>
-
-<p>
-خبراء القاع ينصحون المواطنين بالهدوء وعدم اتخاذ قرارات بناءً على منشور عشوائي.
-</p>
-
-<div class="meta">
-<span>اليوم</span>
-<span>📈 740</span>
-</div>
-
-<button class="details-btn"
-onclick="showNews('بورصة الطحالب','الطحالب الخضراء سجلت أعلى سعر لها هذا الشهر، وسط توقعات بزيادة الطلب عليها من مطاعم القاع.')">
-اقرأ التفاصيل كاملة ←
-</button>
-
-</article>
-
-
-<article class="card">
-
-<div class="news-image"></div>
-
-<span class="badge">رياضة</span>
-
-<h3>فريق حي الصدف يعلن عن مباراة الليلة</h3>
-
-<p>
-الجمهور مطالب بالحضور بدري بسبب توقعات بزيادة التيار.
-</p>
-
-<div class="meta">
-<span>اليوم</span>
-<span>🔥 1.2K</span>
-</div>
-
-<button class="details-btn"
-onclick="showNews('مباراة حي الصدف','الفريق أعلن جاهزيته للمباراة، والجمهور بدأ يتجمع حول الملعب قبل الموعد بأكثر من ساعتين.')">
-اقرأ التفاصيل كاملة ←
-</button>
-
-</article>
-
-
-<article class="card">
-
-<div class="news-image"></div>
+<div class="news-body">
 
 <span class="badge">منوعات</span>
 
-<h3>عودة الواي فاي تشعل احتفالات القاع</h3>
+<h3>
+سكيدوارد يعلن أنه غير مهتم بالأخبار
+</h3>
 
 <p>
-الاحتفالات بدأت من الميناء ووصلت لآخر شارع الصدف.
+رغم إعلانه عدم الاهتمام، إلا أنه كان أول شخص
+يسأل عن تفاصيل الخبر.
 </p>
 
 <div class="meta">
 <span>اليوم</span>
-<span>❤️ 2.1K</span>
+
+<button class="like-btn" onclick="likeNews(this)">
+❤️ <b>91</b>
+</button>
 </div>
 
-<button class="details-btn"
-onclick="showNews('عودة الإنترنت','بعد انقطاع استمر عدة دقائق، عاد الإنترنت بشكل مفاجئ، وخرج سكان القاع للاحتفال وكأن كأس العالم رجع.')">
-اقرأ التفاصيل كاملة ←
-</button>
+</div>
+</article>
 
+
+<!-- خبر 5 -->
+
+<article class="card news-card">
+
+<img
+class="news-image"
+src="https://commons.wikimedia.org/wiki/Special:Redirect/file/SpongeBob%20SquarePants%20character%20montage.png"
+alt="SpongeBob characters">
+
+<div class="news-body">
+
+<span class="badge">خاص</span>
+
+<h3>
+اجتماع طارئ لشخصيات القاع لمناقشة الأزمة
+</h3>
+
+<p>
+الاجتماع ضم عددًا من أشهر سكان القاع،
+والتفاصيل ما زالت غير واضحة حتى الآن.
+</p>
+
+<div class="meta">
+<span>اليوم</span>
+
+<button class="like-btn" onclick="likeNews(this)">
+❤️ <b>211</b>
+</button>
+</div>
+
+</div>
+</article>
+
+
+<!-- خبر 6 -->
+
+<article class="card news-card">
+
+<img
+class="news-image"
+src="https://commons.wikimedia.org/wiki/Special:Redirect/file/SpongeBob%20SquarePants%20character%20montage.png"
+alt="Bikini Bottom characters">
+
+<div class="news-body">
+
+<span class="badge">ترفيه</span>
+
+<h3>
+حالة طوارئ بسبب اختفاء الواي فاي في القاع
+</h3>
+
+<p>
+الإنترنت اختفى لدقائق قليلة فقط،
+لكن السكان أعلنوا حالة طوارئ فورية.
+</p>
+
+<div class="meta">
+<span>اليوم</span>
+
+<button class="like-btn" onclick="likeNews(this)">
+❤️ <b>305</b>
+</button>
+</div>
+
+</div>
 </article>
 
 </div>
-</div>
-</section>
-
-
-<!-- COMPLAINTS -->
-
-<section id="complaints">
-
-<div class="container">
-
-<div class="section-head">
-
-<div>
-<h2>📢 شكاوى أهالي القاع</h2>
-<p>اكتب شكوتك وشوفها منشورة على الموقع</p>
-</div>
-
-<span class="badge">صوت المواطن</span>
-
-</div>
-
-<div class="complaint-grid">
-
-<div class="form">
-
-<h2>📝 قدم شكوى</h2>
-
-<p style="color:var(--muted);font-size:12px;margin-top:7px">
-اكتب اسمًا مستعارًا وعنوان الشكوى والتفاصيل.
-</p>
-
-<label>اسمك</label>
-
-<input id="complaintName"
-placeholder="مثال: مواطن من حي الصدف">
-
-<label>عنوان الشكوى</label>
-
-<input id="complaintTitle"
-placeholder="مثال: الميه ضعيفة من امبارح">
-
-<label>تفاصيل الشكوى</label>
-
-<textarea id="complaintText"
-placeholder="اكتب اللي حصل بالتفصيل..."></textarea>
-
-<button class="btn btn-primary"
-style="margin-top:15px;width:100%"
-onclick="submitComplaint()">
-📢 نشر الشكوى
-</button>
-
-</div>
-
-
-<div class="form">
-
-<h2>😂 آخر شكاوى القاع</h2>
-
-<div id="complaintList" class="complaint-list"></div>
-
-</div>
-
-</div>
 
 </div>
 
 </section>
 
 
-<!-- TODAY -->
+<!-- أخبار اليوم -->
 
 <section id="today">
 
@@ -1095,23 +1025,124 @@ onclick="submitComplaint()">
 
 <div>
 <h2>📰 أخبار اليوم</h2>
-<p>اضغط وشوف خبر عشوائي من أخبار القاع</p>
+<p>ملخص سريع لأهم أحداث القاع</p>
 </div>
 
-<span class="badge">TODAY</span>
+</div>
+
+
+<div class="today-grid">
+
+<div class="today-card">
+<div class="today-icon">🌊</div>
+<h3>حالة القاع</h3>
+<p>
+الأجواء مستقرة نسبيًا مع توقعات بزحمة شديدة
+حول ميدان البرجر.
+</p>
+</div>
+
+<div class="today-card">
+<div class="today-icon">⚓</div>
+<h3>الميناء</h3>
+<p>
+وصول أخبار جديدة للميناء والصحفيون
+في حالة استنفار.
+</p>
+</div>
+
+<div class="today-card">
+<div class="today-icon">🍔</div>
+<h3>اقتصاد</h3>
+<p>
+أسعار سلطع البرجر تحت المراقبة
+وسط حالة من الجدل.
+</p>
+</div>
+
+<div class="today-card">
+<div class="today-icon">😂</div>
+<h3>منوعات</h3>
+<p>
+مواطن خرج يجيب حاجة بسيطة ورجع
+بعد ساعتين ومش فاكر نزل ليه.
+</p>
+</div>
 
 </div>
 
-<div class="card today">
-
-<div class="today-box" id="todayBox">
-اضغط الزر وشوف خبر اليوم 👀
 </div>
 
-<button class="btn btn-primary"
-onclick="generateToday()">
-🔥 اعرض خبر اليوم
+</section>
+
+
+<!-- الشكاوى -->
+
+<section id="complaints">
+
+<div class="container">
+
+<div class="section-head">
+
+<div>
+<h2>📢 شكاوى أهالي القاع</h2>
+<p>اكتب شكوتك وهتظهر في الموقع على جهازك</p>
+</div>
+
+</div>
+
+
+<div class="complaint-grid">
+
+<!-- FORM -->
+
+<div class="form">
+
+<h2>📝 قدم شكوى</h2>
+
+<p style="color:var(--muted);font-size:12px;margin-top:7px">
+قول اللي حصل بالتفصيل 😂
+</p>
+
+<label>عنوان الشكوى</label>
+
+<input
+id="complaintTitle"
+placeholder="مثال: أزمة شارع المرجان">
+
+<label>تفاصيل الشكوى</label>
+
+<textarea
+id="complaintText"
+placeholder="اكتب شكوتك بالمصري..."></textarea>
+
+<button
+class="btn btn-primary submit-btn"
+onclick="submitComplaint()">
+
+🚀 نشر الشكوى
+
 </button>
+
+</div>
+
+
+<!-- PUBLIC COMPLAINTS -->
+
+<div class="form">
+
+<h2>📋 شكاوى منشورة</h2>
+
+<p style="color:var(--muted);font-size:12px;margin-top:7px">
+الشكاوى اللي اتنشرت على الجهاز ده
+</p>
+
+<div
+id="complaintList"
+class="public-list">
+</div>
+
+</div>
 
 </div>
 
@@ -1127,65 +1158,100 @@ onclick="generateToday()">
 <div class="container">
 
 <div class="section-head">
+
 <div>
 <h2>🗺️ خريطة قاع الهامور</h2>
-<p>تفاصيل أشهر مناطق القاع</p>
+<p>اضغط على أي منطقة وشوف تفاصيلها</p>
 </div>
+
 </div>
+
 
 <div class="map-grid">
 
-<div class="location-card" onclick="locationMessage('شارع المرجان','منطقة سكنية مشهورة بالمواقف اليومية والشكاوى الكوميدية.')">
+<div class="location-card"
+onclick="showDetails('شارع المرجان','أشهر شارع سكني في القاع، مشهور بالمواقف الغريبة والزحمة.')">
+
 <div class="location-icon">🏘️</div>
 <b>شارع المرجان</b>
 <small>منطقة سكنية</small>
+
 </div>
 
-<div class="location-card" onclick="locationMessage('ميدان البرجر','أشهر مكان للأكل في القاع، والأسعار فيه بتتحرك مع التيار.')">
+
+<div class="location-card"
+onclick="showDetails('ميدان البرجر','أشهر تجمع للمطاعم والمحلات، والزحمة فيه بتبدأ بدري.')">
+
 <div class="location-icon">🍔</div>
 <b>ميدان البرجر</b>
 <small>مطاعم ومحلات</small>
+
 </div>
 
-<div class="location-card" onclick="locationMessage('ميناء القاع','الميناء الرئيسي، ومنه أغلب الأخبار العاجلة.')">
+
+<div class="location-card"
+onclick="showDetails('ميناء القاع','المكان اللي بتبدأ منه معظم الأخبار والشائعات.')">
+
 <div class="location-icon">⚓</div>
 <b>ميناء القاع</b>
-<small>الميناء الرئيسي</small>
+<small>حركة يومية</small>
+
 </div>
 
-<div class="location-card" onclick="locationMessage('حي الصدف','من أقدم مناطق القاع، ويسكنها عدد كبير من الشخصيات المعروفة.')">
+
+<div class="location-card"
+onclick="showDetails('حي الصدف','منطقة قديمة مليانة حكايات وشخصيات مشهورة.')">
+
 <div class="location-icon">🐚</div>
 <b>حي الصدف</b>
 <small>المنطقة القديمة</small>
+
 </div>
 
-<div class="location-card" onclick="locationMessage('سوق الطحالب','المركز التجاري الأشهر في القاع.')">
+
+<div class="location-card"
+onclick="showDetails('سوق الطحالب','السوق الشعبي الأول في القاع.')">
+
 <div class="location-icon">🏪</div>
 <b>سوق الطحالب</b>
 <small>تجارة القاع</small>
+
 </div>
 
-<div class="location-card" onclick="locationMessage('جامعة الأعماق','أشهر جامعة تحت البحر، والطلاب فيها بيواجهوا تيارات صعبة.')">
+
+<div class="location-card"
+onclick="showDetails('جامعة الأعماق','أشهر مكان للتعليم والدراسات الغريبة في القاع.')">
+
 <div class="location-icon">🎓</div>
 <b>جامعة الأعماق</b>
-<small>التعليم</small>
+<small>تعليم</small>
+
 </div>
 
-<div class="location-card" onclick="locationMessage('ملعب الشعب','الملعب الرئيسي لمباريات القاع.')">
+
+<div class="location-card"
+onclick="showDetails('ملعب الشعب','المكان الرسمي لمباريات سكان القاع.')">
+
 <div class="location-icon">🏟️</div>
 <b>ملعب الشعب</b>
 <small>رياضة</small>
+
 </div>
 
-<div class="location-card" onclick="locationMessage('شاطئ الفقاعات','أشهر منطقة ترفيهية في القاع.')">
+
+<div class="location-card"
+onclick="showDetails('شاطئ الفقاعات','منطقة ترفيهية مشهورة بالفقاعات والرحلات.')">
+
 <div class="location-icon">🌴</div>
 <b>شاطئ الفقاعات</b>
 <small>ترفيه</small>
-</div>
 
 </div>
 
 </div>
+
+</div>
+
 </section>
 
 
@@ -1196,86 +1262,128 @@ onclick="generateToday()">
 <div class="container">
 
 <div class="section-head">
+
 <div>
-<h2>👥 سكان القاع</h2>
-<p>شخصيات عالم أخبار قاع الهامور</p>
+<h2>👥 شخصيات القاع</h2>
+<p>صور فعلية للشخصيات المستخدمة في الموقع</p>
 </div>
+
 </div>
+
 
 <div class="character-grid">
 
-<div class="card">
-<div class="character-avatar">🐚</div>
-<span class="badge">شخصية</span>
-<h3>عم صدف</h3>
-<p>أقدم سكان الحي، عنده تعليق على كل خبر وكل موقف.</p>
-</div>
+<div class="card character">
 
-<div class="card">
-<div class="character-avatar">⚓</div>
-<span class="badge">شخصية</span>
-<h3>القبطان فلفل</h3>
-<p>راجل الميناء اللي يعرف الخبر قبل ما ينزل الجريدة.</p>
-</div>
+<img
+src="https://commons.wikimedia.org/wiki/Special:Redirect/file/SpongeBob%20SquarePants%20character.png"
+alt="SpongeBob">
 
-<div class="card">
-<div class="character-avatar">📢</div>
-<span class="badge">مراسلة</span>
-<h3>مرجانة</h3>
-<p>أشهر مراسلة في القاع ودايمًا أول واحدة في مكان الحدث.</p>
-</div>
+<div class="character-info">
 
-</div>
+<h3>سبونج بوب</h3>
 
-</div>
-</section>
-
-
-<!-- CONTACT -->
-
-<section id="contact">
-
-<div class="container">
-
-<div class="card contact">
-
-<div class="contact-logo">🌊🐟🫧</div>
-
-<h2>تواصل مع أخبار قاع الهامور</h2>
-
-<p style="color:var(--muted);margin-top:10px">
-تابع أخبار القاع وكل جديد.
+<p>
+نجم القاع وصاحب أشهر المواقف والأخبار.
 </p>
 
-<a class="instagram"
-href="https://www.instagram.com/h_e_n_d_o_1/"
-target="_blank"
-rel="noopener noreferrer">
-📸 Instagram — @h_e_n_d_o_1
-</a>
+</div>
+
+</div>
+
+
+<div class="card character">
+
+<img
+src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Patrick%20Star%20character.png"
+alt="Patrick">
+
+<div class="character-info">
+
+<h3>باتريك</h3>
+
+<p>
+صاحب المواقف الغريبة والتصريحات اللي محدش بيفهمها.
+</p>
 
 </div>
 
 </div>
+
+
+<div class="card character">
+
+<img
+src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Squidward%20Tentacles%20character.png"
+alt="Squidward">
+
+<div class="character-info">
+
+<h3>سكيدوارد</h3>
+
+<p>
+دائمًا متضايق من دوشة القاع لكنه يعرف كل الأخبار.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="card character">
+
+<img
+src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Mr%20Krabs%20character.png"
+alt="Mr Krabs">
+
+<div class="character-info">
+
+<h3>مستر سلطع</h3>
+
+<p>
+رجل الأعمال الأول وصاحب أشهر مطعم في القاع.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
 </main>
 
 
-<footer>
+<!-- FOOTER -->
+
+<footer id="contact">
 
 <div class="container">
 
-<div style="font-size:21px">
+<div style="font-size:22px">
 🌊 <strong>أخبار قاع الهامور</strong>
 </div>
 
-<div style="margin-top:10px">
-جريدة ترفيهية ساخرة من أعماق البحر 😂
-</div>
+<p style="margin-top:10px">
+موقع ترفيهي ساخر مستقل.
+</p>
 
-<div style="margin-top:18px">
-© 2026 — أخبار قاع الهامور
+<a
+href="https://www.instagram.com/h_e_n_d_o_1/"
+target="_blank"
+class="btn btn-primary"
+style="display:inline-block;margin-top:18px">
+
+📸 Instagram
+
+</a>
+
+<div style="margin-top:22px;font-size:11px">
+صور SpongeBob المستخدمة في الموقع مصدرها ملفات Wikimedia Commons
+والتراخيص الخاصة بها موضحة في صفحات الملفات.
 </div>
 
 </div>
@@ -1283,9 +1391,10 @@ rel="noopener noreferrer">
 </footer>
 
 
-<!-- MODAL -->
+<!-- MENU -->
 
-<div class="modal"
+<div
+class="modal"
 id="menuModal"
 onclick="closeOutside(event)">
 
@@ -1295,54 +1404,107 @@ onclick="closeOutside(event)">
 
 <h2>☰ أقسام القاع</h2>
 
-<button class="close" onclick="closeMenu()">✕</button>
+<button
+class="nav-btn"
+onclick="closeMenu()">
+✕
+</button>
 
 </div>
+
 
 <div class="menu-grid">
 
-<a class="menu-item" href="#news" onclick="closeMenu()">
+<a
+class="menu-item"
+href="#news"
+onclick="closeMenu()">
+
 📰
 <b>الأخبار</b>
+
 <small>آخر المستجدات</small>
+
 </a>
 
-<a class="menu-item" href="#complaints" onclick="closeMenu()">
-📢
-<b>الشكاوى</b>
-<small>صوت المواطنين</small>
-</a>
 
-<a class="menu-item" href="#today" onclick="closeMenu()">
+<a
+class="menu-item"
+href="#today"
+onclick="closeMenu()">
+
 🔥
 <b>أخبار اليوم</b>
-<small>أخبار عشوائية</small>
+
+<small>ملخص الأحداث</small>
+
 </a>
 
-<a class="menu-item" href="#map" onclick="closeMenu()">
+
+<a
+class="menu-item"
+href="#complaints"
+onclick="closeMenu()">
+
+📢
+<b>قدم شكوى</b>
+
+<small>صوت أهالي القاع</small>
+
+</a>
+
+
+<a
+class="menu-item"
+href="#map"
+onclick="closeMenu()">
+
 🗺️
 <b>الخريطة</b>
+
 <small>مناطق القاع</small>
+
 </a>
 
-<a class="menu-item" href="#characters" onclick="closeMenu()">
+
+<a
+class="menu-item"
+href="#characters"
+onclick="closeMenu()">
+
 👥
-<b>السكان</b>
-<small>شخصيات القاع</small>
+<b>الشخصيات</b>
+
+<small>مشاهير القاع</small>
+
 </a>
 
-<a class="menu-item" href="#contact" onclick="closeMenu()">
+
+<a
+class="menu-item"
+href="#contact"
+onclick="closeMenu()">
+
 📞
 <b>التواصل</b>
+
 <small>Instagram</small>
+
 </a>
 
 </div>
+
 </div>
+
 </div>
 
 
-<div class="toast" id="toast"></div>
+<!-- TOAST -->
+
+<div
+class="toast"
+id="toast">
+</div>
 
 
 <script>
@@ -1350,233 +1512,99 @@ onclick="closeOutside(event)">
 /* ================= MENU ================= */
 
 function openMenu(){
-document.getElementById("menuModal").classList.add("show");
+
+document
+.getElementById("menuModal")
+.classList.add("show")
+
 }
 
 function closeMenu(){
-document.getElementById("menuModal").classList.remove("show");
+
+document
+.getElementById("menuModal")
+.classList.remove("show")
+
 }
 
-function closeOutside(e){
-if(e.target.id==="menuModal") closeMenu();
+function closeOutside(event){
+
+if(event.target.id==="menuModal"){
+closeMenu()
+}
+
 }
 
 
 /* ================= TOAST ================= */
+
+let toastTimer;
 
 function showToast(message){
 
 const toast=document.getElementById("toast");
 
 toast.textContent=message;
+
 toast.classList.add("show");
 
-clearTimeout(window.toastTimer);
+clearTimeout(toastTimer);
 
-window.toastTimer=setTimeout(()=>{
+toastTimer=setTimeout(()=>{
+
 toast.classList.remove("show");
-},3000);
+
+},3500);
 
 }
 
 
-/* ================= NEWS DETAILS ================= */
+/* ================= DETAILS ================= */
 
-function showNews(title,text){
+function showDetails(title,text){
 
-document.getElementById("menuModal").querySelector(".modal-box").innerHTML=`
-
-<div class="modal-head">
-
-<h2>📰 ${title}</h2>
-
-<button class="close" onclick="closeMenu()">✕</button>
-
-</div>
-
-<div style="
-line-height:2;
-color:#bdd5dc;
-font-size:14px;
-background:rgba(255,255,255,.03);
-border:1px solid var(--line);
-padding:20px;
-border-radius:18px">
-
-${text}
-
-</div>
-
-<div style="margin-top:18px;color:#718f9b;font-size:11px">
-أخبار قاع الهامور • آخر تحديث الآن
-</div>
-
-`;
-
-document.getElementById("menuModal").classList.add("show");
+showToast("📍 "+title+" — "+text)
 
 }
 
 
-/* ================= MAP ================= */
-
-function locationMessage(place,description){
-
-document.getElementById("menuModal").querySelector(".modal-box").innerHTML=`
-
-<div class="modal-head">
-
-<h2>📍 ${place}</h2>
-
-<button class="close" onclick="closeMenu()">✕</button>
-
-</div>
-
-<div style="
-padding:22px;
-border-radius:18px;
-background:rgba(255,255,255,.03);
-border:1px solid var(--line);
-color:#bdd5dc;
-line-height:2">
-
-${description}
-
-</div>
-
-`;
-
-document.getElementById("menuModal").classList.add("show");
-
-}
-
-
-/* ================= COMPLAINT DATABASE ================= */
-
-let complaints = JSON.parse(
-localStorage.getItem("qaa_complaints") || "null"
-);
-
-if(!complaints){
-
-complaints=[
-
-{
-name:"مواطن غلبان",
-title:"الميه ضعيفة من امبارح",
-text:"يا جماعة أنا فتحت الحنفية لقيت الميه بتطلع واحدة واحدة كأنها بتفكر هتنزل ولا لأ 😂",
-likes:137,
-time:"منذ 15 دقيقة"
-},
-
-{
-name:"واحد من شارع المرجان",
-title:"مين ركن المركب قدام البيت؟",
-text:"يا جماعة المركب الزرقا اللي قافلة المدخل دي بتاعت مين؟ أنا من الصبح بحاول أخرج ومش عارف 😂",
-likes:284,
-time:"منذ 32 دقيقة"
-},
-
-{
-name:"مواطن على قد حاله",
-title:"الأسعار بقت غرقانة",
-text:"رحت أشتري سلطع برجر رجعت بالفلوس بس من غير البرجر. الأسعار شكلها عايزة تهاجر من القاع 😂",
-likes:421,
-time:"منذ ساعة"
-},
-
-{
-name:"طالب من جامعة الأعماق",
-title:"الواي فاي اختفى وقت الامتحان",
-text:"أنا مش بطلب كتير، بس هو لازم الإنترنت يفصل بالظبط وأنا بفتح أول سؤال؟ 😭",
-likes:196,
-time:"منذ ساعتين"
-}
-
-];
-
-localStorage.setItem(
-"qaa_complaints",
-JSON.stringify(complaints)
-);
-
-}
-
-renderComplaints();
-
-
-/* ================= RENDER COMPLAINTS ================= */
-
-function renderComplaints(){
-
-const box=document.getElementById("complaintList");
-
-box.innerHTML="";
-
-complaints.forEach((c,index)=>{
-
-const item=document.createElement("div");
-
-item.className="user-complaint";
-
-item.innerHTML=`
-
-<span class="badge">شكوى مواطن</span>
-
-<h3>${escapeHTML(c.title)}</h3>
-
-<p>${escapeHTML(c.text)}</p>
-
-<div class="complaint-bottom">
-
-<span>
-👤 ${escapeHTML(c.name)}
-<br>
-🕐 ${c.time}
-</span>
-
-<button class="like-btn"
-onclick="likeComplaint(${index})">
-❤️ ${c.likes}
-</button>
-
-</div>
-
-`;
-
-box.appendChild(item);
-
-});
-
-}
-
-
-/* ================= ADD COMPLAINT ================= */
+/* ================= COMPLAINTS ================= */
 
 function submitComplaint(){
 
-const name=document
-.getElementById("complaintName")
-.value.trim();
-
-const title=document
+const title=
+document
 .getElementById("complaintTitle")
-.value.trim();
+.value
+.trim();
 
-const text=document
+const text=
+document
 .getElementById("complaintText")
-.value.trim();
+.value
+.trim();
 
-if(!name||!title||!text){
 
-showToast("📢 اكتب الاسم والعنوان وتفاصيل الشكوى الأول!");
+if(!title || !text){
+
+showToast(
+"📢 اكتب عنوان الشكوى والتفاصيل الأول!"
+);
 
 return;
+
 }
+
+
+let complaints=
+JSON.parse(
+localStorage.getItem("qaa_complaints") || "[]"
+);
+
 
 const complaint={
 
-name:name,
+id:Date.now(),
 
 title:title,
 
@@ -1584,110 +1612,177 @@ text:text,
 
 likes:0,
 
-time:"منذ لحظات"
+createdAt:new Date().toLocaleString(
+"ar-EG",
+{
+day:"numeric",
+month:"long",
+hour:"2-digit",
+minute:"2-digit"
+}
+)
 
 };
 
+
 complaints.unshift(complaint);
 
+
 localStorage.setItem(
 "qaa_complaints",
 JSON.stringify(complaints)
 );
 
-document.getElementById("complaintName").value="";
-document.getElementById("complaintTitle").value="";
-document.getElementById("complaintText").value="";
+
+document
+.getElementById("complaintTitle")
+.value="";
+
+document
+.getElementById("complaintText")
+.value="";
+
 
 renderComplaints();
 
-showToast("📢 تم نشر شكوتك على موقع القاع!");
 
-document.getElementById("complaintList")
-.scrollIntoView({
-behavior:"smooth",
-block:"start"
-});
+showToast(
+"🌊 تم نشر شكوتك في أخبار قاع الهامور!"
+);
 
+}
+
+
+/* ================= RENDER COMPLAINTS ================= */
+
+function renderComplaints(){
+
+const list=
+document.getElementById("complaintList");
+
+
+let complaints=
+JSON.parse(
+localStorage.getItem("qaa_complaints") || "[]"
+);
+
+
+if(!complaints.length){
+
+list.innerHTML=`
+
+<div style="
+color:#8eabb8;
+padding:20px;
+text-align:center;
+border:1px dashed var(--line);
+border-radius:16px">
+
+لسه مفيش شكاوى منشورة 😂<br>
+كن أول واحد يقدم شكوى!
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+list.innerHTML=
+complaints
+.map((c,index)=>`
+
+<div class="public-complaint">
+
+<h3>
+📢 ${escapeHTML(c.title)}
+</h3>
+
+<p>
+${escapeHTML(c.text)}
+</p>
+
+<div class="complaint-meta">
+
+<span>
+🕐 ${c.createdAt}
+</span>
+
+<button
+class="complaint-like"
+onclick="likeComplaint(${index})">
+
+❤️ ${c.likes}
+
+</button>
+
+</div>
+
+</div>
+
+`)
+.join("");
+
+}
+
+
+/* ================= COMPLAINT LIKES ================= */
 
 /*
-بعد دقيقة:
-تزود الشكوى 10 لايكات
+كل ضغطة = 10 لايكات
+والعدد محفوظ على الجهاز
 */
-
-const complaintIndex=0;
-
-setTimeout(()=>{
-
-if(complaints[complaintIndex]){
-
-complaints[complaintIndex].likes+=10;
-
-localStorage.setItem(
-"qaa_complaints",
-JSON.stringify(complaints)
-);
-
-renderComplaints();
-
-showToast("❤️ شكوتك جالها 10 لايكات جديدة!");
-
-}
-
-},60000);
-
-}
-
-
-/* ================= LIKE ================= */
 
 function likeComplaint(index){
 
-complaints[index].likes++;
+let complaints=
+JSON.parse(
+localStorage.getItem("qaa_complaints") || "[]"
+);
+
+
+complaints[index].likes+=10;
+
 
 localStorage.setItem(
 "qaa_complaints",
 JSON.stringify(complaints)
 );
 
+
 renderComplaints();
+
+
+showToast(
+"❤️ الشكوى أخدت 10 لايكات!"
+);
 
 }
 
 
-/* ================= TODAY NEWS ================= */
+/* ================= NEWS LIKES ================= */
 
-const todayNews=[
+function likeNews(button){
 
-"🔴 عاجل: مواطن اكتشف إن المركب اللي ركنها امبارح اتحركت لوحدها 3 شوارع مع التيار.",
+let number=
+parseInt(
+button
+.querySelector("b")
+.textContent
+) || 0;
 
-"🐟 مصادر خاصة: مطعم ميدان البرجر قرر يعمل عرض جديد والناس واقفة من قبل الفجر.",
 
-"📢 سكان حي الصدف يطالبون بوضع مطب مائي للأسماك السريعة.",
+number++;
 
-"⚓ ميناء القاع يشهد زحامًا غير مسبوق بسبب وصول شحنة طحالب طازة.",
 
-"😂 مواطن دخل يشتري حاجة بسيطة ورجع بعد ساعتين بسبب زحمة التيار.",
+button
+.querySelector("b")
+.textContent=number;
 
-"📡 أزمة جديدة في القاع بعد اختفاء الواي فاي لمدة 4 دقائق كاملة.",
 
-"🏆 فريق حي الصدف يستعد لأقوى مباراة في تاريخ القاع.",
-
-"🐚 عم صدف يؤكد: أنا قلت الكلام ده من 7 سنين ومحدش صدقني.",
-
-"🍔 ارتفاع الطلب على سلطع البرجر بعد انتشار صورة وجبة ضخمة في السوق.",
-
-"🌊 موجة قوية تحرك كرسيًا داخل أحد المقاهي والمواطن يطالب بالتعويض."
-];
-
-function generateToday(){
-
-const random=Math.floor(
-Math.random()*todayNews.length
-);
-
-document.getElementById("todayBox")
-.textContent=todayNews[random];
+button.style.color="#ff4e64";
 
 }
 
@@ -1696,79 +1791,94 @@ document.getElementById("todayBox")
 
 const searchableSections=[
 
-["اخبار","أخبار","عاجل","news","خبر","الأخبار","news"],
-"news",
+{
+id:"news",
+words:[
+"خبر",
+"اخبار",
+"أخبار",
+"عاجل",
+"سبونج",
+"باتريك",
+"سلطع"
+]
+},
 
-["شكوى","شكاوى","complaints","شكاوي"],
-"complaints",
+{
+id:"today",
+words:[
+"اليوم",
+"اخبار اليوم",
+"أخبار اليوم"
+]
+},
 
-["خريطة","مناطق","شارع المرجان","ميناء","صدف"],
-"map",
+{
+id:"complaints",
+words:[
+"شكوى",
+"شكاوى",
+"شكوتي",
+"قدم شكوى"
+]
+},
 
-["سكان","شخصيات","عم صدف","مرجانة","فلفل"],
-"characters",
+{
+id:"map",
+words:[
+"خريطة",
+"مناطق",
+"مرجان",
+"ميناء",
+"برجر",
+"صدف"
+]
+},
 
-["اليوم","أخبار اليوم","today"],
-"today",
-
-["تواصل","انستجرام","instagram"],
-"contact"
+{
+id:"characters",
+words:[
+"شخصيات",
+"سبونج بوب",
+"باتريك",
+"سكيدوارد",
+"مستر سلطع"
+]
+}
 
 ];
 
 
 function searchSite(){
 
-const query=document
+const query=
+document
 .getElementById("searchInput")
 .value
 .trim()
 .toLowerCase();
 
+
 if(query.length<2)return;
 
-const map=[
 
-{
-words:["اخبار","أخبار","عاجل","news","خبر","الأخبار"],
-id:"news"
-},
+for(const section of searchableSections){
 
-{
-words:["شكوى","شكاوى","شكاوي","complaints"],
-id:"complaints"
-},
+const found=
+section.words.some(word=>
 
-{
-words:["خريطة","مناطق","مرجان","ميناء","صدف"],
-id:"map"
-},
+word
+.toLowerCase()
+.includes(query)
+||
+query.includes(
+word.toLowerCase()
+)
 
-{
-words:["سكان","شخصيات","عم صدف","مرجانة","فلفل"],
-id:"characters"
-},
+);
 
-{
-words:["اليوم","أخبار اليوم","today"],
-id:"today"
-},
 
-{
-words:["تواصل","انستجرام","instagram"],
-id:"contact"
-}
-
-];
-
-for(const section of map){
-
-for(const word of section.words){
-
-if(
-word.toLowerCase().includes(query) ||
-query.includes(word.toLowerCase())
-){
+if(found){
 
 document
 .getElementById(section.id)
@@ -1777,9 +1887,7 @@ behavior:"smooth",
 block:"start"
 });
 
-return;
-
-}
+break;
 
 }
 
@@ -1792,25 +1900,38 @@ return;
 
 function escapeHTML(text){
 
-return String(text)
-.replaceAll("&","&amp;")
-.replaceAll("<","&lt;")
-.replaceAll(">","&gt;")
-.replaceAll('"',"&quot;")
-.replaceAll("'","&#039;");
+return text
+
+.replace(/&/g,"&amp;")
+
+.replace(/</g,"&lt;")
+
+.replace(/>/g,"&gt;")
+
+.replace(/"/g,"&quot;")
+
+.replace(/'/g,"&#039;");
 
 }
 
 
 /* ================= KEYBOARD ================= */
 
-document.addEventListener("keydown",function(e){
+document.addEventListener(
+"keydown",
+function(event){
 
-if(e.key==="Escape"){
+if(event.key==="Escape"){
 closeMenu();
 }
 
-});
+}
+);
+
+
+/* ================= START ================= */
+
+renderComplaints();
 
 </script>
 
