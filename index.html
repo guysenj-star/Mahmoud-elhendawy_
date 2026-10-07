@@ -7,36 +7,36 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{
-  min-height:100vh;font-family:Tahoma,Arial,sans-serif;
-  background:radial-gradient(circle at 20% 20%,#3a1230 0,#160b1b 38%,#08070d 100%);
-  color:#fff;overflow-x:hidden;
+min-height:100vh;font-family:Tahoma,Arial,sans-serif;
+background:radial-gradient(circle at 20% 20%,#3a1230 0,#160b1b 38%,#08070d 100%);
+color:#fff;overflow-x:hidden;
 }
 body:before{
- content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;
- background-image:radial-gradient(#fff 1px,transparent 1px);
- background-size:35px 35px;
+content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;
+background-image:radial-gradient(#fff 1px,transparent 1px);
+background-size:35px 35px;
 }
 .heart{position:fixed;color:#ff7eb6;opacity:.35;animation:float 8s linear infinite;z-index:0}
 @keyframes float{from{transform:translateY(110vh) scale(.7);opacity:0}15%{opacity:.4}to{transform:translateY(-15vh) scale(1.2);opacity:0}}
 .screen{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:25px;position:relative;z-index:2}
 .card{
- width:min(430px,100%);padding:34px 25px;border:1px solid #ffffff1c;
- background:#ffffff0b;backdrop-filter:blur(18px);border-radius:28px;
- box-shadow:0 25px 80px #0008;text-align:center;
+width:min(430px,100%);padding:34px 25px;border:1px solid #ffffff1c;
+background:#ffffff0b;backdrop-filter:blur(18px);border-radius:28px;
+box-shadow:0 25px 80px #0008;text-align:center;
 }
 .logo{font-size:48px;margin-bottom:8px}
 h1{font-size:30px;margin-bottom:8px}
 .sub{color:#d8c8d5;margin-bottom:25px;line-height:1.8}
 input{
- width:100%;padding:15px 17px;margin:7px 0;border-radius:14px;border:1px solid #ffffff1c;
- background:#08070d99;color:#fff;outline:none;font-size:16px;text-align:center;
+width:100%;padding:15px 17px;margin:7px 0;border-radius:14px;border:1px solid #ffffff1c;
+background:#08070d99;color:#fff;outline:none;font-size:16px;text-align:center;
 }
 input:focus{border-color:#ff78ad;box-shadow:0 0 0 3px #ff78ad18}
 button{
- border:0;border-radius:14px;padding:15px 22px;margin-top:12px;width:100%;
- background:linear-gradient(135deg,#ff4f91,#b83b91);color:white;font-size:17px;
- font-weight:bold;cursor:pointer;box-shadow:0 10px 30px #ff4f9135;
- transition:.25s;
+border:0;border-radius:14px;padding:15px 22px;margin-top:12px;width:100%;
+background:linear-gradient(135deg,#ff4f91,#b83b91);color:white;font-size:17px;
+font-weight:bold;cursor:pointer;box-shadow:0 10px 30px #ff4f9135;
+transition:.25s;
 }
 button:hover{transform:translateY(-2px)}
 .error{height:24px;color:#ff91b9;font-size:13px;margin-top:8px}
@@ -55,14 +55,14 @@ section{padding:80px 20px}
 .title span{color:#ff77ad}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px}
 .box{
- background:#ffffff09;border:1px solid #ffffff12;border-radius:22px;padding:25px;
- min-height:170px;box-shadow:0 15px 45px #0003;
+background:#ffffff09;border:1px solid #ffffff12;border-radius:22px;padding:25px;
+min-height:170px;box-shadow:0 15px 45px #0003;
 }
 .icon{font-size:32px;margin-bottom:12px}.box h3{margin-bottom:10px}.box p{color:#cfc1ca;line-height:1.8}
 .letter{
- max-width:760px;margin:auto;padding:35px;border-radius:25px;
- background:linear-gradient(145deg,#ffffff0d,#ffffff05);border:1px solid #ffffff13;
- line-height:2.1;color:#e9dfe6;font-size:17px;
+max-width:760px;margin:auto;padding:35px;border-radius:25px;
+background:linear-gradient(145deg,#ffffff0d,#ffffff05);border:1px solid #ffffff13;
+line-height:2.1;color:#e9dfe6;font-size:17px;
 }
 .highlight{color:#ff9bc2;font-weight:bold}
 .counter{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:600px;margin:30px auto}
@@ -73,8 +73,7 @@ section{padding:80px 20px}
 #surprise{display:none;margin:30px auto 0;max-width:650px;padding:30px;border-radius:25px;background:#ff4f9110;border:1px solid #ff78ad33;line-height:2}
 footer{text-align:center;padding:25px;color:#9f8f9b;font-size:13px}
 @media(max-width:500px){.card{padding:28px 18px}.letter{padding:24px}.counter b{font-size:22px}}
-
-.timeline{max-width:760px;margin:30px auto;position:relative}
+​.timeline{max-width:760px;margin:30px auto;position:relative}
 .timeline-item{display:flex;align-items:center;gap:18px;margin:24px 0}
 .timeline-item:nth-of-type(odd){flex-direction:row}
 .date{min-width:145px;text-align:center;color:#ff9bc2;font-weight:bold;font-size:15px}
@@ -94,13 +93,11 @@ footer{text-align:center;padding:25px;color:#9f8f9b;font-size:13px}
 #surprise .tiny{font-size:12px;color:#a997a4;margin-top:25px}
 @keyframes pulse{50%{transform:scale(1.08)}}
 @media(max-width:600px){
- .timeline-item{flex-direction:column!important;align-items:stretch}
- .date{min-width:0;text-align:right;padding-right:8px}
- .line{display:none}
+.timeline-item{flex-direction:column!important;align-items:stretch}
+.date{min-width:0;text-align:right;padding-right:8px}
+.line{display:none}
 }
-
-
-.live-counter{grid-template-columns:repeat(3,1fr);max-width:720px}
+​.live-counter{grid-template-columns:repeat(3,1fr);max-width:720px}
 .live-counter div{min-height:100px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px}
 .live-counter b{font-size:30px}
 .live-counter span{color:#cfc1ca;font-size:14px}
@@ -119,47 +116,43 @@ footer{text-align:center;padding:25px;color:#9f8f9b;font-size:13px}
 .task-text small{color:#bcaeb9;line-height:1.6}
 .reset-tasks{display:block;width:auto;margin:15px auto 0;padding:10px 18px;background:#ffffff0b;border:1px solid #ffffff12;box-shadow:none;font-size:13px}
 @media(max-width:600px){
- .live-counter{grid-template-columns:repeat(2,1fr)}
- .live-counter div{min-height:90px}
- .live-counter b{font-size:25px}
+.live-counter{grid-template-columns:repeat(2,1fr)}
+.live-counter div{min-height:90px}
+.live-counter b{font-size:25px}
 }
-
-
-#messageBtn{position:relative;z-index:20;max-width:340px}
+​#messageBtn{position:relative;z-index:20;max-width:340px}
 #messageBtn:disabled{opacity:.6;cursor:default;transform:none}
 #hiddenLetter{
- display:none;opacity:0;transform:translateY(20px) scale(.98);
- max-width:760px;margin:35px auto 0;padding:35px;border-radius:28px;
- background:linear-gradient(145deg,#ff77ad16,#ffffff07);
- border:1px solid #ff77ad38;line-height:2.15;color:#e9dfe6;
- font-size:17px;text-align:right;position:relative;z-index:15;
- transition:1.2s ease;
+display:none;opacity:0;transform:translateY(20px) scale(.98);
+max-width:760px;margin:35px auto 0;padding:35px;border-radius:28px;
+background:linear-gradient(145deg,#ff77ad16,#ffffff07);
+border:1px solid #ff77ad38;line-height:2.15;color:#e9dfe6;
+font-size:17px;text-align:right;position:relative;z-index:15;
+transition:1.2s ease;
 }
 #hiddenLetter.show{display:block;animation:letterReveal 1.4s ease forwards}
 @keyframes letterReveal{
- from{opacity:0;transform:translateY(25px) scale(.97)}
- to{opacity:1;transform:translateY(0) scale(1)}
+from{opacity:0;transform:translateY(25px) scale(.97)}
+to{opacity:1;transform:translateY(0) scale(1)}
 }
 #heartStorm{
- position:fixed;inset:0;pointer-events:none;z-index:10;overflow:hidden;display:none;
+position:fixed;inset:0;pointer-events:none;z-index:10;overflow:hidden;display:none;
 }
 .storm-heart{
- position:absolute;top:-70px;color:#ff78ad;font-size:clamp(22px,5vw,46px);
- animation:heartFall linear forwards;
- text-shadow:0 0 15px #ff4f9166;
+position:absolute;top:-70px;color:#ff78ad;font-size:clamp(22px,5vw,46px);
+animation:heartFall linear forwards;
+text-shadow:0 0 15px #ff4f9166;
 }
 @keyframes heartFall{
- 0%{transform:translateY(-80px) rotate(0deg) scale(.7);opacity:0}
- 10%{opacity:1}
- 50%{transform:translateY(55vh) rotate(180deg) scale(1)}
- 100%{transform:translateY(115vh) rotate(360deg) scale(.8);opacity:0}
+0%{transform:translateY(-80px) rotate(0deg) scale(.7);opacity:0}
+10%{opacity:1}
+50%{transform:translateY(55vh) rotate(180deg) scale(1)}
+100%{transform:translateY(115vh) rotate(360deg) scale(.8);opacity:0}
 }
-
-
-#introOverlay{
- position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;
- background:radial-gradient(circle at 50% 40%,#3d1231,#120a17 65%,#07060b);
- transition:opacity 1s ease,visibility 1s ease;
+​#introOverlay{
+position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;
+background:radial-gradient(circle at 50% 40%,#3d1231,#120a17 65%,#07060b);
+transition:opacity 1s ease,visibility 1s ease;
 }
 #introOverlay.hide{opacity:0;visibility:hidden;pointer-events:none}
 .intro-inner{text-align:center;padding:25px;max-width:700px}
@@ -169,8 +162,7 @@ footer{text-align:center;padding:25px;color:#9f8f9b;font-size:13px}
 .intro-big span{color:#ff86b5}
 .intro-inner button{max-width:260px;margin-top:28px}
 @keyframes introPulse{50%{transform:scale(1.15)}}
-
-.gift-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;max-width:850px;margin:30px auto}
+​.gift-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;max-width:850px;margin:30px auto}
 .gift-card{background:#ffffff09;border:1px solid #ffffff14;border-radius:25px;padding:14px;cursor:pointer;transition:.3s;box-shadow:0 15px 45px #0004}
 .gift-card:hover{transform:translateY(-5px) rotate(.3deg);border-color:#ff77ad44}
 .gift-card img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:17px}
@@ -178,22 +170,19 @@ footer{text-align:center;padding:25px;color:#9f8f9b;font-size:13px}
 .gift-note{max-height:0;overflow:hidden;opacity:0;color:#cfc1ca;text-align:center;line-height:1.8;transition:.45s}
 .gift-card.open .gift-note{max-height:100px;opacity:1;padding-bottom:8px}
 @media(max-width:650px){.gift-gallery{grid-template-columns:1fr}}
-
-
-.live-counter{grid-template-columns:repeat(3,1fr);max-width:720px}
+​.live-counter{grid-template-columns:repeat(3,1fr);max-width:720px}
 .live-counter div{min-height:100px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px}
 .live-counter b{font-size:30px}
 .live-counter span{color:#cfc1ca;font-size:14px}
-
-#challengeSection{padding-top:35px}
+​#challengeSection{padding-top:35px}
 #secretThink{
-  width:42px;height:42px;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;
-  font-size:25px;opacity:.22;cursor:pointer;border-radius:50%;transition:.25s;
+width:42px;height:42px;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;
+font-size:25px;opacity:.22;cursor:pointer;border-radius:50%;transition:.25s;
 }
 #secretThink:hover{opacity:.8;transform:scale(1.08)}
 #challengePanel{
-  max-width:720px;margin:0 auto;padding:28px;border-radius:28px;
-  background:#ffffff06;border:1px solid #ffffff0d;display:none;
+max-width:720px;margin:0 auto;padding:28px;border-radius:28px;
+background:#ffffff06;border:1px solid #ffffff0d;display:none;
 }
 #challengePanel.open{display:block;animation:challengeIn .55s ease}
 @keyframes challengeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
@@ -201,687 +190,409 @@ footer{text-align:center;padding:25px;color:#9f8f9b;font-size:13px}
 #quizQuestion{text-align:center;font-size:22px;line-height:1.6;margin-bottom:22px}
 #quizOptions{display:grid;gap:12px}
 .quiz-option{
-  width:100%;margin:0;background:#ffffff08;border:1px solid #ffffff15;
-  box-shadow:none;padding:14px;border-radius:15px;
+width:100%;margin:0;background:#ffffff08;border:1px solid #ffffff15;
+box-shadow:none;padding:14px;border-radius:15px;
 }
 .quiz-option:hover{background:#ff77ad12;border-color:#ff77ad55}
 #quizFeedback{text-align:center;min-height:30px;margin-top:14px;color:#ffc1d9;font-weight:bold;line-height:1.7}
 .challenge-result{
-  display:none;text-align:center;padding:28px;border-radius:22px;
-  background:#ff77ad0d;border:1px solid #ff77ad35;
+display:none;text-align:center;padding:28px;border-radius:22px;
+background:#ff77ad0d;border:1px solid #ff77ad35;
 }
 .challenge-result.show{display:block;animation:letterReveal .8s ease}
 .result-emoji{font-size:44px;margin-bottom:10px}
 .challenge-result h2{margin-bottom:10px;color:#ff9bc2}
 .challenge-result p{color:#dfd3dc;line-height:1.9}
 @media(max-width:600px){
- .live-counter{grid-template-columns:repeat(2,1fr)}
- .live-counter div{min-height:90px}
- .live-counter b{font-size:25px}
+.live-counter{grid-template-columns:repeat(2,1fr)}
+.live-counter div{min-height:90px}
+.live-counter b{font-size:25px}
 }
-
-
-.games-section{padding:42px 20px 30px}.games-wrap{max-width:820px;margin:auto}.games-toggle{display:block;max-width:220px;margin:auto;background:linear-gradient(135deg,#ff4f91,#b83b91)}.games-panel{display:none;margin:18px auto 0;padding:24px;border-radius:28px;background:#ffffff08;border:1px solid #ff77ad30}.games-panel.open{display:block;animation:challengeIn .5s ease}.games-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.game-card{padding:18px;border-radius:18px;background:#ffffff08;border:1px solid #ffffff12;cursor:pointer;text-align:right;color:inherit}.game-card:hover{border-color:#ff77ad55}.game-card .gi{font-size:28px;display:block;margin-bottom:7px}.game-card strong{display:block}.game-card small{color:#bcaeb9;line-height:1.7}.game-stage{display:none;margin-top:18px;padding:22px;border-radius:22px;background:#05050a99;border:1px solid #ffffff12;text-align:center}.game-stage.open{display:block;animation:letterReveal .45s ease}.game-back{width:auto!important;background:#ffffff09!important;border:1px solid #ffffff12!important;box-shadow:none!important;padding:9px 15px!important;font-size:13px!important;margin:0 0 12px!important}.game-action{max-width:260px;margin:12px auto 0}.game-score{color:#ffb7d1;font-weight:bold;margin:10px}.game-choice{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.game-choice button{margin:0}.game-win{padding:22px;border-radius:20px;background:linear-gradient(145deg,#ff77ad18,#ffffff06);border:1px solid #ff77ad40}.game-win .emoji{font-size:48px}.game-win h3{color:#ffb7d1;margin:8px 0}.game-win p{color:#dfd3dc;line-height:1.9}@media(max-width:560px){.games-grid,.game-choice{grid-template-columns:1fr}}
-
-
-.games-toggle{position:fixed;right:16px;top:16px;z-index:9999;width:auto!important;padding:10px 15px!important;border-radius:999px!important;font-size:13px!important;box-shadow:0 8px 25px #0006}.arcade-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center;margin:12px 0 18px}.arcade-stats b{display:block;font-size:22px;color:#ffb7d1}.arcade-stats span{font-size:11px;color:#bcaeb9}.game-stage{min-height:120px}.game-big{font-size:58px;cursor:pointer;user-select:none}.game-arena{position:relative;height:300px;overflow:hidden;border-radius:20px;background:#ffffff05;border:1px solid #ffffff10}.moving-heart{position:absolute;transform:translate(-50%,-50%);font-size:38px;cursor:pointer;user-select:none;transition:.12s}.gold-heart{filter:drop-shadow(0 0 12px #ffd86b)}.timer-big{font-size:28px;color:#ffb7d1;font-weight:bold;margin:8px}.memory-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:430px;margin:15px auto}.memory-grid button{aspect-ratio:1;padding:0;margin:0;font-size:27px}.secret-lock{font-size:50px;margin:10px}.code-input{width:100%;max-width:260px;text-align:center;font-size:24px;letter-spacing:7px}.level-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:10px}.level-row button{width:auto!important;padding:8px 14px!important;margin:0}.surprise-box{font-size:60px;cursor:pointer;display:inline-block;transition:.3s}.surprise-box:hover{transform:scale(1.12) rotate(4deg)}.badge-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:15px}.badge-item{padding:14px;border-radius:16px;background:#ffffff07;border:1px solid #ffffff10}.badge-item b{display:block;color:#ffb7d1}.reaction-pad{height:150px;border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:bold;background:#ffffff07;border:1px solid #ffffff12;cursor:pointer}.reaction-pad.go{background:#ff77ad22;border-color:#ff77ad55}.tiny-note{color:#bcaeb9;font-size:13px;line-height:1.8}@media(max-width:560px){.memory-grid{grid-template-columns:repeat(4,1fr)}.games-toggle{right:10px;top:10px}.badge-list{grid-template-columns:1fr}}
+​.games-section{padding:42px 20px 30px}.games-wrap{max-width:820px;margin:auto}.games-toggle{display:block;max-width:220px;margin:auto;background:linear-gradient(135deg,#ff4f91,#b83b91)}.games-panel{display:none;margin:18px auto 0;padding:24px;border-radius:28px;background:#ffffff08;border:1px solid #ff77ad30}.games-panel.open{display:block;animation:challengeIn .5s ease}.games-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.game-card{padding:18px;border-radius:18px;background:#ffffff08;border:1px solid #ffffff12;cursor:pointer;text-align:right;color:inherit}.game-card:hover{border-color:#ff77ad55}.game-card .gi{font-size:28px;display:block;margin-bottom:7px}.game-card strong{display:block}.game-card small{color:#bcaeb9;line-height:1.7}.game-stage{display:none;margin-top:18px;padding:22px;border-radius:22px;background:#05050a99;border:1px solid #ffffff12;text-align:center}.game-stage.open{display:block;animation:letterReveal .45s ease}.game-back{width:auto!important;background:#ffffff09!important;border:1px solid #ffffff12!important;box-shadow:none!important;padding:9px 15px!important;font-size:13px!important;margin:0 0 12px!important}.game-action{max-width:260px;margin:12px auto 0}.game-score{color:#ffb7d1;font-weight:bold;margin:10px}.game-choice{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.game-choice button{margin:0}.game-win{padding:22px;border-radius:20px;background:linear-gradient(145deg,#ff77ad18,#ffffff06);border:1px solid #ff77ad40}.game-win .emoji{font-size:48px}.game-win h3{color:#ffb7d1;margin:8px 0}.game-win p{color:#dfd3dc;line-height:1.9}@media(max-width:560px){.games-grid,.game-choice{grid-template-columns:1fr}}
+​.games-toggle{position:fixed;right:16px;top:16px;z-index:9999;width:auto!important;padding:10px 15px!important;border-radius:999px!important;font-size:13px!important;box-shadow:0 8px 25px #0006}.arcade-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center;margin:12px 0 18px}.arcade-stats b{display:block;font-size:22px;color:#ffb7d1}.arcade-stats span{font-size:11px;color:#bcaeb9}.game-stage{min-height:120px}.game-big{font-size:58px;cursor:pointer;user-select:none}.game-arena{position:relative;height:300px;overflow:hidden;border-radius:20px;background:#ffffff05;border:1px solid #ffffff10}.moving-heart{position:absolute;transform:translate(-50%,-50%);font-size:38px;cursor:pointer;user-select:none;transition:.12s}.gold-heart{filter:drop-shadow(0 0 12px #ffd86b)}.timer-big{font-size:28px;color:#ffb7d1;font-weight:bold;margin:8px}.memory-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:430px;margin:15px auto}.memory-grid button{aspect-ratio:1;padding:0;margin:0;font-size:27px}.secret-lock{font-size:50px;margin:10px}.code-input{width:100%;max-width:260px;text-align:center;font-size:24px;letter-spacing:7px}.level-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:10px}.level-row button{width:auto!important;padding:8px 14px!important;margin:0}.surprise-box{font-size:60px;cursor:pointer;display:inline-block;transition:.3s}.surprise-box:hover{transform:scale(1.12) rotate(4deg)}.badge-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:15px}.badge-item{padding:14px;border-radius:16px;background:#ffffff07;border:1px solid #ffffff10}.badge-item b{display:block;color:#ffb7d1}.reaction-pad{height:150px;border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:bold;background:#ffffff07;border:1px solid #ffffff12;cursor:pointer}.reaction-pad.go{background:#ff77ad22;border-color:#ff77ad55}.tiny-note{color:#bcaeb9;font-size:13px;line-height:1.8}@media(max-width:560px){.memory-grid{grid-template-columns:repeat(4,1fr)}.games-toggle{right:10px;top:10px}.badge-list{grid-template-columns:1fr}}
 .secret-box-wrap{max-width:760px;margin:25px auto;text-align:center}.secret-box-btn{font-size:18px;padding:16px 28px;border:1px solid #ff9bc255;border-radius:18px;background:linear-gradient(135deg,#ff77ad22,#ffffff08);color:#fff;cursor:pointer;transition:.25s}.secret-box-btn:hover{transform:translateY(-3px) scale(1.02)}.password-area{margin:18px auto;display:flex;flex-direction:column;align-items:center;gap:10px}.password-form{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}.password-form input{padding:13px 15px;border-radius:14px;border:1px solid #ffffff20;background:#ffffff09;color:#fff;outline:none;text-align:center}.password-form button,.forgot-btn{padding:12px 18px;border-radius:14px;border:1px solid #ff77ad45;background:#ff77ad15;color:#ffd5e5;cursor:pointer}.forgot-btn{background:transparent;border-color:#ffffff18;color:#bfb2bb}.forgot-quiz{display:none;margin:20px auto;padding:25px;border:1px solid #ff77ad30;border-radius:24px;background:#ffffff07;text-align:center}.forgot-quiz.open{display:block}.forgot-q{font-size:19px;font-weight:bold;margin:15px 0}.forgot-options{display:grid;gap:10px;max-width:600px;margin:auto}.forgot-options button{padding:13px;border-radius:14px;border:1px solid #ffffff15;background:#ffffff08;color:#fff;cursor:pointer}.forgot-feedback{min-height:30px;margin-top:12px;color:#ffb7d1}.gold-reveal{display:none;margin:30px auto 0;max-width:720px;padding:35px;border-radius:28px;background:radial-gradient(circle at 50% 0,#ffd86a55,#ffffff08 60%);border:2px solid #ffd86a99;box-shadow:0 0 55px #ffd86a44;line-height:2.1}.gold-reveal.show{display:block;animation:goldIn 1s ease}.black-heart{filter:drop-shadow(0 0 8px #000)}body.secret-gold #site{filter:sepia(1) saturate(1.9) hue-rotate(355deg)}.secret-rain{position:fixed;inset:0;pointer-events:none;z-index:9999;overflow:hidden}.secret-rain span{position:absolute;top:-60px;animation:rainDown linear forwards;font-size:25px}@keyframes rainDown{to{transform:translateY(115vh) rotate(360deg);opacity:.15}}@keyframes goldIn{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:scale(1)}}
 </style>
 </head>
 <body>
-
-<!-- intro removed -->
+​<!-- intro removed -->
 <div id="introOverlay" style="display:none!important">
-  <div class="intro-inner">
-    <div class="intro-heart">♥</div>
-    <div class="intro-small">كل حكاية ليها بداية...</div>
-    <div class="intro-big">وحكايتنا بدأت<br><span>21 أبريل 2024</span></div>
-    <button onclick="startStory()">كمّلي الحكاية →</button>
-  </div>
+<div class="intro-inner">
+<div class="intro-heart">♥</div>
+<div class="intro-small">كل حكاية ليها بداية...</div>
+<div class="intro-big">وحكايتنا بدأت
+<span>21 أبريل 2024</span></div>
+<button onclick="startStory()">كمّلي الحكاية →</button>
 </div>
-
-
-<div class="heart" style="left:8%;animation-delay:0s">♥</div>
+</div>
+​<div class="heart" style="left:8%;animation-delay:0s">♥</div>
 <div class="heart" style="left:24%;animation-delay:2s">♥</div>
 <div class="heart" style="left:70%;animation-delay:4s">♥</div>
 <div class="heart" style="left:88%;animation-delay:1s">♥</div>
-
-<div id="login" class="screen">
-  <div class="card">
-    <div class="logo">💌</div>
-    <h1>مكان صغير لشخص مميز</h1>
-    <p class="sub">الموقع ده مش معمول لأي حد... لو إنتِ ريمو، فأكيد عارفة تدخلي ❤️</p>
-    <input id="user" type="text" placeholder="Username">
-    <input id="pass" type="password" placeholder="Password">
-    <button onclick="login()">دخول ✨</button>
-    <div id="error" class="error"></div>
-  </div>
+​<div id="login" class="screen">
+<div class="card">
+<div class="logo">💌</div>
+<h1>مكان صغير لشخص مميز</h1>
+<p class="sub">الموقع ده مش معمول لأي حد... لو إنتِ ريمو، فأكيد عارفة تدخلي ❤️</p>
+<input id="user" type="text" placeholder="Username">
+<input id="pass" type="password" placeholder="Password">
+<button onclick="login()">دخول ✨</button>
+<div id="error" class="error"></div>
 </div>
-
-<div id="site">
-  <div class="hero">
-    <div class="hero-box">
-      <div class="badge">🔐 مكان خاص — ليكي إنتِ بس</div>
-      <h2>أهلًا يا <span>ريمو</span> ❤️</h2>
-      <p>
-        لو وصلتي لهنا، يبقى عندك مفتاح المكان الصغير ده.
-        مش هتلاقي فيه حاجة غريبة... بس هتلاقي شوية كلام من القلب،
-        معمول مخصوص علشانك.
-      </p>
-      <div class="scroll">انزلي براحتك ↓</div>
-    </div>
-  </div>
-
-  <section>
-    <div class="container">
-      <h2 class="title">حكايتنا بدأت من <span>هنا</span> 🕰️</h2>
-      <p class="sub" style="text-align:center">تاريخين صغيرين... بس بالنسبة لي مش مجرد تاريخين.</p>
-
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="date">21 أبريل 2024</div>
-          <div class="timeline-card">
-            <div class="icon">💬</div>
-            <h3>أول مرة اتكلمنا</h3>
-            <p>يمكن وقتها مكنّاش نعرف إن الكلام ده هيبقى أول صفحة في حكاية ليها مكان خاص عندي.</p>
-          </div>
-        </div>
-
-        <div class="line"></div>
-
-        <div class="timeline-item">
-          <div class="date">22 ديسمبر 2025</div>
-          <div class="timeline-card">
-            <div class="icon">📍</div>
-            <h3>أول مرة اتقابلنا</h3>
-            <p>اليوم اللي بقى فيه الكلام شاشة ورسائل، وبقى فيه شخص قدامي أقدر أفتكر تفاصيل وجوده.</p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="date">21 أبريل 2026</div>
-          <div class="timeline-card">
-            <div class="icon">🎂</div>
-            <h3>يوم عيد ميلادك</h3>
-            <p>اليوم اللي كان الموقع ده معمول عشانه من البداية... وفضل مستني لحد ما جه وقته الحقيقي.</p>
-          </div>
-        </div>
-
-        <div class="timeline-item future">
-          <div class="date">والباقي لسه...</div>
-          <div class="timeline-card">
-            <div class="icon">✨</div>
-            <h3>القصة مفتوحة</h3>
-            <p>لأن أجمل حاجة في الحكايات الحلوة إنها مش بتقف عند تاريخ معين.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-
-
-  <section>
-    <div class="container">
-      <h2 class="title">هدايا <span>من ريمو</span> 🎁</h2>
-      <p class="sub" style="text-align:center">حاجات بسيطة في شكلها... بس قيمتها عندي أكبر بكتير.</p>
-      <div class="gift-gallery">
-        <div class="gift-card" onclick="openGift(this)">
-          <img src="data:image/jpeg;base64,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" alt="">
-          <div class="gift-caption">بداية الحكاية</div>
-          <div class="gift-note">أول صورة وأول لحظة وثقتها عيني وقلبي.</div>
-        </div>
-
-        <div class="gift-card" onclick="openGift(this)">
-          <img src="data:image/jpeg;base64,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" alt="">
-          <div class="gift-caption">ضحكة من القلب</div>
-          <div class="gift-note">أكتر ضحكة حسيت فيها إن الدنيا لسه بخير.</div>
-        </div>
-
-        <div class="gift-card" onclick="openGift(this)">
-          <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gIoSUNDX1BST0ZJTEUAAQEAAAIYAAAAAAQwAABtbnRyUkdCIFhZWiAAAAAAAAAAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAAHRyWFlaAAABZAAAABRnWFlaAAABeAAAABRiWFlaAAABjAAAABRyVFJDAAABoAAAAChnVFJDAAABoAAAAChiVFJDAAABoAAAACh3dHB0AAAByAAAABRjcHJ0AAAB3AAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAFgAAAAcAHMAUgBHAEIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFhZWiAAAAAAAABvogAAOPUAAAOQWFlaIAAAAAAAAGKZAAC3hQAAGNpYWVogAAAAAAAAJKAAAA+EAAC2z3BhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABYWVogAAAAAAAA9tYAAQAAAADTLW1sdWMAAAAAAAAAAQAAAAxlblVTAAAAIAAAABwARwBvAG8AZwBsAGUAIABJAG4AYwAuACAAMgAwADEANv/bAEMAAwICAwICAwMDAwQDAwQFCAUFBAQFCgcHBggMCgwMCwoLCw0OEhANDhEOCwsQFhARExQVFRUMDxcYFhQYEhQVFP/bAEMBAwQEBQQFCQUFCRQNCw0UFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFP/AABEIBIAGAAMBIgACEQEDEQH/xAAdAAACAwADAQEAAAAAAAAAAAACAwABBAUGBwgJ/8QATRAAAgEDAwIFAwEHAgUBBQERAQIRAAMhBBIxBUEGEyJRYQcycYEIFCNCUpGhYrEVM3LB0YIWJENT4fAXc5KiNGOy8RglJjWDwkRFVP/EABsBAQEBAQEBAQEAAAAAAAAAAAABAgMEBQYH/8QAKREBAQACAgICAgICAgMBAAAAAAECEQMxEiEEEwVBMlEUImFxM0JSsf/aAAwDAQACEQMRAD8A+hUfNNDMy+ms1ksFyJ/FaUjZBxNfHegDGVhh6hS7lnftMgH2inG2FIgkimKoWZMzWgNsY2sZnirCs/pnA7VaW5MTMUYlGBGRxVAJa8w7QNrjINXsO4yJ9zTWAViy8n3q1m6QBPyBQBatqUECDTUtwTIljRKFRgIYH5ooIzs4PNrjgjFasMdy0Bldy4bOSp4rJrdQ66W+a2A4AODTWp6ldvsLKnB5rmh0urNxdw7fJPf0rVqNW86W3bUHPvWvS2tU24n1Nye8116bLbyM1vG0C6yV2g/mrJq7twu4FtvT7VuubX24W9bZ7H80K6m27HdbuDH7VnZtpnN3rlx12ncrZ7kVg1GpvI+HulSvuPOau761u1g4IPrXN372+2xAI/WusZtpyVq9cl7gUsB3rTfe85C/e5M8mrO252Kq04H3VnaVwS85BntXSctm6zL+ZduQe1Z9LqLsks2e0c1f1h8zC5JzxzWbSXC1tt19+3vXbE5XWqX02yT7n2p12/cuXAz5AGeTUSr5W/wA3J54xWzUagXF2p8RxxnNYuXTa0xO/bWBu34PPvXQ9M6hZshVusw2nn8Vw1vV+Ta2sA0Rmt+j11u84E4B57VnHLppz69X23X/qLoaQy+avmXU2xNcd1n+o3h26v8AW1u0uufLgK1dY6t9VOibX+L8R1H7m41fJvVPrDrL7z6bVzW3kZNZs/Lpt6vV/wCsPq9z4t1l01f11a8m/b3aC8Cuyb/AIB9Z7+sL7y1v58/evm3qup2rq4a4c0jS3g5bbuJPtWKv1Fza6Z6z496/pBptVqj+tYr/iO/d2i4+VPsK5+zaF0uNx9WcUGosIu5dxI5o1vL9dPUvBvV2Wv+K7l23F6W63HPIrkNTp7aI+93Iye/tTP220W3q52iR91H1Wpu3LWwBqZ16xplU0Gnt72O3g8U99sY2tNckpA05VtoA78Vud9Uf2vW7t+K03tMtsNuJ/msd0M0Ftz5Vd1e2x48k/8Uv1C9cO0I3Mh4Hag7fNZZq7Vq46g9iTRnTe1xW2i/8Ay23sA9u9E1B29vuaq5K7u9Ut3j6twKge0x7VzXZvS3b1o3N65uA9vmtN+6d5mO5PzV3W2k7FfVnn3rJFBjcK63aC8CugbsCuhWwHYrsV0A7EV0A7EV0A7ETdFwLz1cT0t0j8w7r3aU77eTcfZfcfZfeR2V3F965fLq9D8D//Z" alt="">
-          <div class="gift-caption">أيام ما بتتوضّحش بالأيام</div>
-          <div class="gift-note">بس بتبان في راحة البال لما بنرغي سوا.</div>
-        </div>
-
-        <div class="gift-card" onclick="openGift(this)">
-          <img src="data:image/jpeg;base64,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" alt="">
-          <div class="gift-caption">ضحكة من القلب</div>
-          <div class="gift-note">أكتر ضحكة حسيت فيها إن الدنيا لسه بخير.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="challengeSection">
-    <div class="container">
-      <div id="secretThink" onclick="toggleChallenge()">💭</div>
-      <div id="challengePanel">
-        <div class="quiz-progress" id="quizProgress">السؤال 1 من 3</div>
-        <div id="quizQuestion">أكتر حاجة بحبها فيكي إيه؟</div>
-        <div id="quizOptions" id="quizOptions"></div>
-        <div id="quizFeedback"></div>
-        <div class="challenge-result" id="challengeResult">
-          <div class="result-emoji">💖</div>
-          <h2>عرفتي الإجابة!</h2>
-          <p>أصلها مش محتاجة تفكير... كل حاجة فيكي مميزة وقريبة لقلبي.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="games-section">
-    <div class="games-wrap">
-      <button class="games-toggle" onclick="toggleGames()">🎮 ركن الألعاب والمفاجآت</button>
-      <div class="games-panel" id="gamesPanel">
-        <h3 style="text-align:center;margin-bottom:15px;color:#ffb7d1">اختاري لعبة أو مفاجأة ❤️</h3>
-        <div class="arcade-stats">
-          <div><b id="arcadeScore">0</b><span>نقاط الحب</span></div>
-          <div><b id="arcadeLevel">1</b><span>المستوى</span></div>
-          <div><b id="unlockedBadges">0/5</b><span>الأوسمة</span></div>
-        </div>
-        <div class="games-grid">
-          <button class="game-card" onclick="openGame('catch')">
-            <span class="gi">🎁</span>
-            <strong>المطر الماسي</strong>
-            <small>امسكي القلوب والهدية الذهبية</small>
-          </button>
-          <button class="game-card" onclick="openGame('memory')">
-            <span class="gi">🧩</span>
-            <strong>تذكر اللحظات</strong>
-            <small>لعبة الذاكرة للصور والذكريات</small>
-          </button>
-          <button class="game-card" onclick="openGame('vault') <span class="" style="display:none"></span>">
-            <span class="gi">🔐</span>
-            <strong>الخزنة السرية</strong>
-            <small>دخلي رمز التاريخ المهم وافتحيها</small>
-          </button>
-          <button class="game-card" onclick="openGame('reaction')">
-            <span class="gi">⚡</span>
-            <strong>اختبار السرعة</strong>
-            <small>اضحي أول ما يظهر القلب المنور</small>
-          </button>
-          <button class="game-card" onclick="openGame('fortune')">
-            <span class="gi">🥠</span>
-            <strong>حظك اليوم من قلبي</strong>
-            <small>افتحي صندوق الرسائل العشوائية</small>
-          </button>
-          <button class="game-card" onclick="openGame('badges')">
-            <span class="gi">🏆</span>
-            <strong>أوسمة الحب</strong>
-            <small>شوفي إيه الأوسمة اللي جمعتيها</small>
-          </button>
-        </div>
-
-        <div id="gameStage" class="game-stage">
-          <button class="game-back" onclick="closeGameStage()">← رجوع للقائمة</button>
-          <div id="gameInner"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <section class="final">
-    <div class="container" style="text-align:center">
-      <h2 class="title">وفي الختام... <span>كلمة من القلب</span> ❤️</h2>
-      <p class="sub" style="max-width:650px;margin:0 auto 25px;line-height:2.1">
-        يمكن الموقع ده مجرد أسطر كود صغيرة وشوية ألوان...
-        بس حبيت أجمع فيه كل حاجة تفكرك إن في شخص هنا دايماً بيتمنى ضحكتك،
-        شايل اسمك في دعوه، وبيحبك بجد.
-      </p>
-
-      <button id="messageBtn" onclick="revealHiddenLetter()">دوسي هنا عشان تشوفي رسالتي الأخيرة ✨</button>
-
-      <div id="hiddenLetter">
-        <div class="reveal-hearts">♥♥♥</div>
-        <h3 style="font-size:24px;margin-bottom:15px;color:#ffb7d1">إلى ريمو الجميلة ❤️</h3>
-        <p>
-          كل عام وأنتِ أقرب الناس لقلبي، وكل سنة وأنتِ أجمل حاجة حصلت في حياتي.
-          أتمنى سنة جديدة تشيلي فيها كل فرحة، وتفضلي دايماً منورة حياتي بوجودك وضحكتك.
-          أنا دايماً جنبك ومعاكي في كل خطوة... بحبك بجد وللأبد. ✨
-        </p>
-        <div class="big-date" style="margin-top:25px">
-          مستنيكِ في كل سنة جاية<br>
-          <span>مع بعض دايماً ❤️</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div id="heartStorm"></div>
-
-  <footer>
-    صُمم بحب خصيصاً لـ ريمو ❤️ | كل حقوق الحب محفوظة لكي
-  </footer>
 </div>
-
+​<div id="site">
+<div class="hero">
+<div class="hero-box">
+<div class="badge">🔐 مكان خاص — ليكي إنتِ بس</div>
+<h2>أهلًا يا <span>ريمو</span> ❤️</h2>
+<p>
+لو وصلتي لهنا، يبقى عندك مفتاح المكان الصغير ده.
+مش هتلاقي فيه حاجة غريبة... بس هتلاقي شوية كلام من القلب،
+معمول مخصوص علشانك.
+</p>
+<div class="scroll">انزلي براحتك ↓</div>
+</div>
+</div>
+​<section>
+<div class="container">
+<h2 class="title">حكايتنا بدأت من <span>هنا</span> 🕰️</h2>
+<p class="sub" style="text-align:center">تاريخين صغيرين... بس بالنسبة لي مش مجرد تاريخين.</p>
+​<div class="timeline">
+<div class="timeline-item">
+<div class="date">21 أبريل 2024</div>
+<div class="timeline-card">
+<div class="icon">💬</div>
+<h3>أول مرة اتكلمنا</h3>
+<p>يمكن وقتها مكنّاش نعرف إن الكلام ده هيبقى أول صفحة في حكاية ليها مكان خاص عندي.</p>
+</div>
+</div>
+​<div class="line"></div>
+​<div class="timeline-item">
+<div class="date">22 ديسمبر 2025</div>
+<div class="timeline-card">
+<div class="icon">📍</div>
+<h3>أول مرة اتقابلنا</h3>
+<p>اليوم اللي بقى فيه الكلام شاشة ورسائل، وبقى فيه شخص قدامي أقدر أفتكر تفاصيل وجوده.</p>
+</div>
+</div>
+​<div class="timeline-item">
+<div class="date">21 أبريل 2026</div>
+<div class="timeline-card">
+<div class="icon">🎂</div>
+<h3>يوم عيد ميلادك</h3>
+<p>اليوم اللي كان الموقع ده معمول عشانه من البداية... وفضل مستني لحد ما جه وقته الحقيقي.</p>
+</div>
+</div>
+​<div class="timeline-item future">
+<div class="date">والباقي لسه...</div>
+<div class="timeline-card">
+<div class="icon">✨</div>
+<h3>القصة مفتوحة</h3>
+<p>لأن أجمل حاجة في الحكايات الحلوة إنها مش بتقف عند تاريخ معين.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+​<section>
+<div class="container">
+<h2 class="title">هدايا <span>من ريمو</span> 🎁</h2>
+<p class="sub" style="text-align:center">حاجات بسيطة في شكلها... بس قيمتها عندي أكبر بكتير.</p>
+<div class="gift-gallery">
+<div class="gift-card" onclick="openGift(this)">
+<img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gIoSUNDX1BST0ZJTEUAAQEAAAIYAAAAAAQwAABtbnRyUkdCIFhZWiAAAAAAAAAAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAAHRyWFlaAAABZAAAABRnWFlaAAABeAAAABRiWFlaAAABjAAAABRyVFJDAAABoAAAAChnVFJDAAABoAAAAChiVFJDAAABoAAAACh3dHB0AAAByAAAABRjcHJ0AAAB3AAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAFgAAAAcAHMAUgBHAEIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFhZWiAAAAAAAABvogAAOPUAAAOQWFlaIAAAAAAAAGKZAAC3hQAAGNpYWVogAAAAAAAAJKAAAA+EAAC2z3BhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABYWVogAAAAAAAA9tYAAQAAAADTLW1sdWMAAAAAAAAAAQAAAAxlblVTAAAAIAAAABwARwBvAG8AZwBsAGUAIABJAG4AYwAuACAAMgAwADEANv/bAEMAAwICAwICAwMDAwQDAwQFCAUFBAQFCgcHBggMCgwMCwoLCw0OEhANDhEOCwsQFhARExQVFRUMDxcYFhQYEhQVFP/bAEMBAwQEBQQFCQUFCRQNCw0UFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFP/AABEIBIAGAAMBIgACEQEDEQH/xAAdAAACAwADAQEAAAAAAAAAAAACAwABBAUGBwgJ/8QATRAAAgEDAwIFAwEHAgUBBQERAQIRAAMhBBIxBUEGEyJRYQcycYEIFCNCUpGhYrEVM3LB0YIWJENT4fAXc5KiNGOy8RglJjWDwkRFVP/EABsBAQEBAQEBAQEAAAAAAAAAAAABAgMEBQYH/8QAKREBAQACAgICAgICAgMBAAAAAAECEQMxEiEEEwVBMlEUImFxM0JSsf/aAAwDAQACEQMRAD8A+hUfNNDMy+ms1ksFyJ/FaUjZBxNfHegDGVhh6hS7lnftMgH2inG2FIgkimKoWYMzWgNsY2sZnirCs/pnA7VaW5MTMUYlGBGRxVAJa8w7QNrjINXsO4yJ9zTWAViy8n3q1m6QBPyBQBatqUECDTUtwTImjRKFRgIYH5ooJu54PegWoZWh1MURtM4wxH9INMZWLT+gqnVzAAoM9ljpdVtvqPLP2muSRilr0cTIoU0lvWWwrH1Rz7Vh0eqOj11zTXdzWx9rGs0cyjSwNx8kU06a7aCOm5ldttZBpRdt7lub37EHArnOnXNvTHS76yKg4ck3LuB5b/1U1tOqWbk3JunjFVfJPJB/FR7nm2FzDAxQDasSGO3zHHLNyPxTbWlDuHViyqO/NBaWLwljJUzmtgujTae4v3XGI2fAoNX7qFXdCruWPmqW5bWwloT5q43dqiXlY21bMj1URRN7FVO2rA8XXVrYZw+O3ajtWkvJdJMMMggZrGFkqy8OO3xXI2LgtYVIZv5hWhPK8xbbCNwGIGT+akeLKLFwEIW7d5pYLJdhDB/qPemXS7owCjzAJDUErrm4lm2qDxMUXksCwJIbkGapSWMGJAk4702y7kowG9u6xUFWVlwxKwvIPJpi2N1wxc5wB7VIonerYeodUe0d65rpx2rtfUTvO2u0zXb1xVz1YubfI4z8Vh0eqN06q5Z890+571rV9Jqu3bW2t23G31HHOa6LpL3X2ut03H+3gfnXE6a6/e222zZ3cO3j08V9N9G8v2+ldkP9y9z7f9hW41tH90d4v8AkpS9v6ncf3K51q77aK3d7qf8V7Vf9N22t1m9rW93p7+a+b/wDZ/wDudv7N+/f/AJr6Z4D2+laH+v8ACtPevqW4vH1X5R71rG7e4G8qC5mRk811696t3V7o7d1a29x7b/iud6l676n+rff/hWvP0u4vT+9/8AvrPq7r7Zt8O72Oa4/c/p/s95L1t1d655f4j8U8dVu7fG863Z7l9f8AVW/V3Xn+u37v5rV9V63Yvv8AL3v/AMa/ir6m9V1q1b3b28MhD4xQvW7u07+1d38z7a91HqVxt7t1sW7n0+1b4utrW1q87bNvsbK3FfUf6r9tuv3t7a/itFj2u3u2y47iT8V/TVT9X737L/AJe3/wDFa/6vX3D/AA+7Z/8AhS/f+p2O//wDiWv4rT97qX23y7NnNfU61WvuM1t7f8Atv8AiuN6vde2v459v+az9/s2w+62Nn/4pT9/s3b7+7/wWv4r+q+t3v7sff8A4Vf7K22w6rO3v/xrm97s+09s3b23b37UqfX/pXG7u//E1v91q1+v8A0d/7tq/4ofr9Hcfc9v8AhXv+K59/W/pu21vu7b/hXf/io2+vfTt/bu53ff/hXv+K79/tfX81N33Uv07t/8AVWfvv6fdpP8Amr3b2/8AhTfuf6e9u/8AC2f/ABVTn1/6e5/uf7t9v+ajW9a93/hXv8At9pWZ/vf6fbP9z+l8Vd31v6fdj/J9n8/tXNv6h9N9rf4fvv8Aytqj96v6e3b5e43L/wBq/irXtf6Xtnv8P7f8a9/xTXtfqXo3d/hu3/8AIrLd9U+n3tt3Xv29v/JWe3f9P/bb4t3Nn32rWp73u74vf7b/5Kjbu+m+/u3b/t9v/JXPt9b+n9m9/uu+v8Ar7d1bT9e+n793v3N2f4pWz916u6u4/y9l2f5aVv8AvX03/t372f5P3/4Vv3fUXp21v7l3Htv/AIrzvX9W679tv3d72b27vXWrW+r/AEm2ze/fb/iqnfv/AFu7v9ze77+2/wCFaPvvUX+p37q5tnbv3bfiur6h4z6f6n0a3v3du2t1m6rbuO0uOM8ZrgPEX2i9H6J0V93du7u287W37uO+K4DxN9oXQuj9b1Ndzdu+S7d93bueM4q5u436P9L5e8HbfTfbtqHcf1/ivpPjPj3p/hLo97e7Y3u6Tbb27bjvj818Vv9rPQ22396u2tv8AhXtf8V2fU/2j9D1Ho97a3u7fbbb+3bjvj81P0u9T9pP2i9F0HqD1L7d/f7Ttt7d208YznFcN1D9rvRukdbff3t3dvbt8nZuccYrjPtb9ovQdV6O93bf7u9u3bttt7d28cZzXw/1n7QdF1P19y7u3d23j2Nnt23GcjNEV9FfU/iHov1A0b97bu7bvt7btttO3bvjjmuP0/7Uuk9Ueoe7btt7t4tttts2zjONxzmvgHo/2i9H6Lp71t3c9t4tu2xtNtnGe5znmtj9pvQunv9ze7e27e2222zZxt+s5q504+89Z496Jq9Tvu393du32ttts7ds4ziTjvXj6g9cui9bN27u3d3bu7bfbbtjOO2818P8AWvtF0XqPXX39zbtvNttttnONu5zXj/Z30HpHT+tvv7t3d23u7t2223bbjnOc03+qf0W1fqb0XqfW3u/wDbs21u3u27sYznOa5Xq31V6L1TqL3d/du7bvbu3dt3bOM5znmvjTpH2iehdM6s97b3dt+tvbttttt3jOc55zXWdI+0npvRerO7vdu23dtvvO23du2zjOc5zWz6H3F9pvS+t9be7vt7btttpt27sYztznPNav6r9K6b07q797d3dvdtu3dt27sYztzjOcV8R9N+0bpXRurvf27tt3dvZttu3bOc5znNeh9f+0vpPTOrvubd/dtu3dtu3du3bOM7c4znFNd+nfvO3V2v2G4O/aW/Ncf1n7SOjdL6o+9v3du3bdu3dt23bOPbOc18R9M+0fpXTure7v3du3bu7dtt3du3bOM5zmvX+vvqP0Xp3WX3N2/u23du7d27du2znO2c85pr0n629M29t97btvNt9vbtpt27jjOc5zWLrf1m6N1Xqn3d7vdt3du27d23dtty8ZzmvjHo32s9I6b1V99923bdtu3du2227dtt3OM5r0/rT6pdE6p1R93v3N23bu3dtu3dtu3bnOc5zmmhuvf7WugdW6w+/u3d3dt27du2223duOPPOc1qX1u6Xffu3tvbdt23c3du7bt27sYztzjNeO/VHpXSuuPv793du7bt7dt23du22znO2c81g6p9pei9R6q+/u3d3dtu7du7bt223du2cZ2znOakvXvunX27t37vdtvLtsbtt3bvr2rQfrb0zu3vdt27btttt+7dtvcc5zmvjrqn2j9I6p1b3d/uy7bu3bdt23dttu3du2znO2c81ufVPpPTetfv79zdu27dtvNttttt3jjbjnOaau72/qv0zu3t7btvNt3t5du27t8ec5zWfUPtnp97t3bdu23du2bdu7dtt3eM5z2zXxj6r9J6d1t9/f3bu23dvNttttu3dujjOc55zXpH2x9C6b1d9/du23du3du23btu3buOOPbOc00fT/2u9C6a/vt7dt27bu23du3dtu3dnHHOa9B+uHRupfvvv7du3bu3dtu3dtu3du2cZ2znNcX0H66dG6v1F9/du23du3du2bdu23du2znO2c85rw/qp9qHRuq9Vff3btu3du3du2bdu23du2cZ2znOc08ep94fVPpv3d3v3Ntu7dt3bu3dt3bOM7c4znOK0P1T6f3f3fdm23du3du2bdu23du2cZ2znOcV8QdT+uHRuq9U/f3bu23dvdtu27du23dtjjO2c85rzb7Teg9C62+/u3du7dtu3dt3btu3du2cZzjnOacj7X+r9Pfdu23btu3du2bdu23du2ztnGc4znFfBX1v6Y/3Pdtu3du3du2bdu23du2znO2c85rwX1r6Zft/u7du27tu3du2bdu23du2znO2c85zThfUnpv33vdt3dtvdtu2bdu23du2znO2c85zxV0fS/2k9N/u3vdt27t27tm3btu2znO2c85rnD6h9N613v7t23dt27du27du27du2cZztzjNeG/VXpv3fvdt3dt27tu2bdu23du2znO2c5zxWp+sfTv9/v7t23dt27dtt3btu3du4znO2c5zTifbvuvW+/u3btu3du3btu3dtu3bs4ztzjnOK8W/qD03/f9+7du3bu27dtu3dtu3bs4ztzjNc3X6g9N7N7/du3dt3du3btu3dtu7OM7c4znNeXb9Qem9dff7t23du3du2bdu23du7OM7c4znOK4n1G6f3fve7du3dtu3dtu3dtu7OM7c4znNJVf/9k="></div>
+<div class="gift-caption">يوم ما جمعنا المكان 🤍</div>
+<div class="gift-note">الصورة دي بتفكرني بكل ضحكة وكل كلمة راحت وجت بينا اليوم ده.</div>
+</div>
+<div class="gift-card" onclick="openGift(this)">
+<img src="data:image/jpeg;base64,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du7dtu3btu2bbttm3bdjjPOeK5Lp/2sdF6v1l9/du3dtu27du23btu2bfbNuHGeM8V5/qf1X6r1Tq3393du3dtu3dt23btttu3bbYznOOc0y3d8e9NfNttttu2227dttm3bvt2zjnPOKavvvu7du3bbdtu23bbZt277ds45zjimjv29u7tttu2227dtm3bdt27bONs45zWp/W36rdF6v1l9/du3dtu27du23btu2bfbNuHGeM8V59qf1X6r1Tq3393du3dtu3dt23btttu3bbYznOOc0s32+nbtttu3bbdtm3bdt27bttu2zjnPOK1b7+7dtu223bdtm3bdt27btu2znONs45zWvVfqv0Xq3WX3927dtu3dtu3btu3bbdtm3bbYznOOc1rVfqx0Xq3WX3927dtu3dtu3btu3btu2bcOM8Z4rTrfdtttuvttm3bbt23bttu222zjnPOK1tvv7du3bbdtm3bdtu27dtu2zdttnOOc85rWr/WDovV+svv7t3du7dtu3btu3btu2bcOM8Z4ppvv7t3bttt23bdtu3bbtu3bbtm3bbZt277ds45zjimr777u23btttttu227bttm3bdtu2zbZt277ds45zjimru3dtttttttttu227bttm3bdtu2zbbZt277ds45zjimtu3u3bbttttt23bdtu3bdtm3bttm3bdu2zjnPOK1t2923btttttu23bdtu3bdtm3bttm3bdtu2zbZt277ds45zimmju3u3bbtttttu23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjjimre3u3bbtttttu23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjimru3u3bbtttttu23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjjimre3u3bbtttttu23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjimju3u3bbtttttu23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjjimpvbu7ttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjiimru3dtttttttu23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjimru7dtttttttu23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjimjrfu3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjjimpv7dtttttttu23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjiimt7e7tttttttu23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjjimre3u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjiimre3u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjiimre3u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjiimru3u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjjimre3u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjiimre3u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjiimru7u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjjimrrd3dtttttttu23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjimrbfu7ttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjimrbf7u7ttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjimre3u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjiimre3u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjiimre3u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjiimre3u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjiimru7u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjjimre7u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjiimre7u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjiimre7u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjiimru7u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjjimre7u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjiimru7u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjjimru7u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjjimre7u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjiimru7u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjjimre7u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjiimre7u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjiimre7u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjiimre7u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjiimre7u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjiimre7u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjiimre7u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjiimre7u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjiimre7u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjiimre7u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjiimre7u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjiimre7u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjiimre7u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjiimre7u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjiimru7u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjjimru7u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjjimru7u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjjimru7u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjjimru7u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjjimre7u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjiimre7u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjiimre7u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjiimru7u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjjimru7u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjjimru7u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjjimru7u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjjimru7u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjjimru7u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjjimru7u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjjimru7u3bbttttt23bdtu3bdtm3bttm3bdtu2zbZt277ds45zjjimv/9j="></div>
+<div class="gift-caption">حكاية اليوم ده ❤️</div>
+<div class="gift-note">من أحلى الأيام اللي سبت في قلبي علامة مميزة ومش ممكن تتنسي.</div>
+</div>
+</div>
+</div>
+</section>
+​<section class="games-section">
+<div class="games-wrap">
+<button class="games-toggle" onclick="toggleGames()">🎮 ألعاب ومفاجآت ريمو</button>
+<div id="gamesPanel" class="games-panel">
+<h2 class="title" style="font-size:26px;margin-bottom:15px">اختبري حبك وذكرياتنا 🌸</h2>
+<div class="arcade-stats">
+<div><b id="arcadeScore">0</b><span>النقاط</span></div>
+<div><b id="arcadeLevel">1</b><span>المستوى</span></div>
+<div><b id="arcadeStreak">0</b><span>التوالي</span></div>
+</div>
+<div id="gameMenu" class="games-grid">
+<button class="game-card" onclick="openGame('catcher')">
+<span class="gi">❤️</span>
+<strong>المطر الحنين</strong>
+<small>اجمعي القلوب اللي نازلة عشان تجمعي نقاط.</small>
+</button>
+<button class="game-card" onclick="openGame('memory')">
+<span class="gi">🧩</span>
+<strong>لعبة الذاكرة</strong>
+<small>طابقي الأشكال المرتبطة بذكرياتنا.</small>
+</button>
+<button class="game-card" onclick="openGame('quiz')">
+<span class="gi">❓</span>
+<strong>اختبار القلوب</strong>
+<small>أسئلة خفيفة عننا وعن حبنا.</small>
+</button>
+<button class="game-card" onclick="openGame('reaction')">
+<span class="gi">⚡</span>
+<strong>سرعة البديهة</strong>
+<small>اختبري سرعتك أول ما القلب ينور.</small>
+</button>
+</div>
+​<div id="gameStage" class="game-stage">
+<button class="game-back" onclick="closeGameStage()">← رجوع للقائمة</button>
+<div id="gameContainer"></div>
+</div>
+</div>
+</div>
+</section>
+​<section id="challengeSection">
+<div class="container">
+<div id="secretThink" onclick="toggleChallenge()">💭</div>
+<div id="challengePanel">
+<div class="quiz-progress" id="quizProgress">السؤال 1 من 3</div>
+<div id="quizQuestion">أول مرة اتكلمنا كانت يوم كام؟</div>
+<div id="quizOptions" class="quiz-options">
+<button class="quiz-option" onclick="checkQuiz(0)">21 أبريل 2024</button>
+<button class="quiz-option" onclick="checkQuiz(1)">22 ديسمبر 2025</button>
+<button class="quiz-option" onclick="checkQuiz(2)">1 يناير 2024</button>
+</div>
+<div id="quizFeedback"></div>
+<div id="challengeResult" class="challenge-result">
+<div class="result-emoji">💖</div>
+<h2>عرفتيها يا شطورة!</h2>
+<p>إنتِ حافظة كل تفصيلة بينا، وزي ما توقعت إنتي مش بس ريمو... إنتي كل حاجة حلوة في حياتي.</p>
+</div>
+</div>
+</div>
+</section>
+​<section>
+<div class="container" style="max-width:800px">
 <div class="secret-box-wrap">
-  <button class="secret-box-btn" onclick="toggleSecretBox()">🔐 صندوق الأسرار الذهبي (اختياري)</button>
-  <div id="secretPasswordArea" class="password-area" style="display:none">
-    <p style="color:#cfc1ca;font-size:14px">دخلي تاريخ ميلادك أو تاريخ مميز بينا عشان تفتحي السر الذهبي:</p>
-    <div class="password-form">
-      <input type="password" id="secretPassInput" placeholder="اكتبي الباسورد هنا...">
-      <button onclick="checkSecretPass()">فتح السر</button>
-      <button class="forgot-btn" onclick="toggleForgotQuiz()">نسيتي الباسورد؟</button>
-    </div>
-    <div id="forgotQuizBox" class="forgot-quiz">
-      <div class="forgot-q" id="forgotQText">إيه أكتر تاريخ انكتب فوق في الموقع وكان نقطة تحول؟</div>
-      <div class="forgot-options" id="forgotOptions"></div>
-      <div id="forgotFeedback" class="forgot-feedback"></div>
-    </div>
-  </div>
+<button class="secret-box-btn" onclick="togglePasswordArea()">🔐 الصندوق السري الأخير</button>
+<div id="passwordArea" class="password-area" style="display:none">
+<p class="tiny-note">اكتبي تاريخ بدايتنا عشان تفتحي الصندوق (يوم.شهر.سنة أو بالطريقة اللي تريحك)</p>
+<div class="password-form">
+<input type="password" id="secretPassInput" placeholder="اكتبي الباسورد هنا...">
+<button onclick="checkSecretPassword()">افتحي الصندوق</button>
 </div>
-
-<div id="goldReveal" class="gold-reveal">
-  <div class="reveal-hearts" style="color:#ffd86a">✨💛✨</div>
-  <h2 style="color:#ffe599;margin-bottom:15px">مبروك وصلتي للكنز المخفي!</h2>
-  <p>
-    السر وراء كل ده يا ريمو إن الأيام بتعدي، والأشكال بتغير، والظروف بتتغير...
-    لكن مكانتك في قلبي ثابتة لا بتتغير ولا بتقل، بالعكس بتزيد كل يوم.
-    وجودك في حياتي هو أحلى صدفة وأعظم رزق ربنا رزقني بيه. بحبك يا أجمل أقداري! 💛
-  </p>
-  <div class="big-date" style="color:#ffe599">
-    ملكة قلبي للأبد 👑
-  </div>
+<button class="forgot-btn" onclick="toggleForgotQuiz()">مش فكر كويس؟ افتكريه معايا 🤔</button>
 </div>
-
-<script>
-const correctUser = "reem";
-const correctPass = "2024";
-
+​<div id="forgotQuiz" class="forgot-quiz">
+<div class="forgot-q">إحنا بدأنا حكايتنا في شهر كام من سنة 2024؟</div>
+<div class="forgot-options">
+<button onclick="checkForgotAnswer(false)">يناير</button>
+<button onclick="checkForgotAnswer(true)">أبريل</button>
+<button onclick="checkForgotAnswer(false)">ديسمبر</button>
+</div>
+<div id="forgotFeedback" class="forgot-feedback"></div>
+</div>
+​<div id="goldReveal" class="gold-reveal">
+<div class="reveal-hearts">💛💛💛</div>
+<h2>مفاجأة الصندوق السري الذهبية ✨</h2>
+<p>
+مبروك يا ريمو إنك وصلتي لحد هنا! الموقع ده بكل اللي فيه شُغل من قلبي عشاني وعشانك.
+كل تاريخ وكل كلمة مكتوبة هنا هي شاهدة على إنك أحلى حاجة حصلت في دنيتي.
+بحبك قد الشوق وقد الدنيا بحالها ❤️
+</p>
+</div>
+</div>
+</div>
+</section>
+​<section class="final">
+<div class="container">
+<h2 class="title">رسالة خاصة <span>من قلبي</span> 💌</h2>
+<button id="messageBtn" onclick="revealLetter()">اضغطي هنا عشان تشوفي رسالتي لكي ✨</button>
+<div id="hiddenLetter">
+<div class="letter-title">إلى ريمو الغالية ❤️</div>
+مش عارف أبدأ منين ولا أقول إيه، بس اللي متأكد منه إن وجودك في حياتي غيّر حاجات كتير أوي للأحسن.
+كل ضحكة وكل لحظة قضيناها سوا بتثبت لي كل يوم إن ربنا رزقني بأغلى وأطيب انسانة في العالم.
+بتمنالك كل السعادة والنجاح، وفضل دايماً جنبك ومعاكي في كل خطوة. بحبك جداً يا ريمو وعقبال عمر كله سوا ✨
+</div>
+</div>
+</section>
+​<div id="heartStorm"></div>
+​<footer>
+صُنع بكل الحب عشانك يا ريمو ❤️ 2026
+</footer>
+</div>
+​<script>
 function login(){
-  const u = document.getElementById('user').value.trim().toLowerCase();
-  const p = document.getElementById('pass').value.trim();
-  const err = document.getElementById('error');
-  
-  if(u === correctUser && p === correctPass){
-    document.getElementById('login').style.display = 'none';
-    document.getElementById('site').style.display = 'block';
-    startStory();
-  } else {
-    err.textContent = "المعلومات مش صحيحة يا ريمو... فكري تاني ❤️";
-  }
+let u=document.getElementById("user").value.trim();
+let p=document.getElementById("pass").value.trim();
+let err=document.getElementById("error");
+if((u.toLowerCase()"remo" || u"ريمو") && (p=="2104" || p=="2024" || p=="remo" || p=="123")){
+document.getElementById("login").style.display="none";
+document.getElementById("site").style.display="block";
+window.scrollTo(0,0);
+} else {
+err.innerText="اسم المستخدم أو كلمة المرور مش صح يا ريمو! جربي تاني ❤️";
 }
-
-function startStory(){
-  const overlay = document.getElementById('introOverlay');
-  if(overlay) overlay.classList.add('hide');
 }
-
-function openGift(card){
-  card.classList.toggle('open');
+​function openGift(card){
+card.classList.toggle("open");
 }
-
-let challengeOpen = false;
-function toggleChallenge(){
-  challengeOpen = !challengeOpen;
-  const panel = document.getElementById('challengePanel');
-  if(challengeOpen){
-    panel.classList.add('open');
-    loadQuiz();
-  } else {
-    panel.classList.remove('open');
-  }
+​function toggleChallenge(){
+let p=document.getElementById("challengePanel");
+p.classList.toggle("open");
 }
-
-const quizData = [
-  {
-    q: "إيه أكتر حاجة مميزة فيكي وبحبها؟",
-    options: ["ضحكتك وروحك الحلوة", "طيبتك وكلامك", "كل حاجة فيكي بدون استثناء"],
-    correct: 2
-  }
-];
-
-function loadQuiz(){
-  const qDiv = document.getElementById('quizQuestion');
-  const optDiv = document.getElementById('quizOptions');
-  const feedback = document.getElementById('quizFeedback');
-  const result = document.getElementById('challengeResult');
-  
-  feedback.textContent = "";
-  result.classList.remove('show');
-  
-  const current = quizData[0];
-  qDiv.textContent = current.q;
-  optDiv.innerHTML = "";
-  
-  current.options.forEach((opt, idx) => {
-    const btn = document.createElement('button');
-    btn.className = "quiz-option";
-    btn.textContent = opt;
-    btn.onclick = () => {
-      if(idx === current.correct){
-        feedback.textContent = "صح جداً! إنتِ عارفة نفسك كويس ❤️";
-        result.classList.add('show');
-      } else {
-        feedback.textContent = "جربي تاني يا ريمو! 😉";
-      }
-    };
-    optDiv.appendChild(btn);
-  });
+​let currentQuiz=0;
+function checkQuiz(opt){
+let fb=document.getElementById("quizFeedback");
+let res=document.getElementById("challengeResult");
+if(opt===0){
+fb.innerHTML="صح جداً! برافو عليكي يا شطورة ❤️";
+res.classList.add("show");
+} else {
+fb.innerHTML="محاولة جيدة بس مش دي الإجابة الصح، جربي تاني!";
 }
-
-function revealHiddenLetter(){
-  const btn = document.getElementById('messageBtn');
-  const letter = document.getElementById('hiddenLetter');
-  const storm = document.getElementById('heartStorm');
-  
-  btn.style.display = 'none';
-  letter.classList.add('show');
-  storm.style.display = 'block';
-  
-  for(let i=0; i<40; i++){
-    createStormHeart(storm);
-  }
 }
-
-function createStormHeart(container){
-  const h = document.createElement('div');
-  h.className = 'storm-heart';
-  h.innerHTML = Math.random() > 0.5 ? '♥' : '✨';
-  h.style.left = Math.random() * 100 + 'vw';
-  h.style.animationDuration = (Math.random() * 3 + 2) + 's';
-  h.style.animationDelay = (Math.random() * 2) + 's';
-  container.appendChild(h);
+​function togglePasswordArea(){
+let area=document.getElementById("passwordArea");
+area.style.display = area.style.display==="none" ? "flex" : "none";
 }
-
-function toggleGames(){
-  const panel = document.getElementById('gamesPanel');
-  panel.classList.toggle('open');
+​function checkSecretPassword(){
+let val=document.getElementById("secretPassInput").value.trim();
+let reveal=document.getElementById("goldReveal");
+if(val==="21042024" || val==="21/04/2024" || val==="21 أبريل" || val==="أبريل" || val==="2024" || val==="21-04-2024"){
+reveal.classList.add("show");
+document.body.classList.add("secret-gold");
+startRain();
+} else {
+alert("الباسورد مش مظبوط يا ريمو! جربي تكتبي تاريخ أول كلام بينا (21 أبريل 2024)");
 }
-
-let arcadeScore = 0;
-let arcadeLevel = 1;
-let unlockedBadgesCount = 0;
-const badgesUnlocked = {catch:false, memory:false, vault:false, reaction:false, fortune:false};
-
-function updateArcadeStats(){
-  document.getElementById('arcadeScore').textContent = arcadeScore;
-  document.getElementById('arcadeLevel').textContent = arcadeLevel;
-  let count = Object.values(badgesUnlocked).filter(Boolean).length;
-  document.getElementById('unlockedBadges').textContent = count + '/5';
 }
-
-function openGame(type){
-  const stage = document.getElementById('gameStage');
-  const inner = document.getElementById('gameInner');
-  stage.classList.add('open');
-  inner.innerHTML = "";
-  
-  if(type === 'catch'){
-    initCatchGame(inner);
-  } else if(type === 'memory'){
-    initMemoryGame(inner);
-  } else if(type === 'vault'){
-    initVaultGame(inner);
-  } else if(type === 'reaction'){
-    initReactionGame(inner);
-  } else if(type === 'fortune'){
-    initFortuneGame(inner);
-  } else if(type === 'badges'){
-    initBadgesView(inner);
-  }
+​function toggleForgotQuiz(){
+let q=document.getElementById("forgotQuiz");
+q.classList.toggle("open");
 }
-
-function closeGameStage(){
-  document.getElementById('gameStage').classList.remove('open');
+​function checkForgotAnswer(isCorrect){
+let fb=document.getElementById("forgotFeedback");
+if(isCorrect){
+fb.innerHTML="برافو! شهر 4 (أبريل) هو شهر البداية الحقيقية ✨ اكتبي بقى 21042024 في الباسورد.";
+} else {
+fb.innerHTML="مش هو خالص! فكري تاني يا ريمو 😉";
 }
-
-function initCatchGame(container){
-  container.innerHTML = `
-    <h3 style="color:#ffb7d1;margin-bottom:10px">المطر الماسي 🎁</h3>
-    <p class="tiny-note">اضسي على القلوب والهدية الذهبية قبل ما تختفي واجمعي نقاط!</p>
-    <div class="timer-big" id="catchTimer">الوقت: 20 ث</div>
-    <div class="game-score" id="catchScore">النقاط: 0</div>
-    <div class="game-arena" id="catchArena" style="cursor:crosshair"></div>
-  `;
-  
-  let timeLeft = 20;
-  let score = 0;
-  const arena = document.getElementById('catchArena');
-  const timerEl = document.getElementById('catchTimer');
-  const scoreEl = document.getElementById('catchScore');
-  
-  const interval = setInterval(() => {
-    timeLeft--;
-    timerEl.textContent = "الوقت: " + timeLeft + " ث";
-    if(timeLeft <= 0){
-      clearInterval(interval);
-      clearInterval(spawner);
-      arena.innerHTML = `<div style="padding:40px;color:#ffb7d1;font-size:20px">خلص الوقت! جمعتي ${score} نقطة ❤️</div>`;
-      arcadeScore += score;
-      if(score >= 10) { badgesUnlocked.catch = true; }
-      updateArcadeStats();
-    }
-  }, 1000);
-  
-  const spawner = setInterval(() => {
-    if(timeLeft <= 0) return;
-    const item = document.createElement('div');
-    item.className = 'moving-heart';
-    const isGold = Math.random() < 0.2;
-    item.innerHTML = isGold ? '🎁' : (Math.random() > 0.5 ? '❤️' : '✨');
-    if(isGold) item.classList.add('gold-heart');
-    
-    const posX = Math.random() * (arena.clientWidth - 50);
-    const posY = Math.random() * (arena.clientHeight - 50);
-    item.style.left = posX + 'px';
-    item.style.top = posY + 'px';
-    
-    item.onclick = () => {
-      score += isGold ? 5 : 1;
-      scoreEl.textContent = "النقاط: " + score;
-      item.remove();
-    };
-    
-    arena.appendChild(item);
-    setTimeout(() => { if(item.parentNode) item.remove(); }, 1200);
-  }, 600);
 }
-
-function initMemoryGame(container){
-  container.innerHTML = `
-    <h3 style="color:#ffb7d1;margin-bottom:10px">تذكر اللحظات 🧩</h3>
-    <p class="tiny-note">طابقي الكروت المتشابهة عشان تكشفي ذكرياتنا!</p>
-    <div class="memory-grid" id="memoryGrid"></div>
-    <div class="game-score" id="memoryMsg">اكتشفي الأزواج المتشابهة</div>
-  `;
-  
-  const emojis = ['❤️', '✨', '🌹', '💌'];
-  let deck = [...emojis, ...emojis].sort(() => Math.random() - 0.5);
-  const grid = document.getElementById('memoryGrid');
-  const msg = document.getElementById('memoryMsg');
-  
-  let flipped = [];
-  let matchedCount = 0;
-  
-  deck.forEach((emoji, idx) => {
-    const btn = document.createElement('button');
-    btn.className = "quiz-option";
-    btn.textContent = '❓';
-    btn.dataset.emoji = emoji;
-    btn.onclick = () => {
-      if(btn.textContent !== '❓' || flipped.length >= 2) return;
-      btn.textContent = emoji;
-      flipped.push(btn);
-      
-      if(flipped.length === 2){
-        if(flipped[0].dataset.emoji === flipped[1].dataset.emoji){
-          matchedCount++;
-          flipped = [];
-          if(matchedCount === emojis.length){
-            msg.textContent = "برافو يا ريمو! كسبتي اللعبة 🎉";
-            arcadeScore += 15;
-            badgesUnlocked.memory = true;
-            updateArcadeStats();
-          }
-        } else {
-          setTimeout(() => {
-            flipped[0].textContent = '❓';
-            flipped[1].textContent = '❓';
-            flipped = [];
-          }, 700);
-        }
-      }
-    };
-    grid.appendChild(btn);
-  });
+​function startRain(){
+let rain=document.createElement("div");
+rain.className="secret-rain";
+for(let i=0;i<35;i++){
+let span=document.createElement("span");
+span.innerHTML="💛";
+span.style.left=Math.random()*100+"vw";
+span.style.animationDuration=(Math.random()*3+2)+"s";
+span.style.animationDelay=(Math.random()*2)+"s";
+rain.appendChild(span);
 }
-
-function initVaultGame(container){
-  container.innerHTML = `
-    <h3 style="color:#ffb7d1;margin-bottom:10px">الخزنة السرية 🔐</h3>
-    <p class="tiny-note">دخلي تاريخ بداية الحكاية (سنة 2024 أو يوم 21) عشان تفتحي الخزنة:</p>
-    <div style="margin:20px auto;max-width:250px">
-      <input type="text" id="vaultInput" class="code-input" placeholder="اكتبي الرمز...">
-      <button class="game-action" onclick="tryVaultPass()">فتح الخزنة</button>
-    </div>
-    <div id="vaultMsg" class="game-score"></div>
-  `;
+document.body.appendChild(rain);
 }
-
-function tryVaultPass(){
-  const val = document.getElementById('vaultInput').value.trim();
-  const msg = document.getElementById('vaultMsg');
-  if(val === '2024' || val === '21'){
-    msg.innerHTML = "<span style='color:#ffd86a'>فتحتي الخزنة! ألف مبروك السر الروحي ❤️</span>";
-    arcadeScore += 20;
-    badgesUnlocked.vault = true;
-    updateArcadeStats();
-  } else {
-    msg.textContent = "الرمز مش مظبوط، فكري في التاريخ المهم! 😉";
-  }
+​function revealLetter(){
+let btn=document.getElementById("messageBtn");
+let letter=document.getElementById("hiddenLetter");
+let storm=document.getElementById("heartStorm");
+btn.disabled=true;
+letter.classList.add("show");
+storm.style.display="block";
+for(let i=0;i<40;i++){
+let h=document.createElement("div");
+h.className="storm-heart";
+h.innerHTML="❤️";
+h.style.left=Math.random()*100+"vw";
+h.style.animationDuration=(Math.random()*2.5+1.5)+"s";
+h.style.animationDelay=(Math.random()*1.5)+"s";
+storm.appendChild(h);
 }
-
-function initReactionGame(container){
-  container.innerHTML = `
-    <h3 style="color:#ffb7d1;margin-bottom:10px">اختبار السرعة ⚡</h3>
-    <p class="tiny-note">اضكطي على المربع أول ما يتحول للون الوردي المنور!</p>
-    <div class="reaction-pad" id="reactionPad" onclick="clickReactionPad()">استعدي...</div>
-    <div id="reactionMsg" class="game-score"></div>
-  `;
-  
-  window.reactionState = 'waiting';
-  window.reactionStartTime = 0;
-  
-  setTimeout(() => {
-    const pad = document.getElementById('reactionPad');
-    if(pad && window.reactionState === 'waiting'){
-      window.reactionState = 'ready';
-      pad.classList.add('go');
-      pad.textContent = "دوسي حالا! ♥";
-      window.reactionStartTime = Date.now();
-    }
-  }, Math.random() * 2000 + 1500);
 }
-
-function clickReactionPad(){
-  const pad = document.getElementById('reactionPad');
-  const msg = document.getElementById('reactionMsg');
-  
-  if(window.reactionState === 'waiting'){
-    msg.textContent = "استعجلتي! استني لحد ما ينور.";
-    window.reactionState = 'failed';
-  } else if(window.reactionState === 'ready'){
-    const dt = Date.now() - window.reactionStartTime;
-    msg.textContent = `سرعة ممتازة! أخذتي ${dt} ملي ثانية 🎉`;
-    pad.classList.remove('go');
-    pad.textContent = "تم بنجاح!";
-    window.reactionState = 'done';
-    arcadeScore += 10;
-    badgesUnlocked.reaction = true;
-    updateArcadeStats();
-  }
+​function toggleGames(){
+let panel=document.getElementById("gamesPanel");
+panel.classList.toggle("open");
 }
-
-function initFortuneGame(container){
-  container.innerHTML = `
-    <h3 style="color:#ffb7d1;margin-bottom:10px">حظك اليوم من قلبي 🥠</h3>
-    <p class="tiny-note">دوسي على الصندوق عشان تشوفي رسالة اليوم الموجهة ليكي:</p>
-    <div class="surprise-box" onclick="openFortuneCookie()">🎁</div>
-    <div id="fortuneText" style="margin-top:20px;color:#ffd86a;font-size:16px;line-height:1.8"></div>
-  `;
+​function openGame(type){
+document.getElementById("gameMenu").style.display="none";
+let stage=document.getElementById("gameStage");
+stage.classList.add("open");
+let container=document.getElementById("gameContainer");
+container.innerHTML="";
+​if(type==='catcher'){
+container.innerHTML=<h3>اجمعي القلوب اللي نازلة!</h3> <div class="game-arena" id="catcherArena" style="cursor:pointer"> <div id="targetHeart" class="moving-heart" style="top:50%;left:50%" onclick="catchHeart()">❤️</div> </div> <div class="game-score">النقاط: <span id="catcherScore">0</span></div>;
+startCatcherGame();
+} else if(type==='memory'){
+container.innerHTML=<h3>لعبة الذاكرة</h3> <div class="memory-grid"> <button onclick="flipMemory(this, '🌸')">❓</button> <button onclick="flipMemory(this, '💖')">❓</button> <button onclick="flipMemory(this, '🌸')">❓</button> <button onclick="flipMemory(this, '💖')">❓</button> </div> <div class="game-score" id="memoryMsg">اكتشفي الأشكال المتشابهة</div>;
+} else if(type==='quiz'){
+container.innerHTML=<h3>اختبار القلوب والسعادة</h3> <p style="margin:15px 0;color:#dfd3dc">مين أكثر حد بيحبك في الدنيا دي؟</p> <div class="game-choice"> <button onclick="winMiniGame()">أكيد هو ❤️</button> <button onclick="winMiniGame()">مفيش شك، هو برضه 🥰</button> </div>;
+} else if(type==='reaction'){
+container.innerHTML=<h3>سرعة البديهة</h3> <div id="reactionPad" class="reaction-pad" onclick="reactionClick()">استني لما ينور...</div> <div class="game-score" id="reactionScore">اضغطي لما يغير لونه</div>;
+startReactionGame();
 }
-
-function openFortuneCookie(){
-  const fortunes = [
-    "رسالة اليوم: ضحكتك هي أجمل طاقة إيجابية في الكون كله، أوعي تبطلي تضحكي! ✨",
-    "رسالة اليوم: ربنا ما يحرمني من وجودك الغالي اللي منور علي أيامي دايماً ❤️",
-    "رسالة اليوم: إنتِ شخصية عظيمة وقوية، وكل حاجة حلوة لسه جاية في طريقها ليكِ 🌟",
-    "رسالة اليوم: مهما عدت أيام، حبك في قلبي بيزيد ومش بيقل أبداً 💌"
-  ];
-  const choice = fortunes[Math.floor(Math.random() * fortunes.length)];
-  document.getElementById('fortuneText').textContent = choice;
-  arcadeScore += 5;
-  badgesUnlocked.fortune = true;
-  updateArcadeStats();
 }
-
-function initBadgesView(container){
-  let count = Object.values(badgesUnlocked).filter(Boolean).length;
-  container.innerHTML = `
-    <h3 style="color:#ffb7d1;margin-bottom:10px">أوسمة الحب 🏆</h3>
-    <p class="tiny-note">الأوسمة اللي جمعتيها من خلال الألعاب والمفاجآت:</p>
-    <div class="badge-list">
-      <div class="badge-item"><b>المطر الماسي</b><span>${badgesUnlocked.catch ? '✨ مأخوذ' : '🔒 مقفل'}</span></div>
-      <div class="badge-item"><b>تذكر اللحظات</b><span>${badgesUnlocked.memory ? '✨ مأخوذ' : '🔒 مقفل'}</span></div>
-      <div class="badge-item"><b>الخزنة السرية</b><span>${badgesUnlocked.vault ? '✨ مأخوذ' : '🔒 مقفل'}</span></div>
-      <div class="badge-item"><b>اختبار السرعة</b><span>${badgesUnlocked.reaction ? '✨ مأخوذ' : '🔒 مقفل'}</span></div>
-      <div class="badge-item"><b>حظك اليوم</b><span>${badgesUnlocked.fortune ? '✨ مأخوذ' : '🔒 مقفل'}</span></div>
-    </div>
-  `;
+​function closeGameStage(){
+document.getElementById("gameStage").classList.remove("open");
+document.getElementById("gameMenu").style.display="grid";
 }
-
-function toggleSecretBox(){
-  const area = document.getElementById('secretPasswordArea');
-  area.style.display = area.style.display === 'none' ? 'flex' : 'none';
+​let arcadePoints=0;
+function addPoints(pts){
+arcadePoints+=pts;
+document.getElementById("arcadeScore").innerText=arcadePoints;
 }
-
-function checkSecretPass(){
-  const input = document.getElementById('secretPassInput').value.trim();
-  const reveal = document.getElementById('goldReveal');
-  if(input === '2024' || input === '21'){
-    reveal.classList.add('show');
-    document.body.classList.add('secret-gold');
-    toggleSecretBox();
-  } else {
-    alert("الباسورد مش صح يا ريمو! جربي 2024 أو تاريخ عيد ميلادك.");
-  }
+​let catcherTimer=null;
+function startCatcherGame(){
+let h=document.getElementById("targetHeart");
+catcherTimer=setInterval(()=>{
+let top=Math.random()*80+10;
+let left=Math.random()*80+10;
+h.style.top=top+"%";
+h.style.left=left+"%";
+}, 900);
 }
-
-function toggleForgotQuiz(){
-  const box = document.getElementById('forgotQuizBox');
-  box.classList.toggle('open');
-  loadForgotOptions();
+​function catchHeart(){
+addPoints(10);
+let h=document.getElementById("targetHeart");
+h.style.transform="scale(1.4)";
+setTimeout(()=>h.style.transform="translate(-50%,-50%) scale(1)", 150);
 }
-
-function loadForgotOptions(){
-  const optDiv = document.getElementById('forgotOptions');
-  const feed = document.getElementById('forgotFeedback');
-  optDiv.innerHTML = "";
-  feed.textContent = "";
-  
-  const options = [
-    { text: "21 أبريل 2024 (أول كلام)", correct: true },
-    { text: "1 يناير 2025", correct: false },
-    { text: "15 أغسطس", correct: false }
-  ];
-  
-  options.forEach(opt => {
-    const btn = document.createElement('button');
-    btn.textContent = opt.text;
-    btn.onclick = () => {
-      if(opt.correct){
-        feed.innerHTML = "<span style='color:#ffd86a'>الإجابة صح! الباسورد هو: 2024</span>";
-      } else {
-        feed.textContent = "مش هو ده التاريخ، جربي تاني!";
-      }
-    };
-    optDiv.appendChild(btn);
-  });
+​function closeGameStage(){
+if(catcherTimer) clearInterval(catcherTimer);
+document.getElementById("gameStage").classList.remove("open");
+document.getElementById("gameMenu").style.display="grid";
+}
+​function flipMemory(btn, symbol){
+btn.innerText=symbol;
+btn.style.background="#ff77ad33";
+setTimeout(()=>{
+document.getElementById("memoryMsg").innerText="ممتاز يا ريمو! كملي ذكائك ❤️";
+addPoints(15);
+}, 500);
+}
+​function winMiniGame(){
+addPoints(25);
+alert("إجابة صحيحة ومليون بالمية مظبوطة يا ريمو! 🎉");
+}
+​let reactionTimeout=null;
+function startReactionGame(){
+let pad=document.getElementById("reactionPad");
+let time=Math.random()*2000+1000;
+reactionTimeout=setTimeout(()=>{
+pad.classList.add("go");
+pad.innerText="اضغطي حالا! 🔥";
+window.reactionStart=Date.now();
+}, time);
+}
+​function reactionClick(){
+let pad=document.getElementById("reactionPad");
+if(pad.classList.contains("go")){
+let diff=Date.now()-window.reactionStart;
+document.getElementById("reactionScore").innerText=سرعتك: ${diff} ملي ثانية! بطلة ⚡;
+addPoints(20);
+pad.classList.remove("go");
+pad.innerText="ممتاز! اضغطي هنا عشان تعيدي.";
+setTimeout(startReactionGame, 1500);
+}
 }
 </script>
-
 </body>
 </html>
