@@ -431,6 +431,36 @@ footer{text-align:center;padding:25px;color:#9f8f9b;font-size:13px}
 /* Disable long-press text selection and browser copy/paste popups for the game/site. */
 html,body,body *{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none;}
 img,canvas,button,a{-webkit-user-drag:none;}
+
+/* Private comfort section */
+.sad-section{padding:58px 20px 70px;text-align:center;position:relative;z-index:2}
+.sad-trigger{max-width:310px;margin:0 auto;background:linear-gradient(135deg,#9d467e,#592e77);border:1px solid #ffc3e355;box-shadow:0 12px 34px #b83b9140}
+.sad-overlay{display:none;position:fixed;inset:0;z-index:100100;background:#080610ed;backdrop-filter:blur(16px);overflow-y:auto;padding:18px;align-items:center;justify-content:center}
+.sad-overlay.open{display:flex}
+.sad-card{width:min(720px,100%);max-height:92vh;overflow:auto;border-radius:24px;border:1px solid #ff9bc244;background:linear-gradient(145deg,#241426,#100e19);padding:22px;box-shadow:0 25px 90px #000b;text-align:right}
+.sad-card h2,.sad-card h3{color:#ffc2dd;margin:5px 0 14px}.sad-card p{line-height:2;color:#f0e3ec;white-space:pre-line}.sad-card .sad-intro{text-align:center;color:#d8c6d6;margin-bottom:15px}
+.sad-categories{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.sad-categories button{margin:0;min-height:56px;padding:12px;font-size:15px}
+.sad-close{background:#ffffff12;box-shadow:none;border:1px solid #ffffff20;margin-top:16px}
+.sad-message{display:none;line-height:2.05;font-size:15px;white-space:pre-line;color:#f5e8f0;background:#ffffff08;border:1px solid #ffffff12;border-radius:18px;padding:18px;margin-top:16px}
+.sad-message.show{display:block;animation:letterReveal .35s ease}.sad-password{max-width:390px;margin:10px auto 0}.sad-status{min-height:25px;color:#ffb4d2;font-size:13px;text-align:center;margin-top:8px}
+@media(max-width:520px){.sad-card{padding:16px}.sad-categories{grid-template-columns:1fr}.sad-card h2{font-size:23px}}
+</style>
+<style>
+/* Reemo navigation and hero polish */
+.love-top-nav{position:sticky;top:0;z-index:9990;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;padding:10px max(12px,calc((100vw - 980px)/2));background:rgba(9,8,18,.92);border-bottom:1px solid #ff9bc238;backdrop-filter:blur(16px);box-shadow:0 8px 28px #0004}
+.love-top-nav button{min-width:0;margin:0!important;width:100%!important;padding:12px 8px!important;border-radius:15px!important;font-size:clamp(11px,2.2vw,15px)!important;font-weight:800!important;white-space:nowrap;background:linear-gradient(135deg,#ff4f91,#a63e88)!important;border:1px solid #ffd2e866!important;box-shadow:0 5px 18px #ff4f911f!important}
+.love-top-nav button:nth-child(2){background:linear-gradient(135deg,#d6a84f,#80561d)!important;border-color:#ffe7a0aa!important}
+.love-top-nav button:nth-child(3){background:linear-gradient(135deg,#6c5ce7,#b83b91)!important}
+.always-hero{font-family:Georgia,'Times New Roman',serif!important;font-size:clamp(35px,7vw,68px)!important;line-height:1.2!important;letter-spacing:.3px;text-align:center;text-shadow:0 0 28px #ff77ad44;margin:12px 0 18px!important}
+.always-hero span{color:#ffb7d1!important;font-style:italic}
+#monthlyChallenges,#gamesSection{display:none!important}
+@media(max-width:420px){.love-top-nav{gap:6px;padding:8px 7px}.love-top-nav button{padding:11px 3px!important;font-size:11px!important;border-radius:12px!important}}
+/* Island drawer: keep action list inside the playfield, with a clear scroll area */
+#islandGame .island-bottom{align-items:flex-end}
+#islandGame .island-actions{max-width:min(62%,430px);max-height:31vh;padding:8px;background:rgba(4,15,28,.72);border:1px solid #b9fff044;border-radius:18px;backdrop-filter:blur(12px);box-shadow:0 10px 28px #0006;scrollbar-width:thin;scrollbar-color:#9affdf88 #07182d55}
+#islandGame .island-actions button{flex:0 1 auto;min-height:38px;box-shadow:0 3px 10px #0004!important}
+#islandGame .island-actions button:active{transform:scale(.97)}
+@media(max-width:600px){#islandGame .island-actions{max-width:58%;max-height:27vh;padding:5px;gap:4px}#islandGame .island-actions button{font-size:10px!important;min-height:34px;padding:7px 6px!important}}
 </style>
 </head>
 <body>
@@ -466,15 +496,11 @@ img,canvas,button,a{-webkit-user-drag:none;}
 <div id="achievementToast" aria-live="polite"><div class="toast-icon">🏆</div><div><div class="toast-title">تم فتح إنجاز جديد!</div><div class="toast-name" id="achievementToastName">إنجاز رائع ❤️</div></div></div>
 
   <div id="site">
+  <nav class="love-top-nav" aria-label="أقسام ريمو"><button type="button" id="topGames">🎮 ألعاب ريمو</button><button type="button" id="topChallenges">📅 التحديات</button><button type="button" id="topSad">💗 زعلانة؟</button></nav>
   <div class="hero">
     <div class="hero-box">
       <div class="badge">🔐 مكان خاص — ليكي إنتِ بس</div>
-      <h2>أهلًا يا <span>ريمو</span> ❤️</h2>
-      <p>
-        لو وصلتي لهنا، يبقى عندك مفتاح المكان الصغير ده.
-        مش هتلاقي فيه حاجة غريبة... بس هتلاقي شوية كلام من القلب،
-        معمول مخصوص علشانك.
-      </p>
+      <h2 class="always-hero">After All this time?<br><span>Always</span></h2>
       <div class="scroll">انزلي براحتك ↓</div>
     </div>
   </div>
@@ -607,7 +633,36 @@ img,canvas,button,a{-webkit-user-drag:none;}
 <div class="full-page-view" id="gamesPage" aria-hidden="true"><div class="full-page-inner"><button class="page-close" id="gamesClose" type="button">✕ إغلاق</button><h2 class="title" style="margin-bottom:8px">ريمو <span>أركيد</span> 👑</h2><p class="sub" style="text-align:center;margin-bottom:18px">ألعاب وتحديات ومفاجآت... اختاري اللي يعجبك 🎁</p><div class="arcade-stats"><b id="arcadeScore">0</b><span>النقاط</span><b id="arcadeWins">0</b><span>الفوز</span><b id="arcadeBadge">🌱</b><span>الشارة</span></div><div class="games-grid"><button class="game-card memory-kingdom-card" data-game="island"><span class="gi">🏝️🌺</span><strong>جزيرة ريمو</strong><small>استكشفي جزيرة ساحرة، اجمعي الموارد، وابني بيتك وحديقتك ووسّعي عالمك.</small></button><button class="game-card" data-game="battle"><span class="gi">⚔️</span><strong>Reemo: The Ten Realms</strong><small>رحلة أكشن من 10 عوالم، أسلحة ووحش فضائي عملاق.</small></button><button class="game-card" data-game="ach"><span class="gi">🏆</span><strong>إنجازات ريمو</strong><small>شوفي الشارات والنقاط وأعلى إنجازاتك.</small></button></div><div class="game-stage" id="gameStage"></div></div></div>
 <div class="full-page-view" id="quranPage" aria-hidden="true"><div class="full-page-inner"><button class="page-close" id="quranClose" type="button">✕ إغلاق</button><div id="quranChallenge"></div></div></div>
 
-  <section class="final">
+  
+<section class="sad-section" id="sadSection">
+ <div class="container">
+  <div class="secret-label">🩷 مساحة هادية ليكي</div>
+  <h2 class="title">زعلانة؟ <span>تعالي هنا</span> 🫂</h2>
+  <p class="sub" style="text-align:center;max-width:650px;margin:0 auto 18px">لو يومك تقيل أو في حاجة مضايقاكي، خدي نفس وافتكري إنك مش لازم تحلي كل حاجة مرة واحدة.</p>
+  <button class="sad-trigger" id="sadOpen">🔐 افتحي قسم «زعلانة؟»</button>
+ </div>
+</section>
+<div class="sad-overlay" id="sadGate" aria-hidden="true">
+ <div class="sad-card" role="dialog" aria-modal="true" aria-labelledby="sadGateTitle">
+  <button class="sad-close" id="sadGateClose" type="button" style="width:auto;padding:9px 14px;float:left;margin:0">✕ إغلاق</button>
+  <h2 id="sadGateTitle">🔐 قسم خاص جدًا</h2>
+  <p class="sad-intro">القسم ده معمول عشان يساعدك ترتبي أفكارك بهدوء. دخّلي كلمة المرور للمتابعة.</p>
+  <div class="sad-password" id="sadPasswordArea"><input id="sadPassword" type="password" inputmode="numeric" autocomplete="off" placeholder="كلمة المرور"><button id="sadUnlock" type="button">فتح القسم 💗</button><div class="sad-status" id="sadStatus" aria-live="polite"></div></div>
+  <div id="sadContent" hidden>
+   <h3>اختاري إيه اللي مضايقك</h3>
+   <div class="sad-categories">
+    <button type="button" data-sad="mom">💗 زعلانة بسبب ماما</button>
+    <button type="button" data-sad="dad">🌿 زعلانة بسبب بابا</button>
+    <button type="button" data-sad="friends">🫂 زعلانة من صحابي</button>
+    <button type="button" data-sad="mahmoud">💌 زعلانة من محمود</button>
+    <button type="button" data-sad="solution">✨ الحل إيه؟</button>
+   </div>
+   <article class="sad-message" id="sadMessage" aria-live="polite"></article>
+  </div>
+ </div>
+</div>
+
+<section class="final">
     <div class="container">
       <div class="secret-label">💌 رسالة خاصة جدًا</div>
       <h2 class="title">صندوق <span>الرسالة السرية</span> 🔐</h2>
@@ -1074,8 +1129,42 @@ renderTabs();
 </script>
 
 
+
+<script id="sad-section-logic">
+(()=>{
+ const gate=document.getElementById('sadGate'),open=document.getElementById('sadOpen'),close=document.getElementById('sadGateClose'),pass=document.getElementById('sadPassword'),unlock=document.getElementById('sadUnlock'),status=document.getElementById('sadStatus'),area=document.getElementById('sadPasswordArea'),content=document.getElementById('sadContent'),message=document.getElementById('sadMessage');
+ if(!gate||!open||!close||!pass||!unlock)return;
+ const KEY='remoSadGateLockV1',PASSWORD='409021600';
+ let state;try{state=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){state={}}
+ if(!state||typeof state!=='object')state={};
+ const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}};
+ const remaining=()=>Math.max(0,(state.lockUntil||0)-Date.now());
+ function openGate(){gate.classList.add('open');gate.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';pass.value='';status.textContent='';message.classList.remove('show');message.textContent='';if(state.permanent){area.hidden=true;content.hidden=true;status.textContent='تم قفل القسم نهائيًا بعد انتهاء المحاولات.';area.hidden=false;pass.hidden=true;unlock.hidden=true;return}pass.hidden=false;unlock.hidden=false;area.hidden=false;content.hidden=true;const r=remaining();if(r>0){pass.disabled=true;unlock.disabled=true;status.textContent='القسم مقفول مؤقتًا. حاولي بعد '+Math.ceil(r/60000)+' دقيقة.';startCountdown()}else{pass.disabled=false;unlock.disabled=false;pass.focus()}}
+ function closeGate(){gate.classList.remove('open');gate.setAttribute('aria-hidden','true');document.body.style.overflow=''}
+ let countdownTimer=null;function startCountdown(){if(countdownTimer)clearInterval(countdownTimer);countdownTimer=setInterval(()=>{const r=remaining();if(r<=0){clearInterval(countdownTimer);countdownTimer=null;pass.disabled=false;unlock.disabled=false;status.textContent='انتهى وقت الانتظار. عندك 3 محاولات أخيرة.';pass.focus()}else status.textContent='القسم مقفول مؤقتًا. باقي '+Math.ceil(r/1000)+' ثانية.'},1000)}
+ function check(){if(state.permanent){status.textContent='تم قفل القسم نهائيًا.';return}if(remaining()>0){openGate();return}if(pass.value===PASSWORD){state.firstLock=false;save();area.hidden=true;content.hidden=false;status.textContent='';pass.value='';return}state.attempts=(state.attempts||0)+1;pass.value='';if(state.attempts>=3){if(state.firstLock){state.permanent=true;save();pass.hidden=true;unlock.hidden=true;status.textContent='انتهت المحاولات. تم قفل القسم نهائيًا.'}else{state.firstLock=true;state.attempts=0;state.lockUntil=Date.now()+5*60*1000;save();pass.disabled=true;unlock.disabled=true;status.textContent='انتهت المحاولات الثلاث. القسم مقفول لمدة 5 دقائق.';startCountdown()}}else{save();status.textContent='كلمة المرور غير صحيحة. باقي '+(3-state.attempts)+' محاولات.'}}
+ const messages={
+ mom:{title:"لو زعلانة بسبب ماما 💗",text:"طيب لو اتخانقتو متتعبيش تفكيرك اكيد امك عاوزه مصلحتك\n\nوع فكره ريمو نا عارف انك وامك بتتخانقو علطول و اغلب خناقتكم ممكن تكون بسببي لو ده يحبيتي بيزعلك انا اسف ليكي ع كلام ده انتي متستحقيش امك تكلمك كد و بردو متستحقيش اني ازعلك بس هنا في رابط مشترك ساعات انا وامك بنزعلك صح بس بنزعلك عشان مصلحتك احنا الاثنين عاوزينك تبقي احسن حاجه ف دنيا ف ع عاوزك لو ف يوم اتخانقتو متزعليش نفسك وهدي نفسك كد كد هتتصالحو"},
+ dad:{title:"لو زعلانة بسبب بابا 🌿",text:"بصي يحبيبتي اتمني قبل متعملي اي حاجه ممنوع منعا بتا حد يشوف كلام ده لان ده كلام بنا بصي ي ريمو لو زعلانه بسبب حوار ابوكي سهله يحبيبتي اكيد ربنا قدر كد عشان حاجه صح والا مكنش ربنا خلا ابوكي يبعد أو اين كان الي حصل\n\nحتي لو ابوكي بيزعلك بكلامه أو لو ابوكي بعيد و كلام ده متزعليش نفسك الحياه حلوه و لو معتيش قادره انا موجود هحاول اساعدك لو احتجتي سند و ضهر هتبقي موجود سواء اي حصل هبقي موجود دايما ليكي و خليكي فاكره أن لو ربنا قدر كد ف اكيد ده في خير ليكي"},
+ friends:{title:"لو زعلانة من صحابك 🫂",text:"طيب اتخانقتي مع حد من صحابك مهما كان مين حتي لو ملك تقريبا هيا اقرب حد ليكي اعرف انهم كلهم رايحين سواء بعد ثانوي أو ايا كان ف م هتفرق عادي صح هنزعل شويه ونعرف غيرهم انا عارف كويس اوي انك تعملي صحاب جداد صعب جدا و ده طبيعي اوي بس تعرفي ناس كويسه وحبها احسن متعرفي ناس مش عوزاكي"},
+ mahmoud:{title:"لو زعلانة من محمود 💌",text:"طيب لو زعلانه من محمود ايا كان سبب محمود سابك عشان خاطر امك او عشان خاطر كذبتي عليه ف حاجه وانتي عارفه كويس أنه مش بيحب كذب اطلاقا أو ايا كان هل محمود بيكرهك متوقعش أنه هيكرهك بعد عشره سنين و أنه يعمل موقع كامل من صفر واكواد كامله أنه هيكرهك أو أنه مش بيحبك مهما كان محمود هيفضل يحترمك و حتي لو لا قدر الله محصلش نصيب وده صعب جدا يكاد يكون مستحيل هيفضل شايل حتي ليكي ف قلبه مش هيكرهك ."},
+ solution:{title:"الحل إيه؟ ✨",text:"واحد/ الصلاه صلي  ي ريمو يحبيتي وقربي من ربنا مهما كان اي حصل ربنا هيحله ادعي ربنا ودي اهم حاجه واهم حل\n\nالحل الثاني/ لو  م قادره أو متحيره تقدري تسألي اول شخص وايوه اول شخص هوا محمود مش هقولك امك زي كل مره لان ممكن تكون في حجات انا اعرفه صحابك وامك ميعرفوهاش و اكيد طبعا اي كلام بنا عمري ف يوم ولا عمري طبعا عايرتك أو زعلتك بيه وقت خناقه ووقت زعل عمري ما هضايقك بكلام ده و حتي لو متخانقين ونا قولتلك معتيش تبعتي انتي عارفه كويس اوي انك لو بعتيلي هرد عليكي وهساعدك\n\nطيب حل 3/ تقولي لامك مهما كان هيا اسلم حل وانضج حل لأنها عاوزه مصلحتك واكيد لو محمود مات انسب حل إن امك تعرف عنك كل حاجه\n\nحل 4/ صحابك وانا هنا صراحه مش احب كده واكره كدا ولاكن بحدود ريمو حبيتي بلاش ثقه ف ملك أو غيره بلاش ثقه ف ناس يمكن لما وثقتي فيا انا كنت قد ثقه ف حجات كتير بس غيري لا سواء كان مين مفيش حد هيحبلك خير غير امك و ابوكي و انا بس لو اضررتي لده و لا قدره الله انا حصلي اي حاجه و مش حابه تقولي لامك و ده غلط لازم تقوليلها وقتها صحبتك اقرب حد فيهم واكتر حد ثقه تقوليلها\n\nرساله نهايه ليكي ي ريمو ثقي ف الله ربنا هوا الي مقدر ده و بجد ف يوم لو معتيش قادره نهائي نهائي هبقي موجود دايما ليكي حتي لو 3 فجر بس رني بس عشان هكون نايم😂\nربنا يوفقك ف حياتك يارب و تكوني احسن ناس\nبحبك ."}
+ };
+ open.addEventListener('click',openGate);close.addEventListener('click',closeGate);gate.addEventListener('click',e=>{if(e.target===gate)closeGate()});unlock.addEventListener('click',check);pass.addEventListener('keydown',e=>{if(e.key==='Enter')check();if(e.key==='Escape')closeGate()});document.querySelectorAll('[data-sad]').forEach(b=>b.addEventListener('click',()=>{const m=messages[b.dataset.sad];if(!m)return;message.textContent=m.title+'\n\n'+m.text;message.classList.add('show')}));document.addEventListener('keydown',e=>{if(e.key==='Escape'&&gate.classList.contains('open'))closeGate()});
+})();
+</script>
+
 <script id="disable-copy-paste-menu">
 (()=>{const stop=e=>{e.preventDefault();e.stopPropagation();return false};document.addEventListener('contextmenu',stop,{capture:true});document.addEventListener('selectstart',stop,{capture:true});document.addEventListener('copy',stop,{capture:true});document.addEventListener('cut',stop,{capture:true});document.addEventListener('paste',stop,{capture:true});document.addEventListener('dragstart',stop,{capture:true});})();
+</script>
+
+<script>
+(function(){
+ const g=document.getElementById('topGames'),c=document.getElementById('topChallenges'),s=document.getElementById('topSad');
+ if(g)g.addEventListener('click',()=>{const b=document.getElementById('gamesToggle');if(b)b.click();});
+ if(c)c.addEventListener('click',()=>{const b=document.getElementById('monthlyToggle');if(b)b.click();});
+ if(s)s.addEventListener('click',()=>{const b=document.getElementById('sadOpen');if(b)b.click();});
+})();
 </script>
 </body>
 </html>
